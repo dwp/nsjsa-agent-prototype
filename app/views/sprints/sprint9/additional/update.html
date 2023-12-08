@@ -1,0 +1,62 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+          
+      <form action="confirmation" method="get">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+
+                {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "Update claim status",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        }                 
+                    ]
+                })
+                }}
+            </fieldset>
+
+        </div>
+
+        {{ govukButton({
+            text: "Confirm"
+        }) }}
+
+      </form>
+      
+    </div>
+  </div>
+
+{% endblock %}

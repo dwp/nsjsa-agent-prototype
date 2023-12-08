@@ -1,0 +1,105 @@
+{% extends "agent/example/claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+{% set failHtml %}
+{{ govukCheckboxes({
+  idPrefix: "first-fail-contact",
+  name: "first-fail-contact",
+  fieldset: {
+    legend: {
+      text: "What did you do?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "sms",
+      text: "Sent an SMS"
+    },
+    {
+      value: "voicemail",
+      text: "Left a voicemail"
+    },
+    {
+      value: "email",
+      text: "Sent an email"
+    },
+    {
+      value: "letter",
+      text: "Sent a JSA 164 letter"
+    },
+    {
+      value: "scola",
+      text: "Asked advice from SCOLA"
+    }
+  ]
+}) }}
+{% endset -%}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+          
+      <h1 class="govuk-heading-l govuk-!-margin-top-6">
+        Update claim status
+      </h1>
+
+      <form action="update-claim-status-confirmation" method="get">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+
+                {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    items: [
+                        {
+                            value: "id-verified",
+                            text: "ID verified",
+                            hint: {
+                              text: "Bio check complete, the claim will be pushed to JSAPS."
+                            }
+                        },
+                        {
+                            value: "first-fail",
+                            text: "Fail to contact",
+                            conditional: {
+                              html: failHtml
+                            }
+                        },
+                        {
+                            value: "suspected-fraud-claim",
+                            text: "Suspected fraud",
+                            hint: {
+                              text: "Refer this claim to the SCOLA team."
+                            }
+                        }                     
+                    ]
+                })
+                }}
+            </fieldset>
+
+        </div>
+
+        {{ govukButton({
+            text: "Confirm"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

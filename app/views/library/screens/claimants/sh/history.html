@@ -1,0 +1,183 @@
+{% if data['claimStatus'] == 'ID-verified' %}
+
+{{ dwpTimeline({
+items: [
+    {
+    heading: "ID verified",
+    label: "label",
+    author: "by DWP Trust Hub",
+    date: "on 31 July 2021",
+    time: "at 4:43pm"
+    },
+    {
+    heading: "Application submitted",
+    author: "by claimant",
+    date: "on 31 July 2021",
+    time: "at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'new-claim' %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "New claim",
+        author: "by claimant",
+        date: "on 31 July 2021",
+        time: "at 4:32pm"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'pre-checks-complete' %}
+
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "Pre-checks complete",
+        label: "label",
+        author: "by automated process",
+        date: "on 31 July 2021",
+        time: "at 4:43pm"
+    },
+    {
+        heading: "Application submitted",
+        author: "by claimant",
+        date: "on 31 July 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'registration-needed' and data['niMatchCis'] == 0 %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "Registration needed",
+        label: "label",
+        date: "on 31 July 2021",
+        time: "at 4:43pm",
+        body: "<p>CIS record mismatch</p>"
+    },
+    {
+        heading: "New claim",
+        author: "by claimant",
+        date: "on 31 July 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'registration-needed' and data['niMatchCis'] == 1 %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "NI number updated",
+        label: "label",
+        author: "by John Walker",
+        date: "on 1 August 2021",
+        time: "at 8:56am"
+    },
+    {
+        heading: "Registration needed",
+        label: "label",
+        date: "on 31 July 2021",
+        time: "at 4:43pm",
+        body: "<p>CIS record mismatch</p>"
+    },
+    {
+        heading: "New claim",
+        author: "by claimant",
+        date: "on 31 July 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'build-failed' %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "Build failed",
+        label: "label",
+        author: "by automated process",
+        date: "on 31 July 2021",
+        time: "at 5:13pm"
+    },
+    {
+        heading: "Pre-checks complete",
+        label: "label",
+        author: "by automated process",
+        date: "on 31 July 2021",
+        time: "at 4:43pm"
+    },
+    {
+        heading: "Claim registered",
+        label: "label",
+        author: "by automated process",
+        date: "on 31 July 2021",
+        time: "at 4:40pm"
+    },
+    {
+        heading: "Application submitted",
+        author: "by claimant",
+        date: "on 31 July 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'ID-template-needed' %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "ID template needed",
+        label: "label",
+        author: "by Automated process",
+        date: "on 31 July 2021",
+        time: "at 4:43pm"
+    },
+    {
+        heading: "Application submitted",
+        author: "by claimant",
+        date: "on 31 July 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% else %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "ID check needed",
+        label: "label",
+        author: "by Automated process",
+        date: "on 31 July 2021",
+        time: "at 4:43pm"
+    },
+    {
+        heading: "Application submitted",
+        author: "by claimant",
+        date: "on 31 July 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% endif %}

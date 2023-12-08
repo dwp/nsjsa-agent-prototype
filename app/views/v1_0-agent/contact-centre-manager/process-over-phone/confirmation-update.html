@@ -1,0 +1,25 @@
+{% extends "./view-new-claim.html" %}
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set subStatus = data['subStatus'] | replace("-", " ") %}
+{% set ttcStatus = data['ttcStatus'] | replace("-", " ") | capitalize %}
+{% block content %}
+  {% set msg = "The claim for Simon Hamilton RN 00 00 35 C has been updated to " + claimStatus %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Claim successfully updated",
+        html: msg
+      }) }}
+      {{ govukButton({
+        text: "View next claimant",
+        href: "view-new-claim?task=book&claimant=kb&claimStatus=new-claim&guidMismatch=0"
+      }) }}
+      <p>
+        <a href="/v1_0-agent/contact-centre-manager/choose-task" class="govuk-link">Return to start screen</a>
+      </p>
+    </div>
+  </div>
+</div>{% endblock %}

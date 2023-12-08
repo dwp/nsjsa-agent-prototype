@@ -1,0 +1,98 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Personal details</span>
+        What is your date of birth?
+      </h1>
+
+      <form action="postcode" method="get">
+        
+        {% if data['under16'] == "" %}
+
+        {% set errorArray = {
+          dob: { text: "Check date of birth"}
+        }%}
+
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+            {
+              "text": 'You must be 16 or over to claim',
+              "href": '#dob-day'
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
+        {% if data['over64'] == "" %}
+
+        {% set errorArray = {
+          dob: { text: "You must be under state pension age to claim"}
+        }%}
+
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+            {
+              "text": 'You must be under state pension age to claim',
+              "href": '#dob-day'
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
+        {{ govukDateInput({
+            id: 'dob',
+            name: 'dob',
+            hint: {
+                html: 'For example, 31 3 1980.'
+            },
+            items: [
+                {
+                name: 'dobDay',
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+                },
+                {
+                name: 'dobMonth',
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+                },
+                {
+                name: 'dobYear',
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+                }
+            ],
+            errorMessage: errorArray.dob
+            })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

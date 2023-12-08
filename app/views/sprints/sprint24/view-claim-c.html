@@ -1,0 +1,85 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+
+{% block header %}
+  {# not sure what this does other than include dwp header #}
+  {#{{ super() }}#}
+
+  {# override dwpHeader to go back to service start #}
+  {{ dwpHeader({
+    "homepageUrl": "/",
+    "serviceName": data['agentServiceName'],
+    "serviceUrl": "/sprints/sprint24/screens",
+    "containerClasses": "govuk-width-container"
+  }) }}
+
+  {% block keyDetails %}
+
+    {% include './claimants/ij/key-details.html' %}
+
+  {% endblock %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row dwp-print-hide">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+
+    <section class="dwp-print-hide">
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          <span class="govuk-heading-m">Important</span>
+        </strong>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>Claimant does not match CIS record</li>
+          <li>Claimant has requested to be spoken to in Welsh</li>
+        </ul>
+        </ul>
+      </div>
+    </section>
+
+    <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
+      {% include './claimants/ij/application.html' %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    
+    <aside class="app-related-items" role="complementary">
+
+      <h3 class="govuk-heading-m">Actions</h3>
+
+{% if (data['claimStatus'] != 'appointment-needed')  %}
+{% if (data['claimStatus'] != 'withdrawn')  %}
+
+<!-- // need to contact citizen for ni reconcile so need to park claim -->
+    {{ govukButton({
+        text: "Update claim status",
+        href: "update"
+    }) }}
+{% endif %}
+{% endif %}
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <h3 class="govuk-heading-m">Claim history</h3>
+
+        {% include './claimants/ij/history.html' %}
+
+    </aside>
+
+  </div>
+
+</div>
+
+{% endblock %}

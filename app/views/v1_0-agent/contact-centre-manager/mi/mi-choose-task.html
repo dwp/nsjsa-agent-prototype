@@ -1,0 +1,40 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <h1 class="govuk-heading-l">
+    Management Information
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="claim-statistics"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Claim Statistics
+        </span>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="agent-performance"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Agent Performance
+        </span>
+      </a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current employment</span>
+        Are you self-employed or a company director in this job?
+      </h1>
+
+      <form action="self-employed-or-company-director" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ce-self-employed-or-company-director",
+          name: "ceSelfEmployedOrCompanyDirector",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "ce-self-employed-or-company-director-yes",
+            text: "Yes",
+            checked: checked("ceSelfEmployedOrCompanyDirector", "ce-self-employed-or-company-director-yes")
+          }, {
+            value: "ce-self-employed-or-company-director-no",
+            text: "No",
+            checked: checked("ceSelfEmployedOrCompanyDirector", "ce-self-employed-or-company-director-no")
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

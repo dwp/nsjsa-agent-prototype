@@ -1,0 +1,120 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% block content %}
+{# {{ data | dump('\t') }}  #}
+
+{% set failHtml %}
+{{ govukRadios({
+  idPrefix: "failed-contact",
+  name: "subStatus",
+  fieldset: {
+    legend: {
+      text: "What did you do?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  items: [
+    {
+      value: "1stcall",
+      text: "Attempted 1st call"
+    },
+    {
+      value: "2ndcall",
+      text: "Attempted 2nd call"
+    },
+    {
+      value: "sms",
+      text: "Sent an SMS"
+    },
+    {
+      value: "letter",
+      text: "Sent a letter"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set withdrawHtml %}
+  {{ govukCheckboxes({
+      idPrefix: 'withdraw',
+      name: 'withdrawConfirm',
+      fieldset: {
+        legend: {
+          text: "Are you sure you want to withdraw this claim?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+          {
+              value: "withdrawal-confirmed",
+              text: "Yes"
+          }                  
+      ]
+    })
+  }}
+{% endset -%}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="update" method="post">
+
+          {{ govukRadios({
+            idPrefix: "status",
+            name: "claimStatus",
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "id-verified",
+                text: "ID verified"
+              },
+              {
+                  value: "failed-to-contact",
+                  text: "Failed to contact",
+                  conditional: {
+                    html: failHtml
+                  }
+              },
+              {
+                value: "awaiting-evidence",
+                text: "Awaiting evidence"
+              },
+              {
+                value: "suspected-fraud",
+                text: "Suspected fraud"
+              },
+              {
+                value:"withdrawn",
+                text: "Withdrawn",
+                conditional: {
+                  html: withdrawHtml
+                }
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+      
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-4 dwp-print-hide">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          Claimant has requested alternative formats.<br>
+        </p>
+      </div>
+    </div>
+    
+    <h1 class="govuk-heading-l">Customer statement</h1>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-align-right-from-desktop">
+    {{ govukButton({
+      text: "Print customer statement",
+      href: "javascript:window.print();"
+    }) }}
+  </div>
+
+</div>
+
+{% include "includes/print-header.html" %}
+{% include "includes/gather.html" %}
+<div class="dwp-print-show">
+  {% include "includes/declaration.html" %}
+</div>
+
+<p class="govuk-!-margin-top-8"><a href="/features/alt-formats/service-centre/claim2">Return to claim</a></p>
+
+{% endblock %}

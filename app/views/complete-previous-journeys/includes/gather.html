@@ -1,0 +1,222 @@
+<!-- Alternative formats -->
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-2">Alternative formats</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Do you need us to contact you in an alternative format?", "Yes", false) }}
+    {{ checkAnswersItem("What do you need in an alternative format?", "Letter and phone", false, "#") }}
+    {{ checkAnswersItem("What do you need instead of standard letters?", "Coloured paper and large print", false, "#") }}
+    {{ checkAnswersItem("What colour paper do you need?", "Pastel blue", false, "#") }}
+    {{ checkAnswersItem("What size font do you need?", "24", false) }}
+    {{ checkAnswersItem("What do you need instead of phone calls?", "Email, john.doe@example.com", false, "#") }}
+  </dl>
+</section>
+
+<!-- Claim start -->
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Claim start date</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Your claim will start from", "25/02/2018") }}
+  </dl>
+</section>
+
+<!-- About you -->
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Personal details</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("What is your National Insurance number?", currentClaimantData.claimant.nino) }}
+    {{ checkAnswersItem("Title", currentClaimantData.claimant.title) }}
+    {{ checkAnswersItem("First Name", currentClaimantData.claimant.firstName) }}
+    {{ checkAnswersItem("Last Name", currentClaimantData.claimant.lastName) }}
+    {{ checkAnswersItem("Marital Status", "Married or Civil Partnership") }}
+    {{ checkAnswersItem("What is your date of birth?", currentClaimantData.claimant.dob) }}
+    {{ checkAnswersItem("What is your address?", "<span class='dwp-print-block'>1, Poundlove Road</span> <span class='dwp-print-block'>Sandwell</span> <span class='dwp-print-block'>West Midlands</span> <span class='dwp-print-block'>WS11 5DF</span> <span class='dwp-print-block'>England.</span>") }}
+    {{ checkAnswersItem("Do you want to add a different address for your post?", "No") }}
+    {{ checkAnswersItem("What is your telephone number?", "07756 789789") }}
+    {{ checkAnswersItem("Do you have an email we can contact you on?", "Yes") }}
+    {{ checkAnswersItem("What's your email address?", "testemail@gmail.com") }}
+  </dl>
+</section>
+
+
+
+<!-- Payment information -->
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Bank details</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Name of account holder", currentClaimantData.claimant.title + ' ' + currentClaimantData.claimant.firstName + ' ' + currentClaimantData.claimant.lastName) }}
+    {{ checkAnswersItem("Sort code", "00 11 22") }}
+    {{ checkAnswersItem("Account number", "01234567") }}
+    {{ checkAnswersItem("Building society roll or reference number", "112233445566") }}
+  </dl>
+</section>
+
+<!-- Other benefits -->
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Other benefits</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Are you waiting to hear about any other benefits?", "Yes") }}
+    {{ checkAnswersItem("What other benefits are you waiting to hear about?", "ESA, Carers allowance") }}
+  </dl>
+</section>
+
+<!-- Jury service -->
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Jury service</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Have you been on jury service in the last 12 weeks?", "Yes") }}
+    {{ checkAnswersItem("When was the jury service?", "15/02/2018 – 24/03/2018") }}
+  </dl>
+</section>
+
+<!-- Current employment -->
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Current employment</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Are you in any form of work at the moment?", "Yes") }}
+  </dl>
+  <section class="govuk-!-margin-top-6">
+    <h3 class="govuk-heading-s">First current employer</h3>
+    <dl class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("Is this paid work or voluntary work?", "Paid") }}
+      {{ checkAnswersItem("How often are you paid?", "Monthly") }}
+      {{ checkAnswersItem("What is your net pay?", "£230") }}
+      {{ checkAnswersItem("What is the name of your current employer?", "Tescos") }}
+      {{ checkAnswersItem("What is the address of your current employer?", "<span class='dwp-print-block'>5-7 Hornsey St</span> <span class='dwp-print-block'>Hornsey,</span> <span class='dwp-print-block'>London</span> <span class='dwp-print-block'>N7 8GA</span>") }}
+      {{ checkAnswersItem("What is the telephone number of your current employer?", "0247 999 9999") }}
+      {{ checkAnswersItem("How many hours a week do you normally work on average?", "12") }}
+      {{ checkAnswersItem("In this job are you self employed or a company director?", "Yes") }}
+      {{ checkAnswersItem("Do you have another current job whether paid or voluntary?", "Yes") }}
+    </dl>
+  </section>
+  <section class="govuk-!-margin-top-6">
+    <h3 class="govuk-heading-s">Second current employer</h3>
+    <dl class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("Is this paid work or voluntary work?", "Voluntary") }}
+      {{ checkAnswersItem("Can you choose if you're paid for this voluntary work?", "Yes") }}
+      {{ checkAnswersItem("Do you get paid for this voluntary work?", "Yes") }}
+      {{ checkAnswersItem("How often are you paid?", "Weekly") }}
+      {{ checkAnswersItem("What is your net pay?", "£200") }}
+      {{ checkAnswersItem("What is the name of your current employer?", "Asda") }}
+      {{ checkAnswersItem("What is the address of your current employer?", "<span class='dwp-print-block'>5-7 Madeup St</span> <span class='dwp-print-block'>Sometown,</span> <span class='dwp-print-block'>London</span> <span class='dwp-print-block'>N7 3DD</span>") }}
+      {{ checkAnswersItem("What is the telephone number of your current employer?", "0123 999 9999") }}
+      {{ checkAnswersItem("How many hours a week do you normally work on average?", "15") }}
+      {{ checkAnswersItem("In this job are you self employed or a company director?", "Yes") }}
+      {{ checkAnswersItem("Do you have another current job whether paid or voluntary?", "No") }}
+    </dl>
+  </section>
+</section>
+
+<!-- Previous employment -->
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Previous employment</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Have you had a job that ended in the last 6 months?", "Yes") }}
+  </dl>
+  <section class="govuk-!-margin-top-6">
+    <h3 class="govuk-heading-s">First previous employer</h3>
+    <dl class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("When did you work for this employer?", "22/07/2018 - 15/08/2018") }}
+      {{ checkAnswersItem("Tell us why this job ended", "Other – I was bullied out of the job by my manager") }}
+      {{ checkAnswersItem("What is the name of your previous employer?", "ABC Firm") }}
+      {{ checkAnswersItem("What is the address of your previous employer?", "<span class='dwp-print-block'>ABC Firm House</span> <span class='dwp-print-block'>Sometown,</span> <span class='dwp-print-block'>London</span> <span class='dwp-print-block'>N1 2AA</span>") }}
+      {{ checkAnswersItem("What is the telephone number of your previous employer?", "0131 999 9999") }}
+      {{ checkAnswersItem("Were you self employed or a company director?", "Yes") }}
+      {{ checkAnswersItem("Do you expect to receive any payments because a job has ended in the last 6 months?", "Yes") }}
+      {{ checkAnswersItem("Who do you expect to make this payment?", "Mr Steve Bakerfield") }}
+      {{ checkAnswersItem("In the last 6 months, have you had another job?", "No") }}
+    </dl>
+  </section>
+</section>
+
+<!-- Working overseas -->
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Working or claiming benefits overseas</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Have you worked or claimed benefit outside the United Kingdom in the last 4 years?", "No") }}
+  </dl>
+</section>
+
+<!-- Current pensions -->
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Current pensions</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Do you currently receive a pension or annuity?", "Yes") }}
+  </dl>
+  <section class="govuk-!-margin-top-6">
+    <h3 class="govuk-heading-s">First current pension</h3>
+    <dl class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("What is the name of your pension or annuity provider?", "Tesco") }}
+      {{ checkAnswersItem("What is the address of your pension or annuity provider?", "<span class='dwp-print-block'>5-7 Hornsey St</span> <span class='dwp-print-block'>Hornsey,</span> <span class='dwp-print-block'>London</span> <span class='dwp-print-block'>N7 8GA</span>") }}
+      {{ checkAnswersItem("When did the pension or annuity start?", "09/2017") }}
+      {{ checkAnswersItem("How often is your pension or annuity paid?", "Monthly") }}
+      {{ checkAnswersItem("What is your net pay?", "£120") }}
+      {{ checkAnswersItem("Does your pension increase in the next 6 months?", "Yes") }}
+      {{ checkAnswersItem("When does the pension increase?", "December") }}
+      {{ checkAnswersItem("Do you have another pension or annuity that you currently receive?", "No") }}
+      {{ checkAnswersItem("Do you have a pension or annuity that you could be paid now, but have decided not to take?", "No") }}
+      {{ checkAnswersItem("Do you expect to start receiving a pension or annuity in the next 6 months?", "No") }}
+      {{ checkAnswersItem("Do you have another pension or annuity that you currently receive?", "No") }}
+    </dl>
+  </section>
+</section>
+
+<!-- Deferred pensions -->
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Deferred pensions</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Do you have a pension or annuity that you could be paid now, but have decided not to take?", "Yes") }}
+  </dl>
+  <section class="govuk-!-margin-top-6">
+    <h3 class="govuk-heading-s">First deferred pension</h3>
+    <dl class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("What is the name of your pension or annuity provider?", "Tesco") }}
+      {{ checkAnswersItem("What is the address of your pension or annuity provider?", "<span class='dwp-print-block'>5-7 Hornsey St</span> <span class='dwp-print-block'>Hornsey,</span> <span class='dwp-print-block'>London</span> <span class='dwp-print-block'>N7 8GA</span>") }}
+      {{ checkAnswersItem("When should the pension or annuity have started?", " March 2017") }}
+      {{ checkAnswersItem("How often is your pension or annuity paid?", "Monthly") }}
+      {{ checkAnswersItem("What is your net pay?", "£120") }}
+      {{ checkAnswersItem("Do you have another pension or annuity that you could be paid now, but have decided not to take?", "No") }}
+    </dl>
+  </section>
+</section>
+
+<!-- Future pensions -->
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Future pensions</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Do you expect to start receiving a pension or annuity in the next 6 months?", "Yes") }}
+  </dl>
+  <section class="govuk-!-margin-top-6">
+    <h3 class="govuk-heading-s">First future pension</h3>
+    <dl class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("What is the name of your pension or annuity provider?", "Tesco") }}
+      {{ checkAnswersItem("What is the address of your pension or annuity provider?", "<span class='dwp-print-block'>5-7 Hornsey St</span> <span class='dwp-print-block'>Hornsey,</span> <span class='dwp-print-block'>London</span> <span class='dwp-print-block'>N7 8GA</span>") }}
+      {{ checkAnswersItem("Do you know when this future pension or annuity starts?", " March 2019") }}
+      {{ checkAnswersItem("When does the future pension or annuity start?", "October") }}
+      {{ checkAnswersItem("Do you know how much you'll be paid for this future pension or annuity?", "Yes") }}
+      {{ checkAnswersItem("How often will your pension or annuity be paid?", "Monthly") }}
+      {{ checkAnswersItem("What is your net pay?", "£120") }}
+      {{ checkAnswersItem("Do you have another pension or annuity that you expect receive in the next 6 months?", "No") }}
+    </dl>
+  </section>
+
+  <section>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">Additional pensions</h3>
+        <p>You entered a maximum number of 9 pensions. Give evidence of other pensions to your Work Coach.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- Education -->
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Education or training</h2>
+  <dl class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Have you been in education or training in the last 4 years?", "Yes") }}
+    {{ checkAnswersItem("What was the name of your course or training programme?", "City & Guilds Photography") }}
+    {{ checkAnswersItem("What institution did this education or training happen?", "Walsall College") }}
+    {{ checkAnswersItem("How many hours per week did you attend this education or training?", "18") }}
+    {{ checkAnswersItem("When did you attend this training or education?", "09/06/2016 – 12/12/2016") }}
+  </dl>
+</section>

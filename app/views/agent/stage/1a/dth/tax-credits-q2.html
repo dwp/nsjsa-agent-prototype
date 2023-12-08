@@ -1,0 +1,42 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" action="" name="">
+
+            <div class="govuk-form-group">
+                <span class="govuk-caption-xl">
+                    Tax credits question
+                </span>
+
+                <h1 class="govuk-heading-xl">
+                    Enter the last 4 digits of the account where your tax credits are paid.
+                </h1>
+
+                <div id="benefit-amount-hint" class="govuk-hint">
+                    <p>For example, your bank account, building society or Post Office account.</p>
+                </div>
+                <input class="govuk-input govuk-input--width-3" id="account-number" name="account-number" type="text" aria-describedby="bank-account-number-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" maxlength="4">
+
+                
+            </div>
+
+            <a class="govuk-button" href="./tu-question-1">Continue</a>
+
+        </form>
+
+        <p class="body-text"><a href="./more-information.html">I don't have that information</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

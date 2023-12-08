@@ -1,0 +1,26 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="employer-limit-warning" method="post">
+        
+        <h1 class="govuk-heading-l">You have entered a maximum of {{ maxPreviousJobs }} jobs</h1>
+        <p>If you have more, please bring evidence of these to your job centre interview</p>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

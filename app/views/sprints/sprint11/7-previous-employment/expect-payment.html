@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Previous employment</span>
+        Do you expect to receive any more payments from this job?
+      </h1>
+
+      <form action="expect-payment">
+
+        {{ govukRadios({
+            idPrefix: 'pe-expect-payment',
+            name: 'peExpectPayment',
+            classes: "govuk-radios--inline",
+            items: [
+                {
+                    value: "pe-pe-expect-payment-yes",
+                    text: "Yes"
+                },
+                {
+                    value: "pe-pe-expect-payment-no",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

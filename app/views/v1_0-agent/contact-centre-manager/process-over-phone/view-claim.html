@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block content %}
+  {# {{ data | dump('\t') }}  #}
+  {% if data['dupe'] == '1' %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  {% endif %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div>
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
+      {% if data['claimant'] == 'sh' %}
+        {% include 'v1_0-agent/claimants/sh/summary-list.html' %}
+      {% else %}
+        {% include 'v1_0-agent/claimants/kb/summary-list.html' %}
+      {% endif %}
+      {{ govukButton({
+  text: "Update and return to application",
+  href: "view-new-claim"
+}) }}
+    </div>
+  </div>
+{% endblock %}

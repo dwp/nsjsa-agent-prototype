@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Couldn’t Match Personal Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Sorry, we could not sign you in
+      </h1>
+      
+      <p class="govuk-body">We could not match the personal details you entered to our records. If you think you may have entered your details incorrectly you can start again.</p>
+
+      {{ govukButton({
+        text: "Start again"
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "I have checked my details and still cannot sign in",
+        text: "[INSERT SUPPORT INSTRUCTIONS]."
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

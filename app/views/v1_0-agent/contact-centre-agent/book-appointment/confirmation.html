@@ -1,0 +1,30 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['claimant'] == 'sh' %}
+        {% include 'v1_0-agent/claimants/sh/update-confirmation.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'v1_0-agent/claimants/kb/update-confirmation.html' %}
+      {% elif data['claimant'] == 'ij' %}
+        {% include 'v1_0-agent/claimants/ij/update-confirmation.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+      <h1 class="govuk-heading-m">
+        What happens next?
+      </h1>
+      <p>The claim has been updated. You can now continue to process the next claimant or go back to your start screen.</p>
+      {{ govukButton({
+        text: "Get next claim",
+        href: "view-claim?claimant=kb&claimStatus=awaiting-appointment"
+      }) }}
+      <p class="govuk-body">
+        <a href="/v1_0-agent/contact-centre-agent/choose-task" class="govuk-link">Return to start screen</a>
+      </p>
+    </div>
+  </div>
+</div>{% endblock %}

@@ -1,0 +1,591 @@
+{% if data['s'] == 's6' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "Appointee check needed",
+        label: "label",
+        name: "automated",
+        date: "on 5 September 2021 at 6:15am"
+    },
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% elif data['s'] == 's9' %}
+    {{ dwpTimeline({
+events: [
+    {
+        state: "Fraud check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['s'] == 's11' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "Escalate to specialist",
+        name: "by Percy Hook",
+        date: "on 1 September 2021 at 9:13am"
+    },
+    {
+        state: "Not built",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "Registered",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:35pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% elif data['s'] == 's12' %}
+    {{ dwpTimeline({
+events: [
+    {
+        state: "Escalate to specialist",
+        name: "by Percy Hook",
+        date: "on 1 September 2021 at 9:13am"
+    },
+    {
+        state: "Review needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:45pm"
+    },
+    {
+        state: "ID verified",
+        label: "label",
+        name: "by Terry Smith",
+        date: "on 1 September 2021 at 9:13am"
+    },
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['s'] == 's13' %}
+    {{ dwpTimeline({
+events: [
+    {
+        state: "Escalate to specialist",
+        name: "by Patricia Jennings",
+        date: "on 1 September 2021 at 10:13am"
+    },
+    {
+        state: "Review needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:45pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['s'] == 's14' %}
+    {{ dwpTimeline({
+events: [
+    {
+        state: "Escalate to specialist",
+        name: "by Lynne Desmond",
+        date: "on 1 September 2021 at 2:10pm"
+    },
+    {
+        state: "Review needed",
+        label: "label",
+        name: "automated",
+        date: "on 1 September 2021 at 9:19am"
+    },
+    {
+        state: "ID verified",
+        label: "label",
+        name: "by Terry Smith",
+        date: "on 1 September 2021 at 9:13am"
+    },
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "Registered",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:39pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% endif %}
+{% if data['claimStatus'] == 'escalate-to-specialist' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "Escalate to specialist",
+        name: "by Percy Hook",
+        date: "on 1 August 2021 at 9:13am"
+    },
+    {
+        state: "Not built",
+        name: "by automated process",
+        label: "label",
+        date: "on 31 July 2021 at 6:58pm"
+    },
+    {
+        state: "Registered",
+        name: "by automated process",
+        label: "label",
+        date: "on 31 July 2021 at 4:43pm"
+    },
+    {
+        state: "New claim",
+        name: "by claimant",
+        date: "on 31 July 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% endif %}
+{# 
+{{ dwpTimeline({
+events: [
+    {
+        state: "Escalate to specialist",
+        name: "by Percy Hook",
+        date: "on 5 September 2021 at 11:56am"
+    },
+    {
+        state: "Review needed",
+        label: "label",
+        name: "automated",
+        date: "on 5 September 2021 at 10:54am"
+    },
+    {
+        state: "Registered",
+        label: "label",
+        name: "automated",
+        date: "on 3 September 2021 at 10:24am"
+    },
+    {
+        state: "ID verified",
+        label: "label",
+        name: "by Shelly Hargreaves",
+        date: "on 1 September 2021 at 10:22am"
+    },
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "by Terry Smith",
+        date: "on 1 September 2021 at 9:13am"
+    },
+    {
+        state: "ID template needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+        state: "ID not verified",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }} #}
+{# {% if data['claimStatus'] == 'ID-verified' %}
+
+{{ dwpTimeline({
+events: [
+    {
+    state: "ID verified",
+    label: "label",
+    name: "by DWP Trust Hub",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    state: "Application submitted",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'awaiting-appointment' %}
+
+
+{{ dwpTimeline({
+events: [
+    {
+    state: "Awaiting appointment",
+    label: "label",
+    name: "by Simon Jones",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'first-fail' %}
+
+{{ dwpTimeline({
+events: [
+    {
+    state: "Awaiting appointment",
+    label: "label",
+    name: "by Simon Jones",
+    date: "on 31 August 2021 at 4:43pm",
+    body: "<h4 class='dwp-timeline-title govuk-state-s'>First fail</h4> <p class=dwp-timeline-info>
+    <span class=dwp-timeline-date>on 31 August 2021</span> <span class=dwp-timeline-time>at 4:55pm</span></p>"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'not-registered' %}
+
+{{ dwpTimeline({
+events: [
+    {
+    state: "Not registered",
+    label: "label",
+    name: "automated",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+
+{% elif data['claimStatus'] == 'ID-check-needed' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+
+{% elif data['claimStatus'] == 'fraud-check-needed' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "Fraud check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'ID-at-risk-check-needed' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "ID at risk check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'not-built' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "Not built",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['s'] == 's12' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "Review needed",
+        label: "label",
+        name: "automated",
+        date: "on 1 September 2021 at 9:19am"
+    },
+    {
+        state: "ID verified",
+        label: "label",
+        name: "by Terry Smith",
+        date: "on 1 September 2021 at 9:13am"
+    },
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['s'] == 's13' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "Review needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:45pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['s'] == 's14' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "Review needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:45pm"
+    },
+    {
+        state: "ID verified",
+        label: "label",
+        name: "by Terry Smith",
+        date: "on 1 September 2021 at 9:13am"
+    },
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['s'] == 's15' %}
+
+{{ dwpTimeline({
+events: [
+    {
+        state: "Not entitled",
+        label: "label",
+        name: "automated",
+        date: "on 31 August 2021 at 4:42pm"
+    },
+    {
+        state: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'new-claim' %}
+
+{{ dwpTimeline({
+    events: [
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'northern-ireland' %}
+
+{{ dwpTimeline({
+    events: [
+        {
+        state: "Northern Ireland claim",
+        label: "label",
+        name: "automated",
+        date: "on 5 September 2021 at 6:15am"
+    },
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'appointee-check-needed' %}
+
+{{ dwpTimeline({
+    events: [
+        {
+        state: "Appointee check needed",
+        label: "label",
+        name: "automated",
+        date: "on 5 September 2021 at 6:15am"
+    },
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% elif data['claimStatus'] == 'ID-template-needed' %}
+
+{{ dwpTimeline({
+    events: [
+        {
+        state: "ID template needed",
+        label: "label",
+        name: "automated",
+        date: "on 5 September 2021 at 6:15am"
+    },
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% else %}
+
+{{ dwpTimeline({
+    events: [
+    {
+        state: "ID not verified",
+        label: "label",
+        name: "by DWP Trust Hub",
+        date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+        state: "Application submitted",
+        date: "by claimant on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% endif %} #}

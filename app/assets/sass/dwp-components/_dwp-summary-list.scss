@@ -1,0 +1,14 @@
+.dwp-summary-list {
+
+    &--wide {
+        @include govuk-media-query($from: tablet) {
+            .govuk-summary-list__key {
+                width: 45%;
+            }
+
+            .govuk-summary-list__value {
+                width: 55%;
+            }
+        }
+    }
+}

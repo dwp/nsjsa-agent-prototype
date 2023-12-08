@@ -1,0 +1,70 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+<div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Declaration</h1>
+
+        <p class="govuk-body">By submitting this claim you agree that the information you’ve given is 
+        complete and correct. While you’re receiving New Style Jobseeker’s Allowance, you’ll report 
+        changes to your circumstances straight away. If you give wrong or incomplete information, or 
+        you don’t report changes, you may:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>be prosecuted</li>
+            <li>need to pay a financial penalty </li>
+            <li>have your New Style Jobseeker’s Allowance reduced or stopped </li>
+            <li>be paid too much New Style Jobseeker’s Allowance and have to pay the money back.</li>
+        </ul>
+
+        <form action="confirmation" method="post">
+
+          <h2 class="govuk-heading-m">I have read and understood this declaration</h2>
+  
+<div class="govuk-form-group">
+
+  <div class="govuk-checkboxes">
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="confirm" name="confirm" type="checkbox" value="confirm">
+          <label class="govuk-label govuk-checkboxes__label" for="confirm">
+        I agree to this declaration
+      </label>
+          
+        </div>
+        
+      
+    
+  </div>
+
+</div>
+
+
+            {{ govukButton({
+                text: "Submit and continue",
+                href: "confirmation"
+            }) }}
+
+
+        </form>
+      </div>
+
+  </div>
+
+{% endblock %}

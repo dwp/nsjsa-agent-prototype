@@ -1,0 +1,111 @@
+{% if data['scenario'] == '1' %}
+
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">Important</span>
+    </strong>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+      <li>Claimant does not match CIS record</li>
+      <li>There are 3 other claims with the same bank details</li>
+    </ul>
+  </div>
+</section>
+
+{% elif data['scenario'] == '2' %}
+
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">Important</span>
+    </strong>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+      <li>Claimant name, date of birth and address matches CIS record</li>
+      <li>There are 6 other claims with the same email address</li>
+    </ul>
+  </div>
+</section>
+
+{% elif data['scenario'] == '3' %}
+
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">CIS check</span>
+    </strong>
+    <p class="govuk-!-margin-bottom-0">Claimant does not match CIS record</p>
+  </div>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">Fraud check</span>
+    </strong>
+    <p class="govuk-!-margin-bottom-0">There are 3 other claims with the same bank details</p>
+  </div>
+</section>
+
+{% elif data['scenario'] === '4' %}
+
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">CIS check</span>
+    </strong>
+    <p class="govuk-!-margin-bottom-0">Claimant name, date of birth and address matches CIS record</p>
+  </div>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">Fraud check</span>
+    </strong>
+    <p class="govuk-!-margin-bottom-0">There are 6 other claims with the same email address</p>
+  </div>
+</section>
+
+{% elif data['scenario'] === '5' %}
+<p>Suspected fraud, there are 3 other claims with the same bank details</p>
+
+{% else %}
+
+  {% set r = [1, 2, 3] | random %}
+  {% set list = [
+    "Claimant does not match CIS record",
+    "There are 3 other claims with the same bank details",
+    "There are 6 other claims with the same email address"] 
+  %}
+
+  {% set randomList = list | randomise(r) %}
+
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">Important</span>
+    </strong>
+    {% if randomList.length > 1 %}
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">  
+        {% for item in randomList %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+    <p class="govuk-!-margin-bottom-0">{{ randomList[0] }}</p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">

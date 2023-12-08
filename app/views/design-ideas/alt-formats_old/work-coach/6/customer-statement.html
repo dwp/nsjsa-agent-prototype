@@ -1,0 +1,51 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  {{ dwpSecondaryNavigation({
+    items: [{
+      label: "Interview checklist",
+      url: "/work-coach/6/interview-checklist"
+    }, {
+      label: "Customer statement",
+      url: "/work-coach/6/customer-statement",
+      active: true
+    }, {
+      label: "Push claim",
+      url: "/work-coach/6/push?status=notPushed"
+    }]
+  }) }}
+
+<div class="govuk-grid-row govuk-!-margin-top-7 dwp-print-hide">
+  <div class="govuk-grid-column-two-thirds ">
+    <h1 class="govuk-heading-l">Customer statement</h1>
+    <p>Need to change something? <a href="https://apply-for-jobseekers-allowance.herokuapp.com/citizen/check-answers?mode=agent">Update the claim</a></p>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-align-right-from-desktop">
+    {{ govukButton({
+      text: "Print customer statement",
+      href: "javascript:window.print();"
+    }) }}
+  </div>
+
+</div>
+
+{% include "includes/print-header.html" %}
+{% include "includes/gather.html" %}
+<div class="dwp-print-show">
+  {% include "includes/declaration.html" %}
+</div>
+
+{% endblock %}

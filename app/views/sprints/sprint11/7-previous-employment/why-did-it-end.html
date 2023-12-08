@@ -1,0 +1,64 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Previous employment</span>
+        Why did this job end?
+      </h1>
+
+      <form action="name" method="post">
+
+        {% set peOtherHtml %}
+            {{ govukCharacterCount({
+              name: "more-detail",
+              id: "more-detail",
+              maxlength: 200
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: 'pe-why-end',
+          name: 'peWhyEnd',
+          items: [{
+            value: "pe-why-end-redundancy",
+            text: "Redundancy"
+          }, {
+            value: "pe-long-term-sickness",
+            text: "Long term sickness"
+          }, {
+            value: "pe-dismissal",
+            text: "Dismissal"
+          }, {
+            value: "pe-left-voluntarily",
+            text: "Left voluntarily"
+          }, {
+            value: "pe-end-of-contract",
+            text: "End of contract"
+          }, {
+            value: "pe-other",
+            text: "Other",
+            conditional: {
+              html: peOtherHtml
+            }
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

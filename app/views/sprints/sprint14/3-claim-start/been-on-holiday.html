@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Application start date</span>
+        Have you travelled outside of England, Wales or Scotland since 22 July 2020?
+      </h1>
+      <p class="govuk-body">
+        Select yes if you have travelled outside of Great Britain (England, Wales or Scotland) for any reason. 
+      </p>
+      <form action="been-on-holiday" method="post">
+
+        {% set holidayHtml %}
+        {{ govukDateInput({
+            id: 'holiday-start',
+            name: 'holidayStart',
+            fieldset: {
+              legend: {
+                text: 'Enter the date you left',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment('subtract', 12, 'months')
+            },
+            items: [
+              {
+                name: 'holidayStartDay',
+                value: data['holiday-start-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'holidayStartMonth',
+                value: data['holiday-start-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'holidayStartYear',
+                value: data['holiday-start-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+
+        {{ govukDateInput({
+            id: 'holiday-finish',
+            name: 'holidayFinish',
+            fieldset: {
+              legend: {
+                text: 'Enter the date you returned',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment
+            },
+            items: [
+              {
+                name: 'holidayFinishDay',
+                value: data['holiday-finish-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'holidayFinishMonth',
+                value: data['holiday-finish-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'holidayFinishYear',
+                value: data['holiday-finish-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "been-on-holiday",
+          name: "beenOnHoliday",
+          hint: {
+            text: ""
+          },
+          items: [{
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: holidayHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "full-time-education"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

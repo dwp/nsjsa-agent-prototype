@@ -1,0 +1,157 @@
+// @import "node_modules/govuk-frontend/settings/all";
+// @import "node_modules/govuk-frontend/tools/all";
+// @import "node_modules/govuk-frontend/helpers/all";
+
+$white-transparent: rgba($govuk-body-background-colour, 0.3);
+$key-details-bar-break-point: 940px;
+$key-details-bar-break-point-md: 840px;
+$key-details-bar-break-point-sm: 640px;
+
+.dwp-key-details-bar {
+  background-color: govuk-colour("blue");
+  @include govuk-font($size: 16);
+
+  .dwp-key-details-bar__contents {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    position: relative;
+
+    * {
+      color: $govuk-body-background-colour;
+    }
+
+    .dwp-key-details-bar__header,
+    .dwp-key-details-bar__body {
+      &::after {
+        clear: both;
+        content: ' ';
+        display: block;
+      }
+    }
+
+    .dwp-key-details-bar__body {
+      border-top: 1px solid $white-transparent;
+      content: ' ';
+      padding-top: 10px;
+      margin-top: 6px;
+    }
+
+    dd,
+    dt {
+      float: left;
+      font-size: 19px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0 5px 0 0;
+      padding: 0;
+
+      @media(max-width: $key-details-bar-break-point) {
+        font-size: 16px;
+      }
+    }
+
+    dd {
+      margin-right: 20px;
+
+      @media(max-width: $key-details-bar-break-point) {
+        margin-bottom: 5px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .dwp-key-details-bar__name, 
+    .dwp-key-details-bar__action,
+    .dwp-key-details-bar__body dt {
+      font-weight: 700;
+      @media(max-width: $key-details-bar-break-point-md) {
+        clear: left;
+      }
+    }
+
+    .dwp-key-details-bar__name {
+      font-size: 36px;
+      line-height: 1.11111;
+      margin-right: 10px;
+
+      @media(max-width: $key-details-bar-break-point) {
+        font-size: 24px;
+        line-height: 1.04167;
+        float: left;
+        margin: 0 5px 0 0;
+      }
+    }
+
+    .dwp-key-details-bar__nino {
+      font-size: 24px;
+      line-height: 1;
+      margin-top: 12px;
+
+      @media(max-width: $key-details-bar-break-point) {
+        font-size: 18px;
+        float: left;
+        margin: 5px 0 0 0;
+      }
+    }
+
+    // LEGACY - MOVE to use TAG instead in the app when ready
+    .dwp-key-details-bar__status {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 5px 8px 0;
+      margin: 5px 0 0;
+      float: right;
+      color: govuk-colour('blue');
+      background-color: govuk-colour('white');
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      @media(max-width: $key-details-bar-break-point-sm) {
+        float: left;
+        clear: left;
+      }
+    }
+
+    .tag {
+      float: right;
+      margin: 5px 0 0;
+      color: govuk-colour("blue");
+
+      @media(max-width: $key-details-bar-break-point) {
+        font-size: 14px;
+        float: left;
+        clear: both;
+        margin-top: 5px;
+      }
+    }
+
+    .dwp-key-details-bar__action,
+    .dwp-key-details-bar__toggle {
+      font-size: 16px;
+      line-height: 1.25;
+      padding: 5px 8px 0;
+      letter-spacing: 1px;
+      text-decoration: none;
+      float: right;
+      margin: 5px 0 0;
+      
+      @media(max-width: $key-details-bar-break-point) {
+        font-size: 14px;
+        float: left;
+        clear: both;
+        margin-top: 5px;
+        padding-left: 0;
+      }
+    }
+
+    .dwp-key-details-bar__toggle {
+      margin-top: -2px;
+      text-decoration: underline;
+    }
+  }
+}

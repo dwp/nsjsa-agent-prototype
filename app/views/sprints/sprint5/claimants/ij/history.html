@@ -1,0 +1,108 @@
+{% if data['claimStatus'] == 'ID-verified' %}
+    {{ dwpTimeline({
+events: [
+    {
+    state: "ID verified",
+    label: "label",
+    name: "by DWP Trust Hub",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    state: "Application submitted",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'awaiting-appointment' %}
+    {{ dwpTimeline({
+events: [
+    {
+    state: "Awaiting appointment",
+    label: "label",
+    name: "by Simon Jones",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'first-fail' %}
+    {{ dwpTimeline({
+events: [
+    {
+    state: "Awaiting appointment",
+    label: "label",
+    name: "by Simon Jones",
+    date: "on 31 August 2021 at 4:43pm",
+    body: "<h4 class='dwp-timeline-title govuk-state-s'>First fail</h4> <p class=dwp-timeline-info>
+    <span class=dwp-timeline-date>on 31 August 2021</span> <span class=dwp-timeline-time>at 4:55pm</span></p>"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'registration-failed' %}
+    {{ dwpTimeline({
+events: [
+    {
+    state: "Registration failed",
+    label: "label",
+    name: "by automated process",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'registration-needed' %}
+    {{ dwpTimeline({
+events: [
+    {
+    state: "Registration needed",
+    label: "label",
+    name: "by automated process",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'new-claim' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am"
+    }
+    ]
+}) }}
+{% else %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "ID not verified",
+        label: "label",
+        name: "by DWP Trust Hub",
+        date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+        state: "Application submitted",
+        date: "by claimant on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% endif %}

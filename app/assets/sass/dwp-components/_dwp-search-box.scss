@@ -1,0 +1,104 @@
+// @import "node_modules/govuk-frontend/settings/all";
+// @import "node_modules/govuk-frontend/tools/all";
+// @import "node_modules/govuk-frontend/helpers/all";
+
+// Search strip
+$search-box-height: 40px;
+$search-box-padding: 10px;
+
+.search-box {
+  position: relative;
+  display: block;
+  height: $search-box-height + 3px;
+  overflow: hidden;
+}
+
+.search-box__table-cell {
+  position: relative;
+  display: table-cell;
+  width: auto;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.search-box__table-cell--button {
+  width: $search-box-height;
+}
+
+.search-box__contents {
+  position: relative;
+  width: 100%;
+  display: table;
+  top: 3px;
+  left: 3px;
+}
+
+.search-box__input {
+  border: 2px solid govuk-colour("black");
+  border-right-width: 0;
+  border-right-color: govuk-colour("yellow");
+  box-sizing: border-box;
+  outline: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: $search-box-height;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  padding: $search-box-padding;
+  -webkit-font-smoothing: antialiased;
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+  }
+
+  &:focus {
+    border-color: govuk-colour("yellow");
+    border-right-width: 2px;
+  }
+}
+
+.search-box__button {
+  display: inline-block;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  width: $search-box-height;
+  height: $search-box-height;
+  padding: 0;
+  box-shadow: none;
+  outline-offset: -3px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: $search-box-height;
+  background: govuk-colour("green");
+  user-select: none;
+  cursor: pointer;
+
+  &:before {
+    height: 0;
+  }
+
+  svg,
+  img {
+    position: relative;
+    display: block;
+    width: 45%;
+    height: auto;
+    left: 25%;
+    fill: govuk-colour("white");
+  }
+}
+
+// Blue variant
+.search-box--blue {
+  .search-box__input {
+    border: 2px solid govuk-colour("blue");
+
+    &:focus {
+      border-color: govuk-colour("yellow");
+      border-right-width: 2px;
+    }
+  }
+}

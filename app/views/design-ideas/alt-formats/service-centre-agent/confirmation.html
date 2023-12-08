@@ -1,0 +1,22 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['claimant'] == 'sh' %}
+        {% include 'design-ideas/alt-formats/claimants/sh/update-confirmation.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'design-ideas/alt-formats/claimants/kb/update-confirmation.html' %}
+      {% elif data['claimant'] == 'ij' %}
+        {% include 'design-ideas/alt-formats/claimants/ij/update-confirmation.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+      <p class="govuk-body">
+        <a href="nino-search" class="govuk-link">Return to start screen</a>
+      </p>
+    </div>
+  </div>
+</div>{% endblock %}

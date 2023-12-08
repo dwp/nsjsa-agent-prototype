@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current employment</span>
+        Are you in any form of work at the moment?
+      </h1>
+      <span class="govuk-hint">
+        This includes paid or voluntary work.
+      </span>
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "ce-currently-working",
+          name: "ceCurrentlyWorking",
+          hint: {
+            text: ""
+          },
+          items: [{
+            value: "ce-currently-working-yes",
+            text: "Yes"
+          },
+          {
+            value: "ce-currently-working-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

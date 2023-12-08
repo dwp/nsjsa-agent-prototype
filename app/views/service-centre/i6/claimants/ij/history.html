@@ -1,0 +1,47 @@
+{% if data['s'] == 's16' and data['claimStatus'] == 'ID-check-needed' %}
+    {{ dwpTimeline({
+events: [
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "by Shirly Ozarks",
+        date: "on 6 September 2021 at 8:42am"
+    },
+    {
+        state: "ID not verified",
+        label: "label",
+        name: "automated",
+        date: "on 5 September 2021 at 6:15am"
+    },
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am",
+        classes: "dwp-timeline-entry--closing"
+    }
+
+]
+}) }}
+{% elif data['s'] == 's17' and data['claimStatus'] == 'ID-check-needed' %}
+    {{ dwpTimeline({
+events: [
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "by Shirly Ozarks",
+        date: "on 6 September 2021 at 8:42am"
+    },
+    {
+        state: "ID verified",
+        label: "label",
+        name: "DWP Dynamic Trust Hub",
+        date: "on 5 September 2021 at 6:15am"
+    },
+    {
+        state: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am",
+        classes: "dwp-timeline-entry--closing"
+    }
+
+]
+}) }}
+{% endif %}

@@ -1,0 +1,33 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Interruption panel
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+
+    <div class="govuk-width-container">
+        <h1 class="govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-6">Interruption panel</h1>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full"> 
+
+        <div class="dwp-interruption govuk-!-margin-bottom-6">
+            <h1 class="govuk-heading-l">Heading 1</h1>
+            <h2 class="govuk-heading-m">Heading 2</h2>
+            <h3 class="govuk-heading-s">Heading 3</h3>
+            <p class="govuk-body-l">here</p>
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

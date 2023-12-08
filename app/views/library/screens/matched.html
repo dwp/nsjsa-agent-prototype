@@ -1,0 +1,649 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+
+{% block header %}
+  
+  {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+<div class="govuk-grid-row dwp-print-hide">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l govuk-!-margin-top-4">
+        <span class="govuk-caption-l">Matched claim information for</span>
+        RN 00 00 35 C
+    </h1>
+{% set newTag %}
+{{ govukTag({
+  text: "New claim"
+}) }}
+{% endset %}
+
+{% set sfTag %}
+{{ govukTag({
+  text: "Suspected fraud"
+}) }}
+{% endset %}
+
+{% set apptTag %}
+{{ govukTag({
+  text: "Appointment needed"
+}) }}
+{% endset %}
+
+
+    {{ govukTable({
+        caption: "Current claim",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "National Insurance number"
+            },
+            {
+                text: "Date of claim"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-quarter'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "<a href=#>Karan Bhopal</a>"
+                },
+                {
+                    text: "RN 00 00 35 C"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: newTag
+                }
+            ]
+        ]
+    }) }}
+    <p>There are 10 other claims with matching information.</p>
+    <ul class="govuk-list govuk-list--bullet  govuk-!-margin-bottom-0">
+      <li><a href="#email">10 have a matching email address</a></li>
+      <li><a href="#mobile">3 have a matching mobile number</a></li>
+      <li><a href="#bank-details">3 have matching bank details</a></li>
+      <li><a href="#address">3 have a matching address</a></li>
+    </ul>
+
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="email">Email address (10)</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+{% set emailSummary %}
+    {{ govukSummaryList({
+    rows: [
+        {
+        key: {
+            text: "Email"
+        },
+        value: {
+            text: "xybb3489234mme@gmail.com"
+        }
+        }
+    ]
+    }) }}
+{% endset %}
+
+    {{ govukInsetText({
+        html: emailSummary
+    }) }}
+
+    </div>
+</div>
+
+    {{ govukTable({
+        caption: "Matched claims with the same email address",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "National Insurance number"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-quarter'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "Ian Johnson"
+                },
+                {
+                    text: "RN 00 00 35 C"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: newTag
+                }
+            ],
+            [
+                {
+                    html: "Trevor McDonald"
+                },
+                {
+                    text: "TR 56 56 22 S"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:24am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Celine Dion"
+                },
+                {
+                    text: "AA 12 34 56 F"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Cliff Richardson"
+                },
+                {
+                    text: "CC 98 76 54 S"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Jason Donavan"
+                },
+                {
+                    text: "JD 98 76 54 S"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Kenneth Barlow"
+                },
+                {
+                    text: "KB 98 76 54 S"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Elizabeth Marlow"
+                },
+                {
+                    text: "EE 12 34 56 A"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Barack Obama"
+                },
+                {
+                    text: "BB 99 88 77 B"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Ainsley Harriot"
+                },
+                {
+                    text: "HH 98 76 54 C"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Tina Windfell"
+                },
+                {
+                    text: "JC 12 34 56 A"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: apptTag
+                }
+            ]
+        ]
+    }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="mobile">Mobile number (3)</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% set mobileSummary %}
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Mobile"
+            },
+            value: {
+                text: "07888 888 999"
+            }
+            }
+        ]
+        }) }}
+    {% endset %}
+
+    {{ govukInsetText({
+        html: mobileSummary
+    }) }}
+    </div>
+</div>
+
+    {{ govukTable({
+        caption: "Matched claims with the same mobile number",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "National Insurance number"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-quarter'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "Ian Johnson"
+                },
+                {
+                    text: "RN 00 00 35 C"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: newTag
+                }
+            ],
+            [
+                {
+                    html: "Trevor McDonald"
+                },
+                {
+                    text: "TR 56 56 22 S"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:24am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Celine Dion"
+                },
+                {
+                    text: "AA 12 34 56 F"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ]
+        ]
+    }) }}
+
+
+ <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="bank-details">Bank details (3)</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% set bankSummary %}
+        {{ govukSummaryList({
+        rows: [
+            {
+                key: {
+                    text: "Sort code"
+                },
+                value: {
+                    text: "11 00 64"
+                }
+            },
+            {
+                key: {
+                    text: "Account number"
+                },
+                value: {
+                    text: "3332336"
+                }
+            }
+        ]
+        }) }}
+    {% endset %}
+
+    {{ govukInsetText({
+        html: bankSummary
+    }) }}
+    </div>
+</div>
+
+    {{ govukTable({
+        caption: "Matched claims with the same mobile number",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "National Insurance number"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-quarter'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "Ian Johnson"
+                },
+                {
+                    text: "RN 00 00 35 C"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: newTag
+                }
+            ],
+            [
+                {
+                    html: "Trevor McDonald"
+                },
+                {
+                    text: "TR 56 56 22 S"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:24am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Celine Dion"
+                },
+                {
+                    text: "AA 12 34 56 F"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ]
+        ]
+    }) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="address">Address (3)</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% set addressSummary %}
+        {{ govukSummaryList({
+        rows: [
+            {
+                key: {
+                    text: "Address line 1"
+                },
+                value: {
+                    text: "1 Madeup Lane"
+                }
+            },
+            {
+                key: {
+                    text: "Postcode"
+                },
+                value: {
+                    text: "MD13 UP0"
+                }
+            }
+        ]
+        }) }}
+    {% endset %}
+
+    {{ govukInsetText({
+        html: addressSummary
+    }) }}
+    </div>
+</div>
+
+    {{ govukTable({
+        caption: "Matched claims with the same address",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "National Insurance number"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-quarter'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "Ian Johnson"
+                },
+                {
+                    text: "RN 00 00 35 C"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: newTag
+                }
+            ],
+            [
+                {
+                    html: "Trevor McDonald"
+                },
+                {
+                    text: "TR 56 56 22 S"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:24am"
+                },
+                {
+                    html: sfTag
+                }
+            ],
+            [
+                {
+                    html: "Celine Dion"
+                },
+                {
+                    text: "AA 12 34 56 F"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "10:56am"
+                },
+                {
+                    html: sfTag
+                }
+            ]
+        ]
+    }) }}
+
+  </div>
+
+
+
+</div>
+
+{% endblock %}

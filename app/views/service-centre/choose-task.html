@@ -1,0 +1,54 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+Service centre - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-l">
+  <span class="govuk-caption-l">Service centre agent</span>
+  Choose a task
+</h1>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half">
+    <a href="#" class="tile tile--blue">
+      <div class="tile__contents">
+        <h2 class="tile__title">Register a claim</h2>
+      </div>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="#" class="tile tile--blue">
+      <div class="tile__contents">
+        <h2 class="tile__title">Process a claim</h2>
+      </div>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="#" class="tile tile--blue">
+      <div class="tile__contents">
+        <h2 class="tile__title">Find a claim</h2>
+      </div>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="mi/i4" class="tile tile--blue">
+      <div class="tile__contents">
+        <h2 class="tile__title">View management information</h2>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+{% endblock %}

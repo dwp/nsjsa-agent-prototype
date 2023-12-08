@@ -1,0 +1,108 @@
+{% if data['claimStatus'] == 'ID-verified' %}
+    {{ dwpTimeline({
+events: [
+    {
+    state: "ID verified",
+    label: "label",
+    name: "by DWP Trust Hub",
+    date: "on 31 July 2021 at 4:43pm"
+    },
+    {
+    state: "Application submitted",
+    name: "by claimant",
+    date: "on 31 July 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'new-claim' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "New claim",
+        name: "by claimant",
+        date: "on 31 July 2021 at 4:32pm"
+    }
+    ]
+}) }}
+{% elif data['claimStatus'] == 'pre-checks-complete' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "Pre-checks complete",
+        label: "label",
+        name: "by automated process",
+        date: "on 31 July 2021 at 4:43pm"
+    },
+    {
+        state: "Application submitted",
+        name: "by claimant",
+        date: "on 31 July 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% elif data['claimStatus'] == 'build-failed' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "Build failed",
+        label: "label",
+        name: "by automated process",
+        date: "on 31 July 2021 at 5:13pm"
+    },
+    {
+        state: "Pre-checks complete",
+        label: "label",
+        name: "by automated process",
+        date: "on 31 July 2021 at 4:43pm"
+    },
+    {
+        state: "Claim registered",
+        label: "label",
+        name: "by automated process",
+        date: "on 31 July 2021 at 4:40pm"
+    },
+    {
+        state: "Application submitted",
+        name: "by claimant",
+        date: "on 31 July 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% elif data['claimStatus'] == 'ID-template-needed' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "ID template needed",
+        label: "label",
+        name: "by Automated process",
+        date: "on 31 July 2021 at 4:43pm"
+    },
+    {
+        state: "Application submitted",
+        name: "by claimant",
+        date: "on 31 July 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% else %}
+    {{ dwpTimeline({
+    events: [
+    {
+        state: "ID check needed",
+        label: "label",
+        name: "by Automated process",
+        date: "on 31 July 2021 at 4:43pm"
+    },
+    {
+        state: "Application submitted",
+        name: "by claimant",
+        date: "on 31 July 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% endif %}

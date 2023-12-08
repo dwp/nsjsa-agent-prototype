@@ -1,0 +1,44 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  {{ serviceName }}: DWP Agent – Find a claim
+{% endblock %}
+{% block beforeContent %}
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Find a claim</h1>
+      <form action="nino-search" method="post">
+        {{ govukInput({
+          errorMessage: errorMessage,
+          label: {
+            text: "Enter the claimant's National Insurance number"
+          },
+          hint: {
+            text: "For example, ‘QQ 12 34 56 C’."
+          },
+          classes: "govuk-input--width-20",
+          id: "nino",
+          name: "nino",
+          attributes: {
+            "autocomplete": "off"
+          }
+        }) }}
+        {{ govukButton({
+          text: "Find claim"
+        }) }}
+      </form>
+    </div>
+    <!-- Prototype scenarios -->
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m govuk-!-margin-top-2">Prototype scenarios</h2>
+      <p class="govuk-body" govuk-body>
+        Enter a scenario ID, for example, welsh1.</p>
+    </div>
+  </div>
+</div>{% endblock %}

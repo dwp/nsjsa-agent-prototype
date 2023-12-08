@@ -1,0 +1,69 @@
+/*
+
+Used from DFE
+Adapted to not depend on govuk-panel
+https://github.com/DFE-Digital/claim-additional-payments-for-teaching/blob/master/app/views/claims/existing_session.html.erb
+https://github.com/DFE-Digital/claim-additional-payments-for-teaching/blob/master/app/assets/stylesheets/components/panel.scss
+
+
+The component exists to:
+-   Make a page that is visually distinct from other pages in the journey
+    (clear task driven heading, blue background, border bottom to separate from any following content)
+-   Uses clear heading about what to do
+    We need to answer the questions: why are we stopping them? what do they need to know?
+-   Increase understanding of what is ahead
+    Reasearch has proven this pattern can increase completed journeys
+
+Further design considerations from here
+https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/241
+    */
+
+.dwp-interruption {
+    padding: 35px;
+    background-color: $govuk-link-colour;
+    text-align: left;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 4px solid $govuk-link-hover-colour;
+  
+    * {
+      color: govuk-colour("white");
+    }
+
+    >:last-child {
+      margin-bottom: 0;
+    }
+  
+    .govuk-radios__label::before,
+    & ::after {
+      color: govuk-colour("black");
+      border-color: govuk-colour("black");
+      background-color: govuk-colour("white");
+    }
+  
+    .govuk-list--definition {
+      dt,
+      dd {
+        color: govuk-colour("blue");
+      }
+    }
+  
+    .govuk-button,
+    .govuk-button:disabled:hover {
+      color: $govuk-link-colour;
+      font-weight: bold;
+      background-color: govuk-colour("white");
+      box-shadow: 0 2px 0 govuk-colour("black");
+    }
+  
+    .govuk-button:hover {
+      background-color: govuk-colour("light-grey");
+    }
+    .govuk-button:focus {
+      box-shadow: inset 0 0 0 1px #ffdd00;
+    }
+
+    .govuk-section-break--visible {
+      border-bottom-color: govuk-colour("white");
+    }
+}

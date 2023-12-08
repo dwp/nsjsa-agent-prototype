@@ -1,0 +1,21 @@
+{% set r = [0, 1, 2] | random %}
+{% set array = [
+  "A letter from the court to prove when their jury service ended",
+  "5 payslips relating to their weekly or fortnightly paid job(s)",
+  "Wage slips and/or supporting letter to confirm their payments from their previous employer(s)",
+  "Proof of any pension, for example a pay statement showing details of their pension"
+] %}
+{% set randomArray =  array | randomise(r) %}
+
+<section>
+  <h2 class="govuk-heading-m">Evidence to check</h2>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>One 'primary' identity document</li>
+    <li>Two 'secondary' identity documents</li>
+    <li>A P45 from previous employer</li>
+    {% for item in randomArray %}
+    <li>{{ item}} </li>
+    {% endfor %}
+  </ul>
+
+</section>

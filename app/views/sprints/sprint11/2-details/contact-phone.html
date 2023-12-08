@@ -1,0 +1,72 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Personal details</span>
+        Do you have a phone number we can contact you on?
+      </h1>
+
+      <form action="contact-phone" method="post">
+
+        {% set contactPhoneYes %}
+          {{ govukInput({
+            label: {
+              text: "Enter a phone number"
+            },
+            hint: {
+              text: "For example 01632 960 001 or 07700 900 982"
+            },
+            classes: "govuk-input--width-20",
+            id: "contact-telephone-number",
+            name: "contact-telephone-number"
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: 'contact-telephone-number',
+          name: 'contact-telephone-number',
+          fieldset: {
+            legend: {
+              html: "<p>We will use your mobile number to contact you about your application. We can use a landline if you do not have a mobile.</p>
+              <p>Your claim could be delayed if you do not provide a phone number.</p>",
+              isPageHeading: false,
+              classes: "govuk-body-l"
+            }
+          },
+          items: [{
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: contactPhoneYes
+            }
+          }, {
+            value: "no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

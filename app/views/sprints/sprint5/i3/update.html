@@ -1,0 +1,129 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% block content %}
+
+{% set failHtml %}
+{{ govukCheckboxes({
+  idPrefix: "failed-contact",
+  name: "subStatus",
+  fieldset: {
+    legend: {
+      text: "What did you do?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "sms",
+      text: "Sent an SMS"
+    },
+    {
+      value: "voicemail",
+      text: "Left a voicemail"
+    },
+    {
+      value: "email",
+      text: "Sent an email"
+    },
+    {
+      value: "letter",
+      text: "Sent a JSA 164 letter"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="confirmation" method="get">
+
+      {% if data['idRisk'] == '1' %}
+
+        {{ govukRadios({
+          idPrefix: "status",
+          name: "claimStatus",
+          fieldset: {
+            legend: {
+              text: "Update claim status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "awaiting-appointment",
+              text: "Awaiting appointment"
+            },
+            {
+              value: "Not entitled",
+              text: "Not entitled"
+            },
+           
+            {
+              value: "Suspected fraud",
+              text: "Suspected fraud"
+            }
+          ]
+        }) }}
+
+        {% else %}
+
+        {{ govukRadios({
+          idPrefix: "status",
+          name: "claimStatus",
+          fieldset: {
+            legend: {
+              text: "Update claim status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "appointment-needed",
+              text: "Appointment needed"
+            },
+            {
+              value: "Not entitled",
+              text: "Not entitled"
+            },
+            {
+              value: "Suspected fraud",
+              text: "Suspected fraud"
+            },
+            {
+              value: "First fail to contact",
+              text: "First fail to contact",
+              conditional: {
+                html: failHtml
+              }
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% from "dwp-components/dwp-search-box/macro.njk"               import  dwpSearchBox %}
+
+{% set showSearchBar = true if params.searchBar != false or false %}
+
+<header class="govuk-header dwp-header {{ params.classes if params.classes }}" role="banner" data-module="govuk-header"
+        {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+  <div class="{{ params.containerClasses | default('govuk-width-container') }}">
+    {% if params.serviceName or params.navigation %}
+      <div class="">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            {% if params.serviceName %}
+              <a href="{{ params.serviceUrl }}" class="govuk-header__link govuk-header__link--service-name dwp-header__container--service-name">
+                {{ params.serviceName }}
+              </a>
+            {% endif %}
+          </div>
+
+          {% if params.claims %}
+            {% set claims = params.claims %}
+          {% else %}
+            {% set claims = '0' %}
+          {% endif %}
+          {% if params.agentName %}
+            <div class="govuk-grid-column-one-third govuk-right-align-from-tablet">
+              <span>Signed in as <a href="change-service-centre" style="color:White">{{ params.agentName }}</a>,
+              <a href="list-claims?agent={{ params.agentName | replace(" ", "-") | lower }}" style="color:White">({{ claims }} claims)</a>
+              </span>
+            </div>
+          {% endif %}
+
+        
+          {% if showSearchBar %}
+            <div class="govuk-grid-column-one-third govuk-right-align-from-tablet">
+              {{ dwpSearchBox({
+              query: data["query"],
+              placeholder: "Find a claim",
+              label: "Enter National Insurance number"
+            }) }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% if params.navigation %}
+        <button role="button" class="dwp-header__menu-button js-dwp-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="dwp-header__navigation {{ params.navigationClasses if params.navigationClasses }}" aria-label="Top Level Navigation">
+            {% for item in params.navigation %}
+              {% if item.href and item.text %}
+                <li class="dwp-header__navigation-item{{ ' dwp-header__navigation-item--active' if item.active }}">
+                  <a class="dwp-header__link" href="{{ item.href }}">
+                    {{ item.text }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+</header>

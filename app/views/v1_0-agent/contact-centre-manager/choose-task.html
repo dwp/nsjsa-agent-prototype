@@ -1,0 +1,74 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    Contact centre
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="process-over-phone/introduction"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Process a new claim
+          <br>
+            (over the phone)
+          </span>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a
+          href="book-appointment/view-claim?task=book&claimant=ij&claimStatus=awaiting-appointment&guidMismatch=0"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            Book an appointment
+          </span>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a
+          href="get-new-claim/view-claim?task=new&claimant=ij&claimStatus=new-claim&guidMismatch=0"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            Get a new claim
+          </span>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a
+          href="mi/mi-choose-task"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            View management information
+          </span>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a
+          href="find-claim/nino-search"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            Find a claimant
+          </span>
+        </a>
+      </div>
+    </div>
+  {% endblock %}

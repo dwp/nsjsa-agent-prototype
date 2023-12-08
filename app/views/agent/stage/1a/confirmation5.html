@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% set warning %}
+{{ govukWarningText({
+  text: "We can't process your application until you confirm your identity",
+  iconFallbackText: "Warning"
+}) }}
+{% endset %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l">Application sent</h1>
+<p>Email confirmation sent to <strong>you@email.co.uk</strong></p>
+
+{{ govukInsetText({
+        html: "
+        
+        <p>We can't process your application until you confirm your identity.</p>
+        "
+      }) }}
+
+<ol class="app-task-list">
+  <li>
+    <h2 class="app-task-list__section">Your progress</h2>
+    <ul class="app-task-list__items" style="padding-left: 0;">
+      <li class="app-task-list__item">
+        <span class="app-task-list__task-name">
+          <a href="hand-off" aria-describedby="eligibility-status">
+            Confirm your identity
+          </a>
+        </span>
+        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>
+      </li>
+      <li class="app-task-list__item">
+        <span class="app-task-list__task-name">{{ serviceName }}</span>
+        <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

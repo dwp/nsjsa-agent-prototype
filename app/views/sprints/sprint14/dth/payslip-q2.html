@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" action="payslip-q2">
+
+            <div class="govuk-form-group">
+                <span class="govuk-caption-xl">
+                    Payslip question
+                </span>
+
+                <h1 class="govuk-heading-xl">
+                    Enter the amount of tax deducted on a payslip
+                </h1>
+
+                <div id="benefit-amount-hint" class="govuk-hint">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Use a payslip dated after May 20, 2020</li>
+                        <li>Get the figure from the 'Deductions' section. It may be called 'PAYE' or 'Income Tax'</li>
+                        <li>Do not use the 'Year To Date' figure</li>
+                    </ul>
+                </div>
+
+                <div class="currency-input">
+                    <div class="currency-input__symbol" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-10" id="benefit-amount" name="benefit-amount" type="text" aria-describedby="amount-currency">
+                </div>
+
+                
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+        <p class="body-text"><a href="./more-information.html">I don't have that information</a></p>
+
+    </div>
+</div>
+{% endblock %}

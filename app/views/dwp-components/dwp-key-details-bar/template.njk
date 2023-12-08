@@ -1,0 +1,27 @@
+{% set classes = 'dwp-key-details-bar ' + params.classes if params.classes else 'dwp-key-details-bar' %}
+<section class="{{ classes }}" role="contentinfo" aria-label="Key details">
+  <dl class="dwp-key-details-bar__contents govuk-width-container">
+    <div class="dwp-key-details-bar__header">
+      <dt class="govuk-visually-hidden">Name:</dt>
+      <dd class="dwp-key-details-bar__name">{{ params.claimantName }}</dd>
+
+      <dt class="govuk-visually-hidden">National Insurance number:</dt>
+      <dd class="dwp-key-details-bar__nino">{{ params.claimantNINO }}</dd>
+
+      {% if params.claimStatus %}
+      <dt class="govuk-visually-hidden">Status:</dt>
+      <dd class="dwp-key-details-bar__status" id="status-tag">{{ params.claimStatus }}</dd>
+      {% endif %}
+    </div>
+
+    <div class="dwp-key-details-bar__body">
+      {% if params.items and params.items.length > 0 %}
+        {% for item in params.items %}
+          <dt>{{ item.title }}:</dt>
+          <dd>{{ item.value }}</dd>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+  </dl>
+</section>

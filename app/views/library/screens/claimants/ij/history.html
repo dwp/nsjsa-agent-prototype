@@ -1,0 +1,191 @@
+{% if data['claimStatus'] == 'ID-verified' %}
+
+{{ dwpTimeline({
+items: [
+    {
+    heading: "ID verified",
+    label: "label",
+    author: "by DWP Trust Hub",
+    date: "on 31 August 2021",
+    time: "at 4:43pm"
+    },
+    {
+    heading: "Application submitted",
+    date: "by claimant on 31 August 2021",
+    time: "at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'awaiting-appointment' %}
+
+
+{{ dwpTimeline({
+items: [
+    {
+    heading: "Awaiting appointment",
+    label: "label",
+    author: "by Simon Jones",
+    date: "on 31 August 2021",
+    time: "at 4:43pm"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021",
+    time: "at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'first-fail' %}
+
+{{ dwpTimeline({
+items: [
+    {
+    heading: "Awaiting appointment",
+    label: "label",
+    author: "by Simon Jones",
+    date: "on 31 August 2021",
+    time: "at 4:43pm",
+    body: "<h4 class='dwp-timeline-title govuk-heading-s'>First fail</h4> <p class=dwp-timeline-info>
+    <span class=dwp-timeline-date>on 31 August 2021</span> <span class=dwp-timeline-time>at 4:55pm</span></p>"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021",
+    time: "at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'registration-failed' %}
+
+{{ dwpTimeline({
+items: [
+    {
+    heading: "Registration failed",
+    label: "label",
+    author: "by automated process",
+    date: "on 31 August 2021",
+    time: "at 4:43pm"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021",
+    time: "at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+{% elif data['claimStatus'] == 'registration-needed' %}
+
+{{ dwpTimeline({
+items: [
+    {
+    heading: "Registration needed",
+    label: "label",
+    author: "by automated process",
+    date: "on 31 August 2021",
+    time: "at 4:43pm"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021",
+    time: "at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+
+{% elif data['claimStatus'] == 'ID-check-needed' or  data['claimStatus'] == '3rd-fail-to-contact' %}
+
+{{ dwpTimeline({
+items: [
+    {
+        heading: "3rd fail to contact",
+        label: "label",
+        author: "by Greg Sykes",
+        date: "on 12 September 2021",
+        time: "at 10:12am",
+        body: "<p class=dwp-timeline-info>Left a voicemail, Sent a JSA 164 letter</p>"
+    },
+    {
+        heading: "2nd fail to contact",
+        label: "label",
+        author: "by Lynne Akers",
+        date: "on 1 September 2021",
+        time: "at 12:38pm",
+        body: "<p class=dwp-timeline-info>Left a voicemail, Sent an SMS</p>"
+    },
+    {
+        heading: "1st fail to contact",
+        label: "label",
+        author: "by Terry Stanley",
+        date: "on 1 September 2021",
+        time: "at 9:32am",
+        body: "<p class=dwp-timeline-info>Left a voicemail</p>"
+    },
+    {
+        heading: "ID check needed",
+        label: "label",
+        author: "by Remi Sindar",
+        date: "on 1 September 2021",
+        time: "at 9:10am"
+    },
+    {
+        heading: "ID template needed",
+        label: "label",
+        author: "by automated process",
+        date: "on 31 August 2021",
+        time: "at 4:53pm"
+    },
+    {
+        heading: "New claim",
+        label: "label",
+        author: "by claimant",
+        date: "on 31 August 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+
+
+{% elif data['claimStatus'] == 'new-claim' %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "New claim",
+        date: "by claimant on 5 September 2021",
+        time: "at 6:12am"
+    }
+    ]
+}) }}
+
+{% else %}
+
+{{ dwpTimeline({
+    items: [
+    {
+        heading: "ID not verified",
+        label: "label",
+        author: "by DWP Trust Hub",
+        date: "on 31 August 2021",
+        time: "at 4:43pm"
+    },
+    {
+        heading: "Application submitted",
+        date: "by claimant on 31 August 2021",
+        time: "at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+
+{% endif %}

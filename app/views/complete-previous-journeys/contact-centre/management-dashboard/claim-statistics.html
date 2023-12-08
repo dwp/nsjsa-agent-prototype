@@ -1,0 +1,100 @@
+{% extends "layout/base-no-search-bar.html" %}
+
+{% block pageTitle %}
+  Contact centre - {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="claimstatsperiod" method="post">
+
+        {{ govukDateInput({
+          id: 'claim-statistics-start',
+          name: 'claimStatisticsStart',
+          fieldset: {
+            legend: {
+              text: 'Start Date',
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          items: [
+            {
+              name: 'claimStatisticsDay',
+              value: data['claim-statistics-start-day'],
+              classes: 'govuk-input--width-2',
+              label: 'Day'
+            },
+            {
+              name: 'claimStatisticsMonth',
+              value: data['claim-statistics-start-month'],
+              classes: 'govuk-input--width-2',
+              label: 'Month'
+            },
+            {
+              name: 'claimStatisticsStartYear',
+              value: data['claim-statistics-start-year'],
+              classes: 'govuk-input--width-4',
+              label: 'Year'
+            }
+          ]
+          })
+        }}
+
+        {#
+        {{ govukButton({
+            text: "Refresh"
+        }) }}
+        #}
+
+      </form>
+      
+      <input class="govuk-button" data-module="govuk-button" type="submit" name="refresh" value="Refresh" onclick="document.getElementById('id_Management_Information').style.display = 'block' ;">
+
+    </div>
+  </div>
+
+{#
+<p><strong>NOTE:</strong></p>
+<p>
+  Unsure at to what the 'Refresh' button actually does.
+  Is the content that sits below already in view?
+</p>
+#}
+
+<div id="id_Management_Information" style="display: none">
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">Management Information</h2>
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+  <section>
+    <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("Cases Received In Day", "1", false) }}
+      {{ checkAnswersItem("Head Of Work", "17", false) }}
+      {# Date below should have dashes rather than / #}
+      {{ checkAnswersItem("Oldest Claim Open", todaysDate.original | moment + " " + "13:32:32", false) }}
+      {{ checkAnswersItem("Cases Cleared In Day", "0", false) }}
+      {{ checkAnswersItem("Percentage Of Claims In Day Closed In 24hr", "0.00%", false) }}
+      {{ checkAnswersItem("Percentage Of Claims In Day Closed In 48hr", "0.00%", false) }}
+      {{ checkAnswersItem("Percentage Of Claims In Week Closed In 24hr", "80.00%", false) }}
+      {{ checkAnswersItem("Percentage Of Claims In Week Closed In 48hr", "80.00%", false) }}
+      {{ checkAnswersItem("Cases O/S outside 24hr KPI", "14", false) }}
+      {{ checkAnswersItem("Cases O/S outside 48hr KPI", "14", false) }}
+    </dl>
+  </section>
+
+  {% if data['mode'] === "agent"  %}
+    {{ govukButton({
+      text: "Update and return to application",
+      href: "https://dwp-jsa-admin.herokuapp.com/work-coach/5/99"
+    }) }}
+    {% else %}
+    {{ govukButton({
+      text: "Generate Report",
+      href: "generate-report"
+    }) }}
+  {% endif %}
+  </div>
+
+{% endblock %}

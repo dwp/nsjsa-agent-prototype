@@ -1,0 +1,28 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set subStatus = data['subStatus'] %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "The claim was updated",
+        html: claimStatus
+      }) }}
+
+      {{ govukButton({
+        text: "Get next claim",
+        href: "nino-search?claimStatus=new-claim&claimant=kb"
+      }) }}
+
+    </div>
+    </div>
+  </div>
+{% endblock %}

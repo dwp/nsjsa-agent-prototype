@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <div class="dwp-interruption govuk-!-margin-bottom-6">
+
+            {# <span class="govuk-caption-l">1. {{ serviceName }}</span> #}
+            <h1 class="govuk-heading-l">Read this information carefully</h1>
+            <ol class="govuk-list govuk-list--bullet">
+                <li>It usually takes about 30 minutes to apply and check who you are</li>
+                <li>We may ask you for some information more than once</li>
+                <li>You cannot save your answers and come back later</li>
+                <li>You'll get a chance to check and change your answers before you send them</li>
+                
+            </ol>
+            {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "apply-things-needed"
+            }) }}
+
+        </div>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body-s">We will treat your personal information carefully. We may use it for any of our purposes. 
+        To learn about your information rights and how we use information, see our <a href="https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter">personal information charter</a>.</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% if params.items and params.items.length > 0 %}
+  <ol class="dwp-timeline">
+  {% for item in params.items %}
+    <li class="dwp-timeline-entry {{ item.classes }}">
+      {% if item.heading %}
+      <h3 class="dwp-timeline-title govuk-heading-s">{{ item.heading }} {% if item.subheading %}<span class="govuk-body-s"> - {{ item.subheading }}</span> {% endif %}</h3>
+      {% endif %}
+
+      <p class="dwp-timeline-info">
+        {% if item.label %}
+        <span class="govuk-visually-hidden">{{ item.label }}</span>
+        {% endif %}
+        
+        {% if item.author %}
+        <span class="dwp-timeline-author">{{ item.author }}</span>
+        {% endif %}
+        {% if item.date %}
+        <span class="dwp-timeline-date">{{ item.date }}</span>
+        {% endif %}
+
+        {% if item.time %}
+        <span class="dwp-timeline-time">{{ item.time }}</span>
+        {% endif %}
+      </p>
+      
+      {% if item.body %}
+      <div class="dwp-timeline-body">
+        {{ item.body | safe }}
+      </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ol>
+{% endif %}

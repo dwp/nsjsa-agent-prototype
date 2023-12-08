@@ -1,0 +1,30 @@
+{% extends "layout/base-no-search-bar.html" %}
+
+{% block pageTitle %}
+{{ serviceName }}: DWP Agent – Application pushed
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Application pushed",
+        classes: "govuk-!-margin-top-6"
+      }) }}
+      <p>You have successfully pushed an application for<br> <strong>Mr John Doe: QQ 12 34 56 D</strong>.</p>
+      <h3 class="govuk-heading-m">What happens next</h3>
+      <p>A decision maker will review the application.</p>
+      <p><a href="#">What did you think of this service?</a> (takes 30 seconds)</p>
+
+      {{ govukButton({
+        text: "Find another application",
+        href: "/work-coach/4/nino-search"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+Service centre - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">
+  <span class="govuk-caption-l">Service centre agent</span>
+  Choose a task
+</h1>
+
+<style>
+.tile--list {
+  text-align: left;
+  padding: 0.75em;
+  padding-left: 1em;
+  min-height: auto;
+  line-height: auto;
+  margin-bottom: 0.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tile:before {
+  display: none;
+}
+
+
+.tile:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+
+.tile__icon {
+    fill: white;
+    height: 1.4em;
+}
+
+.tile__count {
+  background-color: white;
+  border-radius: 1em;
+  color: #1d70b8;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-left: 0.25em;
+}
+
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a href="{{ registerUrl }}" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Register a claim <span class="tile__count govuk-!-font-size-14 govuk-!-font-weight-bold">{{ range(52, 200) | random }}</span></h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="{{ processUrl }}" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Process a claim <span class="tile__count govuk-!-font-size-14 govuk-!-font-weight-bold">{{ range(52, 500) | random }}</span></h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="{{ appointeeUrl }}" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Appointee review <span class="tile__count govuk-!-font-size-14 govuk-!-font-weight-bold">{{ range(5, 45) | random }}</span></h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="nino-search" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Find a claim</h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+<h2 class="govuk-heading-m">Identity tasks</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a href="{{ templateUrl }}" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Create an ID template <span class="tile__count govuk-!-font-size-14 govuk-!-font-weight-bold">{{ range(31, 300) | random }}</span></h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="{{ idUrl }}" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Conduct an ID check <span class="tile__count govuk-!-font-size-14 govuk-!-font-weight-bold">{{ range(31, 300) | random }}</span></h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<h2 class="govuk-heading-m">Escalation tasks</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a href="{{ specialistUrl }}" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Specialist review <span class="tile__count govuk-!-font-size-14 govuk-!-font-weight-bold">{{ range(31, 300) | random }}</span></h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <a href="{{ fraudUrl }}" class="tile tile--blue tile--list">
+        <h2 class="tile__title">Fraud review <span class="tile__count govuk-!-font-size-14 govuk-!-font-weight-bold">{{ range(31, 300) | random }}</span></h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<h2 class="govuk-heading-m">Management information</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a href="mi" class="tile tile--blue tile--list">
+        <h2 class="tile__title">View management information</h2>
+        <svg class="tile__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+    </a>
+  </div>
+</div>
+
+{% endblock %}

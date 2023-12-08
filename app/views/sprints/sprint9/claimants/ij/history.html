@@ -1,0 +1,153 @@
+{% if data['claimStatus'] == 'ID-verified' %}
+    {{ dwpTimeline({
+events: [
+    {
+    heading: "ID verified",
+    label: "label",
+    name: "by DWP Trust Hub",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    heading: "Application submitted",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'awaiting-appointment' %}
+    {{ dwpTimeline({
+events: [
+    {
+    heading: "Awaiting appointment",
+    label: "label",
+    name: "by Simon Jones",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'first-fail' %}
+    {{ dwpTimeline({
+events: [
+    {
+    heading: "Awaiting appointment",
+    label: "label",
+    name: "by Simon Jones",
+    date: "on 31 August 2021 at 4:43pm",
+    body: "<h4 class='dwp-timeline-title govuk-heading-s'>First fail</h4> <p class=dwp-timeline-info>
+    <span class=dwp-timeline-date>on 31 August 2021</span> <span class=dwp-timeline-time>at 4:55pm</span></p>"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'registration-failed' %}
+    {{ dwpTimeline({
+events: [
+    {
+    heading: "Registration failed",
+    label: "label",
+    name: "by automated process",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'registration-needed' %}
+    {{ dwpTimeline({
+events: [
+    {
+    heading: "Registration needed",
+    label: "label",
+    name: "by automated process",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    heading: "New claim",
+    date: "by claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'ID-check-needed' or  data['claimStatus'] == '3rd-fail-to-contact' %}
+    {{ dwpTimeline({
+events: [
+    {
+        heading: "3rd fail to contact",
+        label: "label",
+        name: "by Greg Sykes",
+        date: "on 12 September 2021 at 10:12am",
+        body: "<p class=dwp-timeline-info>Left a voicemail, Sent a JSA 164 letter</p>"
+    },
+    {
+        heading: "2nd fail to contact",
+        label: "label",
+        name: "by Lynne Akers",
+        date: "on 1 September 2021 at 12:38pm",
+        body: "<p class=dwp-timeline-info>Left a voicemail, Sent an SMS</p>"
+    },
+    {
+        heading: "1st fail to contact",
+        label: "label",
+        name: "by Terry Stanley",
+        date: "on 1 September 2021 at 9:32am",
+        body: "<p class=dwp-timeline-info>Left a voicemail</p>"
+    },
+    {
+        heading: "ID check needed",
+        label: "label",
+        name: "by Remi Sindar",
+        date: "on 1 September 2021 at 9:10am"
+    },
+    {
+        heading: "ID template needed",
+        label: "label",
+        name: "by automated process",
+        date: "on 31 August 2021 at 4:53pm"
+    },
+    {
+        heading: "New claim",
+        label: "label",
+        name: "by claimant",
+        date: "on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'new-claim' %}
+    {{ dwpTimeline({
+    events: [
+    {
+        heading: "New claim",
+        date: "by claimant on 5 September 2021 at 6:12am"
+    }
+    ]
+}) }}
+{% else %}
+    {{ dwpTimeline({
+    events: [
+    {
+        heading: "ID not verified",
+        label: "label",
+        name: "by DWP Trust Hub",
+        date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+        heading: "Application submitted",
+        date: "by claimant on 31 August 2021 at 4:32pm",
+        classes: "dwp-timeline-entry--closing"
+    }
+    ]
+}) }}
+{% endif %}

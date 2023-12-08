@@ -1,0 +1,65 @@
+{% if
+data['idRisk'] == '1'
+or data['fraud'] == '1'
+or data['cis'] == '1'
+or data['cis'] == 'appointee'
+or data['noReg'] == '1'
+or data['build'] == '1'
+%}
+
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">Important</span>
+    </strong>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+    {% if data['noReg'] == '1' %}
+      <li>This claim has not been registered with the benefit system</li>
+    {% endif %}
+    {% if data['idRisk'] == '1' %}
+      <li>Claimant identity at risk since 6 Dec 2019</li>
+    {% endif %}
+    {% if data['fraud'] == '1' %}
+      <li>There are 3 other claims with the same bank details</li>
+    {% endif %}
+    {% if data['cis'] == '1' %}
+      <li>Claimant does not match CIS record</li>
+    {% elif data['cis'] == 'appointee' %}
+      <li>Claimant has an appointee</li>
+    {% endif %}
+    {% if data['build'] == '1' %}
+      <li>This claim has not been built in the benefit system</li>
+    {% endif %}
+    </ul>
+ </div>
+</section>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+
+{% endif %}
+
+
+{# <section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-m">Important</span>
+    </strong>
+    {% if data['task'] == 'fix' %}
+    <p>This claim has not been registered with the benefit system</p>
+    {% elif data['task'] == 'process' %}
+    <p>Claimant identity at risk since 6 Dec 2019</p>
+    {% else %}
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+      <li>Claimant does not match CIS record</li>
+      <li>There are 3 other claims with the same bank details</li>
+    </ul>
+    {% endif %}
+  </div>
+</section> #}
+
+
+

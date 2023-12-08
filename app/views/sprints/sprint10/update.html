@@ -1,0 +1,262 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% block content %}
+
+{% set firstFailHtml %}
+  {{ govukSelect({
+    name: "reason",
+    classes: "govuk-input--width-10",
+    label: {
+      text: "Give more detail",
+      classes: "govuk-visually-hidden"
+    },
+    items: [
+      {
+        text: "Select an option"
+      },
+      {
+        value: "Callback in 1 hr",
+        text: "Callback in 1 hr"
+      },
+      {
+        value: "Callback in 2 hrs",
+        text: "Callback in 2 hrs"
+      },
+      {
+        value: "Callback in 3 hrs",
+        text: "Callback in 3 hrs"
+      }
+    ]
+  }) }}
+{% endset %}
+
+{% set finalFailHtml %}
+  {{ govukSelect({
+    name: "reason",
+    classes: "govuk-input--width-10",
+    label: {
+      text: "Give more detail",
+      classes: "govuk-visually-hidden"
+    },
+    items: [
+      {
+        text: "Select an option"
+      },
+      {
+        value: "Voicemail",
+        text: "Voicemail"
+      },
+      {
+        value: "Letter",
+        text: "Letter"
+      }
+    ]
+  }) }}
+{% endset %}
+
+{% set failHtml %}
+{{ govukCheckboxes({
+  idPrefix: "failed-contact",
+  name: "subStatus",
+  fieldset: {
+    legend: {
+      text: "What did you do?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "sms",
+      text: "Sent an SMS"
+    },
+    {
+      value: "voicemail",
+      text: "Left a voicemail"
+    },
+    {
+      value: "email",
+      text: "Sent an email"
+    },
+    {
+      value: "letter",
+      text: "Sent a JSA 164 letter"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set ttcHtml %}
+  {{ govukRadios({
+      idPrefix: 'ttc',
+      name: 'ttcStatus',
+      fieldset: {
+        legend: {
+          text: "Update claim status",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+          {
+              value: "fully-clerical",
+              text: "Fully clerical"
+          },
+          {
+              value: "needs-rebuild",
+              text: "Needs rebuild"
+          }                     
+      ]
+    })
+  }}
+{% endset -%}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="confirmation" method="get">
+
+        {% if data['claimStatus'] == 'appointment-needed' %}
+
+        {{ govukRadios({
+            idPrefix: 'status',
+            name: 'claimStatus',
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "no-slots",
+                    text: "No slots available"
+                },
+                {
+                    value: "first-fail",
+                    text: "First fail",
+                    conditional: {
+                      html: firstFailHtml
+                    }
+                },
+                {
+                    value: "final-fail",
+                    text: "Final fail",
+                    conditional: {
+                      html: finalFailHtml
+                    }
+                },
+                {
+                    value: "appointment-booked",
+                    text: "Appointment booked"
+                }                     
+            ]
+          })
+        }}
+
+        {% elif data['claimStatus'] == 'suspected-fraud' %}
+
+        {{ govukRadios({
+            idPrefix: 'status',
+            name: 'claimStatus',
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "id-verified",
+                    text: "ID Verified"
+                },
+                {
+                    value: "ftc",
+                    text: "Failed to contact",
+                    conditional: {
+                      html: failHtml
+                    }
+                },
+                {
+                    value: "refer-to-fraud",
+                    text: "Refer to fraud specialist"
+                },
+                {
+                    value: "withdrawn",
+                    text: "Withdrawn"
+                }                
+            ]
+          })
+        }}
+
+        {% else %}
+
+        {{ govukRadios({
+            idPrefix: 'status',
+            name: 'claimStatus',
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "Claim registered",
+                    text: "Claim registered"
+                },
+                {
+                    value: "Awaiting information",
+                    text: "Awaiting information"
+                },
+                {
+                    value: "failed-to-contact",
+                    text: "Failed to contact",
+                    conditional: {
+                      html: failHtml
+                    }
+                },
+                {
+                    value: "suspected-fraud",
+                    text: "Suspected fraud"
+                },
+                {
+                    value: "transfer-to-clerical",
+                    text: "Transfer to clerical",
+                    conditional: {
+                      html: ttcHtml
+                    }
+                },
+                {
+                    value: "escalate-complex",
+                    text: "Escalate to specialist"
+                }         
+            ]
+          })
+        }}
+
+        {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+      
+    </div>
+  </div>
+
+{% endblock %}

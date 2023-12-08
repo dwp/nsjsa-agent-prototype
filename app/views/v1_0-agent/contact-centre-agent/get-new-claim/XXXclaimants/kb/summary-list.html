@@ -1,0 +1,286 @@
+<section class="dwp-claim-section">
+    <h1 class="govuk-heading-l">Check your answers</h1>
+    <h2 class="govuk-heading-m">Claim start date</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Claim start date"
+        },
+        value: {
+        text: "5 September 2021"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Personal details</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "National Insurance number"
+        },
+        value: {
+        text: "CX 400126 A"
+        },
+         actions: {
+            items: [
+                {
+                    href: "nino",
+                    text: "Change",
+                    visuallyHiddenText: actionHiddenText
+                }
+            ]
+        }
+    },
+    {
+        key: {
+        text: "Name"
+        },
+        value: {
+        text: "Karan Bhopal"
+        }
+    }, {
+        key: {
+        text: "Date of birth"
+        },
+        value: {
+        text: "29 April 1972"
+        }
+    },{
+        key: {
+        text: "Home address"
+        },
+        value: {
+        html: "
+        <span class=govuk-!-display-block>35 Walpole Avenue</span>
+        <span class=govuk-!-display-block>Blackpool</span>
+        <span class=govuk-!-display-block>Lancashire</span>
+        <span class=govuk-!-display-block>FY4 1SF.</span>
+        "
+        }
+    },{
+        key: {
+        text: "Postal address"
+        },
+        value: {
+        text: "Not provided"
+        }
+    },{
+        key: {
+        text: "Telephone number"
+        },
+        value: {
+        text: "01253 752057"
+        }
+    },{
+        key: {
+        text: "Email address"
+        },
+        value: {
+        text: "Not provided"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Bank details</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Name of account holder"
+        },
+        value: {
+        text: "K & A Bhopal"
+        }
+    },{
+        key: {
+        text: "Sort code"
+        },
+        value: {
+        text: "11 00 64"
+        }
+    },{
+        key: {
+        text: "Account number"
+        },
+        value: {
+        text: "3333333"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Other benefits</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you applied for any other benefits in the last 12 weeks?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Jury service</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you been on jury service in the last 12 weeks?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Current employment</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Are you in any form of work at the moment?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Previous employment</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you had a job that ended in the last 6 months?"
+        },
+        value: {
+        text: "Yes"
+        }
+    }
+    ]
+}) }}
+    <h2 class="govuk-heading-s">First previous employer</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "When did you work for this employer?"
+        },
+        value: {
+        text: "01/02/2020 - 11/06/2020"
+        }
+    },{
+        key: {
+        text: "Why did this job end?"
+        },
+        value: {
+        text: "Lack of work"
+        }
+    },{
+        key: {
+        text: "What is the name of your previous employer?"
+        },
+        value: {
+        text: "Pete's Plaice"
+        }
+    },{
+        key: {
+        text: "What is the address of your previous employer?"
+        },
+        value: {
+        html: "
+        <span class=govuk-!-display-block>Pete's Plaice</span>
+        <span class=govuk-!-display-block>Blackpool,</span>
+        <span class=govuk-!-display-block>Lancashire</span>
+        FY4 6YY
+        "
+        }
+    },{
+        key: {
+        text: "Do you expect to receive any more payments from this job?"
+        },
+        value: {
+        text: "No"
+        }
+    },{
+        key: {
+        text: "Were you self employed or a company director?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Working or claiming benefits overseas</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you worked or claimed benefit outside the United Kingdom in the last 4 years?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Pensions</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Are you getting money from a pension or annuity?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Education or training</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you been in education or training in the last 4 years?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>

@@ -1,0 +1,30 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set subStatus = data['subStatus'] | replace("-", " ") %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "The claim was updated",
+        html: claimStatus
+      }) }}
+
+      {{ govukButton({
+        text: "Get next claim",
+        href: "view-claim?claimStatus=new-claim&claimant=ij&task=process"
+      }) }}
+
+      <p><a href="choose-task" class="govuk-link">Change task</a></p>
+
+    </div>
+    </div>
+  </div>
+{% endblock %}

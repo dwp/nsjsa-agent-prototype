@@ -1,0 +1,208 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Monday 15 December 2021</span>
+      All claims for today
+    </h1>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">Claims overview</h2>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">New claim</span>
+            <p class="govuk-heading-xl">573</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Not entitled</span>
+            <p class="govuk-heading-xl">12</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Withdrawn</span>
+            <p class="govuk-heading-xl">2</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Appointment needed</span>
+            <p class="govuk-heading-xl">3,157</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Fully automated</span>
+            <p class="govuk-heading-xl">178</p>
+        </div>
+        {# <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Automatically cleared</span>
+            <p class="govuk-heading-xl">34</p>
+        </div> #}
+    </div>
+
+    {# <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Claim decisions</h2>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Awarded entitled</span>
+            <p class="govuk-heading-xl">165</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Not entitled</span>
+            <p class="govuk-heading-xl">12</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Credits only</span>
+            <p class="govuk-heading-xl">16</p>
+        </div>
+    </div> #}
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Claims awaiting processing</h2>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Processing needed</span>
+            <p class="govuk-heading-xl">5,623</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Registration needed</span>
+            <p class="govuk-heading-xl">365</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Suspected fraud</span>
+            <p class="govuk-heading-xl">211</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Build needed</span>
+            <p class="govuk-heading-xl">122</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">ID check needed</span>
+            <p class="govuk-heading-xl">78</p>
+        </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Claims awaiting appointment booking</h2>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">No slots available</span>
+            <p class="govuk-heading-xl">78</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">First fail</span>
+            <p class="govuk-heading-xl">43</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Second fail</span>
+            <p class="govuk-heading-xl">645</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Final fail</span>
+            <p class="govuk-heading-xl">342</p>
+        </div>
+
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    {% set statusTag %}
+    {{ govukTag({
+        text: "Suspected fraud"
+    }) }}
+    {% endset %}
+
+    <h2 class="govuk-heading-m">Oldest claims</h2>
+    {{ govukTable({
+        caption: "Oldest claims",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        firstCellIsHeader: true,
+        head: [
+            {
+                text: "NI number"
+            },
+            {
+                text: "Status"
+            },
+            {
+                text: "Days since date of claim",
+                format: "numeric"
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "QQ 12 34 56 C"
+                },
+                {
+                    html: statusTag
+                },
+                {
+                    text: "62",
+                    format: "numeric"
+                }
+            ],
+            [
+                {
+                    text: "QQ 12 34 56 C"
+                },
+                {
+                    html: statusTag
+                },
+                {
+                    text: "44",
+                    format: "numeric"
+                }
+            ],
+            [
+                {
+                    text: "QQ 12 34 56 C"
+                },
+                {
+                    html: statusTag
+                },
+                {
+                    text: "38",
+                    format: "numeric"
+                }
+            ],
+            [
+                {
+                    text: "QQ 12 34 56 C"
+                },
+                {
+                    html: statusTag
+                },
+                {
+                    text: "35",
+                    format: "numeric"
+                }
+            ],
+            [
+                {
+                    text: "QQ 12 34 56 C"
+                },
+                {
+                    html: statusTag
+                },
+                {
+                    text: "35",
+                    format: "numeric"
+                }
+            ]
+        ]
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,340 @@
+// Based on https://github.com/alphagov/govuk_publishing_components/blob/master/app/assets/stylesheets/govuk_publishing_components/components/_previous-and-next-navigation.scss
+// Note - this code for prototype purposes only. It is not production code.
+
+// .app-pagination {
+//   display: block;
+//   margin: govuk-spacing(8) 0;
+// }
+
+// .app-pagination__list {
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .app-pagination__item {
+//   @include govuk-font($size: 19);
+//   list-style: none;
+
+//   &:first-child {
+//     margin-bottom: govuk-spacing(4);
+//   }
+// }
+
+// .app-pagination__link {
+//   display: block;
+//   text-decoration: none;
+//   padding-bottom: govuk-spacing(4);
+
+//   &:hover,
+//   &:active,
+//   &:visited {
+//     color: $govuk-link-colour;
+//   }
+
+//   &:hover,
+//   &:active {
+//     background-color: govuk-colour("light-grey", $legacy: "grey-4");
+
+//     // Add govuk-link hover decoration to title if no label present
+//     .app-pagination__link-text--decorated {
+//       @include govuk-link-decoration;
+//     }
+
+//     .app-pagination__link-label,
+//     .app-pagination__link-text--decorated {
+//       @include govuk-link-hover-decoration;
+//     }
+//   }
+
+//   &:focus {
+//     @include govuk-focused-text;
+
+//     .app-pagination__link-title {
+//       border-top-color: transparent;
+//     }
+
+//     .app-pagination__link-icon {
+//       fill: $govuk-text-colour;
+//     }
+//   }
+// }
+
+// .app-pagination__link-title {
+//   display: block;
+//   border-top: 1px solid $govuk-border-colour;
+//   padding-top: govuk-spacing(3);
+// }
+
+// .app-pagination__link-divider {
+//   @include govuk-visually-hidden;
+// }
+
+// .app-pagination__link-text {
+//   @include govuk-font(19, $weight: bold);
+//   margin-left: govuk-spacing(2);
+// }
+
+// .app-pagination__link-icon {
+//   @include govuk-font($size: 24, $line-height: calc(33.75 / 27));
+//   display: inline-block;
+//   margin-bottom: 1px;
+//   height: .482em;
+//   width: .63em;
+//   fill: govuk-colour("dark-grey", $legacy: "grey-1");
+// }
+
+// .app-pagination__link-label {
+//   display: inline-block;
+//   margin-top: .1em;
+//   margin-left: govuk-spacing(5);
+//   @include govuk-link-decoration;
+
+//   @include govuk-media-query($from: tablet) {
+//     margin-left: govuk-spacing(6);
+//   }
+// }
+
+
+.app-pagination {
+  @include govuk-responsive-margin(6, "bottom");
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+
+  @include govuk-media-query($from: tablet) {
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: start;
+        align-items: flex-start;
+  }
+}
+
+.app-pagination__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-pagination__item,
+.app-pagination__next,
+.app-pagination__prev {
+  @include govuk-font(19);
+  box-sizing: border-box;
+  position: relative;
+  min-width: 45px;
+  min-height: 45px;
+  padding: govuk-spacing(2) govuk-spacing(3);
+  float: left; // Float is ignored if flex is active for prev/next links
+
+  &:hover {
+    background-color: govuk-colour("light-grey", $legacy: "grey-4");
+  }
+}
+
+.app-pagination__item {
+  // Hide items on small screens except the prev/next items,
+  // non-link items and the first and last items
+  display: none;
+
+  // Center align pagination links in their parent list item so that they
+  // visually sit in the middle of their touch area
+  text-align: center;
+
+  @include govuk-media-query($from: tablet) {
+    display: block;
+  }
+}
+
+.app-pagination__prev,
+.app-pagination__next {
+  @include govuk-typography-weight-bold;
+
+  // Use flex to get around a whitespace issue between the arrow svg and the link text
+  // without having to rely on whitespace control from backend tooling
+  .app-pagination__link {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+  }
+}
+
+.app-pagination__prev {
+  padding-left: 0;
+}
+
+.app-pagination__next {
+  padding-right: 0;
+}
+
+// Only show first, last and non-link items on mobile
+.app-pagination__item--current,
+.app-pagination__item--ellipses,
+.app-pagination__item:first-child,
+.app-pagination__item:last-child {
+  display: block;
+}
+
+.app-pagination__item--current {
+  @include govuk-typography-weight-bold;
+  outline: 1px solid transparent;
+  background-color: $govuk-link-colour;
+
+  &:hover {
+    background-color: $govuk-link-colour;
+  }
+
+  .app-pagination__link {
+    @include govuk-link-style-inverse;
+  }
+}
+
+.app-pagination__item--ellipses {
+  @include govuk-typography-weight-bold;
+  color: $govuk-secondary-text-colour;
+
+  // Remove hover state for ellipsis items as they don't have links within them
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.app-pagination__link {
+  display: block;
+  min-width: govuk-spacing(3);
+
+  // Increase the touch area for the link to the parent element.
+  @media screen {
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  // Add link hover decoration to prev/next text if no label present on prev/next only mode
+  // We do this so that we have a hover state in all possible instances
+  &:hover,
+  &:active {
+    .app-pagination__link-title--decorated {
+      @include govuk-link-decoration;
+    }
+
+    .app-pagination__link-label,
+    .app-pagination__link-title--decorated {
+      @include govuk-link-hover-decoration;
+    }
+  }
+
+  &:focus {
+    .app-pagination__icon {
+      color: $govuk-focus-text-colour;
+    }
+
+    .app-pagination__link-label {
+      text-decoration: none;
+    }
+
+    .app-pagination__link-title--decorated {
+      text-decoration: none;
+    }
+  }
+}
+
+.app-pagination__link-label {
+  @include govuk-font($size: 19, $weight: "regular");
+  @include govuk-link-decoration;
+  display: inline-block;
+  padding-left: govuk-spacing(6);
+}
+
+.app-pagination__icon {
+  // Set size using rems to make the icon scale with text if user resizes text in their browser
+  width: govuk-px-to-rem(15px);
+  height: govuk-px-to-rem(13px);
+  color: $govuk-secondary-text-colour;
+  fill: currentcolor;
+  forced-color-adjust: auto;
+}
+
+.app-pagination__icon--prev {
+  margin-right: govuk-spacing(3);
+}
+
+.app-pagination__icon--next {
+  margin-left: govuk-spacing(3);
+}
+
+// Block mode - position previous and next links above and below numbers
+.app-pagination--block {
+  display: block;
+
+  .app-pagination__item {
+    padding: govuk-spacing(3);
+    float: none;
+  }
+
+  .app-pagination__next,
+  .app-pagination__prev {
+    padding-left: 0;
+    float: none;
+  }
+
+  .app-pagination__next {
+    padding-right: govuk-spacing(3);
+
+    .app-pagination__icon {
+      margin-left: 0;
+    }
+  }
+
+  // Only apply a border between prev and next if both are present
+  .app-pagination__prev + .app-pagination__next {
+    border-top: 1px solid $govuk-border-colour;
+  }
+
+  // Reset both these elements to their inline default, both to ensure that the focus state
+  // for block mode "shrink wraps" text as expected
+  .app-pagination__link,
+  .app-pagination__link-title {
+    display: inline;
+  }
+
+  // Set the after pseudo element to a block which makes the title visually display
+  // as block level whilst programmatically being inline
+  // We do this to get around an NVDA quirk where adjacent block level
+  // elements are always read out separately
+  .app-pagination__link-title:after {
+    content: "";
+    display: block;
+  }
+
+  .app-pagination__link {
+    text-align: left;
+
+    &:focus {
+      // apply focus styling to the label within the link as if it were being focused
+      // to get around a display issue with a focusable inline element containing a mixture
+      // of inline and inline-block level elements
+      .app-pagination__link-label {
+        @include govuk-focused-text;
+      }
+    }
+
+    &:not(:focus) {
+      text-decoration: none;
+    }
+  }
+
+  .app-pagination__icon {
+    margin-right: govuk-spacing(2);
+  }
+}

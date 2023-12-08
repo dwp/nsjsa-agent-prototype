@@ -1,0 +1,90 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+{#
+<p><strong>
+Note: The pound sign needs to be inside the input text box, this is styled by macros/macros.njk
+</strong></p>
+#}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current pension</span>
+        How often is your pension or annuity paid?
+      </h1>
+
+      <form action="payment-frequency" method="post">
+
+        {% set prefix = "current-pension" %}
+
+        {{ govukRadios({
+          idPrefix: "current-work-paid",
+          name: "currentPensionPaid",
+          items: [{
+            value: "Weekly",
+            text: "Every week",
+            checked: checked("currentPensionPaid", "Weekly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "weekly")
+            }
+          }, {
+            value: "Fortnightly",
+            text: "Every 2 weeks",
+            conditional: {
+              html: grossPensionAmountInput(prefix, "fortnightly")
+            }
+          }, {
+            value: "FourWeekly",
+            text: "Every 4 weeks",
+            checked: checked("currentPensionPaid", "FourWeekly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "four-weekly")
+            }
+          }, {
+            value: "Monthly",
+            text: "Every month",
+            checked: checked("currentPensionPaid", "Monthly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "monthly")
+            }
+          }, {
+            value: "Quarterly",
+            text: "Every 3 months",
+            checked: checked("currentPensionPaid", "Quarterly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "quarterly")
+            }
+          }, {
+            value: "BiAnnually",
+            text: "Twice a year",
+            checked: checked("currentPensionPaid", "BiAnnually"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "bi-annually")
+            }
+          }, {
+            value: "Annually",
+            text: "Once a year",
+            checked: checked("currentPensionPaid", "Annually"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "annually")
+            }
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

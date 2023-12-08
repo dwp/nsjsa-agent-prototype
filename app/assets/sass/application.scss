@@ -1,0 +1,84 @@
+// global styles for <a> and <p> tags
+$govuk-font-family: Helvetica, Arial, sans-serif;
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import ".tmp/sass/extensions";
+
+// Patterns that aren't in Frontend
+@import "patterns/contents-list";
+@import "patterns/mainstream-guide";
+@import "patterns/pagination";
+@import "patterns/related-items";
+@import "patterns/step-by-step-header";
+@import "patterns/step-by-step-nav";
+@import "patterns/step-by-step-related";
+@import "patterns/task-list";
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+// DWP components
+/*@import 'dwp-components/dwp-header';
+@import 'dwp-components/dwp-timeline';
+@import 'dwp-components/dwp-key-details-bar';*/
+@import 'dwp-components/dwp-summary-list';
+@import 'dwp-components/dwp-tile';
+@import 'dwp-components/dwp-tile-old';
+@import 'dwp-components/dwp-interruption';
+@import 'dwp-components/dwp-search-box';
+@import 'node_modules/@dwp/dwp-frontend/components/internal-service-header/internal-service-header';
+@import 'node_modules/@dwp/dwp-frontend/components/key-details-bar/key-details-bar';
+@import 'node_modules/@dwp/dwp-frontend/components/timeline/timeline';
+
+.dwp-agent-layout {
+
+}
+
+.uc {
+    text-transform: uppercase!important;
+}
+
+.dwp-address-example {
+    @include govuk-font($size: 19);
+    display: inline-block;
+    position: relative;
+    padding: 4em 6em 0 1em;
+    background-color: $govuk-brand-colour;
+    margin-bottom: 1em;;
+    
+    address {
+        display: inline-block;
+        padding: 1em 1.5em;
+        color: $govuk-brand-colour;
+        background-color: govuk-colour("white");
+        font-style: normal;
+        // font-weight: bold;
+        border-radius: 4px;
+    }
+    &__crown {
+        padding: 14px 10px 8px 10px;
+        background-color: govuk-colour("white");
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        outline: dotted 4px $govuk-brand-colour;
+        outline-offset: -3px;
+
+        svg {
+            fill: $govuk-brand-colour;
+            color: $govuk-brand-colour;
+        }
+    }
+
+    &__crown {
+
+    }
+}
+
+.app-task-list__items {
+    padding-left: 0;
+}

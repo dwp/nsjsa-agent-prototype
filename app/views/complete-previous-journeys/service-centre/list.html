@@ -1,0 +1,68 @@
+{% extends "layout/base-no-search-bar.html" %}
+
+{% block pageTitle %}
+{{ serviceName }}: DWP Agent – Service centre
+{% endblock %}
+
+{% block content %}
+
+  {% set items = claimListData %}
+  
+  {# Only display the unviewed claims total #}
+  {% set unviewedClaimsTotal = 0 %}
+  {% for item in items %}
+    {% set unviewedClaimsTotal = unviewedClaimsTotal + 1 if not(item.viewed) else unviewedClaimsTotal %}
+  {% endfor %}
+
+  <div class="govuk-!-margin-top-6">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <span class="govuk-caption-m">Service centre</span>
+        <h1 class="govuk-heading-l">Preston 100510</h1>
+      </div>
+      <div class="govuk-grid-column-one-half govuk-align-right-from-desktop">
+        {% set time = now() %}
+        <div class="govuk-body-m govuk-!-margin-top-4">Total claims {{ time | momentFormat2 }}: <strong class="govuk-!-font-size-24">{{ unviewedClaimsTotal }}</strong></div>
+      </div>
+    </div>
+  </div>
+
+  {% set rows = [] %}
+  {% set foundItems = 0 %}
+  {% for item in items %}
+    {% if not(item.viewed) %}
+      {% if foundItems < CLAIMS_PER_PAGE %}
+        {% set rows = rows | push([
+          { text: foundItems + 1 + '.' },
+          { html: '<a href="/common/claim?claimid=' + (loop.index - 1) + '">' + item.name + '</a>' },
+          { text: item.nino },
+          { text: item.submissionDate },
+          { text: item.pushedDate },
+          { html: '<span class="tag">' + item.status + '</span>' }
+        ]) %}
+        {% set foundItems = foundItems + 1 %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {{ govukTable({
+    caption: "All claims for Preston service centre 100510",
+    captionClasses: "govuk-visually-hidden",
+    head: [{
+        text: "#"
+      }, {
+        text: "Claimant"
+      }, {
+        text: "NINO"
+      }, {
+        text: "Claim submission date"
+      }, {
+        text: "Claim pushed date"
+      }, {
+        text: "Claim status"
+      }
+    ],
+    rows: rows
+  }) }}
+
+{% endblock %}

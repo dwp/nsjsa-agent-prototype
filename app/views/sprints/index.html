@@ -1,0 +1,112 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  NSJSA Automation Prototypes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Automation beta</h1>
+
+      <h2 class="govuk-heading-m">Sprint 26 – Applications Dasboard</h2>
+      <p><a href="sprints/sprint26/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 25 – Support Pages</h2>
+      <p><a href="sprints/sprint25/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 24 – Welsh language request</h2>
+      <p><a href="sprints/sprint24/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 14 – OIDV continued</h2>
+      <p><a href="sprints/sprint14/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 11, 12 & 13 – OIDV</h2>
+      <p><a href="sprints/sprint11/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 10 – Duplicate claims and NINo mismatches</h2>
+      <p><a href="sprints/sprint10/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 9 – Additional fraud and manual ID checks</h2>
+      <p><a href="sprints/sprint9/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 7 & 8 – Management information</h2>
+      <p>Sprints spanned Christmas and new year break 2021 to 2022</p>
+      <p>Capture management information dashboard ideas for future and sooner increments.</p>
+      <p><a href="sprints/sprint7/mi/future">Potential future</a></p>
+
+      <ol class="govuk-list govuk-list--unstyled">
+        {# <li><a href="sprints/sprint7/mi/i6">Increment 6 dashboard</a></li>
+        <li><a href="sprints/sprint7/mi/i5">Increment 5 dashboard</a></li> #}
+        <li><a href="sprints/sprint7/mi/i4">Increment 4 dashboard</a></li>
+      </ol>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 5 & 6 – ID at risk, pushes and processing claims</h2>
+      <p>Capture iteration including new Id at risk flag for service centre agents.</p>
+      <p><a href="sprints/sprint5/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 4 – Error reduction, address finder</h2>
+      <p>Prototype scenarios for citizens to help find thier address.</p>
+      <p><a href="sprints/sprint4/screens">View sprint</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 3 – Fraud & CIS</h2>
+      <p>Prototype scenarios for service centre agents to help identify potential fraud.</p>
+
+      <p><a href="sprints/sprint3">Find a claim journey</a>.</p>
+
+      <ol class="govuk-list govuk-list--number">
+        <li><a href="sprints/sprint3/view-claim?scenario=1&claimant=sh&claimStatus=new-claim">Combined: CIS no match, multiple bank details</a></li>
+        <li><a href="sprints/sprint3/view-claim?scenario=2&claimant=kb&claimStatus=new-claim">Combined: CIS match, multiple emails</a></li>
+        <li><a href="sprints/sprint3/view-claim?scenario=3&claimant=sh&claimStatus=new-claim">Split: CIS no match, multiple bank details</a></li>
+        <li><a href="sprints/sprint3/view-claim?scenario=4&claimant=kb&claimStatus=new-claim">Split: CIS match, multiple emails</a></li>
+      </ol>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Sprint 1 & 2 Book appointment</h2>
+
+      <ul class="govuk-list govuk-list--unstyled">
+        <li><a href="agent/stage/2a">Service centre agent – Find a claim</a></li>
+        <li><a href="agent/stage/2b">Contact centre agent – Choose a task</a></li>
+        <li><a href="agent/stage/2b/view-claim?task=book&claimStatus=first-fail&claimant=kb">Contact centre agent – First fail</a></li>
+      </ul>
+
+      <p><a href="agent/stage/2b/update-radios?task=book">Update claim status screen – radio options</a></p>
+
+      <h3 class="govuk-heading-s">Management information</h3>
+      <ul class="govuk-list govuk-list--unstyled">
+        <li><a href="agent/mi/book-appointment/agent-performance">Agent performance – Version 1</a> – untested</li>
+        <li><a href="agent/mi/book-appointment?v=2">Claim statistics – Version 2, business requirement labels</a> – untested</li>
+        <li><a href="agent/mi/book-appointment">Claim statistics – Version 1, improved labels</a> – untested</li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      {# <h2><a href="increments">By increment</a></h2> #}
+      
+    </div>
+  </div>
+
+{% endblock %}

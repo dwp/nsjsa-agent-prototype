@@ -1,0 +1,270 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  NSJSA Automation Prototypes
+{% endblock %}
+
+{% block content %}
+
+{% set regTag %}
+    {{govukTag({
+        text: "Register",
+        classes: "govuk-tag--blue"
+    })}}
+{% endset %}
+
+{% set proTag %}
+    {{govukTag({
+        text: "Process",
+        classes: "govuk-tag--purple"
+    })}}
+{% endset %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">
+        Increment 4
+        <span class="govuk-caption-l">{{ data['i4Name'] }}</span>
+      </h1>
+
+      <p>Increment 4 introduces 2 buckets of claims, {{ regTag | safe }} and {{ proTag | safe }}.</p>
+
+      <p><a href="../understanding-exceptions">Understanding exceptions to automation</a>.</p>
+
+{# {{ data | dump('\t') }} #}
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      </div>
+    </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-m">Agent manual tasks</h2>
+
+    {{ govukTable({
+        caption: "Automation exceptions",
+        captionClasses: "govuk-table__caption--s",
+        firstCellIsHeader: true,
+        head: [
+            {
+                text: "ID"
+            },
+            {
+                text: "Scenario"
+            },
+            {
+                text: "Bucket"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "s1"
+            },
+            {
+                html: "<a href='start?s=s1'>A claim where we couldn't automate the registration</a> (ES push fail)"
+            },
+            {
+                html: regTag
+            }
+        ],
+        [
+            {
+                text: "s2"
+            },
+            {
+                html: "<a href='start?s=s2'>A claim where the NINo does not match CIS record</a>"
+            },
+            {
+                html: regTag
+            }
+          ],
+        [
+            {
+                text: "s3"
+            },
+            {
+                html: "<a href='start?s=s3'>A claim where we have duplicates</a>"
+            },
+            {
+                html: regTag
+            }
+          ],
+        [
+            {
+                text: "s4"
+            },
+            {
+                html: "<a href='start?s=s4'>A claim where we have a NINo that does not match CIS record and then has duplicates once NINo updated</a>"
+            },
+            {
+                html: regTag
+            }
+          ],
+          [
+            {
+                text: "s5"
+            },
+            {
+                html: "<a href='start?s=s5'>A claim from Northern Ireland</a>"
+            },
+            {
+                html: proTag
+            }
+          ],
+          [
+            {
+                text: "s6"
+            },
+            {
+                html: "<a href='start?s=s6'>A claim where an appointee is found</a>"
+            },
+            {
+                html: proTag
+            }
+          ],
+          [
+            {
+                text: "s7"
+            },
+            {
+                html: "<a href='start?s=s7'>A claim where data does not match CIS</a>"
+            },
+            {
+                html: proTag
+            }
+          ],
+            [
+                {
+                    text: "s8"
+                },
+                {
+                    html: "<a href='start?s=s8'>A claim where single application fraud rules are matched</a>"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s9"
+                },
+                {
+                    html: "<a href='start?s=s9'>A claim where multiple application fraud rules are matched</a>"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s10"
+                },
+                {
+                    html: "<a href='start?s=s10'>A claim with ID at risk flag</a>"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s11"
+                },
+                {
+                    html: "<a href='start?s=s11'>A claim with an automated build failure</a> (BA push fail)"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s12"
+                },
+                {
+                    html: "<a href='start?s=s12'>A claim without automatic NI contributions check</a> (MBR fail)"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s13"
+                },
+                {
+                    html: "<a href='start?s=s13'>A claim complex for robotics</a>"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s14"
+                },
+                {
+                    html: "<a href='start?s=s14'>A claim with robotics error</a>"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s15"
+                },
+                {
+                    html: "<a href='start?s=s15'>An entitled claim needing a decision note adding</a>"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s21"
+                },
+                {
+                    html: "<a href='start?s=s21'>A claim requiring a note in the benefit system</a>"
+                },
+                {
+                    html: proTag
+                }
+            ],
+            [
+                {
+                    text: "s22"
+                },
+                {
+                    html: "<a href='start?s=s22'>A claim requiring a full time work decision note in the benefit system</a>"
+                },
+                {
+                    html: proTag
+                }
+            ]
+        ]
+      }) }}
+
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <p>You can <a href="nino-search">find a claim</a> by its scenario number, for example: s3.</p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Management information</h2>
+      <p>Considered options for this increment.</p>
+      <ul class="govuk-list govuk-list--number">
+        <li><a href="mi">Dashboard view</a></li>
+        <li><a href="mi/choose-task">Tile view</a></li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

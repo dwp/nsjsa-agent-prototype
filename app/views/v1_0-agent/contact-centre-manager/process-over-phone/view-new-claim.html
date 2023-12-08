@@ -1,0 +1,79 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block header %}
+  {{ super() }}
+  {% if data['claimant'] == 'sh' %}
+    {% include 'v1_0-agent/claimants/sh/key-details.html' %}
+  {% elif data['claimant'] == 'kb' %}
+    {% include 'v1_0-agent/claimants/kb/key-details.html' %}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      {% include './includes/cis-unavailable-cc.html' %}
+      <section class="dwp-claim-section">
+        <h2 class="govuk-heading-m">Personal details</h2>
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Contact Number"
+        },
+        value: {
+        text: "01253 768542"
+        }
+    },{
+        key: {
+        text: "Home address"
+        },
+        value: {
+        html: "
+        <span class=govuk-!-display-block>31 All Saints Road</span>
+        <span class=govuk-!-display-block>Lytham St. Annes</span>
+        <span class=govuk-!-display-block>Lancashire</span>
+        <span class=govuk-!-display-block>FY8 1PL.</span>
+        "
+        }
+    },{
+        key: {
+        text: "Postal address"
+        },
+        value: {
+        text: "Not provided"
+        }
+    },{
+        key: {
+        text: "Not available on these days"
+        },
+        value: {
+        text: "Not Applicable"
+        }
+    }
+    ]
+}) }}
+      </section>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        {% include "./actions.html" %}
+        <h3 class="govuk-heading-m">Claim status history</h3>
+        {% if data['claimant'] == 'sh' %}
+          {% include 'v1_0-agent/claimants/sh/history.html' %}
+        {% elif data['claimant'] == 'kb' %}
+          {% include 'v1_0-agent/claimants/kb/history.html' %}
+        {% elif data['claimant'] == 'ij' %}
+          {% include 'v1_0-agent/claimants/ij/history.html' %}
+        {% else %}
+          <p>No claimant set.</p>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+{% endblock %}

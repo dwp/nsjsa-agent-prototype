@@ -1,0 +1,42 @@
+{% extends "layout-search-bar.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block header %}
+  {{ super() }}
+  {% if data['claimant'] == 'ij' %}
+    {% include 'v1_0-agent/claimants/ij/key-details.html' %}
+  {% elif data['claimant'] == 'kb' %}
+    {% include 'v1_0-agent/claimants/kb/key-details.html' %}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
+{% endblock %}
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+      {% if data['guidMismatch'] == '1' %}
+        {# include Simon Hamiltons nino as its default #}
+        {% include 'v1_0-agent/claimants/ij/mismatch.html' %}
+      {% endif %}
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
+      {% if data['claimant'] == 'ij' %}
+        {% include 'v1_0-agent/claimants/ij/customer-statement.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'v1_0-agent/claimants/kb/customer-statement.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+      <a href="claim-information" class="govuk-link">Return to claim</a>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {% include "./includes/actions_print.html" %}
+    </div>
+  </div>
+{% endblock %}

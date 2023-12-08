@@ -1,0 +1,44 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set subStatus = data['subStatus'] | replace("-", " ") %}
+
+{% block keyDetails %}
+  
+  {% if data['claimant'] == 'sh' %}
+    {% include './claimants/sh/key-details.html' %}
+  {% elif data['claimant'] == 'kb' %}
+    {% include './claimants/kb/key-details.html' %}
+  {% elif data['claimant'] == 'ij' %}
+    {% include './claimants/ij/key-details.html' %}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "The claim was updated",
+        html: claimStatus
+      }) }}
+
+      {{ govukButton({
+        text: "Get next claim",
+        href: "#"
+      }) }}
+
+      <p><a href="choose-task" class="govuk-link">Change task</a></p>
+
+    </div>
+    </div>
+  </div>
+{% endblock %}

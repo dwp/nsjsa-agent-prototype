@@ -1,0 +1,53 @@
+<section
+  class="dwp-print-hide">
+  {#	Claimant has asked to be written to in Welsh #}
+  {% if data['sc'] == 'welsh1' %}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body govuk-!-font-weight-bold">This claimant has asked us to write to them in Welsh.</p>
+      </div>
+    </div>
+    {#	Claimant has asked to be spoken to in Welsh #}
+  {% elif data['sc'] == 'welsh2' %}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body govuk-!-font-weight-bold">This claimant has asked us to speak to them in Welsh.</p>
+      </div>
+    </div>
+    {#	Claimant has asked to be written and spoken to in Welsh #}
+  {% else %}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body govuk-!-font-weight-bold">This claimant has asked us to speak and write to them in Welsh.</p>
+      </div>
+    </div>
+  {% endif %}
+</section>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">

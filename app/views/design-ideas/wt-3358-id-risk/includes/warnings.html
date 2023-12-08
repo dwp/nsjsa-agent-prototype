@@ -1,0 +1,171 @@
+<section
+  class="dwp-print-hide">
+  {#	Single ID@risk flag (Warning text) #}
+  {% if data['sc'] == 'sc1' %}
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        <span class="govuk-heading-m">Important</span>
+      </strong>
+      <p class="govuk-!-margin-bottom-0">This identity is at risk of fraud. You must send this case for review</p>
+    </div>
+    {#	Single ID@risk flag (Notification banner) #}
+  {% elif data['sc'] == 'sc2' %}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body govuk-!-font-weight-bold">This identity is at risk of fraud. You must send this case for review</p>
+      </div>
+    </div>
+    {#	ID@risk flag with multiple flags (Warning text) #}
+  {% elif data['sc'] == 'sc3' %}
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        <span class="govuk-heading-m">Important</span>
+      </strong>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+        <li>This identity is at risk of fraud. You must send this case for review</li>
+        <li>Claimant doesn’t match CIS record</li>
+      </div>
+      {#	ID@risk flag with multiple flags (Notification banner) #}
+    {% elif data['sc'] == 'sc4' %}
+      <div
+        class="govuk-notification-banner"
+        role="region"
+        aria-labelledby="govuk-notification-banner-title"
+        data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+            <li>
+              <strong>This identity is at risk of fraud. You must send this case for review</strong>
+            </li>
+            <li>
+              <strong>Claimant doesn’t match CIS record</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {#	CIS match - single flag (Warning text) #}
+    {% elif data['sc'] == 'sc5' %}
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          <span class="govuk-heading-m">Important</span>
+        </strong>
+        <p class="govuk-!-margin-bottom-0">Claimant name, date of birth and address matches CIS record</p>
+      </div>
+      {#	CIS match - single flag (Notification banner - blue) #}
+    {% elif data['sc'] == 'sc6' %}
+      <div
+        class="govuk-notification-banner"
+        role="region"
+        aria-labelledby="govuk-notification-banner-title"
+        data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body govuk-!-font-weight-bold">Claimant name, date of birth and address matches CIS record</p>
+        </div>
+        {#	CIS match - single flag (Notification banner - green) #}
+      {% elif data['sc'] == 'sc7' %}
+        <div
+          class="govuk-notification-banner govuk-notification-banner--success"
+          role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              CIS match
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-body govuk-!-font-weight-bold">Claimant name, date of birth and address matches CIS record</p>
+          </div>
+        </div>
+        {#	CIS match - multiple flags (Warning text) #}
+      {% elif data['sc'] == 'sc8' %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            <span class="govuk-heading-m">Important</span>
+          </strong>
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+            <li>This identity is at risk of fraud. You must send this case for review</li>
+            <li>Claimant name, date of birth and address matches CIS record</li>
+          </div>
+          {#	CIS match - multiple flags (Notification banner)#}
+        {% elif data['sc'] == 'sc9' %}
+          <div
+            class="govuk-notification-banner"
+            role="region"
+            aria-labelledby="govuk-notification-banner-title"
+            data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Important
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                <li>
+                  <strong>This identity is at risk of fraud. You must send this case for review</strong>
+                </li>
+                <li>
+                  <strong>Claimant name, date of birth and address matches CIS record</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {#	CIS match - multiple flags (Notification banner blue and green)#}
+        {% else %}
+          <div
+            class="govuk-notification-banner govuk-!-margin-bottom-5"
+            role="region"
+            aria-labelledby="govuk-notification-banner-title"
+            data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Important
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-body govuk-!-font-weight-bold">This identity is at risk of fraud. You must send this case for review</p>
+            </div>
+          </div>
+          <div
+            class="govuk-notification-banner govuk-notification-banner--success"
+            role="region"
+            aria-labelledby="govuk-notification-banner-title"
+            data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                CIS match
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-body govuk-!-font-weight-bold">Claimant name, date of birth and address matches CIS record</p>
+            </div>
+          {% endif %}
+        </section>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">

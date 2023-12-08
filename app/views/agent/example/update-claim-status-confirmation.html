@@ -1,0 +1,28 @@
+{% extends "agent/example/claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "The claim was updated",
+        html: claimStatus
+      }) }}
+
+      {{ govukButton({
+        text: "Get next claim"
+      }) }}
+
+      <p><a href="../workflow" class="govuk-link">Change work flow</a></p>
+
+    </div>
+    </div>
+  </div>
+{% endblock %}

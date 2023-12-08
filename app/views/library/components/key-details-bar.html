@@ -1,0 +1,107 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set subStatus = data['subStatus'] | replace("-", " ") %}
+
+{% block header %}
+{{ super() }}
+
+    <div class="govuk-width-container">
+        <h1 class="govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-6">Key details bar</h1>
+        <p><a href="https://design-system.dwp.gov.uk/key-details-bar">DWP Component library</a></p>
+    </div>
+    <div class="">
+        {% include '../screens/claimants/sh/key-details.html' %}
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full"> 
+      
+{{ govukTable({
+  caption: "Source of data",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Contains"
+    },
+    {
+      text: "Source"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Claimant name"
+      },
+      {
+        text: "Claim data"
+      }
+    ],
+    [
+      {
+        text: "National Insurance number"
+      },
+      {
+        text: "Claim data"
+      }
+    ],
+    [
+      {
+        text: "Date of birth"
+      },
+      {
+        text: "Claim data"
+      }
+    ],
+        [
+      {
+        text: "Postcode"
+      },
+      {
+        text: "Claim data"
+      }
+    ],
+        [
+      {
+        text: "Phone number"
+      },
+      {
+        text: "Claim data"
+      }
+    ],
+    [
+      {
+        text: "Date of claim"
+      },
+      {
+        text: "Claim data"
+      }
+    ],
+    [
+      {
+        text: "Current claim status"
+      },
+      {
+        text: "JSA System"
+      }
+    ]
+  ]
+}) }}
+
+    <h2 class="govuk-heading-m"><a href="/library#screens">Screens</a> displayed on:</h2>
+       <ul class="govuk-list govuk-list--bullet">
+        <li>View claim</li>
+        <li>Update claim status</li>
+        <li>Confirmation</li>
+      </ul>
+    </div>
+</div>
+{% endblock %}

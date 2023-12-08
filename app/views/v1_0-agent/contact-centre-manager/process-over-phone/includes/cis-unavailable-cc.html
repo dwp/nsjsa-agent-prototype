@@ -1,0 +1,19 @@
+{% if data['claimant'] == 'sh' %}
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-s govuk-!-margin-bottom-0">You will need to match claimant with the CIS record manually</span>
+    </strong>
+  </div>
+{% elif data['claimant'] == 'kb' %}
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-heading-s govuk-!-margin-bottom-0">Claimant doesn’t match CIS record</span>
+    </strong>
+  </div>
+{% else %}
+  <p></p>
+{% endif %}

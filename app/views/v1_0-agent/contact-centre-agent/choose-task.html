@@ -1,0 +1,94 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    Contact centre
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="process-over-phone/introduction"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Process a new claim
+          <br>
+            (over the phone)
+          </span>
+        </a>
+        {#
+                                            <a href="process-over-phone/introduction" class="tile tile--blue">
+                                              <div class="tile__contents">
+                                                <h2 class="tile__title">Process a new claim (over the phone)</h2>
+                                              </div>
+                                            </a>
+                                            #}
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a
+          href="book-appointment/view-claim?task=book&claimant=ij&claimStatus=awaiting-appointment&guidMismatch=0"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            Book an appointment
+          </span>
+        </a>
+        {#
+                                      <a
+                                        href="book-appointment/view-claim?task=book&claimant=ij&claimStatus=awaiting-appointment&guidMismatch=0"
+                                        class="tile tile--blue">
+                                        <div class="tile__contents">
+                                          <h2 class="tile__title">Book an appointment</h2>
+                                        </div>
+                                      </a>
+                                      #}
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <a
+          href="get-new-claim/view-claim?task=new&claimant=ij&claimStatus=new-claim&guidMismatch=0"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            Get a new claim
+          </span>
+        </a>
+        {#
+                                          <a href="get-new-claim/view-claim?task=new&claimant=ij&claimStatus=new-claim&guidMismatch=0" class="tile tile--blue">
+                                             <div class="tile__contents">
+                                              <h2 class="tile__title">Get a new claim</h2>
+                                              /div>
+                                           </a>
+                                            #}
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a
+          href="find-claim/nino-search"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            Find a claimant
+          </span>
+        </a>
+        {#
+                                <a href="find-claim/nino-search" class="tile tile--blue">
+                                  <div class="tile__contents">
+                                    <h2 class="tile__title">Find a claimant</h2>
+                                  </div>
+                                </a>
+                                #}
+      </div>
+    </div>
+  {% endblock %}

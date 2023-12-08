@@ -1,0 +1,71 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  What is the status of this claim?
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation" method="get">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            {% set govukWarningText %}
+            {{ govukWarningText({
+                  text: "This action cannot be reversed",
+                  iconFallbackText: "Warning"
+                }) }}
+            {% endset -%}
+            {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "escalated",
+                            text: "Escalated"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        }                       
+                    ]
+                }) }}
+          </fieldset>
+        </div>
+        {{ govukButton({
+            text: "Update claim status"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

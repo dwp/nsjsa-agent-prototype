@@ -1,0 +1,43 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">Service centre agent</span>
+    Choose a task
+  </h1>
+  {% if data['dupe'] == 1 %}
+    {% set url = 'duplicates' %}
+  {% else %}
+    {% set url = 'view-claim' %}
+  {% endif %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a href="{{ url }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">Register a claim</span>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="#"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">Process a claim</span>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="nino-search"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">Find a claim</span>
+      </a>
+    </div>
+  </div>
+{% endblock %}

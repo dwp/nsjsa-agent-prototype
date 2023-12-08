@@ -1,0 +1,44 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current employment</span>
+        Do you get paid for this voluntary work?
+      </h1>
+
+      <form action="get-paid" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "ce-get-paid",
+          name: "ceGetPaid",
+          items: [{
+            value: "ce-get-paid-yes",
+            text: "Yes",
+            checked: checked("ceGetPaid", "ce-get-paid-yes")
+          },
+          {
+            value: "ce-get-paid-no",
+            text: "No",
+            checked: checked("ceGetPaid", "ce-get-paid-no")
+          }]
+        })}}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

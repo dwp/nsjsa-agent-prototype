@@ -1,0 +1,16 @@
+<h3 class="govuk-heading-m">Claim actions</h3>
+<ul class="govuk-list">
+    <li>
+        <a href="view-claim">Update claim information</a>
+    </li>
+</ul>
+{% if (data['claimStatus'] != 'appointment-needed') %}
+    {% if (data['claimStatus'] != 'withdrawn') %}
+        <!-- // need to contact citizen for ni reconcile so need to park claim -->
+        {{ govukButton({
+        text: "Update claim status",
+        href: "update"
+    }) }}
+    {% endif %}
+{% endif %}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

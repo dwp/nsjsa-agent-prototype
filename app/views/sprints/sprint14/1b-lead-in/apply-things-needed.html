@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <div class="dwp-interruption govuk-!-margin-bottom-6" >
+
+            {# <span class="govuk-caption-l">1. {{ serviceName }}</span> #}
+            <h1 class="govuk-heading-l">Get your details ready</h1>
+            <h2 class="govuk-heading-m">You will need:</h2>
+            <ol class="govuk-list govuk-list--bullet">
+                <li>your National Insurance number</li>
+                <li>your bank or building society account details (or those of a family member or trusted friend)</li>
+                <li>your employment details for the past 6 months, including employer contact details and dates you worked with them</li>
+                <li>any private pension or annuity statement letter, if you get payments from one</li>
+            </ol>
+            {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "apply-expectations"
+            }) }}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

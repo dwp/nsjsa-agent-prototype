@@ -1,0 +1,324 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% block content %}
+
+{% set failHtml %}
+{{ govukCheckboxes({
+  idPrefix: "failed-contact",
+  name: "subStatus",
+  fieldset: {
+    legend: {
+      text: "What did you do?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "sms",
+      text: "Sent an SMS"
+    },
+    {
+      value: "voicemail",
+      text: "Left a voicemail"
+    },
+    {
+      value: "email",
+      text: "Sent an email"
+    },
+    {
+      value: "letter",
+      text: "Sent a JSA 164 letter"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set entitledHtml %}
+{{ govukRadios({
+  idPrefix: "entitled",
+  name: "subStatus",
+  fieldset: {
+    legend: {
+      text: "Is the claimant entitled?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  items: [
+    {
+      value: "entitled",
+      text: "Yes"
+    },
+    {
+      value: "Not entitled",
+      text: "No"
+    },
+    {
+        value: "Undecided",
+        text: "Undecided",
+        hint: {
+          text: "Give claim to a specialist agent for review."
+        }
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set pendingHtml %}
+{{ govukCheckboxes({
+  idPrefix: "pending",
+  name: "subStatus",
+  fieldset: {
+    legend: {
+      text: "Who needs to provide information?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "awaiting-claimant",
+      text: "Claimant"
+    },{
+      value: "awaiting-dwp",
+      text: "Internal DWP"
+    },{
+      value: "awaiting-third-party",
+      text: "Third party"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['task'] == 'fix' %}
+
+      <form action="confirmation" method="get">
+
+        {{ govukRadios({
+            idPrefix: 'status',
+            name: 'claimStatus',
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "Push fail fixed",
+                    text: "Push fail fixed"
+                },
+                {
+                    value: "pending",
+                    text: "Awaiting further information",
+                    conditional: {
+                      html: pendingHtml
+                    }
+                }                   
+            ]
+          })
+        }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+          
+      {% elif data['task'] == 'ID-template' %}
+
+      <form action="confirmation" method="get">
+
+        {{ govukRadios({
+            idPrefix: 'status',
+            name: 'claimStatus',
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "ID template created",
+                    text: "ID template created"
+                },
+                {
+                    value: "ID-not-verified",
+                    text: "ID template not created"
+                }                   
+            ]
+          })
+        }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      {% elif data['task'] == 'ID-check' %}
+
+      <form action="confirmation" method="get">
+
+        {{ govukRadios({
+            idPrefix: 'status',
+            name: 'claimStatus',
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "Failed to contact",
+                    text: "Failed to contact",
+                    conditional: {
+                      html: failHtml
+                    }
+                },
+                {
+                    value: "Awaiting evidence",
+                    text: "Awaiting evidence"
+                },
+                {
+                    value: "Suspected fraud",
+                    text: "Suspected fraud"
+                },
+                {
+                  divider: "or"
+                },
+                {
+                    value: "ID Verified",
+                    text: "ID Verified"
+                }       
+            ]
+        })
+        }}
+
+        {{ govukButton({
+            text: "Confirm"
+        }) }}
+
+      </form>
+
+      {% elif data['task'] == 'process' %}
+
+      <form action="confirmation" method="get">
+
+        {{ govukRadios({
+          idPrefix: "entitled",
+          name: "claimStatus",
+          fieldset: {
+            legend: {
+              text: "Update claim status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "entitled",
+              text: "Claim entitled"
+            },
+            {
+              value: "Not entitled",
+              text: "Claim not entitled"
+            },
+            {
+                value: "Entitlement undecided",
+                text: "Entitlement undecided",
+                hint: {
+                  text: "Give claim to a specialist agent for review."
+                }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+            text: "Confirm"
+        }) }}
+
+      </form>
+
+      {% elif data['task'] == 'ID-process' %}
+
+      <form action="confirmation" method="get">
+
+        {{ govukRadios({
+            idPrefix: 'status',
+            name: 'claimStatus',
+            fieldset: {
+              legend: {
+                text: "Update claim status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "Failed to contact",
+                    text: "Failed to contact",
+                    conditional: {
+                      html: failHtml
+                    }
+                },
+                {
+                    value: "Awaiting evidence",
+                    text: "Awaiting evidence"
+                },
+                {
+                    value: "Suspected fraud",
+                    text: "Suspected fraud"
+                },
+                {
+                  divider: "or"
+                },
+                {
+                    value: "ID Verified",
+                    text: "ID Verified",
+                    conditional: {
+                      html: entitledHtml
+                    }
+                }       
+            ]
+        })
+        }}
+
+        {{ govukButton({
+            text: "Confirm"
+        }) }}
+
+      </form>
+
+      {% else %}
+
+      <p>No ?task set!</p>
+
+      {% endif %}
+
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

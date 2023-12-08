@@ -1,0 +1,30 @@
+{% extends "./view-claim.html" %}
+
+{% block pageTitle %}
+  Select a status
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set subStatus = data['subStatus'] %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "The claim was updated",
+        html: claimStatus + ' – ' + data['subStatus']
+      }) }}
+
+      {{ govukButton({
+        text: "Get next claim",
+        href: "view-claim?claimStatus=ID-not-verified"
+      }) }}
+
+      <p><a href="choose-task" class="govuk-link">Go to start screen</a></p>
+
+    </div>
+    </div>
+  </div>
+{% endblock %}

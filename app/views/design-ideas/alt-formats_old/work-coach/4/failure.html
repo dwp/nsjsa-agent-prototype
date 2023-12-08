@@ -1,0 +1,29 @@
+{% extends "layout/base-no-search-bar.html" %}
+
+{% block pageTitle %}
+{{ serviceName }}: DWP Agent – Application error
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-9">Application notPushed</h1>
+      <p class="govuk-body-l">The claim for: <span class="govuk-!-font-weight-bold">QQ 12 34 56 D</span> was notPushed to JSAPS.</p>
+      {% if data['show'] == "esa" %}
+      <p>The claimant has a conflicting benefit for Employment and Support Allowance (ESA) outstanding. This existing ESA claim needs to be closed before you will ba able
+      to push the New Style JSA Application.</p>
+      {% elif data['show'] == "jsa" %}
+      <p>The claimant has an outstanding claim for Jobseeker's Allowance submitted within the past 30 days.</p>
+      {% elif data['show'] == "generic" %}
+      <p>The claimant has an outstanding claim for another benefit.</p>
+      {% endif %}
+      <p>You need to send the printed form to a service centre for clerical entry.</p>
+      <p><a href="/work-coach/4/1">Return to Application</a></p>
+
+    </div>
+  </div>
+{% endblock %}

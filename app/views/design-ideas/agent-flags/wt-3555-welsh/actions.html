@@ -1,0 +1,15 @@
+{% if data['claimStatus'] == 'not-pushed' %}
+    <p>
+        <a href="#">Find a claim</a>
+    </p>
+{% else %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {{ govukButton({
+    text: "Update claim status",
+    href: "#"
+}) }}
+    <p>
+        <a href="#">Find a claim</a>
+    </p>
+{% endif %}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

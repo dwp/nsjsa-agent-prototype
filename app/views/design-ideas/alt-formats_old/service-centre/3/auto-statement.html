@@ -1,0 +1,32 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  {% include "includes/print-header.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds dwp-print-hide">
+    <h1 class="govuk-heading-l govuk-viually-hidden">Claimant statement</h1>
+    <script>javascript:window.print();</script>
+  </div>
+  
+  <div class="govuk-grid-column-one-third govuk-align-right-from-desktop">
+    {{ govukButton({
+      text: "Print statement",
+      href: "javascript:window.print();"
+    }) }}
+  </div>
+</div>
+
+{% include "includes/gather.html" %}
+<div class="dwp-print-show">
+  {% include "includes/declaration.html" %}
+</div>
+
+{% endblock %}

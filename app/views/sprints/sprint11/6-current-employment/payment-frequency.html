@@ -1,0 +1,79 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+{#
+<p><strong>
+Note: The pound sign needs to be inside the input text box, this is styled by macros/macros.njk
+</strong></p>
+#}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current employment</span>
+        How often are you paid?
+      </h1>
+
+      <form action="payment-frequency" method="post">
+
+        {% set jobref = "job" + data["jobnum"] + "-" %}
+        {% set prefix = jobref + "current-employment-" %}
+
+        {{ govukRadios({
+          idPrefix: "current-work-paid",
+          name: jobref + "currentWorkPaid",
+          items: [{
+            value: "Weekly",
+            text: "Every week",
+            checked: checked(jobref + "currentWorkPaid", "Weekly"),
+            conditional: {
+              html: netPaymentAmountInput(prefix, "weekly")
+            }
+          }, {
+            value: "Fortnightly",
+            text: "Every 2 weeks",
+            checked: checked(jobref + "currentWorkPaid", "Fortnightly"),
+            conditional: {
+              html: netPaymentAmountInput(prefix, "fortnightly")
+            }
+          }, {
+            value: "FourWeekly",
+            text: "Every 4 weeks",
+            checked: checked(jobref + "currentWorkPaid", "FourWeekly"),
+            conditional: {
+              html: netPaymentAmountInput(prefix, "four-weekly")
+            }
+          }, {
+            value: "Monthly",
+            text: "Every month",
+            checked: checked(jobref + "currentWorkPaid", "Monthly"),
+            conditional: {
+              html: netPaymentAmountInput(prefix, "monthly")
+            }
+          }]
+        })}}
+
+      <!-- save the value from the last screen with the current job no -->
+      {{ govukInput({
+          type: "hidden",
+          id: jobref + "ceCurrentWorkType",
+          name: jobref + "ceCurrentWorkType",
+          value: data["ceCurrentWorkType"]
+        })  }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
