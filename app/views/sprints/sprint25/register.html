@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Register – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Register
+      </h1>
+      
+      <p class="govuk-body">Register so you can securely sign in whenever you use this service.</p>
+      
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p class="govuk-body">You will need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>an email address</li>
+        <li>a mobile phone</li>
+      </ul>
+
+      <p class="govuk-body">You will also need information from 2 sources so we can check we are dealing with the right person. These are:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a UK passport</li>
+        <li>payslips or P60</li>
+        <li>Self Assessment</li>
+        <li>information about tax credits, if you claim them</li>
+        <li>details of your credit record</li>
+      </ul>
+
+      <p><a href="" class="govuk-link">I do not have this information</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

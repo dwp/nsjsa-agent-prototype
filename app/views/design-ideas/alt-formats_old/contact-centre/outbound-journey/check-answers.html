@@ -1,0 +1,403 @@
+{% extends "layout/base-no-search-bar-no-back.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+{% set currentlyworking = false %}
+{% set jservice = false %}
+{% set resultjservice = "no" %}
+{% set startDateItems = todaysDate.original | moment %}
+
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Check your answers</h1>
+
+<section>
+  <h2 class="govuk-heading-l">Claim Start Date</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+
+    {% if data['claimstart'] != null %}
+      {% set startDateItems = data['claimStartDay'] + "/" + data['claimStartMonth'] + "/" + data['claimStartYear'] %}
+    {% endif %}
+
+    {% if data['mode'] === "agent"  %}
+      {{ checkAnswersItem("When do you want your claim to start?", startDateItems) }}
+    {% else %}
+      {{ checkAnswersItem("When do you want your claim to start?", startDateItems, false, "warning/claim-start-date") }}
+    {% endif %}
+
+  </dl>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Personal details</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("National Insurance number", data['national-insurance-number'], true, "#") }}
+    {% set nameitems = [data['title'], data['first-name'], data['last-name']] %}
+    {{ checkAnswersItem("Name", nameitems | join(" "), false, "#") }}
+    <!-- {{ checkAnswersItem("Partnership status", data['marital-status'], false, "details/about-you") }} -->
+
+    {% set dob = [data['dobDay'], data['dobMonth'], data['dobYear']] %}
+    {{ checkAnswersItem("Date of birth", dob | join(" "), false, "#") }}
+
+    {% set address = [data["address-line-1"], data["address-line-2"], data["address-town"], data["address-postcode"]] %}
+    {{ checkAnswersItem("Home address", address | join(","), false, "#") }}
+
+    {{ checkAnswersItem("Do you want to add a different address for your post?", "No", false) }}
+    <!--
+    {{ checkAnswersItem("Postal address", "1 Sample Lane, Sampletown. SA4 7SH. England.") }}
+    -->
+    {{ checkAnswersItem("Telephone number", data["contact-telephone-number"], false, "#") }}
+
+    {{ checkAnswersItem("Do you have an email we can contact you on?", "Yes", false) }}
+    {{ checkAnswersItem("What’s your email address?", data["contact-email"], false, "#") }}
+  </dl>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Alternative formats</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Do you need us to contact you in an alternative format?", "Yes", false) }}
+    {{ checkAnswersItem("What do you need in an alternative format?", "Letter and phone", false, "#") }}
+    {{ checkAnswersItem("What do you need instead of standard letters?", "Coloured paper and large print", false, "#") }}
+    {{ checkAnswersItem("What colour paper do you need?", "Pastel blue", false, "#") }}
+    {{ checkAnswersItem("What size font do you need?", "24", false) }}
+    {{ checkAnswersItem("What do you need instead of phone calls?", "Email, john.doe@example.com", false, "#") }}
+  </dl>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Bank details</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Bank details", "<strong>Account holder:</strong> John Smith<br><strong>Sort code:</strong> 15-00-11<br><strong>Account number:</strong> 1234567", false) }}
+  </dl>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Other benefits</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Are you waiting to hear about any other benefits?", "Yes", false) }}
+    {{ checkAnswersItem("What other benefits are you waiting to hear about?", "ESA, Hardship fund, housing") }}
+  </dl>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Jury service</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {% if data['juryService'] != null %}
+      {% set resultjservice = data['juryService'] | capitalize %}
+      {% set jservice = data['juryService'] == "yes" %}
+
+      {{ checkAnswersItem("Have you been on jury service in the last 12 weeks?", resultjservice, false, "#") }}
+      {% if jservice %}
+        {{ checkAnswersItem("When was the jury service?", "25/08/2018 – 3/9/2018") }}
+      {% endif %}
+    {% endif %}
+
+  </dl>
+</section>
+
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Current employment</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    <!-- start are you working -->
+    {% if data['ceCurrentlyWorking'] != null %}
+      {% set currentlyworking = data['ceCurrentlyWorking'] == "ce-currently-working-yes"  %}
+      {% if currentlyworking %}
+        {% set stringCurrentlyworking = "Yes" %}
+      {% else %}
+        {% set stringCurrentlyworking = "No" %}
+      {% endif %}
+      {{ checkAnswersItem("Are you in any form of work at the moment?", stringCurrentlyworking, false, "#") }}
+    {% endif %}
+
+    <!-- end are you working  -->
+  </dl>
+
+  {% if currentlyworking %}
+  <!-- start job 1 ___________________________________________________ -->
+  <section class="govuk-!-margin-top-6">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">First current employer</h3>
+      </div>
+    </div>
+    <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+
+      <!-- start type of work -->
+      {% set currentworkpaid = data['job1-ceCurrentWorkType'] == "Paid"  %}
+      {% if currentworkpaid %}
+        {% set stringCurrentWorkType = "Paid" %}
+      {% else %}
+        {% set stringCurrentWorkType = "Voluntary" %}
+      {% endif %}
+      {{ checkAnswersItem("Is this paid work or voluntary?", data['job1-ceCurrentWorkType']) }}
+      <!-- end type of work -->
+
+      <!-- start voluntary work -->
+        {% if currentworkpaid == false %}
+            {{ checkAnswersItem("Can you choose if you're paid for this voluntary work?", "No") }}
+            {{ checkAnswersItem("Do you get paid for this voluntary work?", "No") }}
+        {% endif %}
+      <!-- end voluntary work -->
+
+      <!-- start payment amount -->
+        {% set currentworkfrequency = data['job1-currentWorkPaid']  %}
+
+        {% set netPay = data['job1-current-employment--weekly-net'] %}
+        {% if currentworkfrequency == "Fortnightly" %}
+          {% set netPay = data['job1-current-employment--fortnightly-net'] %}
+        {% endif %}
+        {% if currentworkfrequency == "FourWeekly" %}
+          {% set netPay = data['job1-current-employment--four-weekly-net'] %}
+        {% endif %}
+        {% if currentworkfrequency == "Monthly" %}
+          {% set netPay = data['job1-current-employment--monthly-net'] %}
+        {% endif %}
+      <!-- end payment amount -->
+
+      {{ checkAnswersItem("How often are you paid?", currentworkfrequency) }}
+      {{ checkAnswersItem("What’s your net pay?", netPay) }}
+      {{ checkAnswersItem("What is the name of your current employer?", data['job1-ceEmployerName']) }}
+      {{ checkAnswersItem("What is the address of your current employer?", data['job1-ce-address-line-1']) }}
+      {{ checkAnswersItem("What is the phone number of your current employer (optional)?", data['job1-ce-telephone-number']) }}
+      {{ checkAnswersItem("How many hours a week do you normally work on this job?", data['job1-ceHoursWorkedAWeek']) }}
+      {{ checkAnswersItem("In this job are you self employed or a company director?", "No") }}
+    </dl>
+  </section>
+  <!-- end job 1 ___________________________________________________ -->
+   {% endif %}
+
+  {% if data["jobnum"] != null   %}
+    {% set numjobs = data["jobnum"] | last %}
+    {% if numjobs > 1 %}
+    <!-- start job 2 ___________________________________________________ -->
+    <section>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h3 class="govuk-heading-m">Second current employer</h3>
+        </div>
+      </div>
+      <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+      <!-- start type of work -->
+        {% set currentworkpaid = data['job2-ceCurrentWorkType'] == "Paid"  %}
+        {% if currentworkpaid %}
+          {% set stringCurrentWorkType = "Paid" %}
+        {% else %}
+          {% set stringCurrentWorkType = "Voluntary" %}
+        {% endif %}
+        {{ checkAnswersItem("Is this paid work or voluntary work?", data['job2-ceCurrentWorkType']) }}
+        <!-- end type of work -->
+
+        <!-- start voluntary work -->
+          {% if currentworkpaid == false %}
+              {{ checkAnswersItem("Can you choose if you're paid for this voluntary work?", "No") }}
+              {{ checkAnswersItem("Do you get paid for this voluntary work?", "No") }}
+          {% endif %}
+        <!-- end voluntary work -->
+
+        <!-- start payment amount -->
+          {% set currentworkfrequency = data['job2-currentWorkPaid']  %}
+
+          {% set netPay = data['job2-current-employment--weekly-net'] %}
+          {% if currentworkfrequency == "Fortnightly" %}
+            {% set netPay = data['job2-current-employment--fortnightly-net'] %}
+          {% endif %}
+          {% if currentworkfrequency == "FourWeekly" %}
+            {% set netPay = data['job2-current-employment--four-weekly-net'] %}
+          {% endif %}
+          {% if currentworkfrequency == "Monthly" %}
+            {% set netPay = data['job2-current-employment--monthly-net'] %}
+          {% endif %}
+        <!-- end payment amount -->
+
+        {{ checkAnswersItem("How often are you paid?", currentworkfrequency) }}
+        {{ checkAnswersItem("What’s your net pay?", netPay) }}
+        {{ checkAnswersItem("What is the name of your current employer?", data['job2-ceEmployerName']) }}
+        {{ checkAnswersItem("What is the address of your current employer?", data['job2-ce-address-line-1']) }}
+        {{ checkAnswersItem("What is the phone number of your current employer (optional)?", data['job2-ce-telephone-number']) }}
+        {{ checkAnswersItem("How many hours a week do you normally work on this job?", data['job2-ceHoursWorkedAWeek']) }}
+        {{ checkAnswersItem("In this job are you self employed or a company director?", "No") }}
+      </dl>
+
+    </section>
+    <!-- end job 2 ___________________________________________________ -->
+    {% endif %}
+  {% endif %}
+</section>
+
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Previous employment</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Have you had a job that ended in the last 6 months?", "Yes") }}
+  </dl>
+
+  <section class="govuk-!-margin-top-6">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">First previous employer</h3>
+      </div>
+
+    </div>
+    <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("When did you work for this employer?", "25/08/2018 – 3/9/2018") }}
+      {{ checkAnswersItem("Why did this job end?", "Other") }}
+      {{ checkAnswersItem("Can you provide more detail?", "I was bullied out of the job") }}
+      {{ checkAnswersItem("What is the name of your previous employer?", "Tesco") }}
+      {{ checkAnswersItem("What is the address of your previous employer?", "1 Sample Lane, Sampletown. SA4 7SH") }}
+      {{ checkAnswersItem("What is the telephone number of your previous employer (optional)?", "01234984123")}}
+      {{ checkAnswersItem("Were you self employed or a company director?", "Yes") }}
+      {{ checkAnswersItem("Do you expect to receive any payments because a job has ended in the last 6 months?", "Yes") }}
+      {{ checkAnswersItem("Who do you expect to make this payment?", "Tesco") }}
+    </dl>
+
+  </section>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Working or claiming benefit overseas</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Have you worked or claimed benefit outside the United Kingdom in last 4 years?", data['workBenefitAbroad'] | capitalize, false) }}
+  </dl>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Current pensions</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {% set hasPension = data["currentPensionGuard"] == "current-pension-guard-yes" %}
+    {{ checkAnswersItem("Are you getting money from a pension or annuity?", hasPension) }}
+  </dl>
+
+  <section class="govuk-!-margin-top-6">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">First current pension</h3>
+      </div>
+
+    </div>
+    <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("What’s the name of your pension or annuity provider?", "Tesco") }}
+      {{ checkAnswersItem("What is the address of your pension or annuity provider?", "2 Sample Lane, Sampletown. SA4 7SH") }}
+      <!-- {{ checkAnswersItem("When did the pension or annuity start?", "March 2018") }} -->
+      {{ checkAnswersItem("How often is your pension or annuity paid?", "Monthly") }}
+      {{ checkAnswersItem("What’s your gross pension?", "£238") }}
+      {{ checkAnswersItem("Does your pension increase in the next 6 months?", "Yes") }}
+      {{ checkAnswersItem("When will it increase?", "November") }}
+    </dl>
+
+  </section>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Deferred pensions</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Do you have a pension or annuity that you could be paid now, but have decided not to take?", "Yes") }}
+  </dl>
+
+  <section class="govuk-!-margin-top-6">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">First deferred pension</h3>
+      </div>
+
+    </div>
+    <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("What is the name of your pension or annuity provider?", "Tesco") }}
+      {{ checkAnswersItem("What is the address of your pension or annuity provider?", "2 Sample Lane, Sampletown. SA4 7SH") }}
+      <!-- {{ checkAnswersItem("When should the pension or annuity have started?", "March 2018") }} -->
+      {{ checkAnswersItem("How often should your deferred pension or annuity be paid?", "Monthly") }}
+      {{ checkAnswersItem("What’s your gross pension?", "£238") }}
+    </dl>
+
+  </section>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Future pensions</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Do you expect to start receiving a pension or annuity in the next 6 months?", "Yes") }}
+  </dl>
+
+  <section class="govuk-!-margin-top-6">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">First future pension</h3>
+      </div>
+
+    </div>
+    <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+      {{ checkAnswersItem("What is the name of your pension or annuity provider?", "Tesco") }}
+      {{ checkAnswersItem("What is the address of your pension or annuity provider?", "2 Sample Lane, Sampletown. SA4 7SH") }}
+      {{ checkAnswersItem("Do you know when this future pension or annuity starts?", "Yes") }}
+      {{ checkAnswersItem("When does the future pension or annuity start?", "February") }}
+      {{ checkAnswersItem("Do you know how much you’ll be paid for this future pension or annuity?", "Yes") }}
+      {{ checkAnswersItem("How often will your pension or annuity be paid?", "Quarterly") }}
+      {{ checkAnswersItem("What’s your gross pension?", "£622.50") }}
+    </dl>
+
+  </section>
+</section>
+
+<section>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h3 class="govuk-heading-m">Additional pensions</h3>
+      <p>You have entered a maximum number of 9 pensions. Please bring evidence of any other pensions to your job centre visit.</p>
+    </div>
+  </div>
+</section>
+
+<section class="govuk-!-margin-top-9">
+  <h2 class="govuk-heading-l">Education and training</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Have you been in education or training in the last 4 years?", "Yes", false) }}
+    {{ checkAnswersItem("What was the name of your course or training programme?", "BTEC National Diploma General Illustration") }}
+    {{ checkAnswersItem("What institution did this education or training happen?", "Mid-Cheshire College") }}
+    {{ checkAnswersItem("How many hours per week did you attend this education or training?", "12") }}
+    {{ checkAnswersItem("When did you attend this training or education?", "25/08/2017 – 3/9/2018") }}
+  </dl>
+</section>
+
+<section class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+  <h2 class="govuk-heading-l">Availability</h2>
+  <dl role="list" class="app-check-your-answers app-check-your-answers--long">
+    {{ checkAnswersItem("Are there any days and times that you won’t be able to attend a job centre interview in the next 5 days?", "Yes", false) }}
+    {{ checkAnswersItem("Tell us the days and times when you can’t attend the job centre for an interview.", "Mon 9 July (Morning) <br> Friday 13 July (Afternoon)") }}
+  </dl>
+</section>
+
+{# a bit hacky, but it ensures we go back to the correct 'screen' when updating... #}
+
+
+    <a href="index" role="button" class="govuk-button" data-module="govuk-button">
+      Update and return to application
+    </a>
+
+  <!-- <script type='text/javascript'>
+  function goBack()
+  {
+    window.history.go(-1);
+  }
+  </script> -->
+
+{# ... and now for the original code...
+
+  {% if data['mode'] === "agent"  %}
+  {{ govukButton({
+    text: "Update and return to application",
+    href: "index"
+  }) }}
+  {% else %}
+  {{ govukButton({
+    text: "Continue",
+    href: "declaration"
+  }) }}
+  {% endif %} #}
+
+{% endblock %}

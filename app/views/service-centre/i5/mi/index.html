@@ -1,0 +1,130 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  Managment information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+
+  {# override dwpHeader to go back to service start #}
+  {{ dwpHeader({
+    "homepageUrl": "/",
+    "serviceName": data['agentServiceName'],
+    "serviceUrl": "/service-centre/i4/end",
+    "containerClasses": "govuk-width-container"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      Application statistics
+      <span class="govuk-caption-l">for Monday 15 December 2021</span>
+    </h1>
+  </div>
+
+    <div class="govuk-grid-column-one-third">
+      <form action="" method="post">
+          {{ govukDateInput({
+              id: "report",
+              namePrefix: "report",
+              fieldset: {
+                  legend: {
+                  text: "Report date",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                  }
+              },
+              hint: {
+                  text: "For example, 19 10 2021"
+              }
+          }) }}
+          {{ govukButton({
+              text: "Submit"
+          }) }}
+      </form>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Overview</h2>
+
+    <dl class="govuk-grid-row govuk-list">
+
+      <div class="govuk-grid-column-one-third">
+        <dt class="govuk-caption-m">New claims<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-heading-xl govuk-!-padding-top-6 govuk-!-margin-left-0">{{ range(64, 512) | random }}</dd>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <dt class="govuk-caption-m">Total outstanding processable<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-heading-xl govuk-!-padding-top-1 govuk-!-margin-left-0">{{ range(64, 512) | random }}</dd>
+      </div>
+  
+      <div class="govuk-grid-column-one-third">
+        <dt class="govuk-caption-m">Total Withdrawn<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-heading-xl govuk-!-padding-top-6 govuk-!-margin-left-0">{{ range(0, 32) | random }}</dd>
+      </div>
+
+      <div class="govuk-grid-column-full">
+        <dt class="govuk-caption-m">Oldest claim<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-!-padding-top-1 govuk-!-margin-left-0">
+          <span class="govuk-heading-xl govuk-!-margin-bottom-0">RN&nbsp;00&nbsp;00&nbsp;35&nbsp;C</span>
+          <span>15th December 2021</span>
+        </dd>
+      </div>
+    </dl>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-padding-top-4">
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Registration</h2>
+
+    <dl class="govuk-grid-row govuk-list">
+
+      <div class="govuk-grid-column-one-half">
+        <dt class="govuk-caption-m">Outstanding processable<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-heading-xl govuk-!-padding-top-1 govuk-!-margin-left-0">{{ range(0, 256) | random }}</dd>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <dt class="govuk-caption-m">Volume in BF<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-heading-xl govuk-!-padding-top-1 govuk-!-margin-left-0">{{ range(64, 256) | random }}</dd>
+      </div>
+    </dl>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Processing</h2>
+
+    <dl class="govuk-grid-row govuk-list">
+
+      <div class="govuk-grid-column-one-half">
+        <dt class="govuk-caption-m">Outstanding processable<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-heading-xl govuk-!-padding-top-1 govuk-!-margin-left-0">{{ range(0, 256) | random }}</dd>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <dt class="govuk-caption-m">Volume in BF<span class="govuk-visually-hidden">:</span></dt>
+        <dd class="govuk-heading-xl govuk-!-padding-top-1 govuk-!-margin-left-0">{{ range(64, 256) | random }}</dd>
+      </div>
+    </dl>
+
+  </div>
+</div>
+
+{% endblock %}

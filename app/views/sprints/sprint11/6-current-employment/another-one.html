@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current employment</span>
+        Do you have another current paid or voluntary job?
+      </h1>
+
+      <form action="another-one" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ce-another-job",
+          name:  "ceAnotherJob",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "ce-another-job-yes",
+            text: "Yes"
+          }, {
+            value: "ce-another-job-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

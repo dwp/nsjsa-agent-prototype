@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Other benefits</span>
+        Are you waiting to hear about any other benefits?
+      </h1>
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ob-are-you",
+          name: "obAreYou",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "ob-are-you-yes",
+            text: "Yes"
+          }, {
+            value: "ob-are-you-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  {# {{ data | dump('\t') }}  #}
+  <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">Service centre agent</span>
+    Choose a task
+  </h1>
+  {% if data['task'] == 'process' %}
+    {% set processUrl = 'view-claim' %}
+    {% set registerUrl = '#' %}
+    {% set templateUrl = '#' %}
+    {% set idUrl = '#' %}
+    {% set fraudUrl = '#' %}
+    {% set specialistUrl = '#' %}
+    {% set appointeeUrl = '#' %}
+  {% elif data['task'] == 'register' %}
+    {% set processUrl = '#' %}
+    {% set registerUrl = 'view-claim' %}
+    {% set templateUrl = '#' %}
+    {% set idUrl = '#' %}
+    {% set fraudUrl = '#' %}
+    {% set specialistUrl = '#' %}
+    {% set appointeeUrl = '#' %}
+    {% if data['dupe'] == 1 %}
+      {% set registerUrl = 'duplicates' %}
+    {% endif %}
+  {% elif data['task'] == 'id-template' %}
+    {% set processUrl = '#' %}
+    {% set registerUrl = '#' %}
+    {% set templateUrl = 'view-claim' %}
+    {% set fraudUrl = '#' %}
+    {% set specialistUrl = '#' %}
+    {% set appointeeUrl = '#' %}
+  {% elif data['task'] == 'id-check' %}
+    {% set processUrl = '#' %}
+    {% set registerUrl = '#' %}
+    {% set templateUrl = '#' %}
+    {% set idUrl = 'view-claim' %}
+    {% set fraudUrl = '#' %}
+    {% set specialistUrl = '#' %}
+    {% set appointeeUrl = '#' %}
+  {% elif data['task'] == 'appointee' %}
+    {% set processUrl = '#' %}
+    {% set registerUrl = '#' %}
+    {% set templateUrl = '#' %}
+    {% set idUrl = '#' %}
+    {% set fraudUrl = '#' %}
+    {% set specialistUrl = '#' %}
+    {% set appointeeUrl = 'view-claim' %}
+  {% elif data['task'] == 'specialist-review' %}
+    {% set processUrl = '#' %}
+    {% set registerUrl = '#' %}
+    {% set templateUrl = '#' %}
+    {% set idUrl = '#' %}
+    {% set fraudUrl = '#' %}
+    {% set specialistUrl = 'view-claim' %}
+    {% set appointeeUrl = '#' %}
+    {% if data['dupe'] == 1 %}
+      {% set specialistUrl = 'duplicates' %}
+    {% endif %}
+  {% elif data['task'] == 'fraud-review' %}
+    {% set processUrl = '#' %}
+    {% set registerUrl = '#' %}
+    {% set templateUrl = '#' %}
+    {% set idUrl = '#' %}
+    {% set fraudUrl = 'view-claim' %}
+    {% set specialistUrl = '#' %}
+    {% set appointeeUrl = '#' %}
+  {% else %}
+    {% set registerUrl = '#' %}
+    {% set processUrl = '#' %}
+    {% set templateUrl = '#' %}
+    {% set idUrl = '#' %}
+    {% set fraudUrl = '#' %}
+    {% set specialistUrl = '#' %}
+    {% set appointeeUrl = '#' %}
+  {% endif %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a href="{{ registerUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">Register a claim ({{ range(52, 200) | random }})</span>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a href="{{ processUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">Process a claim ({{ range(52, 200) | random }})</span>
+          </a>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <a href="{{ appointeeUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">Appointee review ({{ range(5, 45) | random }})</span>
+            </a>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <a
+              href="nino-search"
+              role="link"
+              draggable="false"
+              class="govuk-panel govuk-button link-panel govuk-!-width-full"
+              data-module="govuk-button">
+              <span class="govuk-panel__title govuk-!-font-size-27">Find a claim</span>
+            </a>
+          </div>
+        </div>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          <h2 class="govuk-heading-m">Identity tasks</h2>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <a href="{{ templateUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+                <span class="govuk-panel__title govuk-!-font-size-27">Create an ID template ({{ range(31, 300) | random }})</span>
+                </a>
+              </div>
+              <div class="govuk-grid-column-one-half">
+                <a href="{{ idUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+                  <span class="govuk-panel__title govuk-!-font-size-27">Conduct an ID check ({{ range(31, 300) | random }})</span>
+                  </a>
+                </div>
+              </div>
+              <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                <h2 class="govuk-heading-m">Escalation tasks</h2>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half">
+                    <a href="{{ specialistUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+                      <span class="govuk-panel__title govuk-!-font-size-27">Specialist review({{ range(31, 300) | random }})</span>
+                      </a>
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+                      <a href="{{ fraudUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+                        <span class="govuk-panel__title govuk-!-font-size-27">Fraud review({{ range(31, 300) | random }})</span>
+                        </a>
+                      </div>
+                    </div>
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                      <h2 class="govuk-heading-m">Management information</h2>
+                      <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+                          <a
+                            href="mi"
+                            role="link"
+                            draggable="false"
+                            class="govuk-panel govuk-button link-panel govuk-!-width-full"
+                            data-module="govuk-button">
+                            <span class="govuk-panel__title govuk-!-font-size-27">View management information</span>
+                          </a>
+                        </div>
+                      </div>
+                    {% endblock %}

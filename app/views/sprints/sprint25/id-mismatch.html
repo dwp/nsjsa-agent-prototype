@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  ID Mismatch – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Sorry, we could not sign you in
+      </h1>
+      
+      <p class="govuk-body">[INSERT SUPPORT INSTRUCTIONS]</p>
+      <p class="govuk-body">[INSERT ACTION]</p>
+
+    </div>
+  </div>
+
+{% endblock %}

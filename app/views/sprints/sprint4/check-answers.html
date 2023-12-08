@@ -1,0 +1,723 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent %}
+  {# Remove the "< Back" button from this instance of the template #}
+{% endblock %}
+
+{% block content %}
+
+  {% set currentlyworking = false %}
+  {% set jservice = false %}
+  {% set resultjservice = "no" %}
+  {# {% set startDateItems = todaysDate.original | moment %} #}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <!-- APPLICATION START DATE -->
+      <h2 class="govuk-heading-l">Application start date</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: "22/07/2020"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- PERSONAL DETAILS -->
+      <h2 class="govuk-heading-l">Personal details</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "National Insurance number"
+            },
+            value: {
+              text: "QQ 12 34 56 C"
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Phillips"
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/about-you",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              html: "27 11 1972"
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/dob",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Home address"
+            },
+            value: {
+              html: '1 Sample Lane, Sampletown. SA4 7SH'
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/address",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Do you want to add a different address for your post?"
+            },
+            value: {
+              text: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/address-is-it-postal",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Telephone number"
+            },
+            value: {
+              text: "01234984123"
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/contact-phone",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Do you have an email we can contact you on?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/contact-do-you-have-an-email",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What’s your email address?"
+            },
+            value: {
+              html: 'sarah.phillips@example.com'
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/contact-email",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- BANK DETAILS -->
+      <h2 class="govuk-heading-l">Bank details</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Bank details"
+            },
+            value: {
+              html: "<strong>Account holder:</strong> John Smith<br>
+                <strong>Sort code:</strong> 15-00-11<br>
+                <strong>Account number:</strong> 1234567"
+            },
+            actions: {
+              items: [
+                {
+                  href: "3-details/bank-account",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- OTHER BENEFITS -->
+      <h2 class="govuk-heading-l">Other benefits</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Are you waiting to hear about any other benefits?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "4-other-benefits",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What other benefits are you waiting to hear about?"
+            },
+            value: {
+              html: "ESA, Hardship fund, housing"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- JURY SERVICE -->
+      <h2 class="govuk-heading-l">Jury service</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Have you been on jury service in the last 12 weeks?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "5-jury-service",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "When was the jury service?"
+            },
+            value: {
+              html: "25/08/2018 – 03/09/2018"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- CURRENT EMPLOYMENT -->
+      <h2 class="govuk-heading-l">Current employment</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Are you in any form of work at the moment?"
+            },
+            value: {
+              html: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "6-current-employment",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- PREVIOUS EMPLOYMENT -->
+      <h2 class="govuk-heading-l">Previous employment</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Have you had a job that ended in the last 6 months?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- FIRST PREVIOUS EMPLOYMENT -->
+      <div class="govuk-grid-column-three-quarters">
+        <h3 class="govuk-heading-m">First previous employer</h3>
+      </div>
+      <div class="govuk-grid-column-one-quarter govuk-align-right">
+        <a href="7-previous-employment/when-employer" class="govuk-body">Change</a>
+      </div>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "When did you work for this employer?"
+            },
+            value: {
+              html: "25/08/2018 – 3/9/2018"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Why did this job end?"
+            },
+            value: {
+              html: "Other"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Can you provide more detail?"
+            },
+            value: {
+              html: "I was bullied out of the job"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the name of your previous employer?"
+            },
+            value: {
+              html: "Tesco"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the address of your previous employer?"
+            },
+            value: {
+              html: "1 Sample Lane, Sampletown. SA4 7SH"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the telephone number of your previous employer (optional)?"
+            },
+            value: {
+              html: "01234984123"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Were you self employed or a company director?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Do you expect to receive any payments because a job has ended in the last 6 months?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Who do you expect to make this payment?"
+            },
+            value: {
+              html: "Tesco"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-9">
+        <a href="#" class="govuk-body">Add another employer</a>
+      </div>
+      <div class="govuk-grid-column-one-quarter govuk-align-right govuk-!-margin-bottom-9">
+        <a href="#" class="govuk-body">Remove employer details</a>
+      </div>
+
+      <!-- WORKING OR CLAIMING BENEFITS ABROAD -->
+      <h2 class="govuk-heading-l">Working or claiming benefit overseas</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Have you worked or claimed benefit outside the United Kingdom in last 4 years?"
+            },
+            value: {
+              html: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "8-abroad",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- CURRENT PENSIONS -->
+      <h2 class="govuk-heading-l">Current pensions</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Are you getting money from a pension or annuity?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <!-- FIRST CURRENT PENSION -->
+      <div class="govuk-grid-column-three-quarters">
+        <h3 class="govuk-heading-m">First current pension</h3>
+      </div>
+      <div class="govuk-grid-column-one-quarter govuk-align-right">
+        <a href="9-pensions/9a-current-pension/provider-name" class="govuk-body">Change</a>
+      </div>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "What’s the name of your pension or annuity provider?"
+            },
+            value: {
+              html: "Tesco"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the address of your pension or annuity provider?"
+            },
+            value: {
+              html: "2 Sample Lane, Sampletown. SA4 7SH"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "How often is your pension or annuity paid?"
+            },
+            value: {
+              html: "Monthly"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What’s your gross pension?"
+            },
+            value: {
+              html: "£238"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does your pension increase in the next 6 months?"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "When will it increase?"
+            },
+            value: {
+              html: "November"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-9">
+        <a href="#" class="govuk-body">Add another current pension</a>
+      </div>
+      <div class="govuk-grid-column-one-quarter govuk-align-right govuk-!-margin-bottom-9">
+        <a href="#" class="govuk-body">Remove pension details</a>
+      </div>
+
+
+      <!-- EDUCATION AND TRAINING -->
+      <h2 class="govuk-heading-l">Education and training</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Have you been in education or training in the last 4 years?"
+            },
+            value: {
+              text: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "10-education",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What was the name of your course or training programme?"
+            },
+            value: {
+              text: "BTEC National Diploma General Illustration"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What institution did this education or training happen?"
+            },
+            value: {
+              text: "Mid-Cheshire College"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "How many hours per week did you attend this education or training?"
+            },
+            value: {
+              html: "12"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "When did you attend this training or education?"
+            },
+            value: {
+              html: "25/08/2017 – 3/9/2018"
+            },
+            actions: {
+              items: [
+                {
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      {{ govukButton({
+  text: "Continue",
+  href: "declaration"
+}) }}
+
+    {% endblock %}

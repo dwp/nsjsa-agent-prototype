@@ -1,0 +1,49 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Initial work search interview</h1>
+    {% include "includes/markers/esa.html" %}
+
+    <section>
+      <h2 class="govuk-heading-m">Claimant's evidence to check</h2>
+      <dl role="list" class="app-check-your-answers app-check-your-answers--short">
+        {{ checkAnswersItem("Primary ID", "One <a href='https://www.gov.uk/jobseekers-allowance/your-jsa-interview'>primary identity document</a>") }}
+        {{ checkAnswersItem("Secondary ID", "Two <a href='https://www.gov.uk/jobseekers-allowance/your-jsa-interview'>secondary identity documents</a>") }}
+        {{ checkAnswersItem("Jury service", "A letter from the court to prove when the jury service ended") }}
+        {{ checkAnswersItem("Current employment", "5 payslips relating to their weekly or fortnightly paid job(s)") }}
+        {{ checkAnswersItem("Previous employment", "A <a href='https://www.gov.uk/paye-forms-p45-p60-p11d'>P45</a> from previous employer") }}
+        {{ checkAnswersItem("Previous employment", "Wage slips and/or supporting letter to confirm their payments from their previous employer(s)") }}
+        {{ checkAnswersItem("Pensions", "Proof of any pension(s)") }}
+      </dl>
+    </section>
+
+    <section class="govuk-!-margin-top-9">
+      <h2 class="govuk-heading-m">Additional forms</h2>
+      <dl role="list" class="app-check-your-answers app-check-your-answers--short">
+        {{ checkAnswersItem("JSA5", "Back dating your JSA claim") }}
+        {{ checkAnswersItem("ES567SJP", "Attending a training or education course") }}
+        {{ checkAnswersItem("ST1", "Student or ex student") }}
+        {{ checkAnswersItem("VOLWORK1JP", "Voluntary working") }}
+        {{ checkAnswersItem("B16", "Self employed or company director") }}
+        {{ checkAnswersItem("B7", "Part time working") }}
+        {{ checkAnswersItem("ES84JP", "Claimant has indicated they left a previous job voluntarily") }}
+      </dl>
+    </section>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-align-right-from-desktop">
+    <a href="javascript:window.print();" class="govuk-button">Print cover sheet</a><br>
+    <a href="statement" class="dwp-print-hide">View statement</a>
+  </div>
+</div>
+
+{% endblock %}

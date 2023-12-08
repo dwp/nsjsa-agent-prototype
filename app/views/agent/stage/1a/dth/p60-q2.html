@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" action="" name="">
+
+            <div class="govuk-form-group">
+                <span class="govuk-caption-xl">
+                    Your pay
+                </span>
+
+                <h1 class="govuk-heading-xl">
+                    How much National Insurance did you pay last year?
+                </h1>
+
+                <div id="benefit-amount-hint" class="govuk-hint">
+                    <p>You can find the amount on the right-hand side under the header 'Employee's contributions due
+                        on all earnings above the PT (Primary Threshold)'.</p>
+                    <p>Enter the exact amount, including pence. For example 836.16</p>
+                </div>
+                <div class="currency-input">
+                    <div class="currency-input__symbol" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-10" id="benefit-amount" name="benefit-amount" type="text" aria-describedby="amount-currency">
+                </div>
+
+                
+            </div>
+
+            <a class="govuk-button" href="../complete-confirmation?id=not-verified">Continue</a>
+
+        </form>
+
+        <p class="body-text"><a href="./more-information.html">I don't have that information</a></p>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "layout/unbranded-agent.html" %}
+{% extends "agent/layout.html" %}
 {% block pageTitle %}
   {{ serviceName }}: DWP Agent – Find a claim
 {% endblock %}
@@ -9,6 +9,7 @@
       class="govuk-grid-column-two-thirds">
       {# shows error message for invalid nino format #}
       {% if data['show'] == "invalid" %}
+        <h1 class="govuk-heading-l">Find a claim</h1>
         <div class="govuk-error-summary" data-module="govuk-error-summary">
           <div role="alert">
             <h2 class="govuk-error-summary__title">
@@ -24,7 +25,6 @@
           </div>
         </div>
         <div class="govuk-form-group govuk-form-group--error">
-          <h1 class="govuk-heading-l">Find a claim</h1>
           <label class="govuk-label" for="nino">
             Enter the claimant's National Insurance number
           </label>
@@ -50,6 +50,7 @@
           </p>
           {# shows error message when field left blank #}
         {% elif data['show'] == "blank" %}
+          <h1 class="govuk-heading-l">Find a claim</h1>
           <div class="govuk-error-summary" data-module="govuk-error-summary">
             <div role="alert">
               <h2 class="govuk-error-summary__title">
@@ -65,7 +66,6 @@
             </div>
           </div>
           <div class="govuk-form-group govuk-form-group--error">
-            <h1 class="govuk-heading-l">Find a claim</h1>
             <label class="govuk-label" for="nino">
               Enter the claimant's National Insurance number
             </label>
@@ -93,7 +93,7 @@
           {% elif data['show'] == "claimant" %}
             <h1 class="govuk-heading-l">Claimant not found</h1>
             <p class="govuk-body-l">The system does not hold a record for the National Insurance Number:
-              <strong>RN001000A</strong>
+              <strong>CC000049A</strong>
             </p>
             {{ govukButton({
         text: "Try again",

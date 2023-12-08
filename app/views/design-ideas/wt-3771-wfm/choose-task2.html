@@ -1,42 +1,7 @@
-{% extends "layout/unbranded-agent-id.html" %}
+{% extends "layout-agent-id.html" %}
 {% block pageTitle %}
   Service centre - {{ serviceName }}
 {% endblock %}
-{% from "internal-service-header/macro.njk" import dwpHeader %}
-{% from "internal-service-footer/macro.njk" import dwpFooter %}
-{% block header %}
-  {{ dwpHeader({
-name: data['agentServiceName'],
-action: "Staff number: 88776655",
-actionHref: "#",
-serviceHref: '/',
-container:true
-}) }}
-{% endblock %}
-{% block footer %}
-  {{ dwpFooter({
-  meta: {
-    visuallyHiddenTitle: "Meta links",
-    items: [
-    {
-      href: "#",
-            text: "Accessibility statement"
-    },
-    {
-      href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-    },
-    {
-      href: "/prototype-admin/clear-data",
-            text: "Clear data"
-    }
-    ]
-  }
-}) }}
-{% endblock %}
-{% set htmlClasses = htmlClasses | default("dwp-agent-layout") %}
-{# reset auto spacing from layout.html #}
-{% set mainClasses = mainClasses | default("") %}
 {% block beforeContent %}
   {{ govukBackLink({
   text: "Back to scenario screen",
@@ -135,7 +100,7 @@ container:true
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">00000002</td>
                       <td class="govuk-table__cell">6 November 2023 at 9:21am</td>
-                      <td class="govuk-table__cell">RN 00 00 35 A</td>
+                      <td class="govuk-table__cell">SW 12 34 56 A</td>
                       <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--blue">
                           Paused
@@ -148,7 +113,7 @@ container:true
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">00000002</td>
                       <td class="govuk-table__cell">4 November 2023 at 4:21pm</td>
-                      <td class="govuk-table__cell">RN 00 00 35 A</td>
+                      <td class="govuk-table__cell">RN 00 00 35 C</td>
                       <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--blue">
                           Paused
@@ -213,7 +178,7 @@ container:true
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">00000002</td>
                       <td class="govuk-table__cell">3 November 2023 at 11:21am</td>
-                      <td class="govuk-table__cell">RN 00 00 35 A</td>
+                      <td class="govuk-table__cell">SW 12 34 56 A</td>
                       <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--blue">
                           Paused
@@ -226,7 +191,7 @@ container:true
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">00000002</td>
                       <td class="govuk-table__cell">3 November 2023 at 10:43am</td>
-                      <td class="govuk-table__cell">RN 00 00 35 A</td>
+                      <td class="govuk-table__cell">RN 00 00 35 C</td>
                       <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--blue">
                           Paused
@@ -291,7 +256,7 @@ container:true
                   </tbody>
                 </table>
               </div>
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="escalated">
+              <div class="govuk-tabs__panel" id="escalated">
                 <h2 class="govuk-heading-l">Escalated</h2>
                 <table class="govuk-table">
                   <thead class="govuk-table__head">
@@ -385,7 +350,7 @@ container:true
                   </tbody>
                 </table>
               </div>
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="suspected-fraud">
+              <div class="govuk-tabs__panel" id="suspected-fraud">
                 <h2 class="govuk-heading-l">Suspected fraud</h2>
                 <table class="govuk-table">
                   <thead class="govuk-table__head">
@@ -401,7 +366,7 @@ container:true
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">00000002</td>
                       <td class="govuk-table__cell">4 November 2023 at 9:21am</td>
-                      <td class="govuk-table__cell">RN 00 00 35 A</td>
+                      <td class="govuk-table__cell">SW 12 34 56 A</td>
                       <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--blue">
                           Suspected fraud
@@ -469,7 +434,7 @@ container:true
                 </div>
               </form>
               <h2 class="govuk-heading-m">
-                Last updated by agent ID 88776655
+                Last updated by agent ID 00000001
               </h2>
               {# AGENT 1 - TABS #}
               <div class="govuk-tabs" data-module="govuk-tabs">
@@ -507,9 +472,9 @@ container:true
                     </thead>
                     <tbody class="govuk-table__body">
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">6 November 2023 at 9:21am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">SW 12 34 56 A</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -520,9 +485,9 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">4 November 2023 at 4:21pm</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">RN 00 00 35 C</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -533,7 +498,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">4 November 2023 at 11:21am</td>
                         <td class="govuk-table__cell">QQ 12 34 56 X</td>
                         <td class="govuk-table__cell">
@@ -546,7 +511,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">3 November 2023 at 3:12pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -559,7 +524,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">3 November 2023 at 2:32pm</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -572,7 +537,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">3 November 2023 at 1:38pm</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">
@@ -585,9 +550,9 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">3 November 2023 at 11:21am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">SW 12 34 56 A</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -598,9 +563,9 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">3 November 2023 at 10:43am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">RN 00 00 35 C</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -611,7 +576,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">2 November 2023 at 2:34pm</td>
                         <td class="govuk-table__cell">QQ 12 34 56 X</td>
                         <td class="govuk-table__cell">
@@ -624,7 +589,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">2 November 2023 at 1:57pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -637,7 +602,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">2 November 2023 at 11:04am</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -650,7 +615,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">1 November 2023 at 2:38pm</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">
@@ -663,9 +628,9 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">1 November 2023 at 9:54am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">SW 12 34 56 A</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -676,9 +641,9 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">1 November 2023 at 9:07am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">RN 00 00 35 C</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -689,7 +654,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">31 October 2023 at 2:21pm</td>
                         <td class="govuk-table__cell">QQ 12 34 56 X</td>
                         <td class="govuk-table__cell">
@@ -702,7 +667,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">31 October 2023 at 12:12pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -715,9 +680,9 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">31 October 2023 at 11:41am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">SW 12 34 56 A</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -728,9 +693,9 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">31 October 2023 at 10:21am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">RN 00 00 35 C</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Paused
@@ -741,7 +706,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">30 October 2023 at 11:31am</td>
                         <td class="govuk-table__cell">QQ 12 34 56 X</td>
                         <td class="govuk-table__cell">
@@ -754,7 +719,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">30 October 2023 at 10:12am</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -783,7 +748,7 @@ container:true
                     </thead>
                     <tbody class="govuk-table__body">
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">6 November 2023 at 4:12pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -796,7 +761,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">6 November 2023 at 11:04am</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -809,7 +774,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">3 November 2023 at 2:38pm</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">
@@ -822,7 +787,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">2 November 2023 at 3:12pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -835,7 +800,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">2 November 2023 at 11:15am</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -848,7 +813,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">1 November 2023 at 2:08pm</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">
@@ -861,7 +826,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">1 November 2023 at 10:12am</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -874,7 +839,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">31 October 2023 at 4:04pm</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -887,7 +852,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">31 October 2023 at 1:33pm</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">
@@ -900,7 +865,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">30 October 2023 at 2:12pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -913,7 +878,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">27 October 2023 at 11:24am</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -926,7 +891,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">27 October 2023 at 10:38am</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">
@@ -955,9 +920,9 @@ container:true
                     </thead>
                     <tbody class="govuk-table__body">
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">4 November 2023 at 9:21am</td>
-                        <td class="govuk-table__cell">RN 00 00 35 A</td>
+                        <td class="govuk-table__cell">SW 12 34 56 A</td>
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--blue">
                             Suspected fraud
@@ -968,7 +933,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">2 November 2023 at 3:12pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -981,7 +946,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">2 November 2023 at 11:04am</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -994,7 +959,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">31 October 2023 at 2:12pm</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">
@@ -1007,7 +972,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">27 October 2023 at 2:18pm</td>
                         <td class="govuk-table__cell">RN 00 00 10 A</td>
                         <td class="govuk-table__cell">
@@ -1020,7 +985,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">27 October 2023 at 11:31am</td>
                         <td class="govuk-table__cell">CC 12 34 56 A</td>
                         <td class="govuk-table__cell">
@@ -1033,7 +998,7 @@ container:true
                         </td>
                       </tr>
                       <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">88776655</td>
+                        <td class="govuk-table__cell">00000001</td>
                         <td class="govuk-table__cell">25 October 2023 at 4:36pm</td>
                         <td class="govuk-table__cell">SJ 12 34 56 C</td>
                         <td class="govuk-table__cell">

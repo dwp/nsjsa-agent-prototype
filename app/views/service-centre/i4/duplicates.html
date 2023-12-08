@@ -1,0 +1,239 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+
+{% block header %}
+
+  {# override dwpHeader to go back to service start #}
+  {{ dwpHeader({
+    "homepageUrl": "/",
+    "serviceName": data['agentServiceName'],
+    "serviceUrl": "/service-centre/i4/end",
+    "containerClasses": "govuk-width-container"
+  }) }}
+
+  {# not sure what this does other than include dwp header #}
+  {# {{ super() }} #}
+
+{% endblock %}
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+<div class="govuk-grid-row dwp-print-hide">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-l govuk-!-margin-top-4">There are 5 matching applications</h1>
+{% set summary %}
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "National Insurance number (NINo)"
+      },
+      value: {
+        text: data['nino']
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "21 July 1970"
+      }
+    }
+  ]
+}) }}
+{% endset %}
+
+{{ govukInsetText({
+  html: summary
+}) }}
+
+{% set newTag %}
+{{ govukTag({
+  text: "New claim"
+}) }}
+{% endset %}
+
+{% set regTag %}
+{{ govukTag({
+  text: "Not registered"
+}) }}
+{% endset %}
+
+{% set sfTag %}
+{{ govukTag({
+  text: "Suspected fraud"
+}) }}
+{% endset %}
+
+{% set wdTag %}
+{{ govukTag({
+  text: "Withdrawn"
+}) }}
+{% endset %}
+
+{% set apptTag %}
+{{ govukTag({
+  text: "Awaiting appointment"
+}) }}
+{% endset %}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">Newest application</h2>
+        {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "<a title=View-claim href=view-claim?claimant=kb&claimStatus=not-registered&dupe=1&previous-employment=1&niMatchCis=0>Karan Bhopal</a>"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: regTag
+                }
+            ]
+        ]
+        }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application</h2>
+
+        {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "<a title=View-claim href=view-claim?claimant=kb&claimStatus=awaiting-appointment&dupe=1&previous-employment=0&niMatchCis=0>Karan Bhopal</a>"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:22am"
+                },
+                {
+                    html: apptTag
+                }
+            ]
+        ]
+        }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">Other applications</h2>
+
+    {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    html: "<a title=View-claim href=view-claim?claimant=kb&claimStatus=not-registered&dupe=1&previous-employment=0&niMatchCis=0>Karan Bhopal</a>"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:34pm"
+                },
+                {
+                    html: regTag
+                }
+            ],
+            [
+                {
+                    html: "<a title=View-claim href=view-claim?claimant=kb&claimStatus=not-registered&dupe=1&niMatchCis=0>Karan Bhopal</a>"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "12:31pm"
+                },
+                {
+                    html: regTag
+                }
+            ],
+            [
+                {
+                    html: "<a title=View-claim href=view-claim?claimant=kb&claimStatus=not-registered&dupe=1&previous-employment=0&niMatchCis=0>Karan Bhopal</a>"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:56am"
+                },
+                {
+                    html: regTag
+                }
+            ]
+        ]
+    }) }}
+
+  </div>
+
+
+
+</div>
+
+{% endblock %}

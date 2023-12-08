@@ -1,0 +1,45 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Push | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  
+<div class="govuk-grid-row govuk-!-margin-top-7 dwp-print-hide">
+  <div class="govuk-grid-column-two-thirds ">
+    <h1 class="govuk-heading-l">Push claim</h1>
+    
+    {% if data['status'] === "pushed" %}
+    <p>Claim has been pushed</p>
+
+    {% elif data['status'] === "notPushed" %}
+    <p>You should only push the claim once the initial work search interview has taken place and the interview
+    checklist has been completed.</p>
+    {{ govukButton({
+      text: "Push claim",
+      href: "success"
+    }) }}
+
+    {% elif data['status'] === "push failed"  %}
+    {{ govukWarningText({
+      html: "The push failed",
+      iconFallbackText: "Warning",
+      classes: "dwp-print-hide"
+    }) }}
+    <p>Send the printed form to a service centre for clerical entry.</p>
+    {% else %}
+    <p>???</p>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

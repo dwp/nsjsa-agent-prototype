@@ -1,0 +1,49 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Initial work search interview</h1>
+
+    {% if data['status'] == "clerical" %}
+    {{ govukWarningText({
+      text: "Claimant has existing interest in an incompatible benefit",
+      iconFallbackText: "Warning"
+    }) }}
+    {% else %}
+      {% include "includes/cis-flags.html" %}
+    {% endif %}
+
+    {% include "includes/evidence-checkboxes.html" %}
+    {% include "includes/details-id.html" %}
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> 
+    {% include "includes/forms-checkboxes.html" %}
+    <a href="javascript:window.print();" class="govuk-button govuk-!-margin-bottom-0">Print cover sheet</a>
+  </div>
+  <div class="govuk-grid-column-one-third dwp-print-hide">
+    <aside class="app-related-items govuk-!-margin-top-0" role="complementary">
+      <h3 class="govuk-heading-m" id="claim-actions-title">Claim actions</h3>
+      <nav role="navigation" aria-labelledby="claim-actions-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li><a href="customer-statement">View customer statement</a></li>
+          <li><a href="https://apply-for-jobseekers-allowance.herokuapp.com/citizen/check-answers?mode=agent">Update claim information</a></li>
+          {% if data['status'] != "clerical" %}
+          <li><a href="push?status=notPushed">Push claim to JSAPS</a></li>
+          {% endif %}
+          <li><a href="cancel?status=notPushed">Cancel claim</a></li>
+        </ul>
+      </nav>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> 
+    </aside>
+  </div>
+</div>
+
+{% endblock %}

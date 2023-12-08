@@ -1,0 +1,100 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Previous employment</span>
+        When did you work for this employer?
+      </h1>
+
+      <form action="why-end" method="post">
+
+        {{ govukDateInput({
+          id: 'pe-when-employer-start',
+          name: 'peWhenEmployerStart',
+          fieldset: {
+            legend: {
+                text: 'Start date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          hint: {
+              text: "For example, 31 3 2018"
+          },
+          items: [
+            {
+              name: 'peStartDay',
+              value: data['pe-when-employer-start-day'],
+              classes: 'govuk-input--width-2',
+              label: 'Day'
+            },
+            {
+              name: 'peStartMonth',
+              value: data['pe-when-employer-start-month'],
+              classes: 'govuk-input--width-2',
+              label: 'Month'
+            },
+            {
+              name: 'peStartYear',
+              value: data['pe-when-employer-start-year'],
+              classes: 'govuk-input--width-4',
+              label: 'Year'
+            }
+          ]
+          })
+        }}
+
+        {{ govukDateInput({
+          id: 'pe-when-employer-finish',
+          name: 'peWhenEmployerFinish',
+          fieldset: {
+            legend: {
+                text: 'End date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          hint: {
+              text: "For example, 31 3 2018"
+          },
+          items: [
+            {
+              name: 'peFinishDay',
+              value: data['pe-when-employer-finish-day'],
+              classes: 'govuk-input--width-2',
+              label: 'Day'
+            },
+            {
+              name: 'peFinishMonth',
+              value: data['pe-when-employer-finish-month'],
+              classes: 'govuk-input--width-2',
+              label: 'Month'
+            },
+            {
+              name: 'peFinishYear',
+              value: data['pe-when-employer-finish-year'],
+              classes: 'govuk-input--width-4',
+              label: 'Year'
+            }
+          ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

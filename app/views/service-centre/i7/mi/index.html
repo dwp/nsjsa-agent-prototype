@@ -1,0 +1,51 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      All applications for today
+      <span class="govuk-caption-l">Monday 15 December 2021</span>
+    </h1>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">Overview</h2>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Submitted</span>
+            <p class="govuk-heading-xl">{{ range(74, 400) | random }}</p>
+        </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Registration</h2>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Total exceptions</span>
+            <p class="govuk-heading-xl">{{ range(52, 200) | random }}</p>
+        </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Processing</h2>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Total exceptions</span>
+            <p class="govuk-heading-xl">{{ range(52, 200) | random }}</p>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

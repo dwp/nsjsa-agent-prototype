@@ -1,0 +1,102 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Claim information</h1>
+    {% include "../../../includes/flags2.html" %}
+    <table class="govuk-table govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+      <caption class="govuk-table__caption govuk-heading-m">Alternative formats</caption>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Do you need us to contact you in an alternative format?</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">
+                    Yes
+                </td>
+            </tr>
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">What do you need in an alternative format?</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Letter and phone</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">What do you need instead of standard letters?</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Coloured paper and large print</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">What colour paper do you need?</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Pastel blue</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">What size font do you need?</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">18</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">What do you need instead of phone calls?</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Email, john.doe@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+    <section>
+        <h2 class="govuk-heading-m">Evidence to check</h2>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>One 'primary' identity document</li>
+            <li>Two 'secondary' identity documents</li>
+            <li>Proof of any pension(s)</li>
+        </ul>
+    </section>
+
+
+    <details class="govuk-details dwp-print-hide" data-module="govuk-details">
+        <summary class="govuk-details__summary" aria-controls="details-content">
+            <span class="govuk-details__summary-text">Help with identity documents</span>
+        </summary>
+        <div class="govuk-details__text" id="details-content">
+
+            <h3 id="primary-identity-documents">Primary identity documents</h3>
+            <p>Examples include:</p>
+            <ul>
+                <li>current passport</li>
+                <li>driving licence</li>
+                <li>biometric residence permit</li>
+                <li>certificate of naturalisation as a British citizen</li>
+                <li>permanent residence card</li>
+            </ul>
+            <h3 id="secondary-identity-documents">Secondary identity documents</h3>
+            <p>Examples of proof of date of birth include:</p>
+            <ul>
+                <li>birth certificate</li>
+                <li>marriage certificate</li>
+                <li>NHS medical card</li>
+            </ul>
+            <p>Examples of proof of address include a recent:</p>
+            <ul>
+                <li>utility bill</li>
+                <li>bank statement</li>
+                <li>Council Tax bill</li>
+            </ul>
+
+        </div>
+    </details>
+  </div>
+  <div class="govuk-grid-column-one-third dwp-print-hide">
+    <aside class="app-related-items govuk-!-margin-top-0" role="complementary">
+      <h3 class="govuk-heading-m" id="claim-actions-title">Claim actions</h3>
+      <nav role="navigation" aria-labelledby="claim-actions-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li><a href="customer-statement">View customer statement</a></li>
+        </ul>
+      </nav>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </aside>
+  </div>
+</div>
+
+{% endblock %}

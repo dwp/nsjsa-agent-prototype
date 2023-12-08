@@ -1,0 +1,37 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  NSJSA Automation Prototypes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l">MVP</h1>
+      <h2 class="govuk-heading-m">JSAPS Pushes and process claims bucket</h2>
+
+      <h3 class="govuk-heading-s">Register claim scenarios</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="choose-task?task=register&claimStatus=not-registered&claimant=sh&nino=RN 00 00 35 C&idRisk=0&fraud=0&cis=0&dupe=0&niMatchCis=0&noReg=1">NINo Mismatch</a></li>
+        <li><a href="choose-task?task=register&claimStatus=not-registered&claimant=sh&nino=RN 00 00 35 C&idRisk=0&fraud=0&cis=0&dupe=1&niMatchCis=1&noReg=1">Duplicates</a></li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      
+      <h3 class="govuk-heading-s">Process claim scenarios</h3>
+      <p>To add </p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-s">Management information</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="mi">Dashboard view</a></li>
+        {# <li><a href="mi/choose-task">Tile view</a></li> #}
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

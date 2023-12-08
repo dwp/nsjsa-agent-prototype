@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Personal details</span>
+        Confirm your address
+      </h1>
+
+      {% if data['results'] == '27' %}
+
+        <p>1 address found for <strong>{{ data['property'] }}</strong> and <strong class="uc">AB31 5PY</strong>.</p>
+        {% set addressHtml %}
+          Mill Cottage<br>
+          Silverbank<br>
+          Banchory<br>
+          <span class='uc'>AB31 5PY</span>
+        {% endset %}
+
+      {% elif data['results'] == '1' %}
+        <p>1 address found for <strong class="uc">EC1A 1AA</strong>.</p>
+        {% set addressHtml %}
+          185 Farringdon Road<br>
+          London<br>
+          <span class='uc'>EC1A 1AA</span>
+        {% endset %}
+      {% endif %}
+
+      {{ govukInsetText({
+        html: addressHtml
+      }) }}
+
+
+      {{ govukButton({
+        text: "Use this address",
+        href: "address-is-it-postal"
+      }) }}
+
+      <p><a href="postcode">Use a different address</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

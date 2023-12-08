@@ -1,0 +1,26 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="outside-uk">
+
+        <h1 class="govuk-heading-l">You have entered {{ maxPreviousJobs }} maximum jobs</h1>
+        <p>If you did have more than {{ maxPreviousJobs }} in last 6 months, please bring evidence of these to your JSA interview.</p>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

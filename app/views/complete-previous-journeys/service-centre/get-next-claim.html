@@ -1,0 +1,79 @@
+{% extends "layout/summary-no-search-bar.html" %}
+
+{% block pageTitle %}
+Outbound journey - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+      text: "Back"
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-!-margin-top-8">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {# LEFT HANDSIDE - CHECK CLAIM DETAILS #}
+        {# Following include is the claim 'check your answers' detail for ease of maintenance #}
+
+        {% include "../includes/sc-claim-details.html" %}
+
+      </div>
+
+      {# RIGHT HANDSIDE #}
+      <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items govuk-!-margin-top-0" role="complementary">
+
+          {# CLAIM STATUS HISTORY #}
+
+          {% set items = [] %}
+          {% for claimStatus in selectedClaimStatuses %}
+            {% if claimStatus.label == "Success" or claimStatus.label == "Final fail" or claimStatus.label == "Cancelled" %}{% endif %}
+
+            {% set items = items | push({
+              heading: claimStatus.label,
+              subheading: claimStatus.reason or '',
+              author: loggedInAgent.firstName + " " + loggedInAgent.lastName,
+              date: claimStatus.date | momentFormat1
+            }) %}
+
+          {% endfor %}
+
+          {# Make the statuses date descending ordered #}
+          {% set items = items | reverse %}
+          <h3 class="govuk-heading-m" id="subsection-title">Claim status history</h3>
+
+          <nav role="navigation" aria-labelledby="claim-actions-title">
+            {{ govukCheckboxes({
+            idPrefix: "allocate",
+            name: "allocate",
+            classes: "govuk-checkboxes--small",
+            items: [
+              {
+                value: "allocate",
+                text: "Allocate label TBC"
+              }
+            ]
+          }) }}
+
+            {{ govukButton({
+            text: "Update claim status",
+            preventDoubleClick: true,
+            href: "index"
+          }) }}
+          </nav>
+
+          {{ dwpTimeline({
+            items: items
+          }) }}
+
+        </aside>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

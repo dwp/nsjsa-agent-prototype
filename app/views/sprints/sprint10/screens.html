@@ -1,0 +1,23 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  NSJSA Automation Prototypes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l">Sprint 10</h1>
+      <h2 class="govuk-heading-m">Duplicate claims and NINo mismatches</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="choose-task?task=register&claimStatus=registration-needed&claimant=sh&nino=RN 00 00 35 C&idRisk=0&fraud=0&cis=0&dupe=0&niMatchCis=0&noReg=1">NINo Mismatch</a></li>
+        <li><a href="choose-task?task=register&claimStatus=registration-needed&claimant=sh&nino=RN 00 00 35 C&idRisk=0&fraud=0&cis=0&dupe=1&niMatchCis=1&noReg=1">Duplicates</a></li>
+      </ul>
+      
+    </div>
+  </div>
+
+{% endblock %}

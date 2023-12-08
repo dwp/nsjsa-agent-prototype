@@ -1,0 +1,70 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block header %}
+  {# override dwpHeader to go back to service start #}
+  {{ dwpHeader({
+        "homepageUrl": "/",
+        "serviceName": data['agentServiceName'],
+        "serviceUrl": "/service-centre/i4/end",
+        "containerClasses": "govuk-width-container"
+    }) }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  {# {{ data | dump('\t') }}  #}
+  <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">Service centre agent</span>
+    Choose a task
+  </h1>
+  {% if data['task'] == 'process' %}
+    {% set processUrl = 'r-view-claim' %}
+    {% set registerUrl = '#' %}
+  {% elif data['task'] == 'register' %}
+    {% set processUrl = '#' %}
+    {% set registerUrl = 'view-claim' %}
+    {% if data['dupe'] == 1 %}
+      {% set registerUrl = 'duplicates' %}
+    {% endif %}
+  {% else %}
+    {% set registerUrl = '#' %}
+    {% set processUrl = '#' %}
+  {% endif %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a href="{{ registerUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Register a claim ({{ range(52, 200) | random }})
+          </span>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a href="{{ processUrl }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+          <span class="govuk-panel__title govuk-!-font-size-27">
+            Process a claim ({{ range(52, 200) | random }})
+            </span>
+          </a>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <a
+            href="nino-search"
+            role="link"
+            draggable="false"
+            class="govuk-panel govuk-button link-panel govuk-!-width-full"
+            data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">Find a claim</span>
+          </a>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <a
+            href="mi"
+            role="link"
+            draggable="false"
+            class="govuk-panel govuk-button link-panel govuk-!-width-full"
+            data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">View management information</span>
+          </a>
+        </div>
+      </div>
+    {% endblock %}

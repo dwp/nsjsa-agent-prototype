@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current pension</span>
+        Are you getting money from a pension or annuity?
+      </h1>
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "current-pension-guard",
+          name: "currentPensionGuard",
+          classes: "govuk-radios--inline",
+          hint: {
+            html: '<p>If you have more than one pension you will be able to tell us about the others later.</p>
+            <p>A <strong>pension</strong> represents the savings you draw on after you retire from a job, or reach retirement age.</p>
+            <p>An <strong>annuity</strong> is an insurance product that allows you to swap your pension savings for a guaranteed regular income that will last for the rest of your life.</p>
+            '
+          },
+          items: [{
+            value: "current-pension-guard-yes",
+            text: "Yes"
+          }, {
+            value: "current-pension-guard-no",
+            text: "No"
+          }]
+        }) }}
+
+  </p>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

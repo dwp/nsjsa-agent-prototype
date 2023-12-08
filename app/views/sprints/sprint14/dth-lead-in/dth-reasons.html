@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <div class="dwp-interruption govuk-!-margin-bottom-6" >
+
+            <h1 class="govuk-heading-l">We need to check who you are</h1>
+            <h2 class="govuk-heading-m">To complete the identity check, you must create an account</h2>
+            <h3 class="govuk-heading-s">You will need:</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a mobile phone number</li>
+                <li>an email address</li>
+            </ul>
+
+            <h3 class="govuk-heading-s">Completing the identity check online:</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                
+                {# <li>helps us check it's really you applying</li> #}
+                {# <li>helps us check your eligibility for {{ data['serviceShortName'] }} sooner</li> #}
+               <li>involves telling us some of your application details&nbsp;again</li>
+               <li>can speed up your application</li>
+            </ul>
+
+            {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+
+            {{ govukButton({
+                text: "Start identity check",
+                href: "../dth"
+            }) }}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -2,8 +2,6 @@
 {% block pageTitle %}
   Select a status
 {% endblock %}
-{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
 {% block content %}
   {{ govukBackLink({
   text: "Back",

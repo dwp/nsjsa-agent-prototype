@@ -1,0 +1,95 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Education and training</span>
+        When did you attend this course?
+      </h1>
+
+      <form action="course-duration" method="post">
+
+        {{ govukDateInput({
+          id: 'edu-when-education-start',
+          name: 'eduWhenEducationStart',
+          fieldset: {
+            legend: {
+                text: 'Start date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          hint: {
+              text: "For example, 1 9 2018"
+          },
+          items: [
+            {
+              name: 'day',
+              value: data['edu-when-education-start-day'],
+              classes: 'govuk-input--width-2'
+            },
+            {
+              name: 'month',
+              value: data['edu-when-education-start-month'],
+              classes: 'govuk-input--width-2'
+            },
+            {
+              name: 'year',
+              value: data['edu-when-education-start-year'],
+              classes: 'govuk-input--width-4'
+            }
+          ]
+          })
+        }}
+
+        {{ govukDateInput({
+          id: 'edu-when-education-finish',
+          name: 'eduWhenEducationFinish',
+          fieldset: {
+            legend: {
+                text: 'End date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          hint: {
+
+            html: 'For example, 24 9 2019<br>This needs to be the official end date of the whole course'
+          },
+          items: [
+            {
+              name: 'day',
+              value: data['edu-when-education-finish-day'],
+              classes: 'govuk-input--width-2'
+            },
+            {
+              name: 'month',
+              value: data['edu-when-education-finish-month'],
+              classes: 'govuk-input--width-2'
+            },
+            {
+              name: 'year',
+              value: data['edu-when-education-finish-year'],
+              classes: 'govuk-input--width-4'
+            }
+          ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

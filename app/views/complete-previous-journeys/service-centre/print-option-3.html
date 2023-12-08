@@ -1,0 +1,56 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Print claim details
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row  dwp-print-hide">
+  <div class="govuk-grid-column-two-thirds">
+
+  <form action="print-option-3" method="post">
+    {{ govukRadios({
+      idPrefix: "next",
+      name: "next",
+      fieldset: {
+        legend: {
+          text: "What do you want to do now?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        },
+        classes: "govuk-!-margin-top-8"
+      },
+      items: [
+        {
+          value: "return",
+          text: "Return to the service centre list"
+        },
+        {
+          value: "print",
+          text: "Print claim again"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    </form>
+  </div>
+</div>
+
+<div class="dwp-print-show">
+  {% include "includes/print-header.html" %}
+  {% include "includes/gather.html" %}
+  {% include "includes/declaration.html" %}
+</div>
+
+<script>javascript:window.print();</script>
+{% endblock %}

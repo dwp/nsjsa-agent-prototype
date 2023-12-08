@@ -1,0 +1,35 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-4 dwp-print-hide">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Customer statement</h1>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-align-right-from-desktop">
+    {{ govukButton({
+      text: "Print customer statement",
+      href: "javascript:window.print();"
+    }) }}
+  </div>
+
+</div>
+
+{% include "includes/print-header.html" %}
+{% include "includes/gather.html" %}
+<div class="dwp-print-show">
+  {% include "includes/declaration.html" %}
+</div>
+
+<p class="govuk-!-margin-top-8"><a href="/features/alt-formats/work-coach/claim2">Return to claim</a></p>
+
+{% endblock %}

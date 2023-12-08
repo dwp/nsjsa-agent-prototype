@@ -1,0 +1,44 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Previous employment</span>
+        What is the name of your previous employer?
+      </h1>
+
+      <form action="address" method="post">
+
+        {% call govukFieldset({
+        }) %}
+
+            {{ govukInput({
+                label: {
+                    text: "Previous employer name",
+                    classes: "govuk-visually-hidden"
+                },
+                classes: "govuk-input--width-20",
+                id: "pe-employer-name",
+                name: "peEmployerName",
+                value: data['pe-employer-name']
+            }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

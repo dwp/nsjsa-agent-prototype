@@ -1,0 +1,81 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l govuk-!-margin-top-4">
+            Agent performance <span class="govuk-caption-l">Tuesday 19 October 2021 to Thursday 21 October 2021</span>
+        </h1>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <form action="" method="post">
+            {{ govukDateInput({
+                id: "start-report",
+                namePrefix: "start-report",
+                fieldset: {
+                    legend: {
+                    text: "Start date",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                hint: {
+                    text: "For example, 19 10 2021"
+                }
+            }) }}
+            {{ govukDateInput({
+                id: "end-report",
+                namePrefix: "end-report",
+                fieldset: {
+                    legend: {
+                    text: "End date",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                hint: {
+                    text: "For example, 19 10 2021"
+                }
+            }) }}
+            {{ govukButton({
+                text: "Submit"
+            }) }}
+        </form>
+    </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">New claims
+        <span class="govuk-caption-m">Tuesday 19 October 2021 to Thursday 21 October 2021</span>
+    </h2>
+
+    {% include "agent/mi/book-appointment/table/agent-new-claims.html" %}
+
+    <h2 class="govuk-heading-m">Appointment booking
+        <span class="govuk-caption-m">Tuesday 19 October 2021 to Thursday 21 October 2021</span>
+    </h2>
+
+    {% include "agent/mi/book-appointment/table/agent-ba-claims.html" %}
+
+    {{ govukButton({
+        html: "Download CSV"
+    }) }}
+
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+
+
+
+  <section class="dwp-claim-section dwp-print-no-break">
+    <h2 class="govuk-heading-m">Personal details</h2>
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Email address"
+          },
+          value: {
+            text: "Not provided"
+          }
+        }, {
+          key: {
+            text: "Home address"
+          },
+          value: {
+            html: "
+              <span class=govuk-!-display-block>35 Walpole Avenue</span>
+              <span class=govuk-!-display-block>Blackpool</span>
+              <span class=govuk-!-display-block>Lancashire</span>
+              <span class=govuk-!-display-block>FY4 1SF.</span>
+            "
+          }
+        }, {
+          key: {
+            text: "Postal address"
+          },
+          value: {
+            text: "Not provided"
+          }
+        }
+      ]
+    }) }}
+  </section>
+
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">Local office</h2>
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Telephone"
+        },
+        value: {
+          html: "
+              0800 169 0190<br>
+              Welsh language 0345 604 4248
+            "
+        }
+      }, {
+        key: {
+          text: "Name"
+        },
+        value: {
+          text: "Blackpool Jobcentre"
+        }
+      }, {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "
+              <span class='dwp-print-block'>1 Pike Road</span><br>
+              <span class='dwp-print-block'>Blackpool</span><br>
+              <span class='dwp-print-block'>Lancashire</span><br>
+              <span class='dwp-print-block'>FY3 4FF.</span>
+            "
+          }
+        }
+    ]
+  }) }}
+</section>

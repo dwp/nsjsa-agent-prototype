@@ -1,0 +1,42 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Contact centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <div class="govuk-!-margin-top-6">
+    <h1 class="govuk-heading-l">Contact Centre</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <a href="#" class="tile tile--blue">
+          <div class="tile__contents">
+            <h2 class="tile__title">Process a new claim (over the phone)</h2>
+          </div>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a href="/features/alt-formats/contact-centre/outbound-journey/" class="tile tile--blue">
+          <div class="tile__contents">
+            <h2 class="tile__title">Book an appointment for an online claim</h2>
+          </div>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a href="/features/alt-formats/common/nino-search" class="tile tile--blue">
+          <div class="tile__contents">
+            <h2 class="tile__title">Find a claimant</h2>
+          </div>
+        </a>
+      </div>
+      {% if loggedInAgent.type != agentTypes[0].type %}
+        <div class="govuk-grid-column-one-half">
+          <a href="/features/alt-formats/contact-centre/management-dashboard" class="tile tile--blue">
+            <div class="tile__contents">
+              <h2 class="tile__title">View management information</h2>
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

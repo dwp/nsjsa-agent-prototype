@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Application start date</span>
+        Have you been in paid work since 22 July 2020?
+      </h1>
+      <p>You will be able to tell us about any current and previous work later in the application.</p>
+      <form action="any-paid-work" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "ce-currently-working",
+          name: "ceCurrentlyWorking",
+          hint: {
+            text: ""
+          },
+          items: [{
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "unable-to-work"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

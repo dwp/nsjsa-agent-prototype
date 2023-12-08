@@ -1,0 +1,32 @@
+{% set r = [0, 1, 2, 3] | random %}
+{% set list = [
+  "Claimant doesn't match CIS record",
+  "Claimant has existing interest in an incompatible benefit",
+  "Claimant has appointee"] 
+%}
+{% set randomList = list | randomise(r) %}
+
+{% if randomList.length >= 1 %}
+  <section class="dwp-print-hide">
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        {% if randomList.length > 1 %}
+          <span class="govuk-heading-m govuk-!-margin-bottom-0">CIS markers</span>
+        {% else %}
+          <span class="govuk-!-margin-bottom-0">{{ randomList[0] }}</span>
+        {% endif %}
+      </strong>
+    </div>
+
+    {% if randomList.length > 1 %}
+      <ul class="govuk-list govuk-list--bullet">  
+        {% for item in randomList %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+{% endif %}

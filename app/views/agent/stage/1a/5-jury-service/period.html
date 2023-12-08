@@ -1,0 +1,100 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Jury service</span>
+        When was this jury service?
+      </h1>
+
+      <form action="period" method="post">
+
+        {{ govukDateInput({
+          id: 'jury-service-start',
+          name: 'juryServiceStart',
+          fieldset: {
+            legend: {
+              text: 'Start date',
+              isPageHeading: false,
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          hint: {
+            html: 'For example, ' + todaysDate.original | moment('subtract', 12, 'months')
+          },
+          items: [
+            {
+              name: 'juryStartDay',
+              value: data['jury-service-start-day'],
+              classes: 'govuk-input--width-2',
+              label: 'Day'
+            },
+            {
+              name: 'juryStartMonth',
+              value: data['jury-service-start-month'],
+              classes: 'govuk-input--width-2',
+              label: 'Month'
+            },
+            {
+              name: 'juryStartYear',
+              value: data['jury-service-start-year'],
+              classes: 'govuk-input--width-4',
+              label: 'Year'
+            }
+          ]
+          })
+        }}
+
+        {{ govukDateInput({
+          id: 'jury-service-finish',
+          name: 'juryServiceFinish',
+          fieldset: {
+            legend: {
+              text: 'End date',
+              isPageHeading: false,
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          hint: {
+            html: 'For example, ' + todaysDate.original | moment
+          },
+          items: [
+            {
+              name: 'juryFinishDay',
+              value: data['jury-service-finish-day'],
+              classes: 'govuk-input--width-2',
+              label: 'Day'
+            },
+            {
+              name: 'juryFinishMonth',
+              value: data['jury-service-finish-month'],
+              classes: 'govuk-input--width-2',
+              label: 'Month'
+            },
+            {
+              name: 'juryFinishYear',
+              value: data['jury-service-finish-year'],
+              classes: 'govuk-input--width-4',
+              label: 'Year'
+            }
+          ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

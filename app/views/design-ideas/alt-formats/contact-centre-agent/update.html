@@ -2,7 +2,6 @@
 {% block pageTitle %}
   Select a status
 {% endblock %}
-{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block content %}
   {% set previewHtml %}
   {{ govukSelect({

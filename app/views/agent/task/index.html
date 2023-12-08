@@ -1,0 +1,54 @@
+{% extends "agent/layout.html" %}
+
+{% block pageTitle %}
+  Select a workflow
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+          
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Claims for manual identity checks</span>
+        Choose a task
+      </h1>
+
+      <form action="task" method="post">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+
+                {{ govukRadios({
+                    idPrefix: 'task',
+                    name: 'task',
+                    items: [
+                        {
+                            value: "id-template",
+                            text: "Create identity file"
+                        },
+                        {
+                            value: "id-check",
+                            text: "Conduct identity check"
+                        },
+                        {
+                            value: "suspected-fraud-claims",
+                            text: "Suspected fraud claims"
+                        }         
+                    ]
+                  })
+                }}
+            </fieldset>
+
+        </div>
+
+        {{ govukButton({
+            text: "Confirm"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

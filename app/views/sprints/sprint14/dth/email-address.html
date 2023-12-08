@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+ <div class="govuk-grid-column-two-thirds">
+            <form action="email-code" method="post">
+                <fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+  
+    <h1 class="govuk-fieldset__heading">
+      Enter your email address
+    </h1>
+  
+  </legend>
+  
+
+</fieldset>
+
+
+                <p>We will send a security code to this email address.</p>
+
+                
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="register-email-address">
+    Email address
+  </label>
+
+<input class="govuk-input govuk-!-width-full-width" id="register-email-address" name="register-email-address" type="text">
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+
+            </form>
+        </div>
+</div>
+
+{% endblock %}

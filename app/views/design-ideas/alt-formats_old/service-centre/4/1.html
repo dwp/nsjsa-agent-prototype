@@ -1,0 +1,44 @@
+{% extends "layout/summary.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement | {{ currentClaimantData.claimant.title }} {{ currentClaimantData.claimant.firstName }} {{ currentClaimantData.claimant.lastName }}: {{ currentClaimantData.claimant.nino }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Initial work search interview{% if data['status'] === "pushed" %} complete{% endif %}</h1>
+    {% if data['show'] == "clerical" %}
+      {% include "includes/markers/esa.html" %}
+    {% endif %}
+    {% if data['status'] === "pushed" %}
+    <p>This claim has been pushed to JSAPS.</p>
+    {% else %}
+    {% include "includes/evidence-section.html" %}
+    {% include "includes/details-id.html" %}  
+    {% include "includes/forms-section.html" %}
+    {% endif %}
+  </div>
+  {% if data['status'] != "pushed" %}
+  <div class="govuk-grid-column-one-third dwp-print-hide">
+    <h3 class="govuk-heading-s">Actions</h3>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <ul class="govuk-list">
+      <li><a href="javascript:window.print();">Print cover sheet</a></li>
+      <li><a href="/work-coach/4/statement">View statement</a></li>
+    </ul>
+
+    {{ govukButton({
+      text: "Push claim",
+      href: "/work-coach/4/sure"
+    }) }}
+    
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Application start date</span>
+        Have you been unable to work because of illness since 22 July 2020?
+      </h1>
+      <p class="govuk-body">
+        You will need to tell us the dates you were unable to work.
+      </p>
+
+      <form action="unable-to-work" method="post">
+
+        {% set illnessHtml %}
+        {{ govukDateInput({
+            id: 'illness-start',
+            name: 'illnessStart',
+            fieldset: {
+              legend: {
+                text: 'Enter the date the illness started',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment('subtract', 12, 'months')
+            },
+            items: [
+              {
+                name: 'illnessStartDay',
+                value: data['illness-start-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'illnessStartMonth',
+                value: data['illness-start-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'illnessStartYear',
+                value: data['illness-start-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+
+        {{ govukDateInput({
+            id: 'illness-finish',
+            name: 'illnessFinish',
+            fieldset: {
+              legend: {
+                text: 'Enter the date the illness ended',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment
+            },
+            items: [
+              {
+                name: 'illnessFinishDay',
+                value: data['illness-finish-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'illnessFinishMonth',
+                value: data['illness-finish-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'illnessFinishYear',
+                value: data['illness-finish-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "unable-to-work",
+          name: "unableToWork",
+          hint: {
+            text: ""
+          },
+          items: [{
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: illnessHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "been-on-holiday"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

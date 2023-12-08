@@ -1,0 +1,39 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Education and training</span>
+        What was the name of the course?
+      </h1>
+
+      <form action="course-name" method="post">
+
+        {% call govukFieldset({
+        }) %}
+
+        {{ govukInput({
+          classes: "govuk-!-width-two-thirds",
+          id: "edu-course-name",
+          name: "eduCourseName",
+          value: data["edu-course-name"]
+        }) }}
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout/base-no-search-bar.html" %}
+
+{% block pageTitle %}
+  Contact centre - {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-!-margin-top-6">
+
+    <h1 class="govuk-heading-l">View management information</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <a href="/contact-centre/management-dashboard/claim-statistics" class="tile tile--blue">
+          <div class="tile__contents">
+            <h2 class="tile__title">Claim Statistics</h2>
+          </div>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <a href="/contact-centre/management-dashboard/agent-performance" class="tile tile--blue">
+          <div class="tile__contents">
+            <h2 class="tile__title">Agent Performance</h2>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+
+{% endblock %}

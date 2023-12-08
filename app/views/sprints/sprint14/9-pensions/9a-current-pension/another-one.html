@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Current pension</span>
+        Do you have another pension or annuity you currently receive?
+      </h1>
+
+      <form action="another-one" method="post">
+      
+        {{ govukRadios({
+          idPrefix: "current-pension-another-one",
+          name: "currentPensionAnotherOne",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "current-pension-another-one-yes",
+            text: "Yes"
+          }, {
+            value: "current-pension-another-one-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
