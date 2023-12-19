@@ -1,14 +1,6 @@
-{% if data['claimStatus'] == 'awaiting-appointment' %}
+{% if data['claimStatus'] == 'new-claim' %}
     <p>
         <a href="choose-task3">Return to start screen</a>
-    </p>
-{% elif data['claimStatus'] == 'not-entitled' %}
-    <p>
-        <a href="choose-task3">Return to start screen</a>
-    </p>
-{% elif data['claimStatus'] == 'withdrawn' %}
-    <p>
-        <a href="choose-task">Return to start screen</a>
     </p>
 {% else %}
     <h3 class="govuk-heading-m">Claim actions</h3>
