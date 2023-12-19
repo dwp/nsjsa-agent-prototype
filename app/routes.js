@@ -35,6 +35,9 @@ router.use(
   require("./views/v1_0-agent/work-coach/_routes")
 );
 
+// This moves Workflowmanagement wt-4066-wfm to 'design-ideas/wt-4066-wfm' directory
+router.use('/design-ideas/wt-4066-wfm', require('./views/design-ideas/wt-4066-wfm/_routes'))
+
 // This moves Workflowmanagement wt-3771-wfm to 'design-ideas/wt-3771-wfm' directory
 router.use('/design-ideas/wt-3771-wfm', require('./views/design-ideas/wt-3771-wfm/_routes'))
 

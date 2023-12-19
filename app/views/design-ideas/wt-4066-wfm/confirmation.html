@@ -1,0 +1,28 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  Claim updated
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['claimant'] == 'sh' %}
+        {% include 'design-ideas/wt-4066-wfm/claimants/sh/update-confirmation.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'design-ideas/wt-4066-wfm/claimants/kb/update-confirmation.html' %}
+      {% elif data['claimant'] == 'kb-dupe' %}
+        {% include 'design-ideas/wt-4066-wfm/claimants/kb-dupe/update-confirmation.html' %}
+      {% elif data['claimant'] == 'ij' %}
+        {% include 'design-ideas/wt-4066-wfm/claimants/ij/update-confirmation.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+      {{ govukButton({
+        text: "Get next claim",
+        href: "#"
+      }) }}
+      <p class="govuk-body">
+        <a href="/design-ideas/wt-4066-wfm/choose-task3" class="govuk-link">Return to start screen</a>
+      </p>
+    </div>
+  </div>
+</div>{% endblock %}
