@@ -1,0 +1,551 @@
+{% extends "layout-agent-id.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "claimslist"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        On hold claims
+      </h1>
+      {# AGENT 2 ON HOLD CLAIMS #}
+      {% if data['show'] == "02" %}
+        {# AGENT 2 - AGENT ID SEARCH BOX #}
+        <form action="on-hold" method="post">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-10">
+              Search by agent ID
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="agent" name="agent" type="text">
+              {{ govukButton({
+        text: "Search",
+        href: "on-hold?show="
+      }) }}
+            </div>
+          </form>
+          <h2 class="govuk-heading-m">
+            Last updated by agent ID 00000002
+          </h2>
+          {# AGENT 2 - LIST #}
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Agent ID</th>
+                <th scope="col" class="govuk-table__header">Date updated</th>
+                <th scope="col" class="govuk-table__header">NI number</th>
+                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">00000002</td>
+                <td class="govuk-table__cell">9 November 2023 at 9:21am</td>
+                <td class="govuk-table__cell">SW 12 34 56 A</td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Paused
+                  </strong>
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="#">View</a>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">00000002</td>
+                <td class="govuk-table__cell">9 November 2023 at 9:05am</td>
+                <td class="govuk-table__cell">RN 00 00 35 C</td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Paused
+                  </strong>
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="#">View</a>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">00000002</td>
+                <td class="govuk-table__cell">8 November 2023 at 3:41pm</td>
+                <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Suspected fraud
+                  </strong>
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="#">View</a>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">00000002</td>
+                <td class="govuk-table__cell">8 November 2023 at 2:12pm</td>
+                <td class="govuk-table__cell">RN 00 00 10 A</td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Paused
+                  </strong>
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="#">View</a>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">00000002</td>
+                <td class="govuk-table__cell">8 November 2023 at 11:04am</td>
+                <td class="govuk-table__cell">CC 12 34 56 A</td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Escalated
+                  </strong>
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="#">View</a>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">00000002</td>
+                <td class="govuk-table__cell">8 November 2023 at 10:38am</td>
+                <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Paused
+                  </strong>
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="#">View</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          {# AGENT 1 ON HOLD CLAIMS #}
+        {% else %}
+          {# AGENT 1 - AGENT ID SEARCH BOX #}
+          <form action="on-hold" method="post">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="width-10">
+                Search by agent ID
+              </label>
+              <input class="govuk-input govuk-input--width-10" id="agent" name="agent" type="text">
+                {{ govukButton({
+        text: "Search"
+      }) }}
+              </div>
+            </form>
+            <h2 class="govuk-heading-m">
+              Last updated by agent ID 00000001
+            </h2>
+            {# AGENT 1 - LIST #}
+            {% if data['claimant'] == 'ij' and data['claimStatus'] == 'success' or data['claimant'] == 'ij' and data['claimStatus'] == 'withdrawn'  or data['claimant'] == 'ij' and data['claimStatus'] == 'awaiting-appointment' or data['claimant'] == 'ij' and data['claimStatus'] == 'not-entitled' %}
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Agent ID</th>
+                    <th scope="col" class="govuk-table__header">Date updated</th>
+                    <th scope="col" class="govuk-table__header">NI number</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+                    <th scope="col" class="govuk-table__header">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" colspan="5">No recently updated on hold claims</td>
+                  </tr>
+                </table>
+              {% elif data['claimStatus'] == 'paused' and data['claimant'] == 'ij' %}
+                <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">Agent ID</th>
+                      <th scope="col" class="govuk-table__header">Date updated</th>
+                      <th scope="col" class="govuk-table__header">NI number</th>
+                      <th scope="col" class="govuk-table__header">Status</th>
+                      <th scope="col" class="govuk-table__header">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">00000001</td>
+                      <td class="govuk-table__cell">4 November 2023 at 9:21am</td>
+                      <td class="govuk-table__cell">RN 00 00 35 C</td>
+                      <td class="govuk-table__cell">
+                        <strong class="govuk-tag govuk-tag--blue">
+                          Paused
+                        </strong>
+                      </td>
+                      <td class="govuk-table__cell">
+                        <a class="govuk-link" href="view-claim?task=new&claimant=ij&claimStatus=paused">View</a>
+                      </td>
+                    </tr>
+                  </table>
+                {% elif data['claimStatus'] == 'escalated' and data['claimant'] == 'ij' %}
+                  <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Agent ID</th>
+                        <th scope="col" class="govuk-table__header">Date updated</th>
+                        <th scope="col" class="govuk-table__header">NI number</th>
+                        <th scope="col" class="govuk-table__header">Status</th>
+                        <th scope="col" class="govuk-table__header">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">00000001</td>
+                        <td class="govuk-table__cell">4 November 2023 at 9:21am</td>
+                        <td class="govuk-table__cell">RN 00 00 35 C</td>
+                        <td class="govuk-table__cell">
+                          <strong class="govuk-tag govuk-tag--blue">
+                            Escalated
+                          </strong>
+                        </td>
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="view-claim?task=new&claimant=ij&claimStatus=escalated">View</a>
+                        </td>
+                      </tr>
+                    </table>
+                  {% elif data['claimStatus'] == 'suspected-fraud' and data['claimant'] == 'ij' %}
+                    <table class="govuk-table">
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header">Agent ID</th>
+                          <th scope="col" class="govuk-table__header">Date updated</th>
+                          <th scope="col" class="govuk-table__header">NI number</th>
+                          <th scope="col" class="govuk-table__header">Status</th>
+                          <th scope="col" class="govuk-table__header">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                          <td class="govuk-table__cell">00000001</td>
+                          <td class="govuk-table__cell">4 November 2023 at 9:21am</td>
+                          <td class="govuk-table__cell">RN 00 00 35 C</td>
+                          <td class="govuk-table__cell">
+                            <strong class="govuk-tag govuk-tag--blue">
+                              Suspected fraud
+                            </strong>
+                          </td>
+                          <td class="govuk-table__cell">
+                            <a class="govuk-link" href="view-claim?task=new&claimant=ij&claimStatus=suspected-fraud">View</a>
+                          </td>
+                        </tr>
+                      </table>
+                    {% else %}
+                      <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                          <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Agent ID</th>
+                            <th scope="col" class="govuk-table__header">Date updated</th>
+                            <th scope="col" class="govuk-table__header">NI number</th>
+                            <th scope="col" class="govuk-table__header">Status</th>
+                            <th scope="col" class="govuk-table__header">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">8 November 2023 at 9:21am</td>
+                            <td class="govuk-table__cell">SW 12 34 56 A</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="duplicates">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">7 November 2023 at 9:21am</td>
+                            <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Suspected fraud
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="view-claim?task=new&claimant=sh&claimStatus=suspected-fraud">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">4 November 2023 at 9:21am</td>
+                            <td class="govuk-table__cell">RN 00 00 35 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="view-claim?task=new&claimant=ij&claimStatus=paused">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">2 November 2023 at 3:12pm</td>
+                            <td class="govuk-table__cell">RN 00 00 10 A</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">2 November 2023 at 11:04am</td>
+                            <td class="govuk-table__cell">CC 12 34 56 A</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Escalated
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">1 November 2023 at 2:38pm</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">1 November 2023 at 12:06pm</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">1 November 2023 at 11:43am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">1 November 2023 at 11:12am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">1 November 2023 at 10:22am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Suspected fraud
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">1 November 2023 at 9:56am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 4:38pm</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 3:16pm</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 2:07pm</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 1:51pm</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Suspected fraud
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 11:34am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Escalated
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 11:01am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 10:36am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">31 October 2023 at 09:27am</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Escalated
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">00000001</td>
+                            <td class="govuk-table__cell">30 October 2023 at 3:04pm</td>
+                            <td class="govuk-table__cell">SJ 12 34 56 C</td>
+                            <td class="govuk-table__cell">
+                              <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                              </strong>
+                            </td>
+                            <td class="govuk-table__cell">
+                              <a class="govuk-link" href="#">View</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <nav class="app-pagination" role="navigation" aria-label="results">
+                        <ul class="app-pagination__list">
+                          <li class="app-pagination__item app-pagination__item--current">
+                            <a class="govuk-link app-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                              1
+                            </a>
+                          </li>
+                          <li class="app-pagination__item">
+                            <a class="govuk-link app-pagination__link" href="#" aria-label="Page 2">
+                              2
+                            </a>
+                          </li>
+                          <li class="app-pagination__item">
+                            <a class="govuk-link app-pagination__link" href="#" aria-label="Page 3">
+                              3
+                            </a>
+                          </li>
+                        </ul>
+                        <div class="app-pagination__next">
+                          <a class="govuk-link app-pagination__link" href="#" rel="next">
+                            <span class="app-pagination__link-title">Next</span>
+                            <svg
+                              class="app-pagination__icon app-pagination__icon--next"
+                              xmlns="http://www.w3.org/2000/svg"
+                              height="13"
+                              width="15"
+                              aria-hidden="true"
+                              focusable="false"
+                              viewBox="0 0 15 13">
+                              <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      </nav>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            {% endblock %}
