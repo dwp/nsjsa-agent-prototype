@@ -14,7 +14,236 @@
                   iconFallbackText: "Warning"
                 }) }}
             {% endset -%}
-            {{ govukRadios({
+            {#Radio button options for claim status AWAITING APPOINTMENT#}
+            {% if data['claimStatus'] == 'awaiting-appointment' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status ESCALATED#}
+            {% elif data['claimStatus'] == 'escalated' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status DUPLICATE#}
+            {% elif data['claimStatus'] == 'duplicate' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "escalated",
+                            text: "Escalated"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status NOT ENTITLED#}
+            {% elif data['claimStatus'] == 'not-entitled' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "escalated",
+                            text: "Escalated"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status WITHDRAWN#}
+            {% elif data['claimStatus'] == 'withdrawn' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "escalated",
+                            text: "Escalated"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        }                     
+                    ]
+                }) }}
+              {#Radio button options for claim status SUCCESS, SUSPECTED FRAUD, PAUSE #}
+            {% else %}
+              {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -64,6 +293,7 @@
                         }                       
                     ]
                 }) }}
+            {% endif %}
           </fieldset>
         </div>
         {{ govukButton({

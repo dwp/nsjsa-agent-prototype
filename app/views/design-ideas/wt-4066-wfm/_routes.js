@@ -42,38 +42,6 @@ router.post("/nino-search", function (req, res) {
   }
 });
 
-//Choose task 1 - on hold claims list
-  // show different on-hold table for agent 2
-router.post("/choose-task1", function (req, res) {
-  const answer = req.body.agent;
-
-  // agent 2 claims list
-  if (answer === "02") {
-    res.redirect(`${ABS_BASE_PATH}/choose-task1?show=02`);
-
-  } else {
-    // agent 1 claims list
-      res.redirect(`${ABS_BASE_PATH}/choose-task1`);
-    
-  }
-});
-
-//Choose task 2 - on hold claims list
-  // show different on-hold table for agent 2
-  router.post("/choose-task2", function (req, res) {
-    const answer = req.body.agent;
-  
-    // agent 2 claims list
-    if (answer === "02") {
-      res.redirect(`${ABS_BASE_PATH}/choose-task2?show=02`);
-  
-    } else {
-      // agent 1 claims list
-        res.redirect(`${ABS_BASE_PATH}/choose-task2`);
-      
-    }
-  });
-
   //Choose task 3 - on hold claims list
   // show different on-hold table for agent 2
   router.post("/on-hold", function (req, res) {
@@ -114,15 +82,5 @@ router.get('/end', function (req, res) {
     res.redirect('choose-task3');
   });
 
-  // choose-task 1 and 2 reset the 'on hold claims' data back to default agent 1 when 'reset-list' is got
-  router.get('/reset-list', function (req, res) {
-    let data = req.session.data;
-  
-  
-    delete data['agent'];
-    delete data['show'];
-  
-  
-    res.redirect('screens');
-  });
+ 
 module.exports = router;
