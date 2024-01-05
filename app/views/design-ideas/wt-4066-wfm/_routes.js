@@ -5,7 +5,7 @@ const BASE_PATH = 'design-ideas/wt-4066-wfm';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
 
 router.get('/', function (req, res) {
-  res.redirect(`${ABS_BASE_PATH}/choose-task`);
+  res.redirect(`${ABS_BASE_PATH}/choose-task3`);
 })
 
 /*router.post('/nino-search', function (req, res) {
@@ -43,17 +43,20 @@ router.post("/nino-search", function (req, res) {
 });
 
   //Choose task 3 - on hold claims list
-  // show different on-hold table for agent 2
-  router.post("/on-hold", function (req, res) {
+  // show different claims-list table for agent 2
+  router.post("/claims-list", function (req, res) {
     const answer = req.body.agent;
   
     // agent 2 claims list
     if (answer === "02") {
-      res.redirect(`${ABS_BASE_PATH}/on-hold?show=02`);
-  
+      res.redirect(`${ABS_BASE_PATH}/claims-list?show=02`);
+    // agent 3 claims list - no data in list
+  } else if (answer === "03") {
+    res.redirect(`${ABS_BASE_PATH}/claims-list?show=03`);
+
     } else {
       // agent 1 claims list
-        res.redirect(`${ABS_BASE_PATH}/on-hold`);
+        res.redirect(`${ABS_BASE_PATH}/claims-list`);
       
     }
   });
