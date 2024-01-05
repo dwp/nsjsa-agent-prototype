@@ -22,5 +22,10 @@
   "standard.autoFixOnSave": true,
 
   // Files to validate with Standard JS
-  "standard.validate": ["javascript"]
+  "standard.validate": [
+    "javascript"
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }

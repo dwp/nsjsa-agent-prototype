@@ -15,15 +15,15 @@
         Service centre
       </h1>
       {% if data['sc'] == 1 %}
-        {% set url = 'view-claim?&claimant=ij&claimStatus=success' %}
+        {% set url = 'view-claim?&claimant=ij&claimStatus=processing-started' %}
       {% elif data['sc'] == 2 %}
         {% set url = 'duplicates?dupe=not-affected' %}
       {% elif data['sc'] == 3 %}
         {% set url = 'duplicates?dupe=affected' %}
       {% elif data['sc'] == 4 %}
-        {% set url = 'view-claim?&claimant=sh&claimStatus=success' %}
+        {% set url = 'view-claim?&claimant=sh&claimStatus=processing-started' %}
       {% elif data['sc'] == 5 %}
-        {% set url = 'view-claim?&claimant=sh&claimStatus=success' %}
+        {% set url = 'view-claim?&claimant=sh&claimStatus=processing-started' %}
       {% else %}
         {% set url = 'view-claim' %}
       {% endif %}
@@ -51,7 +51,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half">
           <a
-            href="on-hold"
+            href="claims-list"
             role="link"
             draggable="false"
             class="govuk-panel govuk-button link-panel govuk-!-width-full"

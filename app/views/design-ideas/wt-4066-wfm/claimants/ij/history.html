@@ -37,6 +37,26 @@ events: [
     }
 ]
 }) }}
+{% elif data['claimStatus'] == 'processing-started' %}
+    {{ dwpTimeline({
+events: [
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
+    },
+ {
+    state: "Success",
+    name: "00000089",
+    date: "on 31 October 2023 at 3:02pm"
+    },
+    {
+    state: "New claim",
+    date: "by claimant on 31 October 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
 {% elif data['claimStatus'] == 'paused' %}
     {{ dwpTimeline({
 events: [
@@ -45,6 +65,12 @@ events: [
     name: "00000001",
     date: "on 4 November 2023 at 9:21am"
     },
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
+    },
+    
  {
     state: "Success",
     name: "00000089",
@@ -64,6 +90,11 @@ events: [
     state: "Duplicate",
     name: "00000001",
     date: "on 4 November 2023 at 9:21am"
+    },
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
     },
  {
     state: "Success",
@@ -85,6 +116,11 @@ events: [
     name: "00000001",
     date: "on 4 November 2023 at 9:21am"
     },
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
+    },
  {
     state: "Success",
     name: "00000089",
@@ -101,9 +137,14 @@ events: [
     {{ dwpTimeline({
 events: [
  {
-    state: "Escalated to specialist",
+    state: "Sent to specialist",
     name: "00000001",
     date: "on 4 November 2023 at 9:21am"
+    },
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
     },
  {
     state: "Success",
@@ -130,6 +171,11 @@ events: [
     name: "00000001",
     date: "on 4 November 2023 at 9:21am"
     },
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
+    },
  {
     state: "Success",
     name: "00000089",
@@ -154,6 +200,11 @@ events: [
     state: "Paused",
     name: "00000001",
     date: "on 4 November 2023 at 9:21am"
+    },
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
     },
  {
     state: "Success",
@@ -180,6 +231,11 @@ events: [
     name: "00000001",
     date: "on 4 November 2023 at 9:21am"
     },
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
+    },
  {
     state: "Success",
     name: "00000089",
@@ -196,6 +252,11 @@ events: [
     {{ dwpTimeline({
 events: [
 {
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
+    },
+{
     state: "Success",
     name: "00000089",
     date: "on 31 October 2023 at 3:02pm"
@@ -210,6 +271,11 @@ events: [
 {% elif data['claimStatus'] == 'push-successful' %}
     {{ dwpTimeline({
 events: [
+{
+    state: "Processing started",
+    name: "00000001",
+    date: "oon 4 November 2023 at 9:18am"
+    },
     {
     state: "Success",
     name: "00000089",
