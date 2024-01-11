@@ -13,20 +13,6 @@ href: "claimslist"
   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-quarter">
-        <!-- SEARCH BAR -->
-        <form action="claims-list" method="post">
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-label--m" for="width-10">
-              Search claims
-            </label>
-            <div id="account-number-hint" class="govuk-hint">
-              Enter a staff number
-            </div>
-            <input class="govuk-input govuk-input--width-5" id="agent" name="agent" type="text">
-            {{ govukButton({
-            text: "Search"}) }}
-          </div>
-        </form>
         <!-- FILTERS -->
         <h2 class="govuk-heading-m">Filters</h2>
         <div class="govuk-form-group">
@@ -121,6 +107,20 @@ href: "claimslist"
       </div>
 
       <div class="govuk-grid-column-three-quarters">
+
+        <!-- SEARCH BAR -->
+        <form action="on-hold" method="post">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-10">
+              Search by staff number
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="agent" name="agent" type="text">
+            {{ govukButton({
+            text: "Search"
+            }) }}
+          </div>
+        </form>
+        <!-- SEARCH BAR -->
         <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
         {% if data['show'] == "03" %}
         <table class="govuk-table govuk-!-font-size-19">
@@ -268,6 +268,7 @@ href: "claimslist"
         {% else %}
         <table class="govuk-table govuk-!-font-size-19">
           <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 00000001</caption>
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>

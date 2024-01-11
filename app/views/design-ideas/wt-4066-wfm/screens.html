@@ -6,16 +6,42 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
             <h1 class="govuk-heading-l">
-                Version 2: Workflow Management 1a
+                Workflow Management 1a: Iteration 2
             </h1>
-            <h2 class="govuk-heading-m">
-                Problem statement
-            </h2>
-            <p>The current process to move a claim from the Contact Centre to the Service Centre involves many teams and several
-                manual actions. These manual actions are time consuming and are at risk of user error and claim loss. They also increase
-                the claim decision waiting time. Agents send sensitive claimant data by email and store it in SharePoint folders. This
-                is a potential data security risk. The business does not have a full view of claim volumes at different stages of the
-                process. This means it is challenging to identify where to prioritise resource.</p>
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Hypothesis 1: Claim status
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>We believe that introducing the new claim status 'processing started' when an agent selects 'Get a new claim' to
+                        allocate the claim to that agent, will reduce the risk of claim loss, reduce the risk of more than one agent working on
+                        the same new claim, and will avoid cherry picking.</p>
+                    <p class="govuk-body">We will know this wehen we test a prototype and users tell us:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>The status change from 'Success' to 'Processing started' is clear</li>
+                        <li>They cannot cherry pick claims</li>
+                        <li>They would find the new claim again, if their session times out, or they navigate away from the claim</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Hypothesis 2: Claims list with filter
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>We believe that showing agents a filterable list of all claims they have updated last, will reduce the risk of claims
+                        getting lost and saves time finding claims.</p>
+                    <p class="govuk-body">We will know this wehen we test a prototype and users tell us:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>The list acts as a safeguard against human error and technical failure</li>
+                        <li>The filter functionality makes it easy to find claims</li>
+                    </ul>
+                </div>
+            </details>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
         </div>
         <div class="govuk-grid-row">
@@ -38,7 +64,7 @@
                 text: "sc1"
             },
             {
-                html: "<a href='choose-task3?sc=1&claimant=ij&claimStatus=success'>Standard journey and pausing a claim"
+                html: "<a href='choose-task3?sc=1&claimant=ij&claimStatus=processing-started'>Standard claim"
                 
             }
         ],
@@ -68,6 +94,10 @@
           ]
         ]
       }) }}
+                {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+                {{ govukInsetText({
+  text: "Last updated claims: Enter 01 or any value for Agent 01 claims, enter 02 for Agent 02 claims or 03 for Agent 03 claims."
+}) }}
             </div>
         </div>
     {% endblock %}

@@ -7,10 +7,6 @@ secondaryIdentifier: {
 text: 'National Insurance Number:',
 value: 'QQ 12 34 56 X'
 },
-status: {
-text: 'Claim status:',
-value: claimStatus
-},
 additionalData: [
 {
 value: "05/06/1969",
@@ -30,3 +26,9 @@ text: "Claim submitted (IDOC):"
 }
 ]
 }) }}
+{# If claim status tag needed in Key Details bar, add back in below secondaryIdentifier (NINO)
+status: {
+text: 'Claim status:',
+value: claimStatus
+}, 
+#}
