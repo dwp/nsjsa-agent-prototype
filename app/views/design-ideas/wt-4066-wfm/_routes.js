@@ -56,7 +56,7 @@ router.post("/nino-search", function (req, res) {
 
     } else {
       // agent 1 claims list
-        res.redirect(`${ABS_BASE_PATH}/claims-list`);
+        res.redirect(`${ABS_BASE_PATH}/claims-list?show=`);
       
     }
   });
