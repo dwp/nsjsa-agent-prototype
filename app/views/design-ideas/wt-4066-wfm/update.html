@@ -10,7 +10,7 @@
           <fieldset class="govuk-fieldset">
             {% set govukWarningText %}
             {{ govukWarningText({
-                  text: "This action cannot be reversed",
+                  text: "The Contact Centre will book an appointment for this claim.",
                   iconFallbackText: "Warning"
                 }) }}
             {% endset -%}
@@ -33,10 +33,11 @@
                         },
                         {
                             value: "not-entitled",
-                            text: "Not entitled",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -48,15 +49,12 @@
                         },
                         {
                             value: "withdrawn",
-                            text: "Withdrawn",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Withdrawn"
                         }                       
                     ]
                 }) }}
-              {#Radio button options for claim status ESCALATED#}
-            {% elif data['claimStatus'] == 'escalated' %}
+              {#Radio button options for claim status COMPLEX CLAIM#}
+            {% elif data['claimStatus'] == 'complex-claim' %}
               {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
@@ -81,10 +79,11 @@
                         },
                         {
                             value: "not-entitled",
-                            text: "Not entitled",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -96,10 +95,7 @@
                         },
                         {
                             value: "withdrawn",
-                            text: "Withdrawn",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Withdrawn"
                         }                       
                     ]
                 }) }}
@@ -124,15 +120,19 @@
                             }
                         },
                         {
-                            value: "escalated",
-                            text: "Escalated"
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
                         },
                         {
                             value: "not-entitled",
-                            text: "Not entitled",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -144,10 +144,7 @@
                         },
                         {
                             value: "withdrawn",
-                            text: "Withdrawn",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Withdrawn"
                         }                       
                     ]
                 }) }}
@@ -172,12 +169,19 @@
                             }
                         },
                         {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
                             value: "duplicate",
                             text: "Duplicate"
                         },
                         {
-                            value: "escalated",
-                            text: "Escalated"
+                            value: "not-valid",
+                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -189,10 +193,7 @@
                         },
                         {
                             value: "withdrawn",
-                            text: "Withdrawn",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Withdrawn"
                         }                       
                     ]
                 }) }}
@@ -217,19 +218,23 @@
                             }
                         },
                         {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
                             value: "duplicate",
                             text: "Duplicate"
                         },
                         {
-                            value: "escalated",
-                            text: "Escalated"
+                            value: "not-entitled",
+                            text: "Not entitled"
                         },
                         {
-                            value: "not-entitled",
-                            text: "Not entitled",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            value: "not-valid",
+                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -239,6 +244,55 @@
                             value: "suspected-fraud",
                             text: "Suspected fraud"
                         }                     
+                    ]
+                }) }}
+              {#Radio button options for claim status NOT VALID#}
+            {% elif data['claimStatus'] == 'not-valid' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn"
+                        }                       
                     ]
                 }) }}
               {#Radio button options for claim status PROCESSING STARTED, SUCCESS, SUSPECTED FRAUD, PAUSE #}
@@ -262,19 +316,23 @@
                             }
                         },
                         {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
                             value: "duplicate",
                             text: "Duplicate"
                         },
                         {
-                            value: "escalated",
-                            text: "Escalated"
+                            value: "not-entitled",
+                            text: "Not entitled"
                         },
                         {
-                            value: "not-entitled",
-                            text: "Not entitled",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            value: "not-valid",
+                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -286,10 +344,7 @@
                         },
                         {
                             value: "withdrawn",
-                            text: "Withdrawn",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Withdrawn"
                         }                       
                     ]
                 }) }}
