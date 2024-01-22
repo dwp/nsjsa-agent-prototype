@@ -19,12 +19,13 @@ href: "claimslist"
             <label class="govuk-label govuk-label--m" for="width-10">
               Search claims
             </label>
-            <div id="account-number-hint" class="govuk-hint">
+            <div id="staff-number-hint" class="govuk-hint">
               Enter a staff number
             </div>
-            <input class="govuk-input govuk-input--width-5" id="agent" name="agent" type="text">
-            {{ govukButton({
-            text: "Search"}) }}
+            <input class="govuk-input govuk-input--width-7" id="agent" name="agent" type="text">
+            <button type="submit" class="govuk-button govuk-!-margin-top-1" data-module="govuk-button">
+              Search
+            </button>
           </div>
         </form>
         <!-- FILTERS -->
@@ -68,6 +69,13 @@ href: "claimslist"
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="complex-claim"
+                  checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type-2">
+                  Complex claim
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="duplicate"
                   checked>
                 <label class="govuk-label govuk-checkboxes__label" for="type-2">
@@ -75,17 +83,17 @@ href: "claimslist"
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="escalated"
-                  checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Escalated
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="not-entitled"
                   checked>
                 <label class="govuk-label govuk-checkboxes__label" for="type-2">
                   Not entitled
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="not-valid"
+                  checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type-2">
+                  Not valid
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -362,7 +370,7 @@ href: "claimslist"
               </td>
               <td class="govuk-table__cell">
                 <strong class="govuk-tag govuk-tag--blue">
-                  Escalated
+                  Complex claim
                 </strong>
               </td>
               <td class="govuk-table__cell">
