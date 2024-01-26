@@ -1,29 +1,40 @@
-<!-- Warning text-->
-<!--
-<section class="dwp-print-hide">
-  <div class="govuk-warning-text">
-    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-    <strong class="govuk-warning-text__text">
-      <span class="govuk-warning-text__assistive">Warning</span>
-      <span class="govuk-heading-m">Claimant has requested alternative formats</span>
-    </strong>
+{% if data['banner'] == 'welsh1' or data['banner'] == 'welsh2' or data['banner'] == 'welsh3'%}
+  <div
+    class="govuk-notification-banner"
+    role="region"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-body govuk-!-font-weight-bold">
+        {% if data['banner'] == 'welsh1' %}
+          This claimant has asked us to write to them in Welsh.
+        {% elif data['banner'] == 'welsh2' %}
+          This claimant has asked us to speak to them in Welsh.
+        {% elif data['banner'] == 'welsh3' %}
+          This claimant has asked us to speak and write to them in Welsh.
+        {% endif %}
+      </p>
+    </div>
   </div>
-</section>
--->
-
-<!-- Notification banner-->
-<div
-  class="govuk-notification-banner"
-  role="region"
-  aria-labelledby="govuk-notification-banner-title"
-  data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Important
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
-    <p class="govuk-body govuk-!-font-weight-bold">Claimant has requested alternative formats</p>
-  </div>
-</div>
-<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+  {% elif data['warning'] == 'mismatch' or data['warning'] == 'manually' or data['warning'] == 'match'%}
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        {% if data['warning'] == 'mismatch' %}
+          Claimant doesn’t match CIS record
+        {% elif data['warning'] == 'manually' %}
+          You will need to match the claimant with the CIS record manually.
+        {% elif data['warning'] == 'match' %}
+          Claimant name, date of birth and address matches CIS record.
+        {% endif %}
+      </strong>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+    {% endif %}

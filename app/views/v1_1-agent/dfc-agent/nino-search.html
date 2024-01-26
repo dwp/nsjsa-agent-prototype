@@ -133,26 +133,64 @@
         </div>
         <!-- Prototype scenarios -->
         <div class="govuk-grid-column-one-third">
-          <h2 class="govuk-heading-m govuk-!-margin-top-2">Prototype scenarios</h2>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>Enter any value for a happy scenario</li>
-            <li>Leave the field blank for NiNo not found</li>
-            <li>Enter
-              <code>invalid</code>
-              for NiNo not valid</li>
-            <li>Enter
-              <code>claimant</code>
-              for claimant not found</li>
-            <li>Enter
-              <code>duplicates</code>
-              for duplicate claim</li>
-            <li>Enter
-              <code>processed</code>
-              for all claims processed</li>
-            <li>Enter
-              <code>failed</code>
-              to show the error screen for a failed download</li>
-          </ul>
+          <h2 class="govuk-heading-s govuk-!-margin-top-2">Prototype scenarios</h2>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Input for scenarios
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Input</th>
+                    <th scope="col" class="govuk-table__header">Scenario</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">any value</th>
+                    <td class="govuk-table__cell">Happy path</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">leave blank</th>
+                    <td class="govuk-table__cell">NINO not found</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>invalid</code>
+                    </th>
+                    <td class="govuk-table__cell">NINO not valid</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>claimant</code>
+                    </th>
+                    <td class="govuk-table__cell">Claimant not found</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>duplicates</code>
+                    </th>
+                    <td class="govuk-table__cell">duplicate claim</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>processed</code>
+                    </th>
+                    <td class="govuk-table__cell">all claims processed</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>failed</code>
+                    </th>
+                    <td class="govuk-table__cell">download failed</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
         </div>
       </div>
     </div>
