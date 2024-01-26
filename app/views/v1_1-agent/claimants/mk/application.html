@@ -9,7 +9,7 @@
         text: "Claim start date"
         },
         value: {
-        text: "31 July 2021"
+        text: "5 September 2021"
         }
     }
     ]
@@ -47,14 +47,14 @@
         text: "Name"
         },
         value: {
-        text: "Simon Hamilton"
+        text: "Molly Kelly"
         }
     }, {
         key: {
         text: "Date of birth"
         },
         value: {
-        text: "5 June 1969"
+        text: "29 April 1972"
         }
     },{
         key: {
@@ -62,10 +62,10 @@
         },
         value: {
         html: "
-        <span class=govuk-!-display-block>31 All Saints Road</span>
-        <span class=govuk-!-display-block>Lytham St. Annes</span>
-        <span class=govuk-!-display-block>Lancashire</span>
-        <span class=govuk-!-display-block>FY8 1PL.</span>
+        <span class='dwp-print-block'>63 Balfour Ave</span><br>
+              <span class='dwp-print-block'>Belfast</span><br>
+              <span class='dwp-print-block'>Antrim</span><br>
+              <span class='dwp-print-block'>BT7 2EU</span>
         "
         }
     },{
@@ -80,14 +80,14 @@
         text: "Telephone number"
         },
         value: {
-        text: "01253 768542"
+        text: "01253 752057"
         }
     },{
         key: {
         text: "Email address"
         },
         value: {
-        text: "shh.ham@example.com"
+        text: "Not provided"
         }
     }
     ]
@@ -104,11 +104,11 @@
         },
         value: {
         html: "<strong>Account holder: </strong>
-                    <span>Mr SJ Hamilton</span><br>
+                    <span>Molly Kelly</span><br>
                 <strong>Sort code: </strong>
-                    <span>30-46-70</span><br>
+                    <span>11-00-64</span><br>
                 <strong>Account number: </strong>
-                    <span>33757000</span><br>"
+                    <span>3333333</span><br>"
                     }
     }
     ]
@@ -164,7 +164,8 @@
 </section>
 <section class="dwp-claim-section">
     <h2 class="govuk-heading-m">Previous employment</h2>
-    {{ govukSummaryList({
+    {% if data['previous-employment'] == 1 %}
+        {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -177,8 +178,8 @@
     }
     ]
 }) }}
-    <h2 class="govuk-heading-s">First previous employer</h2>
-    {{ govukSummaryList({
+        <h2 class="govuk-heading-s">First previous employer</h2>
+        {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -186,21 +187,21 @@
         text: "When did you work for this employer?"
         },
         value: {
-        text: "03/07/2016 - 17/06/2020"
+        text: "01/02/2020 - 11/06/2020"
         }
     },{
         key: {
         text: "Why did this job end?"
         },
         value: {
-        text: "Sacked"
+        text: "Lack of work"
         }
     },{
         key: {
         text: "What is the name of your previous employer?"
         },
         value: {
-        text: "Counrtney Haulage Ltd."
+        text: "Pete's Plaice"
         }
     },{
         key: {
@@ -208,10 +209,10 @@
         },
         value: {
         html: "
-        <span class=govuk-!-display-block>Unit 18 Quarry Lane</span>
-        <span class=govuk-!-display-block>Blackpool,</span>
-        <span class=govuk-!-display-block>Lancashire</span>
-        FY8 7BW
+        <span class=govuk-!-display-block>Pete's Plaice</span>
+        <span class=govuk-!-display-block>Belfast,</span>
+        <span class=govuk-!-display-block>Belfast</span>
+        BT9 5UB
         "
         }
     },{
@@ -231,6 +232,21 @@
     }
     ]
 }) }}
+    {% else %}
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you had a job that ended in the last 6 months?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+    {% endif %}
 </section>
 <section class="dwp-claim-section">
     <h2 class="govuk-heading-m">Working or claiming benefits overseas</h2>

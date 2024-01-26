@@ -1,0 +1,51 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block header %}
+  {{ super() }}
+  {% block keyDetails %}
+    {% if data['claimant'] == 'sh' %}
+      {% include 'v1_1-agent/claimants/sh/key-details.html' %}
+    {% elif data['claimant'] == 'mk' %}
+      {% include 'v1_1-agent/claimants/mk/key-details.html' %}
+    {% elif data['claimant'] == 'lm' %}
+      {% include 'v1_1-agent/claimants/lm/key-details.html' %}
+    {% else %}
+      <p>No claimant set.</p>
+    {% endif %}
+  {% endblock %}
+{% endblock %}
+{% block content %}
+  {% if data['dupe'] == '1' %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  {% endif %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+      {% if data['guidMismatch'] == '1' %}
+        {# include Simon Hamiltons nino as its default #}
+        {% include 'v1_1-agent/claimants/sh/mismatch.html' %}
+      {% endif %}
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
+      {% if data['claimant'] == 'sh' %}
+        {% include 'v1_1-agent/claimants/sh/application.html' %}
+      {% elif data['claimant'] == 'mk' %}
+        {% include 'v1_1-agent/claimants/mk/application.html' %}
+      {% elif data['claimant'] == 'lm' %}
+        {% include 'v1_1-agent/claimants/lm/application.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        {% include "./includes/actions.html" %}
+      </aside>
+    </div>
+  </div>
+{% endblock %}

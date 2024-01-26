@@ -1,0 +1,96 @@
+{{ govukTable({
+    caption: "Book appointment claims statistics",
+    captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+    firstCellIsHeader: true,
+    head: [
+        {
+        text: "Statistic",
+        classes: "govuk-!-width-two-thirds"
+        },
+        {
+        text: "Value"
+        }
+    ],
+    rows: [
+        [
+        {
+            text: "Cases received in day"
+        },
+        {
+            text: "200"
+        }
+        ],
+        [
+        {
+            text: "Cases cleared in day"
+        },
+        {
+            text: "50"
+        }
+        ],
+        [
+        {
+            text: "Head of work"
+        },
+        {
+            text: "234,500"
+        }
+        ],
+        [
+        {
+            html: "In day service level 1 working day"
+        },
+        {
+            text: "22.55%"
+        }
+        ],
+        [
+        {
+            html: "In day service level 2 working days"
+        },
+        {
+            text: "33.66%"
+        }
+        ],
+        [
+        {
+            html: "Week to date service level 1 working day"
+        },
+        {
+            text: "66.77%"
+        }
+        ],
+        [
+        {
+            html: "Week to date service level 2 working days"
+        },
+        {
+            text: "77.88%"
+        }
+        ],
+        [
+        {
+            html: "Cases outstanding outside 1 working day <abbr title='key performance indicator'>KPI</abbr>"
+        },
+        {
+            text: "567,890"
+        }
+        ],
+        [
+        {
+            html: "Cases outstanding outside 2 working days <abbr title='key performance indicator'>KPI</abbr>"
+        },
+        {
+            text: "456,789"
+        }
+        ],
+        [
+        {
+            html: "Oldest case outside <abbr title='key performance indicator'>KPI</abbr> time"
+        },
+        {
+            text: "30 April 2021 at 8:14pm"
+        }
+        ]
+    ]
+}) }}

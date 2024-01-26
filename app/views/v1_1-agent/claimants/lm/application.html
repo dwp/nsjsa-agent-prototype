@@ -9,17 +9,12 @@
         text: "Claim start date"
         },
         value: {
-        text: "31 July 2021"
+        text: "31 August 2021"
         }
     }
     ]
 }) }}
 </section>
-{% if data['niMatchCis'] == '1' %}
-    {% set actionHref = 'nino' %}
-    {% set actionText = 'Change' %}
-    {% set actionHiddenText = 'Change NI number' %}
-{% endif %}
 <section class="dwp-claim-section">
     <h2 class="govuk-heading-m">Personal details</h2>
     {{ govukSummaryList({
@@ -27,19 +22,10 @@
     rows: [
     {
         key: {
-            text: "National Insurance number"
+        text: "National Insurance number"
         },
         value: {
-            text: "RN 00 00 35 C"
-        },
-        actions: {
-            items: [
-                {
-                    href: actionHref,
-                    text: actionText,
-                    visuallyHiddenText: actionHiddenText
-                }
-            ]
+        text: "RN 00 00 35 C"
         }
     },
     {
@@ -47,14 +33,14 @@
         text: "Name"
         },
         value: {
-        text: "Simon Hamilton"
+        text: "Liam Murphy"
         }
     }, {
         key: {
         text: "Date of birth"
         },
         value: {
-        text: "5 June 1969"
+        text: "29 April 1972"
         }
     },{
         key: {
@@ -62,10 +48,10 @@
         },
         value: {
         html: "
-        <span class=govuk-!-display-block>31 All Saints Road</span>
-        <span class=govuk-!-display-block>Lytham St. Annes</span>
-        <span class=govuk-!-display-block>Lancashire</span>
-        <span class=govuk-!-display-block>FY8 1PL.</span>
+        <span class='dwp-print-block'>63 Balfour Ave</span><br>
+              <span class='dwp-print-block'>Belfast</span><br>
+              <span class='dwp-print-block'>Antrim</span><br>
+              <span class='dwp-print-block'>BT7 2EU</span>
         "
         }
     },{
@@ -80,14 +66,14 @@
         text: "Telephone number"
         },
         value: {
-        text: "01253 768542"
+        text: "07880 123456"
         }
     },{
         key: {
         text: "Email address"
         },
         value: {
-        text: "shh.ham@example.com"
+        text: "murphy72@gmail.com"
         }
     }
     ]
@@ -98,17 +84,17 @@
     {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
-    {
+     {
         key: {
         text: "Bank details"
         },
         value: {
         html: "<strong>Account holder: </strong>
-                    <span>Mr SJ Hamilton</span><br>
+                    <span>Mr Liam Murphy</span><br>
                 <strong>Sort code: </strong>
-                    <span>30-46-70</span><br>
+                    <span>30-88-70</span><br>
                 <strong>Account number: </strong>
-                    <span>33757000</span><br>"
+                    <span>33657030</span><br>"
                     }
     }
     ]
@@ -208,10 +194,10 @@
         },
         value: {
         html: "
-        <span class=govuk-!-display-block>Unit 18 Quarry Lane</span>
-        <span class=govuk-!-display-block>Blackpool,</span>
-        <span class=govuk-!-display-block>Lancashire</span>
-        FY8 7BW
+        <span class=govuk-!-display-block>Danesfort Park Cl</span>
+        <span class=govuk-!-display-block>Belfast</span>
+        <span class=govuk-!-display-block>Belfast</span>
+        BT9 5UB
         "
         }
     },{
