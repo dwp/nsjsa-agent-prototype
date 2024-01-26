@@ -2,63 +2,71 @@ const express = require('express')
 const router = express.Router()
 
 // Add your routes here - above the module.exports line
-////////////////////
+///////////////////////
 //   Version 1.1.   //
-//
+//////////////////////
 // This moves 'v1_1-agent' routing to 'v1_1-agent' directory
 router.use(
   "/v1_1-agent/",
   require("./views/v1_1-agent/_routes")
 );
-
-// This moves 'v1_0-agent' routing to 'v1_0-agent' directory
-router.use(
-    "/v1_0-agent/",
-    require("./views/v1_0-agent/_routes")
-);
-
-
 // This moves Service Centre'v1_1-agent/service-centre-agent' routing to 'service-centre-agent' directory
 router.use(
   "/v1_1-agent/service-centre-agent/",
   require("./views/v1_1-agent/service-centre-agent/_routes")
 );
-
 // This moves Work Coach 'v1_1-agent/work-coach' routing to 'work-coach' directory
 router.use(
   "/v1_1-agent/work-coach/",
   require("./views/v1_1-agent/work-coach/_routes")
 );
-
 // This moves Contact Centre 'v1_1-agent/contact-centre-agent' routing to 'contact-centre-agent' directory
 router.use(
   "/v1_1-agent/contact-centre-agent/",
   require("./views/v1_1-agent/contact-centre-agent/_routes")
 );
+// This moves Contact Centre 'v1_1-agent/contact-centre-manager' routing to 'contact-centre-manager' directory
+router.use(
+  "/v1_1-agent/contact-centre-manager/",
+  require("./views/v1_1-agent/contact-centre-manager/_routes")
+);
+// This moves DFC 'v1_1-agent/dfc-agent' routing to 'dfc-agent' directory
+router.use(
+  "/v1_1-agent/dfc-agent/",
+  require("./views/v1_1-agent/dfc-agent/_routes")
+);
 
+//// End Version 1.1 ////
+
+///////////////////////
+//   Version 1.0.   //
+//////////////////////
+// This moves 'v1_0-agent' routing to 'v1_0-agent' directory
+router.use(
+    "/v1_0-agent/",
+    require("./views/v1_0-agent/_routes")
+);
 // This moves 'v1_0-agent/contact-centre-agent/find-claim' routing to 'find-claim' directory
 router.use(
     "/v1_0-agent/contact-centre-agent/find-claim/",
     require("./views/v1_0-agent/contact-centre-agent/find-claim/_routes")
   );
-
 // This moves 'v1_0-agent/contact-centre-manager/find-claim' routing to 'find-claim' directory
 router.use(
   "/v1_0-agent/contact-centre-manager/find-claim/",
   require("./views/v1_0-agent/contact-centre-manager/find-claim/_routes")
 );
-
 // This moves 'v1_0-agent/service-centre-agent' routing to 'service-centre-agent' directory
 router.use(
   "/v1_0-agent/service-centre-agent/",
   require("./views/v1_0-agent/service-centre-agent/_routes")
 );
-
 // This moves 'v1_0-agent/work-coach' routing to 'servoce-centre-agent' directory
 router.use(
   "/v1_0-agent/work-coach/",
   require("./views/v1_0-agent/work-coach/_routes")
 );
+//// End Version 1.0 ////
 
 // This moves Workflowmanagement wt-4066-wfm to 'design-ideas/wt-4066-wfm' directory
 router.use('/design-ideas/wt-4066-wfm', require('./views/design-ideas/wt-4066-wfm/_routes'))

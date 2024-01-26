@@ -1,0 +1,145 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+    {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block header %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+    <div class="govuk-grid-row dwp-print-hide">
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4">Search results for RN 00 00 35 C</h1>
+            <p>
+                Duplicate applications have been submitted against the entered National Insurance number.
+            </p>
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Most recent application submitted</h2>
+            {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Action",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Molly Kelly"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: "<a title=View-claim href=view-claim?task=new&claimant=mk&claimStatus=new-claim&guidMismatch=0>View</a>"
+                }
+            ]
+        ]
+        }) }}
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application submitted</h2>
+            {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Action",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Molly Kelly"
+                },
+                {
+                    text: "9 October 2021"
+                },
+                {
+                    text: "8:22am"
+                },
+                {
+                    html: "<a title=View-claim href=view-claim?task=new&claimant=mk&claimStatus=statement-downloaded&guidMismatch=0>View</a>"
+                }
+            ]
+        ]
+        }) }}
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
+            {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Action",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Simon Hamilton"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:34pm"
+                },
+                {
+                    html: "<a title=View-claim href=view-claim?task=new&claimant=sh&claimStatus=new-claim&guidMismatch=0>View</a>"
+                }
+            ],
+            [
+                {
+                    text: "Molly Kelly"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:34pm"
+                },
+                {
+                    html: "<a title=View-claim href=view-claim?task=new&claimant=mk&claimStatus=new-claim&guidMismatch=0>View</a>"
+                }
+            ]
+        ]
+    }) }}
+        </div>
+    </div>
+    <a href="nino-search?show=" class="govuk-link">Return to 'Find a claim'</a>
+{% endblock %}

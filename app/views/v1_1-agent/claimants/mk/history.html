@@ -1,4 +1,4 @@
-{% if data['status'] == 'new-claim' %}
+{% if data['claimStatus'] == 'new-claim' %}
     {{ dwpTimeline({
 events: [
     {
@@ -12,7 +12,7 @@ events: [
 events: [
     {
     state: "Preview",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
@@ -27,13 +27,12 @@ events: [
 events: [
  {
     state: "Success",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
     state: "Preview",
-    label: "label",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
@@ -48,12 +47,12 @@ events: [
 events: [
  {
     state: "Success",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
     state: "Preview",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
@@ -73,12 +72,12 @@ events: [
     },
     {
     state: "Awaiting appointment",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
     state: "Success",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
@@ -98,12 +97,12 @@ events: [
     },
     {
     state: "No slots available",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
     state: "Preview",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
@@ -117,13 +116,13 @@ events: [
     {{ dwpTimeline({
 events: [
     {
-    state: "Preview - Too early 7-8am",
-    name: "00000001",
+    state: "Preview",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
     state: "Success",
-    name: "00000001",
+    name: "by 00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {

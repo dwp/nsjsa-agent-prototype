@@ -1,9 +1,9 @@
 var express = require('express')
 var router = express.Router()
 
-const BASE_PATH = 'v1_1-agent/contact-centre-agent';
+const BASE_PATH = 'v1_1-agent/contact-centre-manager';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
-const START_PATH = '/v1_1-agent/contact-centre-agent/nino-search';
+const START_PATH = '/v1_1-agent/contact-centre-manager/nino-search';
 
 router.get('/', function (req, res) {
     res.redirect(`${START_PATH}`);

@@ -1,0 +1,36 @@
+{% extends "agent/layout.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    Choose a task
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="view-claim?task=new&claimant=lm&claimStatus=new-claim&guidMismatch=0"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Get next claim
+        </span>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="nino-search"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Find a claimant
+        </span>
+      </a>
+    </div>
+  </div>
+</div>{% endblock %}

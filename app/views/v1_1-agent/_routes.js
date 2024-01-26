@@ -16,11 +16,12 @@ router.post('/index-current', function (req, res) {
     res.redirect(`${ABS_BASE_PATH}/contact-centre-manager/choose-task.html`);
   } else if (answer === 'work-coach') {
     res.redirect(`${ABS_BASE_PATH}/work-coach/nino-search`);
+  } else if (answer === 'dfc-agent') {
+    res.redirect(`${ABS_BASE_PATH}/dfc-agent/choose-task.html`);
   } else {
     res.redirect(`${ABS_BASE_PATH}/service-centre-agent/nino-search`);
   }
 });
-
 
 
 module.exports = router;
