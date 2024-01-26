@@ -38,9 +38,26 @@ router.post("/nino-search", function (req, res) {
       // nino not found
     } else if (!answer.length) {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=errors`);
+    
+      // Welsh written
+    } else if (answer === "welsh1") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=push-successful&banner=welsh1`);
+       // Welsh spoken
+    } else if (answer === "welsh2") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=push-successful&banner=welsh2`);
+       // Welsh written and spoken
+    } else if (answer === "welsh3") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=push-successful&banner=welsh3`);
+      // Cis mismatch
+    } else if (answer === "mismatch") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=push-successful&warning=mismatch`);
+      // Check cis manually
+    } else if (answer === "manually") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=push-successful&warning=manually`);
+      // CIS match
     } else {
       // happy patch view claim - all redirect if other value
-        res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=push-successful&guidMismatch=0`);
+        res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=push-successful&warning=match`);
       
     }
   });

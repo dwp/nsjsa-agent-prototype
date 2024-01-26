@@ -33,7 +33,7 @@
     </div>
     <div class="govuk-grid-column-one-third">
       <aside class="app-related-items" role="complementary">
-        {% include "./actions.html" %}
+        {% include "./includes/actions.html" %}
         <h3 class="govuk-heading-m">Claim status history</h3>
         {% if data['claimant'] == 'ij' %}
           {% include 'v1_1-agent/claimants/ij/history.html' %}
