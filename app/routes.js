@@ -2,6 +2,14 @@ const express = require('express')
 const router = express.Router()
 
 // Add your routes here - above the module.exports line
+////////////////////
+//   Version 1.1.   //
+//
+// This moves 'v1_1-agent' routing to 'v1_1-agent' directory
+router.use(
+  "/v1_1-agent/",
+  require("./views/v1_1-agent/_routes")
+);
 
 // This moves 'v1_0-agent' routing to 'v1_0-agent' directory
 router.use(
@@ -10,6 +18,23 @@ router.use(
 );
 
 
+// This moves Service Centre'v1_1-agent/service-centre-agent' routing to 'service-centre-agent' directory
+router.use(
+  "/v1_1-agent/service-centre-agent/",
+  require("./views/v1_1-agent/service-centre-agent/_routes")
+);
+
+// This moves Work Coach 'v1_1-agent/work-coach' routing to 'work-coach' directory
+router.use(
+  "/v1_1-agent/work-coach/",
+  require("./views/v1_1-agent/work-coach/_routes")
+);
+
+// This moves Contact Centre 'v1_1-agent/contact-centre-agent' routing to 'contact-centre-agent' directory
+router.use(
+  "/v1_1-agent/contact-centre-agent/",
+  require("./views/v1_1-agent/contact-centre-agent/_routes")
+);
 
 // This moves 'v1_0-agent/contact-centre-agent/find-claim' routing to 'find-claim' directory
 router.use(

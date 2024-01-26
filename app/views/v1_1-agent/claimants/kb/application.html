@@ -1,0 +1,94 @@
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m">Personal details</h2>
+  {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Contact Number"
+          },
+          value: {
+            text: "01253 752057"
+          }
+        }, {
+          key: {
+            text: "Home address"
+          },
+          value: {
+            html: "
+              <span class=govuk-!-display-block>35 Walpole Avenue</span>
+              <span class=govuk-!-display-block>Blackpool</span>
+              <span class=govuk-!-display-block>Lancashire</span>
+              <span class=govuk-!-display-block>FY4 1SF.</span>
+            "
+          }
+        }, {
+          key: {
+            text: "Postal address"
+          },
+          value: {
+            text: "Not provided"
+          }
+        },
+        {
+          key: {
+            text: "Not available on these days"
+          },
+          value: {
+            text: "Not Applicable"
+          }
+        }
+      ]
+    }) }}
+</section>
+<section class="dwp-claim-section">
+  <h2 class="govuk-heading-m">Alternative formats</h2>
+  {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Do you need us to contact you in an alternative format?"
+        },
+        value: {
+        text: "Yes"
+        }
+    },
+    {
+        key: {
+        text: "What do you need in an alternative format?"
+        },
+        value: {
+        text: "Letter and phone"
+        }
+    }, {
+        key: {
+        text: "What do you need instead of standard letters?"
+        },
+        value: {
+        text: "Coloured paper and large print"
+        }
+    },{
+        key: {
+        text: "What colour paper do you need?"
+        },
+        value: {
+        text: "Pastel blue"
+        }
+    },{
+        key: {
+        text: "What size font do you need?"
+        },
+        value: {
+        text: "18"
+        }
+    },{
+        key: {
+        text: "What do you need instead of phone calls?"
+        },
+        value: {
+        text: "Email, iiijjjjjj@gmail.com"
+        }
+    }
+    ]
+}) }}
+</section>

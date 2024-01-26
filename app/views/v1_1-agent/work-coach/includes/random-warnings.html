@@ -1,0 +1,15 @@
+{% set r = [1, 2, 3] | random %}
+{% set list = [
+    "Claimant has existing interest in an incompatible benefit",
+    "Claimant has appointee",
+    "You will need to match claimant with the CIS record manually"] %}
+{% set randomList = list | randomise(r) %}
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      <span class="govuk-!-margin-bottom-0">{{ randomList[0] }}</span>
+    </strong>
+  </div>
+</section>
