@@ -1,0 +1,92 @@
+{% extends "layout-search-bar.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block header %}
+  {{ super() }}
+  {% if data['claimant'] == 'ij' %}
+    {% include 'v1_1-agent/claimants/ij/key-details.html' %}
+  {% elif data['claimant'] == 'kb' %}
+    {% include 'v1_1-agent/claimants/kb/key-details.html' %}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
+{% endblock %}
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Claim information</h1>
+      {% if data['guidMismatch'] == '1' %}
+        {# include Simon Hamiltons nino as its default #}
+        {% include 'v1_1-agent/claimants/ij/mismatch.html' %}
+      {% endif %}
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claim information</h2>
+      {% include './includes/warnings.html' %}
+      {# Alternative formats #}
+      <section class="dwp-claim-section">
+        <h2 class="govuk-heading-m">Alternative formats</h2>
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Do you need us to contact you in an alternative format?"
+        },
+        value: {
+        text: "Yes"
+        }
+    },
+    {
+        key: {
+        text: "What do you need in an alternative format?"
+        },
+        value: {
+        text: "Letter and phone"
+        }
+    }, {
+        key: {
+        text: "What do you need instead of standard letters?"
+        },
+        value: {
+        text: "Coloured paper and large print"
+        }
+    },{
+        key: {
+        text: "What colour paper do you need?"
+        },
+        value: {
+        text: "Pastel blue"
+        }
+    },{
+        key: {
+        text: "What size font do you need?"
+        },
+        value: {
+        text: "18"
+        }
+    },{
+        key: {
+        text: "What do you need instead of phone calls?"
+        },
+        value: {
+        text: "Email, iiijjjjjj@gmail.com"
+        }
+    }
+    ]
+}) }}
+      </section>
+      {# END - Alternative formats #}
+      {% include 'v1_1-agent/work-coach/includes/evidence-section.html' %}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        {% include "./actions.html" %}
+      </aside>
+    </div>
+  </div>
+{% endblock %}

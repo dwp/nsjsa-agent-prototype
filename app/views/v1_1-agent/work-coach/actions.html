@@ -1,0 +1,8 @@
+<h3 class="govuk-heading-s">Claim actions</h3>
+{% if data['claimant'] == 'ij' %}
+    <a href="view-claim?task=new&claimant=ij&claimStatus=not-pushed&guidMismatch=0">View customer statement</a>
+{% elif data['claimant'] == 'kb' %}
+    <a href="view-claim?task=new&claimant=kb&claimStatus=not-pushed&guidMismatch=0">View customer statement</a>
+{% else %}
+    <p>No claimant set.</p>
+{% endif %}</p>

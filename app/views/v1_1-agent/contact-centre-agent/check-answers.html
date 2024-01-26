@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      {% if data['task'] == 'book' %}
+        <h1 class="govuk-heading-l govuk-visually-hidden">Book appointment</h1>
+        {% if data['claimant'] == 'sh' %}
+          {% include '../claimants/sh/book.html' %}
+        {% elif data['claimant'] == 'kb' %}
+          {% include '../claimants/kb/book.html' %}
+        {% elif data['claimant'] == 'ij' %}
+          {% include '../claimants/ij/book.html' %}
+        {% else %}
+          <p>No claimant set.</p>
+        {% endif %}
+      {% else %}
+        <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+        {% if data['guidMismatch'] == '1' %}
+          {# include Simon Hamiltons nino as its default #}
+          {% include '../claimants/sh/mismatch.html' %}
+        {% endif %}
+        {% if data['claimant'] == 'sh' %}
+          {% include '../claimants/sh/summary-list.html' %}
+        {% elif data['claimant'] == 'kb' %}
+          {% include '../claimants/kb/summary-list.html' %}
+        {% elif data['claimant'] == 'ij' %}
+          {% include '../claimants/ij/summary-list.html' %}
+        {% else %}
+          <p>No claimant set.</p>
+        {% endif %}
+      {% endif %}
+      {{ govukButton({
+  text: "Update and return to application",
+  href: "view-claim"
+}) }}
+    </div>
+  </div>
+{% endblock %}
