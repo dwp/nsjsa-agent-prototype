@@ -31,11 +31,6 @@ events: [
     date: "on 31 August 2021 at 4:50pm"
     },
     {
-    state: "Preview",
-    name: "by 00000001",
-    date: "on 31 August 2021 at 4:43pm"
-    },
-    {
     state: "New claim",
     date: "by claimant on 31 August 2021 at 4:30pm",
     classes: "dwp-timeline-entry--closing"
@@ -45,15 +40,15 @@ events: [
 {% elif data['claimStatus'] == 'awaiting-appointment' %}
     {{ dwpTimeline({
 events: [
+{
+    state: "Awaiting appointment",
+    name: "00000004",
+    date: "on 10 September 2021 at 1:20pm"
+    },
  {
     state: "Success",
     name: "by 00000001",
     date: "on 31 August 2021 at 4:50pm"
-    },
-    {
-    state: "Preview",
-    name: "by 00000001",
-    date: "on 31 August 2021 at 4:43pm"
     },
     {
     state: "New claim",
@@ -90,18 +85,9 @@ events: [
 {% elif data['claimStatus'] == 'not-pushed' %}
     {{ dwpTimeline({
 events: [
-{
-    state: "Final fail",
-    name: "by 00000002",
-    date: "on 31 August 2021 at 5:40pm"
-    },
+
     {
-    state: "No slots available",
-    name: "by 00000001",
-    date: "on 31 August 2021 at 4:50pm"
-    },
-    {
-    state: "Preview",
+    state: "Success",
     name: "by 00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
@@ -115,11 +101,6 @@ events: [
 {% elif data['claimStatus'] == 'push-successful' %}
     {{ dwpTimeline({
 events: [
-    {
-    state: "Preview",
-    name: "by 00000001",
-    date: "on 31 August 2021 at 4:50pm"
-    },
     {
     state: "Success",
     name: "by 00000001",

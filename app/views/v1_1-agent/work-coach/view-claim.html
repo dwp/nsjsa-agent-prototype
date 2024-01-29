@@ -25,6 +25,7 @@
         {# include Simon Hamiltons nino as its default #}
         {% include 'v1_1-agent/claimants/ij/mismatch.html' %}
       {% endif %}
+      {% include './includes/warnings.html' %}
       <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
       {% if data['claimant'] == 'ij' %}
         {% include 'v1_1-agent/claimants/ij/customer-statement.html' %}

@@ -18,10 +18,17 @@
         What happens next?
       </h1>
       <p>The claim has been updated. You can now continue to process the next claimant or go back to your start screen.</p>
-      {{ govukButton({
+      {% if data['task'] == 'book' %}
+        {{ govukButton({
         text: "Get next claim",
-        href: "view-claim?claimant=kb&claimStatus=awaiting-appointment"
+        href: "view-claim?agent=cca&claimant=kb&claimStatus=awaiting-appointment"
       }) }}
+      {% else %}
+        {{ govukButton({
+        text: "Get next claim",
+        href: "view-claim?agent=cca&claimant=kb&claimStatus=new-claim"
+      }) }}
+      {% endif %}
       <p class="govuk-body">
         <a href="choose-task" class="govuk-link">Return to start screen</a>
       </p>

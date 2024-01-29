@@ -1,4 +1,38 @@
-{{ dwpKeyDetailsBar({
+{% if data['agent'] == 'sca' %}
+    {{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Karan Bhopal'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'RN 00 00 35 C'
+},
+status: {
+text: 'Claim status:',
+value: 'not pushed'
+},
+additionalData: [
+{
+value: "21/07/1970",
+text: "D.O.B:"
+},
+{
+value: "FY4 1SF",
+text: "Postcode:"
+},
+{
+value: "01253 752057",
+text: "Phone:"
+},
+{
+value: "05/09/21",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}
+{% else %}
+    {{ dwpKeyDetailsBar({
 primaryIdentifier: {
 text: 'Name:',
 value: 'Karan Bhopal'
@@ -30,3 +64,4 @@ text: "Claim submitted (IDOC):"
 }
 ]
 }) }}
+{% endif %}
