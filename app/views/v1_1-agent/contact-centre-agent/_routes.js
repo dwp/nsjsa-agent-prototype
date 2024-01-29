@@ -38,9 +38,43 @@ router.post("/nino-search", function (req, res) {
       // nino not found
     } else if (!answer.length) {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=errors`);
+ 
+      // Welsh written
+    } else if (answer === "welsh1") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=welsh1`);
+
+      // Welsh spoken
+    } else if (answer === "welsh2") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=welsh2`);
+  
+      // Welsh written and spoken
+    } else if (answer === "welsh3") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=welsh3`);
+
+      // Cis mismatch
+    } else if (answer === "mismatch") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=mismatch`);
+
+      // Check cis manually
+    } else if (answer === "manually") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=manually`);
+
+       // Claimant has appointee
+    } else if (answer === "appointee") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=appointee`);
+
+      // Member of household potentially violent
+    } else if (answer === "violent3") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=violent3`);
+ 
+      // Partner pontentially
+    } else if (answer === "violent2") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=violent2`);
+ 
+      // Claimant is potentially violent
     } else {
       // happy patch view claim - all redirect if other value
-        res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=awaiting-appointment&guidMismatch=0`);
+        res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=violent1`);
       
     }
 });

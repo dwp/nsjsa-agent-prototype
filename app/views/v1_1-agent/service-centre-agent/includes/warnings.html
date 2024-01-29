@@ -1,4 +1,4 @@
-{% if data['banner'] == 'welsh1' or data['banner'] == 'welsh2' or data['banner'] == 'welsh3'%}
+{% if data['warning'] == 'welsh1' or data['warning'] == 'welsh2' or data['warning'] == 'welsh3'%}
   <div
     class="govuk-notification-banner"
     role="region"
@@ -11,11 +11,11 @@
     </div>
     <div class="govuk-notification-banner__content">
       <p class="govuk-body govuk-!-font-weight-bold">
-        {% if data['banner'] == 'welsh1' %}
+        {% if data['warning'] == 'welsh1' %}
           This claimant has asked us to write to them in Welsh.
-        {% elif data['banner'] == 'welsh2' %}
+        {% elif data['warning'] == 'welsh2' %}
           This claimant has asked us to speak to them in Welsh.
-        {% elif data['banner'] == 'welsh3' %}
+        {% elif data['warning'] == 'welsh3' %}
           This claimant has asked us to speak and write to them in Welsh.
         {% endif %}
       </p>
