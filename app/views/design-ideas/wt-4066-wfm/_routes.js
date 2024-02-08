@@ -52,8 +52,8 @@ router.post("/nino-search", function (req, res) {
       res.redirect(`${ABS_BASE_PATH}/claims-list?show=02`);
     // agent 3 claims list - no data in list
   } else if (answer === "03") {
-    res.redirect(`${ABS_BASE_PATH}/claims-list?show=03`);
-
+      res.redirect(`${ABS_BASE_PATH}/claims-list?show=03`);
+  
     } else {
       // agent 1 claims list
         res.redirect(`${ABS_BASE_PATH}/claims-list?show=`);

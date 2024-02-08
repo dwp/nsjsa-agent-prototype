@@ -10,7 +10,7 @@
 }) }}
     <div class="govuk-grid-row dwp-print-hide">
         <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-l govuk-!-margin-top-4">There are 2 matching applications
+            <h1 class="govuk-heading-l govuk-!-margin-top-4">There are 3 matching applications
             </h1>
             <p>
                 Duplicate applications have been submitted against the entered National Insurance number.
@@ -50,6 +50,12 @@
                     classes: "govuk-tag--blue"
                  }) }}
                 {% endset %}
+                {% set statusFurther %}
+                {{ govukTag({
+                 text: "Paused",
+                    classes: "govuk-tag--blue"
+                 }) }}
+                {% endset %}
                 {# sc3 duplicates - entitlement affected #}
             {% elif data['dupe'] == "affected" %}
                 {% set urlRecent = '<a href=view-claim?claimant=kb-dupe&claimStatus=processing-started&previous-employment=1>View</a>' %}
@@ -59,10 +65,22 @@
                     classes: "govuk-tag--blue"
                  }) }}
                 {% endset %}
+                {% set statusFurther %}
+                {{ govukTag({
+                 text: "Processing started",
+                    classes: "govuk-tag--blue"
+                 }) }}
+                {% endset %}
                 {# no scenario - default Simon Hamilton #}
             {% else %}
                 {% set urlRecent = '<a href=view-claim>View</a>' %}
                 {% set statusRecent %}
+                {{ govukTag({
+                 text: "Processing started",
+                    classes: "govuk-tag--blue"
+                 }) }}
+                {% endset %}
+                {% set statusFurther %}
                 {{ govukTag({
                  text: "Processing started",
                     classes: "govuk-tag--blue"
@@ -108,7 +126,7 @@
                     html:  urlRecent 
                  } ] ] }) }}
             <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application</h2>
-            {# sc2 duplicates - entitlement not affected TEST TEST#}
+            {# sc2 duplicates - entitlement not affected #}
             {% if data['dupe'] == "not-affected" %}
                 {% set urlOldest = '<a href=view-claim?claimant=kb&claimStatus=paused&previous-employment=0>View</a>' %}
                 {% set statusOldest %}
@@ -177,6 +195,47 @@
             ]
         ]
         }) }}
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
+            {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Claim submitted"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Status"
+            },
+            {
+                text: "Action"
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Karan Bhopal"
+                },
+                {
+                    text: "1 November 2023"
+                },
+                {
+                    text: "6:09pm"
+                },
+                {
+                    html: statusFurther
+                },
+                {
+                    html: '<a href=#>View</a>'
+                }
+            ]
+        ]
+    }) }}
         </div>
     </div>
 {% endblock %}
