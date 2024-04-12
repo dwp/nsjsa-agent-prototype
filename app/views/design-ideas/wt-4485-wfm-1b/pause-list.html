@@ -10,27 +10,35 @@ href: "javascript:history.back()"
 {% endblock %}
 {% block content %}
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+  <main class="govuk-main-wrapper--m" id="main-content" role="main">
+    <h1 class="govuk-heading-l">Paused claims</h1>
+    <div class="govuk-grid-row">
+      <!-- SEARCH BY STAFF NUMBER -->
+      <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>
+      <div class="govuk-grid-column-three-quarters">
+
+      </div>
+    </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-quarter">
-        <!-- SEARCH BAR -->
+        <!-- SEARCH BAR
         <form action="claims-list" method="post">
           <div class="govuk-form-group">
             <h2 class="govuk-heading-m">Search claims</h2>
             <label class="govuk-label" for="agent">
               Staff number
             </label>
-            <!--  <div id="staff-number-hint" class="govuk-hint">
-              Enter a staff number
-            </div>-->
             <input class="govuk-input govuk-input--width-7" id="agent" name="agent" type="text">
             <button type="submit" class="govuk-button govuk-!-margin-top-1" data-module="govuk-button">
               Search
             </button>
           </div>
-        </form>
+        </form>-->
         <!-- FILTERS -->
         <h2 class="govuk-heading-m">Filters</h2>
+        <!--Sort by
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -53,7 +61,7 @@ href: "javascript:history.back()"
               </div>
             </div>
           </fieldset>
-        </div>
+        </div> -->
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -63,65 +71,99 @@ href: "javascript:history.back()"
             </legend>
             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox"
-                  value="awaiting-appointment">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Awaiting appointment
+                <input class="govuk-checkboxes__input" id="jcp-action" name="jcp-action" type="checkbox"
+                  value="jcp-action" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="jcp-action">
+                  Awaiting JCP action
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="complex-claim"
+                <input class="govuk-checkboxes__input" id="mop" name="mop" type="checkbox" value="mop" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="mop">
+                  Bank details check (MOP)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="cis-update" name="cis-update" type="checkbox"
+                  value="cis-update" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="cis-update">
+                  CIS update
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="kbv">
+                  Identity check (KBV)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="mbr">
+                  Main benefit reply (MBR)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="other">
+                  Other
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pte" name="pte" type="checkbox" value="pte" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="pte">
+                  Part-time earnings check
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pension" name="pension" type="checkbox" value="pension"
                   checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Complex claim
+                <label class="govuk-label govuk-checkboxes__label" for="pension">
+                  Pension check
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="duplicate">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Duplicate
+                <input class="govuk-checkboxes__input" id="self-employment" name="self-employment" type="checkbox"
+                  value="self-employment" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                  Self-employment and company director check
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="not-entitled">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Not entitled
+                <input class="govuk-checkboxes__input" id="decision-maker" name="decision-maker" type="checkbox"
+                  value="decision-maker" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="decision-maker">
+                  Sent to a decision maker
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="not-valid">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Not valid
+                <input class="govuk-checkboxes__input" id="international-group" name="international-group"
+                  type="checkbox" value="international-group" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                  Sent to International Group
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="paused" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Paused
+                <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="nsesa">
+                  Sent to NSESA team
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox"
-                  value="processing-started" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Processing started
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="suspected-fraud"
-                  checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Suspected fraud
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="withdrawn">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Withdrawn
+                <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="ttc">
+                  Transferred to clerical
                 </label>
               </div>
             </div>
           </fieldset>
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Apply
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Reset
+            </button>
+          </div>
         </div>
       </div>
 
@@ -150,10 +192,22 @@ href: "javascript:history.back()"
 
         <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
         {% else %}
-        <h1 class="govuk-heading-l govuk-!-display-inline">Claims paused by 00000001</h1>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
-            <p></p>
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Hide filters
+              </button>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="search">
+                  <strong>Search by staff number</strong>
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="search" name="search" type="text">
+                <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
+                  Search
+                </button>
+              </div>
+            </div>
           </div>
           <div class="govuk-grid-column-one-third">
             <div class="govuk-form-group">
@@ -164,14 +218,14 @@ href: "javascript:history.back()"
                 <option value="published" selected>Action by soonest</option>
                 <option value="updated">Action by latest</option>
                 <option value="views">Claim submitted newest</option>
-                <option value="comments">Claim submitted newest</option>
+                <option value="comments">Claim submitted oldest</option>
               </select>
             </div>
           </div>
         </div>
 
         <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Paused claims</caption>
+          <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000001</caption>
 
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
