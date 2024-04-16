@@ -10,27 +10,25 @@ href: "claimslist"
 {% endblock %}
 {% block content %}
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+  <main class="govuk-main-wrapper--m" id="main-content" role="main">
+    <h1 class="govuk-heading-l">Last updated claims</h1>
+    <!-- SEARCH BY STAFF NUMBER -->
+     <form action="claims-list" method="post">
+    <div class="govuk-form-group govuk-!-margin-bottom-0">
+      <label class="govuk-label" for="agent">
+        <strong>Search by staff number</strong>
+      </label>
+      <input class="govuk-input govuk-!-width-one-third" id="agent" name="agent" type="text">
+      <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
+        Search
+      </button>
+    </div>
+     </form>
     <div class="govuk-grid-row">
+      <!-- FILTERS -->
       <div class="govuk-grid-column-one-quarter">
-        <!-- SEARCH BAR -->
-        <form action="claims-list" method="post">
-          <div class="govuk-form-group">
-            <h2 class="govuk-heading-m">Search claims</h2>
-            <label class="govuk-label" for="agent">
-              Staff number
-            </label>
-            <!--  <div id="staff-number-hint" class="govuk-hint">
-              Enter a staff number
-            </div>-->
-            <input class="govuk-input govuk-input--width-7" id="agent" name="agent" type="text">
-            <button type="submit" class="govuk-button govuk-!-margin-top-1" data-module="govuk-button">
-              Search
-            </button>
-          </div>
-        </form>
-        <!-- FILTERS -->
         <h2 class="govuk-heading-m">Filters</h2>
+        <!--Sort by
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -42,18 +40,18 @@ href: "claimslist"
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" checked="">
                 <label class="govuk-label govuk-radios__label" for="sort">
-                  Newest
+                  Newest claim submitted
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
                 <label class="govuk-label govuk-radios__label" for="sort-2">
-                  Oldest
+                  Oldest claim submitted
                 </label>
               </div>
             </div>
           </fieldset>
-        </div>
+        </div> -->
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -126,13 +124,35 @@ href: "claimslist"
       </div>
 
       <div class="govuk-grid-column-three-quarters">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Hide filters
+              </button>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="sort">
+                Sort by
+              </label>
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="newest-idoc">Newest Claim</option>
+                <option value="oldest-idoc">Oldest claim</option>
+                <option value="newest-update" selected>Newest update</option>
+                <option value="oldest-update">Oldest update</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
         {% if data['show'] == "03" %}
         <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 00000003</caption>
+          <caption class="govuk-table__caption govuk-table__caption--m">Claims last updated by 00000003</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>
+              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
@@ -146,12 +166,12 @@ href: "claimslist"
           </tbody>
         </table>
         <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
-        {% elif data['show'] == "02" %}
+        {% elif data['show'] == "12345678" %}
         <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 00000002</caption>
+          <caption class="govuk-table__caption govuk-table__caption--m">Claims last updated by 12345678</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>
+              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
@@ -160,9 +180,9 @@ href: "claimslist"
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>
                 at 11:04am
               </td>
@@ -179,9 +199,9 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
               <td class="govuk-table__cell">
@@ -197,9 +217,9 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
               <td class="govuk-table__cell">
@@ -214,9 +234,9 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
               <td class="govuk-table__cell">
@@ -232,9 +252,9 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
               <td class="govuk-table__cell">
@@ -250,9 +270,9 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
+              <td class="govuk-table__cell">4 May 2024</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 11:11am
               </td>
               <td class="govuk-table__cell">
@@ -272,11 +292,12 @@ href: "claimslist"
         <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
         {% else %}
         <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 00000001</caption>
+          <caption class="govuk-table__caption govuk-table__caption--m">Claims last updated by 00000001</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>
+
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
+              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
@@ -284,11 +305,11 @@ href: "claimslist"
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 November 2023</span>
+                <span style="white-space: nowrap">9 May 2024</span>
                 <br>at 9:21am
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">SW 12 34 56 A</span>
               </td>
@@ -302,11 +323,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 November 2023</span>
+                <span style="white-space: nowrap">9 May 2024</span>
                 <br>at 9:05am
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">RN 00 00 35 C</span>
               </td>
@@ -320,11 +341,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 3:41pm
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">QQ 12 34 56 X</span>
               </td>
@@ -338,11 +359,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 2:12pm
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">VF 13 63 34 C</span>
               </td>
@@ -356,12 +377,12 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>
                 at 11:04am
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">QF 74 42 21 A</span>
               </td>
@@ -375,11 +396,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">DF 13 23 44 B</span>
               </td>
@@ -393,11 +414,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">UI 25 82 07 D</span>
               </td>
@@ -410,11 +431,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
+              <td class="govuk-table__cell">3 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">UV 25 54 48 A</span>
               </td>
@@ -428,11 +449,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 10:38am
               </td>
+              <td class="govuk-table__cell">4 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">ID 54 32 07 C</span>
               </td>
@@ -446,11 +467,11 @@ href: "claimslist"
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000001</td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
+                <span style="white-space: nowrap">8 May 2024</span>
                 <br>at 11:11am
               </td>
+              <td class="govuk-table__cell">4 May 2024</td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">QQ 12 34 56 C</span>
               </td>

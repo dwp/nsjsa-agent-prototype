@@ -12,8 +12,18 @@ href: "javascript:history.back()"
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper--m" id="main-content" role="main">
     <h1 class="govuk-heading-l">Paused claims</h1>
+    <!-- SEARCH BY STAFF NUMBER -->
+    <div class="govuk-form-group govuk-!-margin-bottom-0">
+      <label class="govuk-label" for="search">
+        <strong>Search by staff number</strong>
+      </label>
+      <input class="govuk-input govuk-!-width-one-third" id="search" name="search" type="text">
+      <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
+        Search
+      </button>
+    </div>
     <div class="govuk-grid-row">
-      <!-- SEARCH BY STAFF NUMBER -->
+
       <div class="govuk-grid-column-one-quarter">
         <p></p>
       </div>
@@ -22,21 +32,8 @@ href: "javascript:history.back()"
       </div>
     </div>
     <div class="govuk-grid-row">
+      <!-- FILTERS -->
       <div class="govuk-grid-column-one-quarter">
-        <!-- SEARCH BAR
-        <form action="claims-list" method="post">
-          <div class="govuk-form-group">
-            <h2 class="govuk-heading-m">Search claims</h2>
-            <label class="govuk-label" for="agent">
-              Staff number
-            </label>
-            <input class="govuk-input govuk-input--width-7" id="agent" name="agent" type="text">
-            <button type="submit" class="govuk-button govuk-!-margin-top-1" data-module="govuk-button">
-              Search
-            </button>
-          </div>
-        </form>-->
-        <!-- FILTERS -->
         <h2 class="govuk-heading-m">Filters</h2>
         <!--Sort by
         <div class="govuk-form-group">
@@ -70,13 +67,7 @@ href: "javascript:history.back()"
               </h1>
             </legend>
             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="jcp-action" name="jcp-action" type="checkbox"
-                  value="jcp-action" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="jcp-action">
-                  Awaiting JCP action
-                </label>
-              </div>
+
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="mop" name="mop" type="checkbox" value="mop" checked>
                 <label class="govuk-label govuk-checkboxes__label" for="mop">
@@ -168,6 +159,29 @@ href: "javascript:history.back()"
       </div>
 
       <div class="govuk-grid-column-three-quarters">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Hide filters
+              </button>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="sort">
+                Sort by
+              </label>
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="published" selected>Action by soonest</option>
+                <option value="updated">Action by latest</option>
+                <option value="views">Claim submitted newest</option>
+                <option value="comments">Claim submitted oldest</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
         {% if data['show'] == "03" %}
         <table class="govuk-table govuk-!-font-size-19">
@@ -188,42 +202,10 @@ href: "javascript:history.back()"
           </tbody>
         </table>
         <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
-        {% elif data['show'] == "02" %}
+        {% elif data['show'] == "12345678" %}
 
         <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
         {% else %}
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-button-group">
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Hide filters
-              </button>
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="search">
-                  <strong>Search by staff number</strong>
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="search" name="search" type="text">
-                <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
-                  Search
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="govuk-grid-column-one-third">
-            <div class="govuk-form-group">
-              <label class="govuk-label" for="sort">
-                Sort by
-              </label>
-              <select class="govuk-select" id="sort" name="sort">
-                <option value="published" selected>Action by soonest</option>
-                <option value="updated">Action by latest</option>
-                <option value="views">Claim submitted newest</option>
-                <option value="comments">Claim submitted oldest</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
         <table class="govuk-table govuk-!-font-size-19">
           <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000001</caption>
 

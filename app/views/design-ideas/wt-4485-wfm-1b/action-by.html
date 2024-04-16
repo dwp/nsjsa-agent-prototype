@@ -1,39 +1,44 @@
 {% extends "./view-claim.html" %}
 {% block pageTitle %}
-  What is the status of this claim?
+  When does the claim need to be actioned by?
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Pause details</h1>
-      <form action="/form-handler" method="post" novalidate>
+      <form action="/confirmation" method="post" novalidate>
         {{ govukDateInput({
           id: "action-by",
           namePrefix: "action-by",
           fieldset: {
             legend: {
-              text: "When does this claim need to be actioned by?",
-              classes: "govuk-fieldset__legend--m"
+              text: "When does the claim need to be actioned by?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
             text: "For example, 31 3 2024"
-          }
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Add a note (optional)",
-            classes: "govuk-label--m"
           },
-          hint: {
-            text: "Max 100 characters"
-          },
-          classes: "govuk-!-width-full",
-          id: "pause-notes",
-          name: "pauseNotes"
+          items: [
+            {
+              name: "day",
+              classes: "govuk-input--width-2",
+              autocomplete: "action-day"
+            },
+            {
+              name: "month",
+              classes: "govuk-input--width-2",
+              autocomplete: "action-month"
+            },
+            {
+              name: "year",
+              classes: "govuk-input--width-4",
+              autocomplete: "action-year"
+            }
+          ]
         }) }}
         {{ govukButton({
-          text: "Continue"
+          text: "Update claim"
         }) }}
       </form>
     </div>
