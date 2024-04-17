@@ -45,7 +45,7 @@ href: "javascript:history.back()"
             </legend>
             <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" checked="">
+                <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" ="">
                 <label class="govuk-label govuk-radios__label" for="sort">
                   Action by soonest
                 </label>
@@ -67,82 +67,87 @@ href: "javascript:history.back()"
               </h1>
             </legend>
             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-
+              <!-- Sent to a decision maker
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="mop" name="mop" type="checkbox" value="mop" checked>
+                <input class="govuk-checkboxes__input" id="mop" name="mop" type="checkbox" value="mop" >
                 <label class="govuk-label govuk-checkboxes__label" for="mop">
-                  Bank details check (MOP)
+                  Sent to a decision maker
                 </label>
               </div>
+              -->
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="cis-update" name="cis-update" type="checkbox"
-                  value="cis-update" checked>
+                  value="cis-update">
                 <label class="govuk-label govuk-checkboxes__label" for="cis-update">
                   CIS update
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv" checked>
+                <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv">
                 <label class="govuk-label govuk-checkboxes__label" for="kbv">
                   Identity check (KBV)
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr" checked>
+                <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr">
                 <label class="govuk-label govuk-checkboxes__label" for="mbr">
                   Main benefit reply (MBR)
                 </label>
               </div>
+              <!-- Part-time earning check
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="other">
-                  Other
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="pte" name="pte" type="checkbox" value="pte" checked>
+                <input class="govuk-checkboxes__input" id="pte" name="pte" type="checkbox" value="pte" >
                 <label class="govuk-label govuk-checkboxes__label" for="pte">
                   Part-time earnings check
                 </label>
               </div>
+              -->
+              <!-- Pension check
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="pension" name="pension" type="checkbox" value="pension"
-                  checked>
+                  >
                 <label class="govuk-label govuk-checkboxes__label" for="pension">
                   Pension check
                 </label>
               </div>
+              -->
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="self-employment" name="self-employment" type="checkbox"
-                  value="self-employment" checked>
+                  value="self-employment">
                 <label class="govuk-label govuk-checkboxes__label" for="self-employment">
                   Self-employment and company director check
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="decision-maker" name="decision-maker" type="checkbox"
-                  value="decision-maker" checked>
+                  value="decision-maker">
                 <label class="govuk-label govuk-checkboxes__label" for="decision-maker">
                   Sent to a decision maker
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="international-group" name="international-group"
-                  type="checkbox" value="international-group" checked>
+                  type="checkbox" value="international-group">
                 <label class="govuk-label govuk-checkboxes__label" for="self-employment">
                   Sent to International Group
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa" checked>
+                <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa">
                 <label class="govuk-label govuk-checkboxes__label" for="nsesa">
                   Sent to NSESA team
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc" checked>
+                <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc">
                 <label class="govuk-label govuk-checkboxes__label" for="ttc">
                   Transferred to clerical
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other">
+                <label class="govuk-label govuk-checkboxes__label" for="other">
+                  Other
                 </label>
               </div>
             </div>
@@ -185,19 +190,19 @@ href: "javascript:history.back()"
         <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
         {% if data['show'] == "03" %}
         <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 00000003</caption>
+          <caption class="govuk-table__caption govuk-table__caption--l">Claims paused by 00000003</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
+              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action by</th>
+              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
+              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
               <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell" colspan="5">No recently updated claims</td>
+              <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
             </tr>
           </tbody>
         </table>
@@ -224,13 +229,13 @@ href: "javascript:history.back()"
                 <span style="white-space: nowrap">15 May 2024</span>
               </td>
               <td class="govuk-table__cell">
-                <span style="white-space: nowrap">7 May 2024</span>
+                <span style="white-space: nowrap">7 Apr 2024</span>
               </td>
               <td class="govuk-table__cell">
                 <span style="white-space: nowrap">SW 12 34 56 A</span>
               </td>
               <td class="govuk-table__cell">
-                Bank details check (MOP)
+                Sent to International Group
               </td>
               <td class="govuk-table__cell">
                 <a class="govuk-link" href="#">View</a>
@@ -264,7 +269,7 @@ href: "javascript:history.back()"
                 <span style="white-space: nowrap">RN 00 00 35 C</span>
               </td>
               <td class="govuk-table__cell">
-                Bank details check (MOP),
+                Sent to a decision maker,
                 <br> Main benefit reply (MBR)
               </td>
               <td class="govuk-table__cell">
@@ -282,7 +287,7 @@ href: "javascript:history.back()"
                 <span style="white-space: nowrap">QQ 12 34 56 X</span>
               </td>
               <td class="govuk-table__cell">
-                Awaiting JCP action
+                Identity check (KBV)
               </td>
               <td class="govuk-table__cell">
                 <a class="govuk-link" href="#">View</a>
@@ -351,7 +356,7 @@ href: "javascript:history.back()"
               </td>
               <td class="govuk-table__cell">
                 Pension check,
-                <br>Sent to International Group
+                <br>Sent to NSESA team
               </td>
               <td class="govuk-table__cell">
                 <a class="govuk-link" href="#">View</a>

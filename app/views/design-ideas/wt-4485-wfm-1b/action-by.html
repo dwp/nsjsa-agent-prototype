@@ -5,6 +5,37 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {{ govukTable({
+  caption: "You have selected 3 pause reasons",
+  captionClasses: "govuk-table__caption--m",
+  
+  rows: [
+    [
+      {
+        text: "Identity check (KBV)"
+      },
+      {
+        html: '<a href=#>Remove</a>'
+      }
+    ],
+    [
+      {
+        text: "Main benefit reply (MBR)"
+      },
+      {
+        html: '<a href=#>Remove</a>'
+      }
+    ],
+    [
+      {
+        text: "Other"
+      },
+      {
+        html: '<a href=#>Remove</a>'
+      }
+    ]
+  ]
+}) }}
       <form action="/confirmation" method="post" novalidate>
         {{ govukDateInput({
           id: "action-by",

@@ -1,0 +1,71 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  Why have you paused this claim?
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="action-by" method="get">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            {{ govukCheckboxes({
+                    idPrefix: 'status',
+                    name: 'pauseReason',
+                    fieldset: {
+                      legend: {
+                        text: "Why have you paused this claim?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+  hint: {
+    text: "Select all that apply."
+  },
+                    items: [
+                        {
+                            value: "kbv",
+                            text: "Identity check (KBV)"
+                        },
+                        {
+                            value: "mbr",
+                            text: "Main benefit reply (MBR)"
+                        },
+                        {
+                            value: "self-employment",
+                            text: "Self-employment and company director check"
+                        },
+                        {
+                            value: "cis-update",
+                            text: "Sent for CIS update"
+                        },
+                        {
+                            value: "decision-maker",
+                            text: "Sent to a decision maker"
+                        },
+                        {
+                            value: "international",
+                            text: "Sent to International Group"
+                        },
+                        {
+                            value: "nsesa",
+                            text: "Sent to NSESA team"
+                        },
+                        {
+                            value: "ttc",
+                            text: "Transferred to clerical"
+                        },
+                        {
+                            value: "other",
+                            text: "Other"
+                        }                       
+                    ]
+                }) }}
+          </fieldset>
+        </div>
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
