@@ -1,22 +1,64 @@
-{% extends "./view-claim.html" %}
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
 {% block pageTitle %}
   What is the status of this claim?
 {% endblock %}
-{% block content %}
-  <div class="govuk-grid-row  govuk-!-margin-top-4">
-    <div class="govuk-grid-column-two-thirds">
-      <form action="confirmation" method="get">
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            {% set govukWarningText %}
-            {{ govukWarningText({
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+{% block header %}
+  {% from "internal-service-header/macro.njk" import dwpHeader %}
+  <main>
+    {{ dwpHeader({
+        serviceName: "Apply for New Style Jobseeker’s Allowance",
+        serviceHref: '#',
+        container:true
+    }) }}
+    {{ super() }}
+    {% if data['claimant'] == 'ij' %}
+      {% include 'v1_1-agent/claimants/ij/key-details.html' %}
+    {% elif data['claimant'] == 'kb' %}
+      {% include 'v1_1-agent/claimants/kb/key-details.html' %}
+    {% else %}
+      <p>No claimant set.</p>
+    {% endif %}
+  {% endblock %}
+  {% block footer %}
+    {{ dwpFooter({
+  meta: {
+    visuallyHiddenTitle: "Meta links",
+    items: [
+    {
+      href: "#",
+            text: "Accessibility statement"
+    },
+    {
+      href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+    },
+    {
+      href: "/prototype-admin/clear-data",
+            text: "Clear data"
+    }
+    ]
+  }
+}) }}
+  {% endblock %}
+  {% block content %}
+    <div class="govuk-grid-row  govuk-!-margin-top-4">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="confirmation" method="get">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              {% set govukWarningText %}
+              {{ govukWarningText({
                   text: "The Contact Centre will book an appointment for this claim.",
                   iconFallbackText: "Warning"
                 }) }}
-            {% endset -%}
-            {#Radio button options for claim status AWAITING APPOINTMENT#}
-            {% if data['claimStatus'] == 'awaiting-appointment' %}
-              {{ govukRadios({
+              {% endset -%}
+              {#Radio button options for claim status AWAITING APPOINTMENT#}
+              {% if data['claimStatus'] == 'awaiting-appointment' %}
+                {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -60,9 +102,9 @@
                         }                       
                     ]
                 }) }}
-              {#Radio button options for claim status COMPLEX CLAIM#}
-            {% elif data['claimStatus'] == 'complex-claim' %}
-              {{ govukRadios({
+                {#Radio button options for claim status COMPLEX CLAIM#}
+              {% elif data['claimStatus'] == 'complex-claim' %}
+                {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -106,9 +148,9 @@
                         }                       
                     ]
                 }) }}
-              {#Radio button options for claim status DUPLICATE#}
-            {% elif data['claimStatus'] == 'duplicate' %}
-              {{ govukRadios({
+                {#Radio button options for claim status DUPLICATE#}
+              {% elif data['claimStatus'] == 'duplicate' %}
+                {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -155,9 +197,9 @@
                         }                       
                     ]
                 }) }}
-              {#Radio button options for claim status NOT ENTITLED#}
-            {% elif data['claimStatus'] == 'not-entitled' %}
-              {{ govukRadios({
+                {#Radio button options for claim status NOT ENTITLED#}
+              {% elif data['claimStatus'] == 'not-entitled' %}
+                {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -204,9 +246,9 @@
                         }                       
                     ]
                 }) }}
-              {#Radio button options for claim status WITHDRAWN#}
-            {% elif data['claimStatus'] == 'withdrawn' %}
-              {{ govukRadios({
+                {#Radio button options for claim status WITHDRAWN#}
+              {% elif data['claimStatus'] == 'withdrawn' %}
+                {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -253,9 +295,9 @@
                         }                     
                     ]
                 }) }}
-              {#Radio button options for claim status NOT VALID#}
-            {% elif data['claimStatus'] == 'not-valid' %}
-              {{ govukRadios({
+                {#Radio button options for claim status NOT VALID#}
+              {% elif data['claimStatus'] == 'not-valid' %}
+                {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -302,9 +344,9 @@
                         }                       
                     ]
                 }) }}
-              {#Radio button options for claim status PROCESSING STARTED, SUCCESS, SUSPECTED FRAUD, PAUSE #}
-            {% else %}
-              {{ govukRadios({
+                {#Radio button options for claim status PROCESSING STARTED, SUCCESS, SUSPECTED FRAUD, PAUSE #}
+              {% else %}
+                {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -355,13 +397,13 @@
                         }                       
                     ]
                 }) }}
-            {% endif %}
-          </fieldset>
-        </div>
-        {{ govukButton({
+              {% endif %}
+            </fieldset>
+          </div>
+          {{ govukButton({
             text: "Update claim status"
         }) }}
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
-{% endblock %}
+  {% endblock %}

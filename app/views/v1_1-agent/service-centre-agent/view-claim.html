@@ -1,9 +1,10 @@
 {% extends "agent/layout.html" %}
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
 {% block pageTitle %}
   {{ serviceName }}
 {% endblock %}
-{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block header %}
+  {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
   {{ super() }}
   {% if data['claimant'] == 'ij' %}
     {% include 'v1_1-agent/claimants/ij/key-details.html' %}

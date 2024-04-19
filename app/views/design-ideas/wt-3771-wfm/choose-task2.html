@@ -1,7 +1,42 @@
-{% extends "layout-agent-id.html" %}
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
 {% block pageTitle %}
   Service centre - {{ serviceName }}
 {% endblock %}
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+{% block header %}
+  {{ dwpHeader({
+name: data['agentServiceName'],
+action: "Staff number: 00000001",
+actionHref: "#",
+serviceHref: '/',
+container:true
+}) }}
+{% endblock %}
+{% block footer %}
+  {{ dwpFooter({
+  meta: {
+    visuallyHiddenTitle: "Meta links",
+    items: [
+    {
+      href: "#",
+            text: "Accessibility statement"
+    },
+    {
+      href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+    },
+    {
+      href: "/prototype-admin/clear-data",
+            text: "Clear data"
+    }
+    ]
+  }
+}) }}
+{% endblock %}
+{% set htmlClasses = htmlClasses | default("dwp-agent-layout") %}
+{# reset auto spacing from layout.html #}
+{% set mainClasses = mainClasses | default("") %}
 {% block beforeContent %}
   {{ govukBackLink({
   text: "Back to scenario screen",
@@ -256,7 +291,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="govuk-tabs__panel" id="escalated">
+              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="escalated">
                 <h2 class="govuk-heading-l">Escalated</h2>
                 <table class="govuk-table">
                   <thead class="govuk-table__head">
@@ -350,7 +385,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="govuk-tabs__panel" id="suspected-fraud">
+              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="suspected-fraud">
                 <h2 class="govuk-heading-l">Suspected fraud</h2>
                 <table class="govuk-table">
                   <thead class="govuk-table__head">

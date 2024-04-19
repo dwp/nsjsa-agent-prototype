@@ -26,14 +26,14 @@ $key-details-bar-break-point-sm: 640px;
     .dwp-key-details-bar__body {
       &::after {
         clear: both;
-        content: ' ';
+        content: " ";
         display: block;
       }
     }
 
     .dwp-key-details-bar__body {
       border-top: 1px solid $white-transparent;
-      content: ' ';
+      content: " ";
       padding-top: 10px;
       margin-top: 6px;
     }
@@ -47,7 +47,7 @@ $key-details-bar-break-point-sm: 640px;
       margin: 0 5px 0 0;
       padding: 0;
 
-      @media(max-width: $key-details-bar-break-point) {
+      @media (max-width: $key-details-bar-break-point) {
         font-size: 16px;
       }
     }
@@ -55,7 +55,7 @@ $key-details-bar-break-point-sm: 640px;
     dd {
       margin-right: 20px;
 
-      @media(max-width: $key-details-bar-break-point) {
+      @media (max-width: $key-details-bar-break-point) {
         margin-bottom: 5px;
 
         &:last-of-type {
@@ -64,11 +64,11 @@ $key-details-bar-break-point-sm: 640px;
       }
     }
 
-    .dwp-key-details-bar__name, 
+    .dwp-key-details-bar__name,
     .dwp-key-details-bar__action,
     .dwp-key-details-bar__body dt {
       font-weight: 700;
-      @media(max-width: $key-details-bar-break-point-md) {
+      @media (max-width: $key-details-bar-break-point-md) {
         clear: left;
       }
     }
@@ -78,7 +78,7 @@ $key-details-bar-break-point-sm: 640px;
       line-height: 1.11111;
       margin-right: 10px;
 
-      @media(max-width: $key-details-bar-break-point) {
+      @media (max-width: $key-details-bar-break-point) {
         font-size: 24px;
         line-height: 1.04167;
         float: left;
@@ -91,7 +91,7 @@ $key-details-bar-break-point-sm: 640px;
       line-height: 1;
       margin-top: 12px;
 
-      @media(max-width: $key-details-bar-break-point) {
+      @media (max-width: $key-details-bar-break-point) {
         font-size: 18px;
         float: left;
         margin: 5px 0 0 0;
@@ -106,12 +106,12 @@ $key-details-bar-break-point-sm: 640px;
       padding: 5px 8px 0;
       margin: 5px 0 0;
       float: right;
-      color: govuk-colour('blue');
-      background-color: govuk-colour('white');
+      color: govuk-colour("blue");
+      background-color: govuk-colour("white");
       letter-spacing: 1px;
       text-decoration: none;
-      text-transform: uppercase;
-      @media(max-width: $key-details-bar-break-point-sm) {
+      text-transform: capitalize;
+      @media (max-width: $key-details-bar-break-point-sm) {
         float: left;
         clear: left;
       }
@@ -121,12 +121,14 @@ $key-details-bar-break-point-sm: 640px;
       float: right;
       margin: 5px 0 0;
       color: govuk-colour("blue");
+      text-transform: capitalize;
 
-      @media(max-width: $key-details-bar-break-point) {
+      @media (max-width: $key-details-bar-break-point) {
         font-size: 14px;
         float: left;
         clear: both;
         margin-top: 5px;
+        text-transform: capitalize;
       }
     }
 
@@ -139,8 +141,8 @@ $key-details-bar-break-point-sm: 640px;
       text-decoration: none;
       float: right;
       margin: 5px 0 0;
-      
-      @media(max-width: $key-details-bar-break-point) {
+
+      @media (max-width: $key-details-bar-break-point) {
         font-size: 14px;
         float: left;
         clear: both;

@@ -1,9 +1,7 @@
-/* global $ */
-
-// Warn about using the kit in production
-if (window.console && window.console.info) {
-  window.console.info('GOV.UK Prototype Kit - do not use for production')
-}
+//
+// For guidance on how to add JavaScript see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+//
 
 function statusUpdate() {
   const elem = document.getElementsByClassName("govuk-tag");
@@ -17,6 +15,6 @@ function printCheck() {
 
 
 
-$(document).ready(function () {
-  window.GOVUKFrontend.initAll()
+window.GOVUKPrototypeKit.documentReady(function () {
 })
+

@@ -1,9 +1,7 @@
 {% extends "layout-search-bar.html" %}
-{% block pageTitle %}
-  {{ serviceName }}
-{% endblock %}
-{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% from "dwp-components/dwp-header-search-box/macro.njk"               import  dwpHeaderSearchBox %}
 {% block header %}
+  {% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
   {{ super() }}
   {% if data['claimant'] == 'ij' %}
     {% include 'v1_1-agent/claimants/ij/key-details.html' %}
@@ -13,6 +11,13 @@
     <p>No claimant set.</p>
   {% endif %}
 {% endblock %}
+{% set htmlClasses = htmlClasses | default("dwp-agent-layout") %}
+{# reset auto spacing from layout.html #}
+{% set mainClasses = mainClasses | default("") %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block content %}
   {{ govukBackLink({
   text: "Back",
