@@ -1,7 +1,13 @@
-const express = require('express')
-const router = express.Router()
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
 
-// Add your routes here - above the module.exports line
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
+
+// Add your routes here
+
 ///////////////////////
 //   Version 1.1.   //
 //////////////////////
@@ -67,8 +73,6 @@ router.use(
   require("./views/v1_0-agent/work-coach/_routes")
 );
 //// End Version 1.0 ////
-// This moves Workflowmanagement wt-4485-wfm-1b to 'design-ideas/wt-4485-wfm-1b' directory
-router.use('/design-ideas/wt-4485-wfm-1b', require('./views/design-ideas/wt-4485-wfm-1b/_routes'))
 
 // This moves Workflowmanagement wt-4066-wfm to 'design-ideas/wt-4066-wfm' directory
 router.use('/design-ideas/wt-4066-wfm', require('./views/design-ideas/wt-4066-wfm/_routes'))
@@ -201,4 +205,3 @@ router.get('/feedback', function (req, res) {
     res.redirect('https://github.com/dwp/nsjsa-automation-beta/issues')
 });
 
-module.exports = router

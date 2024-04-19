@@ -1,6 +1,24 @@
-{% extends "./view-claim.html" %}
-{% block pageTitle %}
-  Select a status
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% block header %}
+  {% from "internal-service-header/macro.njk" import dwpHeader %}
+  <main>
+    {{ dwpHeader({
+        serviceName: "Apply for New Style Jobseeker’s Allowance",
+        serviceHref: '#',
+        container:true
+    }) }}
+  </main>
+  {{ super() }}
+  {% if data['claimant'] == 'ij' %}
+    {% include 'v1_1-agent/claimants/ij/key-details.html' %}
+  {% elif data['claimant'] == 'kb' %}
+    {% include 'v1_1-agent/claimants/kb/key-details.html' %}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
 {% endblock %}
 {% block content %}
   {{ govukBackLink({

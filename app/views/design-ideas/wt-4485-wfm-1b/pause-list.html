@@ -1,436 +1,431 @@
 {% extends "layout-agent-id.html" %}
 {% block pageTitle %}
-Service centre - {{ serviceName }}
+  Service centre - {{ serviceName }}
 {% endblock %}
 {% block beforeContent %}
-{{ govukBackLink({
+  {{ govukBackLink({
 text: "Back",
 href: "javascript:history.back()"
 }) }}
 {% endblock %}
 {% block content %}
-<div class="govuk-width-container">
-  <main class="govuk-main-wrapper--m" id="main-content" role="main">
-    <h1 class="govuk-heading-l">Paused claims</h1>
-    <!-- SEARCH BY STAFF NUMBER -->
-    <div class="govuk-form-group govuk-!-margin-bottom-0">
-      <label class="govuk-label" for="search">
-        <strong>Search by staff number</strong>
-      </label>
-      <input class="govuk-input govuk-!-width-one-third" id="search" name="search" type="text">
-      <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
-        Search
-      </button>
-    </div>
-    <div class="govuk-grid-row">
-
-      <div class="govuk-grid-column-one-quarter">
-        <p></p>
-      </div>
-      <div class="govuk-grid-column-three-quarters">
-
-      </div>
-    </div>
-    <div class="govuk-grid-row">
-      <!-- FILTERS -->
-      <div class="govuk-grid-column-one-quarter">
-        <h2 class="govuk-heading-m">Filters</h2>
-        <!--Sort by
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading">
-                Sort by
-              </h1>
-            </legend>
-            <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" ="">
-                <label class="govuk-label govuk-radios__label" for="sort">
-                  Action by soonest
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
-                <label class="govuk-label govuk-radios__label" for="sort-2">
-                  Action by latest
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div> -->
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading">
-                Pause reason
-              </h1>
-            </legend>
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <!-- Sent to a decision maker
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="mop" name="mop" type="checkbox" value="mop" >
-                <label class="govuk-label govuk-checkboxes__label" for="mop">
-                  Sent to a decision maker
-                </label>
-              </div>
-              -->
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="cis-update" name="cis-update" type="checkbox"
-                  value="cis-update">
-                <label class="govuk-label govuk-checkboxes__label" for="cis-update">
-                  CIS update
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv">
-                <label class="govuk-label govuk-checkboxes__label" for="kbv">
-                  Identity check (KBV)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr">
-                <label class="govuk-label govuk-checkboxes__label" for="mbr">
-                  Main benefit reply (MBR)
-                </label>
-              </div>
-              <!-- Part-time earning check
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="pte" name="pte" type="checkbox" value="pte" >
-                <label class="govuk-label govuk-checkboxes__label" for="pte">
-                  Part-time earnings check
-                </label>
-              </div>
-              -->
-              <!-- Pension check
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="pension" name="pension" type="checkbox" value="pension"
-                  >
-                <label class="govuk-label govuk-checkboxes__label" for="pension">
-                  Pension check
-                </label>
-              </div>
-              -->
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="self-employment" name="self-employment" type="checkbox"
-                  value="self-employment">
-                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
-                  Self-employment and company director check
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="decision-maker" name="decision-maker" type="checkbox"
-                  value="decision-maker">
-                <label class="govuk-label govuk-checkboxes__label" for="decision-maker">
-                  Sent to a decision maker
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="international-group" name="international-group"
-                  type="checkbox" value="international-group">
-                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
-                  Sent to International Group
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa">
-                <label class="govuk-label govuk-checkboxes__label" for="nsesa">
-                  Sent to NSESA team
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc">
-                <label class="govuk-label govuk-checkboxes__label" for="ttc">
-                  Transferred to clerical
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other">
-                <label class="govuk-label govuk-checkboxes__label" for="other">
-                  Other
-                </label>
-              </div>
-            </div>
-          </fieldset>
-          <div class="govuk-button-group">
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              Apply
-            </button>
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Reset
-            </button>
-          </div>
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper--m" id="main-content" role="main">
+      <h1 class="govuk-heading-l">Paused claims</h1>
+      <!-- SEARCH BY STAFF NUMBER -->
+      <div class="govuk-form-group govuk-!-margin-bottom-0">
+        <label class="govuk-label" for="search">
+          <strong>Search by staff number</strong>
+        </label>
+        <input class="govuk-input govuk-!-width-one-third" id="search" name="search" type="text">
+          <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
+            Search
+          </button>
         </div>
-      </div>
-
-      <div class="govuk-grid-column-three-quarters">
         <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-button-group">
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Hide filters
-              </button>
-            </div>
+          <div class="govuk-grid-column-one-quarter">
+            <p></p>
           </div>
-          <div class="govuk-grid-column-one-third">
-            <div class="govuk-form-group">
-              <label class="govuk-label" for="sort">
-                Sort by
-              </label>
-              <select class="govuk-select" id="sort" name="sort">
-                <option value="published" selected>Action by soonest</option>
-                <option value="updated">Action by latest</option>
-                <option value="views">Claim submitted newest</option>
-                <option value="comments">Claim submitted oldest</option>
-              </select>
-            </div>
-          </div>
+          <div class="govuk-grid-column-three-quarters"></div>
         </div>
-
-        <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
-        {% if data['show'] == "03" %}
-        <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims paused by 00000003</caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action by</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
-        {% elif data['show'] == "12345678" %}
-
-        <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
-        {% else %}
-        <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000001</caption>
-
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action by</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">15 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">7 Apr 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">SW 12 34 56 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                Sent to International Group
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">15 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QQ 12 34 56 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                Identity check (KBV)
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">15 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">10 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">RN 00 00 35 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                Sent to a decision maker,
-                <br> Main benefit reply (MBR)
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">15 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">10 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QQ 12 34 56 X</span>
-              </td>
-              <td class="govuk-table__cell">
-                Identity check (KBV)
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">15 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">11 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">VF 13 63 34 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                Other
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">15 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">11 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QF 74 42 21 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                Self-employment and company director check
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">16 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">DF 13 23 44 B</span>
-              </td>
-              <td class="govuk-table__cell">
-                Main benefit reply (MBR)
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">16 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">UI 25 82 07 D</span>
-              </td>
-              <td class="govuk-table__cell">
-                Pension check,
-                <br>Sent to NSESA team
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">16 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">10 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">UV 25 54 48 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                Transferred to clerical
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">16 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">12 May 2024</span>
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">ID 54 32 07 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                Identity check (KBV)
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <nav class="app-pagination" role="navigation" aria-label="results">
-          <ul class="app-pagination__list">
-            <li class="app-pagination__item app-pagination__item--current">
-              <a class="govuk-link app-pagination__link" href="#" aria-label="Page 1" aria-current="page">
-                1
-              </a>
-            </li>
-            <li class="app-pagination__item">
-              <a class="govuk-link app-pagination__link" href="#" aria-label="Page 2">
-                2
-              </a>
-            </li>
-            <li class="app-pagination__item">
-              <a class="govuk-link app-pagination__link" href="#" aria-label="Page 3">
-                3
-              </a>
-            </li>
-          </ul>
-          <div class="app-pagination__next">
-            <a class="govuk-link app-pagination__link" href="#" rel="next">
-              <span class="app-pagination__link-title">Next</span>
-              <svg class="app-pagination__icon app-pagination__icon--next" xmlns="http://www.w3.org/2000/svg"
-                height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-                <path
-                  d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
-                </path>
-              </svg>
-            </a>
-          </div>
-        </nav>
-        {% endif %}
-      </div>
-    </div>
-  </main>
-</div>
-{% endblock %}
+        <div
+          class="govuk-grid-row">
+          <!-- FILTERS -->
+          <div class="govuk-grid-column-one-quarter">
+            <h2 class="govuk-heading-m">Filters</h2>
+            <!-- Sort by <div class="govuk-form-group"> <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                  <h1 class="govuk-fieldset__heading">
+                    Sort by
+                  </h1>
+                </legend>
+                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" ="">
+                    <label class="govuk-label govuk-radios__label" for="sort">
+                      Action by soonest
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
+                    <label class="govuk-label govuk-radios__label" for="sort-2">
+                      Action by latest
+                    </label>
+                  </div>
+                </div>
+            </fieldset> </div> -->
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                  <h1 class="govuk-fieldset__heading">
+                    Pause reason
+                  </h1>
+                </legend>
+                <div
+                  class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <!-- Sent to a decision maker <div class="govuk-checkboxes__item"> <input class="govuk-checkboxes__input" id="mop"
+                  name="mop" type="checkbox" value="mop" > <label class="govuk-label govuk-checkboxes__label" for="mop">
+                      Sent to a decision maker
+                  </label> </div> -->
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="cis-update" name="cis-update" type="checkbox" value="cis-update">
+                      <label class="govuk-label govuk-checkboxes__label" for="cis-update">
+                        CIS update
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv">
+                        <label class="govuk-label govuk-checkboxes__label" for="kbv">
+                          Identity check (KBV)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr">
+                          <label class="govuk-label govuk-checkboxes__label" for="mbr">
+                            Main benefit reply (MBR)
+                          </label>
+                        </div>
+                        <!-- Part-time earning check <div class="govuk-checkboxes__item"> <input class="govuk-checkboxes__input" id="pte"
+                        name="pte" type="checkbox" value="pte" > <label class="govuk-label govuk-checkboxes__label" for="pte">
+                            Part-time earnings check
+                        </label> </div> -->
+                        <!-- Pension check <div class="govuk-checkboxes__item"> <input class="govuk-checkboxes__input" id="pension"
+                        name="pension" type="checkbox" value="pension"
+                            >
+                        <label class="govuk-label govuk-checkboxes__label" for="pension">
+                            Pension check
+                        </label> </div> -->
+                        <div class="govuk-checkboxes__item">
+                          <input
+                            class="govuk-checkboxes__input"
+                            id="self-employment"
+                            name="self-employment"
+                            type="checkbox"
+                            value="self-employment">
+                            <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                              Self-employment and company director check
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="decision-maker" name="decision-maker" type="checkbox" value="decision-maker">
+                              <label class="govuk-label govuk-checkboxes__label" for="decision-maker">
+                                Sent to a decision maker
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input
+                                class="govuk-checkboxes__input"
+                                id="international-group"
+                                name="international-group"
+                                type="checkbox"
+                                value="international-group">
+                                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                                  Sent to International Group
+                                </label>
+                              </div>
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa">
+                                  <label class="govuk-label govuk-checkboxes__label" for="nsesa">
+                                    Sent to NSESA team
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc">
+                                    <label class="govuk-label govuk-checkboxes__label" for="ttc">
+                                      Transferred to clerical
+                                    </label>
+                                  </div>
+                                  <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other">
+                                      <label class="govuk-label govuk-checkboxes__label" for="other">
+                                        Other
+                                      </label>
+                                    </div>
+                                  </div>
+                                </fieldset>
+                                <div class="govuk-button-group">
+                                  <button type="submit" class="govuk-button" data-module="govuk-button">
+                                    Apply
+                                  </button>
+                                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                    Reset
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="govuk-grid-column-three-quarters">
+                              <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-two-thirds">
+                                  <div class="govuk-button-group">
+                                    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                      Hide filters
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="govuk-grid-column-one-third">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label" for="sort">
+                                      Sort by
+                                    </label>
+                                    <select class="govuk-select" id="sort" name="sort">
+                                      <option value="published" selected>Action by soonest</option>
+                                      <option value="updated">Action by latest</option>
+                                      <option value="views">Claim submitted newest</option>
+                                      <option value="comments">Claim submitted oldest</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
+                              {% if data['show'] == "03" %}
+                                <table class="govuk-table govuk-!-font-size-19">
+                                  <caption class="govuk-table__caption govuk-table__caption--l">Claims paused by 00000003</caption>
+                                  <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action by</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="govuk-table__body">
+                                    <tr class="govuk-table__row">
+                                      <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
+                              {% elif data['show'] == "12345678" %}
+                                <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
+                              {% else %}
+                                <table class="govuk-table govuk-!-font-size-19">
+                                  <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000001</caption>
+                                  <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action by</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="govuk-table__body">
+                                    <tr class="govuk-table__row">
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">15 May 2024</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">7 Apr 2024</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">SW 12 34 56 A</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        Sent to International Group
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <a class="govuk-link" href="#">View</a>
+                                      </td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">15 May 2024</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">9 May 2024</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">QQ 12 34 56 C</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        Identity check (KBV)
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <a class="govuk-link" href="#">View</a>
+                                      </td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">15 May 2024</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">10 May 2024</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <span style="white-space: nowrap">RN 00 00 35 C</span>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        Sent to a decision maker,
+                                        <br>
+                                          Main benefit reply (MBR)
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <a class="govuk-link" href="#">View</a>
+                                        </td>
+                                      </tr>
+                                      <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">15 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">10 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">QQ 12 34 56 X</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          Identity check (KBV)
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <a class="govuk-link" href="#">View</a>
+                                        </td>
+                                      </tr>
+                                      <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">15 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">11 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">VF 13 63 34 C</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          Other
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <a class="govuk-link" href="#">View</a>
+                                        </td>
+                                      </tr>
+                                      <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">15 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">11 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">QF 74 42 21 A</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          Self-employment and company director check
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <a class="govuk-link" href="#">View</a>
+                                        </td>
+                                      </tr>
+                                      <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">16 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">8 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">DF 13 23 44 B</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          Main benefit reply (MBR)
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <a class="govuk-link" href="#">View</a>
+                                        </td>
+                                      </tr>
+                                      <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">16 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">9 May 2024</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          <span style="white-space: nowrap">UI 25 82 07 D</span>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                          Pension check,
+                                          <br>Sent to NSESA team
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            <a class="govuk-link" href="#">View</a>
+                                          </td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                          <td class="govuk-table__cell">
+                                            <span style="white-space: nowrap">16 May 2024</span>
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            <span style="white-space: nowrap">10 May 2024</span>
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            <span style="white-space: nowrap">UV 25 54 48 A</span>
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            Transferred to clerical
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            <a class="govuk-link" href="#">View</a>
+                                          </td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                          <td class="govuk-table__cell">
+                                            <span style="white-space: nowrap">16 May 2024</span>
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            <span style="white-space: nowrap">12 May 2024</span>
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            <span style="white-space: nowrap">ID 54 32 07 C</span>
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            Identity check (KBV)
+                                          </td>
+                                          <td class="govuk-table__cell">
+                                            <a class="govuk-link" href="#">View</a>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <nav class="govuk-pagination" aria-label="Pagination">
+                                      <ul class="govuk-pagination__list">
+                                        <li class="govuk-pagination__item govuk-pagination__item--current">
+                                          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                                            1
+                                          </a>
+                                        </li>
+                                        <li class="govuk-pagination__item">
+                                          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                                            2
+                                          </a>
+                                        </li>
+                                        <li class="govuk-pagination__item">
+                                          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                                            3
+                                          </a>
+                                        </li>
+                                      </ul>
+                                      <div class="govuk-pagination__next">
+                                        <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                                          <span class="govuk-pagination__link-title">
+                                            Next<span class="govuk-visually-hidden">
+                                              page</span>
+                                          </span>
+                                          <svg
+                                            class="govuk-pagination__icon govuk-pagination__icon--next"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            height="13"
+                                            width="15"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            viewBox="0 0 15 13">
+                                            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                                          </svg>
+                                        </a>
+                                      </div>
+                                    </nav>
+                                  {% endif %}
+                                </div>
+                              </div>
+                            </main>
+                          </div>
+                        {% endblock %}
