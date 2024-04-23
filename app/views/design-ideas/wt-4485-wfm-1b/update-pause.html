@@ -2,10 +2,11 @@
 {% block pageTitle %}
   Why have you paused this claim?
 {% endblock %}
+{% set pauseReason = data['pauseReason'] | replace("-", " ") %}
 {% block content %}
   <div class="govuk-grid-row  govuk-!-margin-top-4">
     <div class="govuk-grid-column-two-thirds">
-      <form action="action-by" method="get">
+      <form action="action-by" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             {{ govukCheckboxes({
@@ -23,35 +24,35 @@
   },
                     items: [
                         {
-                            value: "kbv",
+                            value: "identity-check-(kbv)",
                             text: "Identity check (KBV)"
                         },
                         {
-                            value: "mbr",
+                            value: "main-benefit-reply-(mbr)",
                             text: "Main benefit reply (MBR)"
                         },
                         {
-                            value: "self-employment",
+                            value: "self-employment-and-company-director-check",
                             text: "Self-employment and company director check"
                         },
                         {
-                            value: "cis-update",
+                            value: "sent-for-cis-update",
                             text: "Sent for CIS update"
                         },
                         {
-                            value: "decision-maker",
+                            value: "sent-to-a-decision-maker",
                             text: "Sent to a decision maker"
                         },
                         {
-                            value: "international",
+                            value: "sent-to-international-group",
                             text: "Sent to International Group"
                         },
                         {
-                            value: "nsesa",
+                            value: "sent-to-nsesa-team",
                             text: "Sent to NSESA team"
                         },
                         {
-                            value: "ttc",
+                            value: "transferred-to-clerical",
                             text: "Transferred to clerical"
                         },
                         {

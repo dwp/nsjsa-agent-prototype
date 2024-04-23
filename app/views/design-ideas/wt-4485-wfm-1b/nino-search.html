@@ -1,0 +1,144 @@
+{% extends "layout-agent-id.html" %}
+{% block pageTitle %}
+  {{ serviceName }}: DWP Agent – Find a claimant
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "end"
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div
+      class="govuk-grid-column-two-thirds">
+      {# shows error message for invalid nino format #}
+      {% if data['show'] == "invalid" %}
+        <h1 class="govuk-heading-l">Find a claimant</h1>
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#">Enter a National Insurance number in the correct format</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-form-group govuk-form-group--error">
+          <label class="govuk-label" for="nino">
+            Enter the claimant's National Insurance number
+          </label>
+          <div id="nino-hint" class="govuk-hint">
+            For example, ‘QQ 12 34 56 C’.
+          </div>
+          <p id="nino-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span>
+            Enter a National Insurance number in the correct format
+          </p>
+          <input
+            class="govuk-input govuk-input--width-20 govuk-input--error"
+            id="nino"
+            name="nino"
+            type="text"
+            aria-describedby="nino-hint nino-error"></div>
+          {{ govukButton({
+        text: "Find claimant",
+        href: "nino-search?show="
+      }) }}
+          {# shows error message when field left blank #}
+        {% elif data['show'] == "blank" %}
+          <h1 class="govuk-heading-l">Find a claimant</h1>
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#">Enter a National Insurance number</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-form-group govuk-form-group--error">
+            <label class="govuk-label" for="nino">
+              Enter the claimant's National Insurance number
+            </label>
+            <div id="nino-hint" class="govuk-hint">
+              For example, ‘QQ 12 34 56 C’.
+            </div>
+            <p id="nino-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>
+              Enter a National Insurance number
+            </p>
+            <input
+              class="govuk-input govuk-input--width-20 govuk-input--error"
+              id="nino"
+              name="nino"
+              type="text"
+              aria-describedby="nino-hint nino-error"></div>
+            {{ govukButton({
+        text: "Find claimant",
+        href: "nino-search?show="
+      }) }}
+            {# shows when there is no claimant record against nino #}
+          {% elif data['show'] == "claimant" %}
+            <h1 class="govuk-heading-l">Claimant not found</h1>
+            <p class="govuk-body-l">The system does not hold a record for the National insurance number:
+              <strong>CC000049A</strong>
+            </p>
+            {{ govukButton({
+        text: "Try again",
+        href: "nino-search?show="
+      }) }}
+          {% else %}
+            <h1 class="govuk-heading-l">Find a claimant</h1>
+            <form action="nino-search" method="post">
+              {{ govukInput({
+          errorMessage: errorMessage,
+          label: {
+            text: "Enter the claimant's National Insurance number"
+          },
+          hint: {
+            text: "For example, ‘QQ 12 34 56 C’."
+          },
+          classes: "govuk-input--width-20",
+          id: "nino",
+          name: "nino",
+          attributes: {
+            "autocomplete": "off"
+          }
+        }) }}
+              {{ govukButton({
+          text: "Find claimant"
+        }) }}
+            </form>
+          {% endif %}
+        </div>
+        <!-- Prototype scenarios -->
+        <div class="govuk-grid-column-one-third">
+          <h2 class="govuk-heading-m govuk-!-margin-top-2">Prototype scenarios</h2>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Enter any value for happy scenario</li>
+            <li>Leave the field blank for NiNo not found</li>
+            <li>Enter
+              <code>invalid</code>
+              for NiNo not valid</li>
+            <li>Enter
+              <code>duplicates</code>
+              for duplicate claim</li>
+            <li>Enter
+              <code>claimant</code>
+              for claimant not found</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
