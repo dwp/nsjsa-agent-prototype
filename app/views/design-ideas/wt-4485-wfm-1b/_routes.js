@@ -42,7 +42,20 @@ router.post("/nino-search", function (req, res) {
   }
 });
 
-  //Choose task - Last updated claims list
+  
+  // reset the "find a claimant" data back to defaults when end is got
+  router.get('/end', function (req, res) {
+    let data = req.session.data;
+  
+  
+    delete data['nino'];
+    delete data['show'];
+  
+  
+    res.redirect('choose-task');
+  });
+
+  //Last updated claims list
   // show different claims-list table for agent 2
   router.post("/claims-list", function (req, res) {
     const answer = req.body.agent;
@@ -61,18 +74,35 @@ router.post("/nino-search", function (req, res) {
     }
   });
 
+    //Paused list
+  // show different pause-list table for agent 2
+  router.post("/pause-list", function (req, res) {
+    const answer = req.body.agent;
   
-  // reset the "find a claimant" data back to defaults when end is got
-router.get('/end', function (req, res) {
-  let data = req.session.data;
+    // agent 2 claims list
+    if (answer === "12345678") {
+      res.redirect(`${ABS_BASE_PATH}/pause-list?show=12345678`);
+    // agent 3 claims list - no data in list
+  } else if (answer === "03") {
+      res.redirect(`${ABS_BASE_PATH}/pause-list?show=03`);
+  
+    } else {
+      // agent 1 claims list
+        res.redirect(`${ABS_BASE_PATH}/claims-list?show=`);
+      
+    }
+  });
 
+// Direct user to Pause update screen when 'Paused' is selected
+router.post('/update', function(request, response) {
 
-  delete data['nino'];
-  delete data['show'];
-
-
-  res.redirect('choose-task3');
-});
+  var claimStatus = request.session.data['claimStatus']
+  if (claimStatus == "paused"){
+      response.redirect(`${ABS_BASE_PATH}/update-pause`)
+  } else {
+      response.redirect(`${ABS_BASE_PATH}/confirmation`)
+  }
+})
 /*
   // choose-task reset the 'on hold claims' data back to default agent 1 when 'claimslist' is got
   router.get('/claimslist', function (req, res) {

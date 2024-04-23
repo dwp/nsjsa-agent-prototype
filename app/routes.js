@@ -74,7 +74,10 @@ router.use(
 );
 //// End Version 1.0 ////
 
-// This moves Workflowmanagement wt-4066-wfm to 'design-ideas/wt-4066-wfm' directory
+// This moves Workflowmanagement 1b wt-4485-wfm-1b to 'design-ideas/wt-4485-wfm-1b' directory
+router.use('/design-ideas/wt-4485-wfm-1b', require('./views/design-ideas/wt-4485-wfm-1b/_routes'))
+
+// This moves Workflowmanagement 1a wt-4066-wfm to 'design-ideas/wt-4066-wfm' directory
 router.use('/design-ideas/wt-4066-wfm', require('./views/design-ideas/wt-4066-wfm/_routes'))
 
 // This moves Workflowmanagement wt-3771-wfm to 'design-ideas/wt-3771-wfm' directory

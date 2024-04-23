@@ -23,31 +23,10 @@
       <p>No claimant set.</p>
     {% endif %}
   {% endblock %}
-  {% block footer %}
-    {{ dwpFooter({
-  meta: {
-    visuallyHiddenTitle: "Meta links",
-    items: [
-    {
-      href: "#",
-            text: "Accessibility statement"
-    },
-    {
-      href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-    },
-    {
-      href: "/prototype-admin/clear-data",
-            text: "Clear data"
-    }
-    ]
-  }
-}) }}
-  {% endblock %}
   {% block content %}
     <div class="govuk-grid-row  govuk-!-margin-top-4">
       <div class="govuk-grid-column-two-thirds">
-        <form action="confirmation" method="get">
+        <form action="update" method="post">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               {% set govukWarningText %}
@@ -401,9 +380,31 @@
             </fieldset>
           </div>
           {{ govukButton({
-            text: "Update claim status"
+            text: "Continue"
         }) }}
         </form>
       </div>
     </div>
+  {% endblock %}
+  {% block footer %}
+    {% from "internal-service-footer/macro.njk" import dwpFooter %}
+    {{ dwpFooter({
+  meta: {
+    visuallyHiddenTitle: "Meta links",
+    items: [
+    {
+      href: "#",
+            text: "Accessibility statement"
+    },
+    {
+      href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+    },
+    {
+      href: "/prototype-admin/clear-data",
+            text: "Clear data"
+    }
+    ]
+  }
+}) }}
   {% endblock %}

@@ -1,11 +1,12 @@
 {% extends "./view-claim.html" %}
 {% block pageTitle %}
-Claim updated
+  Claim updated
 {% endblock %}
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <!-- Confirmation interactive 
+  <div class="govuk-grid-row">
+    <div
+      class="govuk-grid-column-two-thirds">
+      <!-- Confirmation interactive -->
       {% if data['claimant'] == 'sh' %}
         {% include 'design-ideas/wt-4485-wfm-1b/claimants/sh/update-confirmation.html' %}
       {% elif data['claimant'] == 'kb' %}
@@ -16,27 +17,14 @@ Claim updated
         {% include 'design-ideas/wt-4485-wfm-1b/claimants/ij/update-confirmation.html' %}
       {% else %}
         <p>No claimant set.</p>
-      {% endif %}-->
-    <div class="govuk-panel govuk-panel--confirmation">
-      <h1 class="govuk-panel__title">
-        Claim updated
-      </h1>
-      <div class="govuk-panel__body govuk-!-text-align-left">
-        The claim for Ian Johnson <br><strong>RN 00 00 35 C</strong> has been paused for:
-        <ul>
-          <li>Main benefit reply (MBR)</li>
-          <li>Identity check (KBV)</li>
-          <li>Other</li>
-        </ul>
-      </div>
-    </div>
-    {{ govukButton({
+      {% endif %}
+      {{ govukButton({
     text: "Get next claim",
     href: "#"
     }) }}
-    <p class="govuk-body">
-      <a href="/design-ideas/wt-4485-wfm-1b/choose-task" class="govuk-link">Return to start screen</a>
-    </p>
+      <p class="govuk-body">
+        <a href="/design-ideas/wt-4485-wfm-1b/choose-task" class="govuk-link">Return to start screen</a>
+      </p>
+    </div>
   </div>
-</div>
 </div>{% endblock %}
