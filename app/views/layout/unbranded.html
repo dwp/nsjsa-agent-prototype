@@ -1,0 +1,14 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% block pageTitle %}
+  NSJSA Agent Prototypes
+{% endblock %}
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% block header %}
+  {{ dwpHeader({
+name: "DWP NSJSA Agent Prototypes",
+serviceHref: '/',
+container:true
+}) }}
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
