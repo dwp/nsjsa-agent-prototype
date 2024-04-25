@@ -5,73 +5,90 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukTable({
-  caption: "You have selected 3 pause reasons",
-  captionClasses: "govuk-table__caption--m",
-  
-  rows: [
-    [
-      {
-        text: "Identity check (KBV)"
-      },
-      {
-        html: '<a href=#>Remove</a>'
-      }
-    ],
-    [
-      {
-        text: "Main benefit reply (MBR)"
-      },
-      {
-        html: '<a href=#>Remove</a>'
-      }
-    ],
-    [
-      {
-        text: "Other"
-      },
-      {
-        html: '<a href=#>Remove</a>'
-      }
-    ]
-  ]
-}) }}
+      <div>
+        <h3 class="govuk-heading-m" id="selected-count">
+          You have selected
+          <span id="count-placeholder"></span>
+        </h3>
+        <script>
+          // Retrieve selected checkbox count from session data
+          var selectedCheckboxCount = sessionStorage.getItem('selectedCheckboxCount');
+          var countPlaceholder = document.getElementById('count-placeholder');
+          // Display the count
+          if (selectedCheckboxCount) {
+            if ((selectedCheckboxCount) > '1') {
+              countPlaceholder.textContent = selectedCheckboxCount + ' pause reasons';
+            } else {
+              countPlaceholder.textContent = selectedCheckboxCount + ' pause reason';
+            }
+          } else {
+            countPlaceholder.textContent = '0';
+          }
+        </script>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+          {% for pauseReason in data['pauseReason'] %}
+            <li>{{ pauseReason }}</li>
+          {% endfor %}
+        </ul>
+      </div>
       <form action="confirmation" method="get" novalidate>
-        {{ govukDateInput({
-          id: "action-by",
-          namePrefix: "action-by",
-          fieldset: {
-            legend: {
-              text: "When does the claim need to be actioned by?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "For example, 31 3 2024"
-          },
-          items: [
-            {
-              name: "day",
-              classes: "govuk-input--width-2",
-              autocomplete: "action-day"
-            },
-            {
-              name: "month",
-              classes: "govuk-input--width-2",
-              autocomplete: "action-month"
-            },
-            {
-              name: "year",
-              classes: "govuk-input--width-4",
-              autocomplete: "action-year"
-            }
-          ]
-        }) }}
-        {{ govukButton({
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="deadline-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What is the deadline?
+              </h1>
+            </legend>
+            <p class="govuk-body">
+              Enter the date you must look at this claim again by to check its status.
+            </p>
+            <div id="deadline-hint" class="govuk-hint">
+              For example, 31 3 2024
+            </div>
+            <div class="govuk-date-input" id="deadline">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="deadline-day">
+                    Day
+                  </label>
+                  <input
+                    class="govuk-input govuk-date-input__input govuk-input--width-2"
+                    id="deadline-day"
+                    name="deadline-day"
+                    type="text"
+                    inputmode="numeric"></div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="deadline-month">
+                      Month
+                    </label>
+                    <input
+                      class="govuk-input govuk-date-input__input govuk-input--width-2"
+                      id="deadline-month"
+                      name="deadline-month"
+                      type="text"
+                      inputmode="numeric"></div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="deadline-year">
+                        Year
+                      </label>
+                      <input
+                        class="govuk-input govuk-date-input__input govuk-input--width-4"
+                        id="deadline-year"
+                        name="deadline-year"
+                        type="text"
+                        inputmode="numeric"></div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              {{ govukButton({
           text: "Update claim"
         }) }}
-      </form>
-    </div>
-  </div>
-{% endblock %}
+            </form>
+          </div>
+        </div>
+      {% endblock %}

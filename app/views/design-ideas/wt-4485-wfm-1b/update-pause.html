@@ -10,63 +10,83 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             {{ govukCheckboxes({
-                    idPrefix: 'status',
-                    name: 'pauseReason',
-                    fieldset: {
-                      legend: {
-                        text: "Why have you paused this claim?",
-                        isPageHeading: false,
-                        classes: "govuk-fieldset__legend--l"
-                      }
-                    },
-  hint: {
-    text: "Select all that apply."
-  },
-                    items: [
-                        {
-                            value: "identity-check-(kbv)",
-                            text: "Identity check (KBV)"
-                        },
-                        {
-                            value: "main-benefit-reply-(mbr)",
-                            text: "Main benefit reply (MBR)"
-                        },
-                        {
-                            value: "self-employment-and-company-director-check",
-                            text: "Self-employment and company director check"
-                        },
-                        {
-                            value: "sent-for-cis-update",
-                            text: "Sent for CIS update"
-                        },
-                        {
-                            value: "sent-to-a-decision-maker",
-                            text: "Sent to a decision maker"
-                        },
-                        {
-                            value: "sent-to-international-group",
-                            text: "Sent to International Group"
-                        },
-                        {
-                            value: "sent-to-nsesa-team",
-                            text: "Sent to NSESA team"
-                        },
-                        {
-                            value: "transferred-to-clerical",
-                            text: "Transferred to clerical"
-                        },
-                        {
-                            value: "other",
-                            text: "Other"
-                        }                       
-                    ]
-                }) }}
+          idPrefix: 'status',
+          name: 'pauseReason',
+          fieldset: {
+          legend: {
+          text: "Why have you paused this claim?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+          }
+          },
+          hint: {
+          text: "Select all that apply."
+          },
+          items: [
+          {
+          value: "cis-update",
+          checked: checked("pauseReason", "cis-update"),
+          text: "CIS update"
+          },
+          {
+          value: "identity-check-(kbv)",
+          checked: checked("pauseReason", "identity-check-(kbv)"),
+          text: "Identity check (KBV)"
+          },
+          {
+          value: "international-group",
+          checked: checked("pauseReason", "international-group"),
+          text: "International Group"
+          },
+          {
+          value: "main-benefit-reply-(mbr)",
+          checked: checked("pauseReason", "main-benefit-reply-(mbr)"),
+          text: "Main benefit reply (MBR)"
+          },
+          {
+          value: "nsesa-team",
+          checked: checked("pauseReason", "nsesa-team"),
+          text: "NSESA team"
+          },
+          {
+          value: "self-employment-and-company-director-check",
+          checked: checked("pauseReason", "self-employment-and-company-director-check"),
+          text: "Self-employment and company director check"
+          },
+          {
+          value: "sent-to-decision-maker",
+          checked: checked("pauseReason", "sent-to-decision-maker"),
+          text: "Sent to decision maker"
+          },
+          {
+          value: "transferred-to-clerical",
+          checked: checked("pauseReason", "transferred-to-clerical"),
+          text: "Transferred to clerical"
+          },
+          {
+          value: "other",
+          checked: checked("pauseReason", "other"),
+          text: "Other"
+          }
+          ]
+          }) }}
           </fieldset>
         </div>
         {{ govukButton({
-            text: "Continue"
-        }) }}
+      text: "Continue"
+      }) }}
       </form>
+      <script>
+        // Update selcted checkbox count in session data
+        function updateSelectedCheckboxCount() {
+          var selectedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked').length;
+          sessionStorage.setItem('selectedCheckboxCount', selectedCheckboxes);
+        }
+        // Add event listener to checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
+          checkbox.addEventListener('change', updateSelectedCheckboxCount);
+        });
+      </script>
     </div>
   </div>
 {% endblock %}
