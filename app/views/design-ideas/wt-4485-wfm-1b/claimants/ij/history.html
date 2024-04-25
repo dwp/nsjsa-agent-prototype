@@ -67,30 +67,28 @@ events: [
                 <p class="govuk-caption-m">Identity check (KBV)
                     <br>
                         Main benefit reply (MBR)
-                        <br>
-                            Other
-                            <p class="govuk-caption-m">Action by 6 May 2024</p>
-                        </p>
-                    </li>
-                    <li class="dwp-timeline__events--entry">
-                        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
-                        <p class="govuk-caption-m govuk-!-margin-bottom-1">00000001</p>
-                        <p class="govuk-caption-m">on 4 May 2024 at 9:18am</p>
-                    </li>
-                    <li class="dwp-timeline__events--entry">
-                        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Success</h2>
-                        <p class="govuk-caption-m govuk-!-margin-bottom-1">00000089</p>
-                        <p class="govuk-caption-m">on 30 April 2024 at 3:02pm</p>
-                    </li>
-                    <li class="dwp-timeline__events--entry">
-                        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
-                        <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                        <p class="govuk-caption-m">on 30 April 2024 at 10:02am</p>
-                    </li>
-                </ol>
-            </div>
-        {% elif data['claimStatus'] == 'not-valid' %}
-            {{ dwpTimeline({
+                        <p class="govuk-caption-m">Action by 6 May 2024</p>
+                    </p>
+                </li>
+                <li class="dwp-timeline__events--entry">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
+                    <p class="govuk-caption-m govuk-!-margin-bottom-1">00000001</p>
+                    <p class="govuk-caption-m">on 4 May 2024 at 9:18am</p>
+                </li>
+                <li class="dwp-timeline__events--entry">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Success</h2>
+                    <p class="govuk-caption-m govuk-!-margin-bottom-1">00000089</p>
+                    <p class="govuk-caption-m">on 30 April 2024 at 3:02pm</p>
+                </li>
+                <li class="dwp-timeline__events--entry">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
+                    <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
+                    <p class="govuk-caption-m">on 30 April 2024 at 10:02am</p>
+                </li>
+            </ol>
+        </div>
+    {% elif data['claimStatus'] == 'not-valid' %}
+        {{ dwpTimeline({
 events: [
  {
     state: "Not valid",
@@ -115,8 +113,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'duplicate' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'duplicate' %}
+        {{ dwpTimeline({
 events: [
  {
     state: "Duplicate",
@@ -140,8 +138,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'suspected-fraud' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'suspected-fraud' %}
+        {{ dwpTimeline({
 events: [
  {
     state: "Suspected fraud",
@@ -165,8 +163,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'complex-claim' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'complex-claim' %}
+        {{ dwpTimeline({
 events: [
  {
     state: "Complex claim",
@@ -190,8 +188,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'awaiting-appointment' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'awaiting-appointment' %}
+        {{ dwpTimeline({
 events: [
 {
     state: "Awaiting appointment",
@@ -220,8 +218,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'not-entitled' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'not-entitled' %}
+        {{ dwpTimeline({
 events: [
 {
     state: "Not entitled",
@@ -250,8 +248,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'withdrawn' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'withdrawn' %}
+        {{ dwpTimeline({
 events: [
 {
     state: "Withdrawn",
@@ -280,8 +278,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'build-failed' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'build-failed' %}
+        {{ dwpTimeline({
 events: [
 {
     state: "Processing started",
@@ -300,8 +298,8 @@ events: [
     }
 ]
 }) }}
-        {% elif data['claimStatus'] == 'push-successful' %}
-            {{ dwpTimeline({
+    {% elif data['claimStatus'] == 'push-successful' %}
+        {{ dwpTimeline({
 events: [
 {
     state: "Processing started",
@@ -320,8 +318,8 @@ events: [
     }
 ]
 }) }}
-        {% else %}
-            {{ dwpTimeline({
+    {% else %}
+        {{ dwpTimeline({
     events: [
     {
         state: "New claim",
@@ -329,4 +327,4 @@ events: [
     }
     ]
 }) }}
-        {% endif %}
+    {% endif %}

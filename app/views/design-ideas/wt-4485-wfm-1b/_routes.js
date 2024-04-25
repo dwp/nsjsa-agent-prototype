@@ -77,18 +77,18 @@ router.post("/nino-search", function (req, res) {
     //Paused list
   // show different pause-list table for agent 2
   router.post("/pause-list", function (req, res) {
-    const answer = req.body.agent;
+    const answer = req.body.search;
   
-    // agent 2 claims list
+    // agent 2 pause-list
     if (answer === "12345678") {
       res.redirect(`${ABS_BASE_PATH}/pause-list?show=12345678`);
-    // agent 3 claims list - no data in list
+    // agent 3 pause-list - no data in list
   } else if (answer === "03") {
       res.redirect(`${ABS_BASE_PATH}/pause-list?show=03`);
   
     } else {
       // agent 1 claims list
-        res.redirect(`${ABS_BASE_PATH}/claims-list?show=`);
+        res.redirect(`${ABS_BASE_PATH}/pause-list?show=`);
       
     }
   });
