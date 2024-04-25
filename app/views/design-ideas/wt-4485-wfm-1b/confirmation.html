@@ -6,25 +6,69 @@
   <div class="govuk-grid-row">
     <div
       class="govuk-grid-column-two-thirds">
-      <!-- Confirmation interactive -->
-      {% if data['claimant'] == 'sh' %}
-        {% include 'design-ideas/wt-4485-wfm-1b/claimants/sh/update-confirmation.html' %}
-      {% elif data['claimant'] == 'kb' %}
-        {% include 'design-ideas/wt-4485-wfm-1b/claimants/kb/update-confirmation.html' %}
-      {% elif data['claimant'] == 'kb-dupe' %}
-        {% include 'design-ideas/wt-4485-wfm-1b/claimants/kb-dupe/update-confirmation.html' %}
-      {% elif data['claimant'] == 'ij' %}
-        {% include 'design-ideas/wt-4485-wfm-1b/claimants/ij/update-confirmation.html' %}
-      {% else %}
-        <p>No claimant set.</p>
-      {% endif %}
-      {{ govukButton({
+      <!-- Confirmation interactive PAUSED CLAIMS-->
+      {% if data['claimStatus'] == 'paused' %}
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Claim paused
+          </h1>
+          <div class="govuk-panel__body">
+            The deadline for its next update is<br>
+              <strong>{{ data['deadline-day'] }}
+                {{ data['deadline-month'] | toMonth }}
+                {{ data['deadline-year'] }}</strong>.
+            </div>
+          </div>
+          <p class="govuk-body">You have paused the claim by
+            {% if data['claimant'] == 'sh' %}
+              Simon Hamilton, QQ 12 34 56 X
+            {% elif data['claimant'] == 'kb' %}
+              Karan Bhopal, SW 12 34 56 A
+            {% elif data['claimant'] == 'kb-dupe' %}
+              Karan Bhopal, SW 12 34 56 A
+            {% elif data['claimant'] == 'ij' %}
+              Ian Johnson, RN 00 00 35 C
+            {% else %}
+              <p>No claimant set.</p>
+            {% endif %}
+            , for the following reasons:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+            {% for pauseReason in data['pauseReason'] %}
+              <li>{{ pauseReason }}</li>
+            {% endfor %}
+          </ul>
+          <p class="govuk-body">
+            If you need to change something, you can
+            <a href="update" class="govuk-link">return to the status update page
+            </a>
+            now, or in future by accessing your list of paused claims.
+          </p>
+          <h2 class="govuk-heading-m">Next steps</h2>
+          <p class="govuk-body">
+            You can now move to the next claim.
+          </p>
+          <!-- Confirmation interactive ALL OTHER CLAIM STATUSES -->
+        {% else %}
+          {% if data['claimant'] == 'sh' %}
+            {% include 'design-ideas/wt-4485-wfm-1b/claimants/sh/update-confirmation.html' %}
+          {% elif data['claimant'] == 'kb' %}
+            {% include 'design-ideas/wt-4485-wfm-1b/claimants/kb/update-confirmation.html' %}
+          {% elif data['claimant'] == 'kb-dupe' %}
+            {% include 'design-ideas/wt-4485-wfm-1b/claimants/kb-dupe/update-confirmation.html' %}
+          {% elif data['claimant'] == 'ij' %}
+            {% include 'design-ideas/wt-4485-wfm-1b/claimants/ij/update-confirmation.html' %}
+          {% else %}
+            <p>No claimant set.</p>
+          {% endif %}
+        {% endif %}
+        {{ govukButton({
     text: "Get next claim",
     href: "#"
     }) }}
-      <p class="govuk-body">
-        <a href="/design-ideas/wt-4485-wfm-1b/choose-task" class="govuk-link">Return to start screen</a>
-      </p>
+        <p class="govuk-body">
+          <a href="/design-ideas/wt-4485-wfm-1b/choose-task" class="govuk-link">Return to start screen</a>
+        </p>
+      </div>
     </div>
   </div>
-</div>{% endblock %}
+{% endblock %}

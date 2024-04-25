@@ -318,6 +318,7 @@
                     items: [
                         {
                             value: "awaiting-appointment",
+                            checked: checked("claimStatus", "awaiting-appointment"),
                             text: "Awaiting appointment",
                             conditional: {
                               html: govukWarningText
@@ -325,6 +326,7 @@
                         },
                         {
                             value: "complex-claim",
+                            checked: checked("claimStatus", "complex-claim"),
                             text: "Complex claim",
                             hint: {
                               text: "For example, claims sent to Greenock."
@@ -332,26 +334,32 @@
                         },
                         {
                             value: "duplicate",
+                            checked: checked("claimStatus", "duplicate"),
                             text: "Duplicate"
                         },
                         {
                             value: "not-entitled",
+                            checked: checked("claimStatus", "not-entitled"),
                             text: "Not entitled"
                         },
                         {
                             value: "not-valid",
+                            checked: checked("claimStatus", "not-valid"),
                             text: "Not valid"
                         },
                         {
                             value: "paused",
+                            checked: checked("claimStatus", "paused"),
                             text: "Paused"
                         },
                         {
                             value: "suspected-fraud",
+                            checked: checked("claimStatus", "suspected-fraud"),
                             text: "Suspected fraud"
                         },
                         {
                             value: "withdrawn",
+                            checked: checked("claimStatus", "withdrawn"),
                             text: "Withdrawn"
                         }                       
                     ]
