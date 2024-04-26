@@ -21,17 +21,17 @@
           </div>
           <p class="govuk-body">You have paused the claim by
             {% if data['claimant'] == 'sh' %}
-              Simon Hamilton, QQ 12 34 56 X
+              Simon Hamilton, QQ 12 34 56 X,
             {% elif data['claimant'] == 'kb' %}
-              Karan Bhopal, SW 12 34 56 A
+              Karan Bhopal, SW 12 34 56 A,
             {% elif data['claimant'] == 'kb-dupe' %}
-              Karan Bhopal, SW 12 34 56 A
+              Karan Bhopal, SW 12 34 56 A,
             {% elif data['claimant'] == 'ij' %}
-              Ian Johnson, RN 00 00 35 C
+              Ian Johnson, RN 00 00 35 C,
             {% else %}
               <p>No claimant set.</p>
             {% endif %}
-            , for the following reasons:</p>
+            for the following reasons:</p>
           <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
             {% for pauseReason in data['pauseReason'] %}
               <li>{{ pauseReason }}</li>
