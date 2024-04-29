@@ -1,9 +1,7 @@
 <h1 class="govuk-heading-l">Customer statement</h1>
 <section class="dwp-claim-section">
     <h2 class="govuk-heading-m">Claim start date</h2>
-    {# sc3 duplicates - entitlement affected - no backdated claim #}
-    {% if data['previous-employment'] == 1 %}
-        {{ govukSummaryList({
+    {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -11,27 +9,12 @@
         text: "Claim start date"
         },
         value: {
-        text: "5 November 2023"
-        }
-    }
-    ]
-}) }}
-        {# sc2 duplicates - entitlement not affected - backdated claim #}
-    {% else %}
-        {{ govukSummaryList({
-    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
-    rows: [
-    {
-        key: {
-        text: "Claim start date"
-        },
-        value: {
-        text: "25 October 2023"
+        text: "15 April 2024"
         }
     },
     {
         key: {
-        text: "Available for work since 5 November 2023"
+        text: "Available for work since 15 April 2024"
         },
         value: {
         text: "Yes"
@@ -39,7 +22,7 @@
     },
     {
         key: {
-        text: "Searching for work since 5 November 2023"
+        text: "Searching for work since 15 April 2024"
         },
         value: {
         text: "Yes"
@@ -50,12 +33,12 @@
         text: "Why did you not apply before today?"
         },
         value: {
-        text: "	I did apply over a week ago. But have not heard back. That's why I'm applying again in case you lost my details."
+        text: "I didn't know this benefit was available to me because I have savings. My friend told me to apply from the date I lost my job."
         }
     },
     {
         key: {
-        text: "In paid work since 5 November 2023?"
+        text: "In paid work since 15 April 2024"
         },
         value: {
         text: "No"
@@ -63,7 +46,7 @@
     },
     {
         key: {
-        text: "Unable to work because of illness since 5 November 2023?"
+        text: "Unable to work because of illness since 15 April 2024?"
         },
         value: {
         text: "No"
@@ -71,7 +54,7 @@
     },
     {
         key: {
-        text: "Travelled outside of England, Wales, Scotland or Northern Ireland since 5 November 2023?"
+        text: "Travelled outside of England, Wales, Scotland or Northern Ireland since 15 April 2024?"
         },
         value: {
         text: "No"
@@ -79,7 +62,7 @@
     },
     {
         key: {
-        text: "Had been in full-time education since 5 November 2023?"
+        text: "Had been in full-time education since 15 April 2024?"
         },
         value: {
         text: "No"
@@ -87,7 +70,7 @@
     },
     {
         key: {
-        text: "Had asked for advice about applying since 5 November 2023?"
+        text: "Had asked for advice about applying since 15 April 2024?"
         },
         value: {
         text: "No"
@@ -95,7 +78,6 @@
     }
     ]
 }) }}
-    {% endif %}
 </section>
 <section class="dwp-claim-section">
     <h2 class="govuk-heading-m">Personal details</h2>
@@ -107,7 +89,7 @@
             text: "National Insurance number"
         },
         value: {
-            text: "SW 12 34 56 A"
+            text: "QF 74 42 21 A"
         },
         actions: {
             items: [
@@ -124,14 +106,14 @@
         text: "Name"
         },
         value: {
-        text: "Karan Bhopal"
+        text: "Sue Pearson"
         }
     }, {
         key: {
         text: "Date of birth"
         },
         value: {
-        text: "29 April 1972"
+        text: "10 August 1980"
         }
     },{
         key: {
@@ -164,7 +146,7 @@
         text: "Email address"
         },
         value: {
-        text: "Not provided"
+        text: "sue-pearson80@gmail.com"
         }
     }
     ]
@@ -181,7 +163,7 @@
         },
         value: {
         html: "<strong>Account holder: </strong>
-                    <span>K & A Bhopal</span><br>
+                    <span>Sue Pearson</span><br>
                 <strong>Sort code: </strong>
                     <span>11-00-64</span><br>
                 <strong>Account number: </strong>
@@ -241,9 +223,7 @@
 </section>
 <section class="dwp-claim-section">
     <h2 class="govuk-heading-m">Previous employment</h2>
-    {# sc3 duplicates - entitlement affected - declared new work + work in last 6 months #}
-    {% if data['previous-employment'] == 1 %}
-        {{ govukSummaryList({
+    {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -256,8 +236,8 @@
     }
     ]
 }) }}
-        <h2 class="govuk-heading-s">Previous employer - First</h2>
-        {{ govukSummaryList({
+    <h2 class="govuk-heading-s">Previous employer - First</h2>
+    {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -265,14 +245,14 @@
         text: "When did you work for this employer?"
         },
         value: {
-        text: "26/10/2023 - 4/11/2023"
+        text: "26/10/2018 - 15/04/2024"
         }
     },{
         key: {
         text: "Why did this job end?"
         },
         value: {
-        text: "End of contract"
+        text: "Redundancy"
         }
     },{
         key: {
@@ -305,81 +285,11 @@
         text: "Were you self employed or a company director?"
         },
         value: {
-        text: "No"
+        text: "Yes"
         }
     }
     ]
 }) }}
-        <h2 class="govuk-heading-s">Previous employer - Second</h2>
-        {{ govukSummaryList({
-    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
-    rows: [
-    {
-        key: {
-        text: "When did you work for this employer?"
-        },
-        value: {
-        text: "01/02/2020 - 11/10/2023"
-        }
-    },{
-        key: {
-        text: "Why did this job end?"
-        },
-        value: {
-        text: "Redundancy"
-        }
-    },{
-        key: {
-        text: "What is the name of your previous employer?"
-        },
-        value: {
-        text: "Pete's Plaice"
-        }
-    },{
-        key: {
-        text: "What is the address of your previous employer?"
-        },
-        value: {
-        html: "
-        <span class=govuk-!-display-block>Pete's Plaice</span>
-        <span class=govuk-!-display-block>Blackpool,</span>
-        <span class=govuk-!-display-block>Lancashire</span>
-        FY4 6YY
-        "
-        }
-    },{
-        key: {
-        text: "Do you expect to receive any more payments from this job?"
-        },
-        value: {
-        text: "No"
-        }
-    },{
-        key: {
-        text: "Were you self employed or a company director?"
-        },
-        value: {
-        text: "No"
-        }
-    }
-    ]
-}) }}
-        {# sc2 duplicates - entitlement not affected - no previous work #}
-    {% else %}
-        {{ govukSummaryList({
-    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
-    rows: [
-    {
-        key: {
-        text: "Have you had a job that ended in the last 6 months?"
-        },
-        value: {
-        text: "No"
-        }
-    }
-    ]
-}) }}
-    {% endif %}
 </section>
 <section class="dwp-claim-section">
     <h2 class="govuk-heading-m">Time spent abroad</h2>

@@ -5,7 +5,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
 text: "Back",
-href: "javascript:history.back()"
+href: "choose-task?show"
 }) }}
 {% endblock %}
 {% block content %}
@@ -45,13 +45,13 @@ href: "javascript:history.back()"
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" ="">
                     <label class="govuk-label govuk-radios__label" for="sort">
-                      Deadline soonest
+                      Closest deadline
                     </label>
                   </div>
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
                     <label class="govuk-label govuk-radios__label" for="sort-2">
-                      Deadline latest
+                      Furthest deadline
                     </label>
                   </div>
                 </div>
@@ -155,10 +155,10 @@ href: "javascript:history.back()"
                                       Sort by
                                     </label>
                                     <select class="govuk-select" id="sort" name="sort">
-                                      <option value="published" selected>Deadline soonest</option>
-                                      <option value="updated">Deadline latest</option>
-                                      <option value="views">Claim submitted newest</option>
-                                      <option value="comments">Claim submitted oldest</option>
+                                      <option value="published" selected>Closest deadline</option>
+                                      <option value="updated">Furthest deadline</option>
+                                      <option value="views">Newest claim submitted</option>
+                                      <option value="comments">Oldest claim submitted</option>
                                     </select>
                                   </div>
                                 </div>
@@ -184,305 +184,21 @@ href: "javascript:history.back()"
                                 </table>
                                 <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
                               {% elif data['show'] == "12345678" %}
+                                {% include "design-ideas/wt-4485-wfm-1b/table/agent2-pause-list.html" %}
                                 <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
                               {% else %}
-                                <table class="govuk-table govuk-!-font-size-19">
-                                  <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000001</caption>
-                                  <thead class="govuk-table__head">
-                                    <tr class="govuk-table__row">
-                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Deadline</th>
-                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
-                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
-                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody
-                                    class="govuk-table__body">
-                                    <!-- SCENARIO 1 pausing claim again - don't show dates before 9 May -->
-                                    {% if data['pauseReason'] == 'Identity check (KBV)' %}
-                                      {% else %}
-                                        <tr class="govuk-table__row">
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">7 May 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">15 Apr 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">SW 12 34 56 A</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            International Group
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <a class="govuk-link" href="#">View</a>
-                                          </td>
-                                        </tr>
-                                        <tr class="govuk-table__row">
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">7 May 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">29 Apr 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">FQ 12 34 56 A</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            Identity check (KBV)
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <a class="govuk-link" href="#">View</a>
-                                          </td>
-                                        </tr>
-                                        <tr class="govuk-table__row">
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">7 May 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">1 May 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">DF 13 23 44 B</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            Main benefit reply (MBR)
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <a class="govuk-link" href="#">View</a>
-                                          </td>
-                                        </tr>
-                                        <tr class="govuk-table__row">
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">8 May 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">1 May 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">RN 25 82 07 D</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            Identity check (KBV)
-                                            <br>Other
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <a class="govuk-link" href="#">View</a>
-                                            </td>
-                                          </tr>
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">8 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">3 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">UV 44 44 98 D</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              Transferred to clerical
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <a class="govuk-link" href="#">View</a>
-                                            </td>
-                                          </tr>
-                                        {% endif %}
-                                        <!-- END SCENARIO 1 pausing claim again - don't show dates before 9 May -->
-                                        <!-- SCENARIO 1 - dynamic row - different links depending on pause reason-->
-                                        <tr class="govuk-table__row">
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">{{ data['deadline-day'] }}
-                                              {{ data['deadline-month'] | toMonth | truncate(3, true, "") }}
-                                              {{ data['deadline-year'] }}</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">30 Apr 2024</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">RN 00 00 35 C</span>
-                                          </td>
-                                          <td class="govuk-table__cell">
-                                            <ul class="govuk-list">
-                                              {% for pauseReason in data['pauseReason'] %}
-                                                <li>{{ pauseReason }}</li>
-                                              {% endfor %}
-                                            </ul>
-                                          </td>
-                                          {% if data['pauseReason'] == 'Identity check (KBV)' %}
-                                            <td class="govuk-table__cell">
-                                              <a class="govuk-link" href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Identity%20check%20(KBV) ">
-                                                View</a>
-                                            {% else %}
-                                              <td class="govuk-table__cell">
-                                                <a
-                                                  class="govuk-link"
-                                                  href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Identity%20check%20(KBV)&pauseReason=Main%20benefit%20reply%20(MBR)">
-                                                  View</a>
-                                              {% endif %}
-                                            </td>
-                                          </tr>
-                                          <!-- END SCENARIO 1 - dynamic row -->
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">9 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">1 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">QQ 12 34 56 X</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              Identity check (KBV)
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <a class="govuk-link" href="#">View</a>
-                                            </td>
-                                          </tr>
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">9 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">1 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">VF 13 63 34 C</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              Other
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <a class="govuk-link" href="#">View</a>
-                                            </td>
-                                          </tr>
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">9 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">2 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">QF 74 42 21 A</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              Self-employment and company director check
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <a class="govuk-link" href="#">View</a>
-                                            </td>
-                                          </tr>
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">10 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">1 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">DF 13 23 44 B</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              Main benefit reply (MBR)
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <a class="govuk-link" href="#">View</a>
-                                            </td>
-                                          </tr>
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">10 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">4 May 2024</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              <span style="white-space: nowrap">UI 25 82 07 D</span>
-                                            </td>
-                                            <td class="govuk-table__cell">
-                                              Identity check (KBV)
-                                              <br>NSESA team
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <a class="govuk-link" href="#">View</a>
-                                              </td>
-                                            </tr>
-                                            <tr class="govuk-table__row">
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">11 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">3 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">UV 25 54 48 A</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                Transferred to clerical
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <a class="govuk-link" href="#">View</a>
-                                              </td>
-                                            </tr>
-                                            <tr class="govuk-table__row">
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">11 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">4 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">ID 54 32 07 C</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                Identity check (KBV)
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <a class="govuk-link" href="#">View</a>
-                                              </td>
-                                            </tr>
-                                            <tr class="govuk-table__row">
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">11 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">5 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">KN 77 32 02 U</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                CIS update
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <a class="govuk-link" href="#">View</a>
-                                              </td>
-                                            </tr>
-                                            <tr class="govuk-table__row">
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">13 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">3 May 2024</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <span style="white-space: nowrap">TN 25 14 48 C</span>
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                Transferred to clerical
-                                              </td>
-                                              <td class="govuk-table__cell">
-                                                <a class="govuk-link" href="#">View</a>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                    {% endif %}
-                                  </div>
-                                </div>
-                              </main>
+                                {% if data['sc'] == "1" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc1-agent1-pause-list.html" %}
+                                {% elif data['sc'] == "2" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc2-agent1-pause-list.html" %}
+                                {% elif data['sc'] == "3a" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc3-agent1-pause-list.html" %}
+                                {% else %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc3-agent1-pause-list.html" %}
+                                {% endif %}
+                              {% endif %}
                             </div>
-                          {% endblock %}
+                          </div>
+                        </main>
+                      </div>
+                    {% endblock %}
