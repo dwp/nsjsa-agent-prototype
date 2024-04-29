@@ -17,13 +17,11 @@ href: "screens"
       {% if data['sc'] == 1 %}
         {% set url = 'view-claim?&claimant=ij&claimStatus=processing-started' %}
       {% elif data['sc'] == 2 %}
-        {% set url = 'duplicates?dupe=not-affected' %}
+        {% set url = 'view-claim?&claimant=kb&claimStatus=processing-started' %}
       {% elif data['sc'] == 3 %}
-        {% set url = 'duplicates?dupe=affected' %}
+        {% set url = 'view-claim?&claimant=kb&claimStatus=processing-started' %}
       {% elif data['sc'] == 4 %}
-        {% set url = 'view-claim?&claimant=sh&claimStatus=processing-started' %}
-      {% elif data['sc'] == 5 %}
-        {% set url = 'view-claim?&claimant=sh&claimStatus=processing-started' %}
+        {% set url = 'view-claim?&claimant=kb&claimStatus=processing-started' %}
       {% else %}
         {% set url = 'view-claim' %}
       {% endif %}
