@@ -19,9 +19,9 @@ href: "screens"
       {% elif data['sc'] == 2 %}
         {% set url = 'view-claim?&claimant=kb&claimStatus=processing-started' %}
       {% elif data['sc'] == 3 %}
-        {% set url = 'view-claim?&claimant=kb&claimStatus=processing-started' %}
+        {% set url = '#' %}
       {% elif data['sc'] == 4 %}
-        {% set url = 'view-claim?&claimant=kb&claimStatus=processing-started' %}
+        {% set url = '#' %}
       {% else %}
         {% set url = 'view-claim' %}
       {% endif %}
@@ -61,7 +61,7 @@ href: "screens"
         </div>
         <div class="govuk-grid-column-one-half">
           <a
-            href="pause-list"
+            href="pause-list?show"
             role="link"
             draggable="false"
             class="govuk-panel govuk-button link-panel govuk-!-width-full"

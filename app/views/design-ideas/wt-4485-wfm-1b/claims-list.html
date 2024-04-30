@@ -167,8 +167,19 @@ href: "choose-task?show"
                                   {% include "design-ideas/wt-4485-wfm-1b/table/sc1-agent1-claims-list.html" %}
                                 {% elif data['sc'] == "2" %}
                                   {% include "design-ideas/wt-4485-wfm-1b/table/sc2-agent1-claims-list.html" %}
-                                {% elif data['sc'] == "3a" %}
+                                {% elif data['sc'] == "3" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc3-agent1-claims-list.html" %}
+                                {% elif data['sc'] == "4" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc4-agent1-claims-list.html" %}
+                                {% elif data['sc'] == "3" and page2 %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc-agent1-claims-list-2.html" %}
                                   {% else %}
+                                {% endif %}
+                                <!-- Pagination page 2 -->
+                                {% if data['sc'] == 3 %}
+                                  {% set page2 = 'claims-list' %}
+                                {% else %}
+                                  {% set page2 = '#' %}
                                 {% endif %}
                                 <nav class="govuk-pagination" aria-label="Pagination">
                                   <ul class="govuk-pagination__list">
@@ -178,7 +189,7 @@ href: "choose-task?show"
                                       </a>
                                     </li>
                                     <li class="govuk-pagination__item">
-                                      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                                      <a class="govuk-link govuk-pagination__link" href="{{ page2 }}" aria-label="Page 2">
                                         2
                                       </a>
                                     </li>
