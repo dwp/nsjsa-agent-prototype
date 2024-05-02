@@ -43,35 +43,35 @@ href: "choose-task?show"
               <div
                 class="moj-filter__content">
                 <!-- SELECTED FILTER SECTION <div class="moj-filter__selected"> <div class="moj-filter__selected-heading">
-                            <div class="moj-filter__heading-title">
-                              <h2 class="govuk-heading-m">Selected filters</h2>
-                            </div>
-                            <div class="moj-filter__heading-action">
-                              <p>
-                                <a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a>
-                              </p>
-                            </div>
-                        </div> <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Pause reason</h3> <ul class="moj-filter-tags">
-                            <li>
-                              <a class="moj-filter__tag" href="#">
-                                <span class="govuk-visually-hidden">Remove this filter</span>
-                                Identity check (KBV)</a>
-                            </li>
-                            <li>
-                              <a class="moj-filter__tag" href="#">
-                                <span class="govuk-visually-hidden">Remove this filter</span>
-                                Main benefit reply (MBR)</a>
-                            </li>
-                        </ul> </div> -->
+                        <div class="moj-filter__heading-title">
+                          <h2 class="govuk-heading-m">Selected filters</h2>
+                        </div>
+                        <div class="moj-filter__heading-action">
+                          <p>
+                            <a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a>
+                          </p>
+                        </div>
+                    </div> <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Pause reason</h3> <ul class="moj-filter-tags">
+                        <li>
+                          <a class="moj-filter__tag" href="#">
+                            <span class="govuk-visually-hidden">Remove this filter</span>
+                            Identity check (KBV)</a>
+                        </li>
+                        <li>
+                          <a class="moj-filter__tag" href="#">
+                            <span class="govuk-visually-hidden">Remove this filter</span>
+                            Main benefit reply (MBR)</a>
+                        </li>
+                    </ul> </div> -->
                 <div class="moj-filter__options">
                   <!-- Sort by SELECT <div class="govuk-form-group"> <label class="govuk-label" for="sort">
-                              Sort by
-                          </label> <select class="govuk-select" id="sort" name="sort">
-                              <option value="closest-deadline" selected>Closest deadline</option>
-                              <option value="furthest-deadline">Furthest deadline</option>
-                              <option value="newest-claim">Newest claim submitted</option>
-                              <option value="oldest-claim">Oldest claim submitted</option>
-                          </select> </div> -->
+                          Sort by
+                      </label> <select class="govuk-select" id="sort" name="sort">
+                          <option value="closest-deadline" selected>Closest deadline</option>
+                          <option value="furthest-deadline">Furthest deadline</option>
+                          <option value="newest-claim">Newest claim submitted</option>
+                          <option value="oldest-claim">Oldest claim submitted</option>
+                      </select> </div> -->
                   <!-- Sort by RADIOS -->
                     <div class="govuk-form-group"> <fieldset class="govuk-fieldset">
                       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -192,42 +192,8 @@ href: "choose-task?show"
                                       <div class="moj-action-bar">
                                         <div class="moj-action-bar__filter"></div>
                                       </div>
-                                      <div
-                                        class="moj-scrollable-pane">
-                                        <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
-                                        {% if data['show'] == "03" %}
-                                          <table class="govuk-table govuk-!-font-size-19">
-                                            <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000003</caption>
-                                            <thead class="govuk-table__head">
-                                              <tr class="govuk-table__row">
-                                                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Deadline</th>
-                                                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
-                                                <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-                                                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
-                                                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody class="govuk-table__body">
-                                              <tr class="govuk-table__row">
-                                                <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                          <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
-                                        {% elif data['show'] == "12345678" %}
-                                          {% include "design-ideas/wt-4485-wfm-1b/table/agent2-pause-list.html" %}
-                                          <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
-                                        {% else %}
-                                          {% if data['sc'] == "1" %}
-                                            {% include "design-ideas/wt-4485-wfm-1b/table/sc1-agent1-pause-list.html" %}
-                                          {% elif data['sc'] == "2" %}
-                                            {% include "design-ideas/wt-4485-wfm-1b/table/sc2-agent1-pause-list.html" %}
-                                          {% elif data['sc'] == "3" %}
-                                            {% include "design-ideas/wt-4485-wfm-1b/table/sc3-agent1-pause-list.html" %}
-                                          {% else %}
-                                            {% include "design-ideas/wt-4485-wfm-1b/table/sc4-agent1-pause-list.html" %}
-                                          {% endif %}
-                                        {% endif %}
+                                      <div class="moj-scrollable-pane">
+                                        {% include "design-ideas/wt-4485-wfm-1b/table/sc1-agent1-pause-list.html" %}
                                       </div>
                                     </div>
                                     <nav class="govuk-pagination" aria-label="Pagination">
@@ -238,7 +204,7 @@ href: "choose-task?show"
                                           </a>
                                         </li>
                                         <li class="govuk-pagination__item">
-                                          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                                          <a class="govuk-link govuk-pagination__link" href="{{ page2 }}" aria-label="Page 2">
                                             2
                                           </a>
                                         </li>
