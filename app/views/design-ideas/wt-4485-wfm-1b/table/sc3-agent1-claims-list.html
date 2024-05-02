@@ -9,74 +9,62 @@
             <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
         </tr>
     </thead>
-    <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 May 2024</span>
-                <br>at 9:21am
-                </td>
-                <td class="govuk-table__cell">29 April 2024</td>
-                <td class="govuk-table__cell">
-                    <span style="white-space: nowrap">QD 00 44 35 C</span>
-                </td>
-                <td class="govuk-table__cell">
-                    <strong class="govuk-tag govuk-tag--blue">
-                        Paused
-                    </strong>
-                </td>
-                <td class="govuk-table__cell">
-                    <a class="govuk-link" href="#">
-                        View</a>
-                </td>
-            </tr>
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell">
-                    <span style="white-space: nowrap">9 May 2024</span>
-                    <br>at 9:05am
-                    </td>
-                    <td class="govuk-table__cell">3 May 2024</td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">UV 21 44 98 B</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <strong class="govuk-tag govuk-tag--blue">
-                            Awaiting appointment
-                        </strong>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <a class="govuk-link" href="#">View</a>
-                    </td>
-                </tr>
+    <tbody
+        class="govuk-table__body">
+        <!-- SUE PEARSON - Self-employment -->
+        {% if data['pauseReason'] == 'Self-employment and company director check' %}
+            {% else %}
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">8 May 2024</span>
-                        <br>at 3:41pm
+                        <span style="white-space: nowrap">9 May 2024</span>
+                        <br>
+                            at 9:21am
                         </td>
-                        <td class="govuk-table__cell">3 May 2024</td>
+                        <td class="govuk-table__cell">25 Apr 2024</td>
                         <td class="govuk-table__cell">
-                            <span style="white-space: nowrap">KN 77 32 02 U</span>
+                            <span style="white-space: nowrap">QF 74 42 21 A</span>
                         </td>
                         <td class="govuk-table__cell">
                             <strong class="govuk-tag govuk-tag--blue">
-                                Awaiting appointment
+                                {{ data['claimStatus'] | capitalize | replace("-", " ") }}
                             </strong>
                         </td>
                         <td class="govuk-table__cell">
                             <a class="govuk-link" href="#">View</a>
                         </td>
                     </tr>
+                {% endif %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">9 May 2024</span>
+                        <br>at 9:21am
+                        </td>
+                        <td class="govuk-table__cell">29 April 2024</td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">QD 00 44 35 C</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <strong class="govuk-tag govuk-tag--blue">
+                                Paused
+                            </strong>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="#">
+                                View</a>
+                        </td>
+                    </tr>
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell">
-                            <span style="white-space: nowrap">8 May 2024</span>
-                            <br>at 3:22pm
+                            <span style="white-space: nowrap">9 May 2024</span>
+                            <br>at 9:05am
                             </td>
                             <td class="govuk-table__cell">3 May 2024</td>
                             <td class="govuk-table__cell">
-                                <span style="white-space: nowrap">VF 13 63 34 C</span>
+                                <span style="white-space: nowrap">UV 21 44 98 B</span>
                             </td>
                             <td class="govuk-table__cell">
                                 <strong class="govuk-tag govuk-tag--blue">
-                                    Paused
+                                    Awaiting appointment
                                 </strong>
                             </td>
                             <td class="govuk-table__cell">
@@ -86,16 +74,15 @@
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">
                                 <span style="white-space: nowrap">8 May 2024</span>
-                                <br>
-                                    at 3:04pm
+                                <br>at 3:41pm
                                 </td>
                                 <td class="govuk-table__cell">3 May 2024</td>
                                 <td class="govuk-table__cell">
-                                    <span style="white-space: nowrap">FQ 12 34 56 A</span>
+                                    <span style="white-space: nowrap">KN 77 32 02 U</span>
                                 </td>
                                 <td class="govuk-table__cell">
                                     <strong class="govuk-tag govuk-tag--blue">
-                                        Not entitled
+                                        Awaiting appointment
                                     </strong>
                                 </td>
                                 <td class="govuk-table__cell">
@@ -105,15 +92,15 @@
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell">
                                     <span style="white-space: nowrap">8 May 2024</span>
-                                    <br>at 2:48pm
+                                    <br>at 3:22pm
                                     </td>
                                     <td class="govuk-table__cell">3 May 2024</td>
                                     <td class="govuk-table__cell">
-                                        <span style="white-space: nowrap">DF 13 23 44 B</span>
+                                        <span style="white-space: nowrap">VF 13 63 34 C</span>
                                     </td>
                                     <td class="govuk-table__cell">
                                         <strong class="govuk-tag govuk-tag--blue">
-                                            Complex claim
+                                            Paused
                                         </strong>
                                     </td>
                                     <td class="govuk-table__cell">
@@ -123,15 +110,35 @@
                                 <tr class="govuk-table__row">
                                     <td class="govuk-table__cell">
                                         <span style="white-space: nowrap">8 May 2024</span>
-                                        <br>at 2:27pm
+                                        <br>
+                                            at 3:04pm
                                         </td>
                                         <td class="govuk-table__cell">3 May 2024</td>
                                         <td class="govuk-table__cell">
-                                            <span style="white-space: nowrap">UI 25 82 07 D</span>
+                                            <span style="white-space: nowrap">FQ 12 34 56 A</span>
                                         </td>
                                         <td class="govuk-table__cell">
                                             <strong class="govuk-tag govuk-tag--blue">
-                                                Paused
+                                                Not entitled
+                                            </strong>
+                                        </td>
+                                        <td class="govuk-table__cell">
+                                            <a class="govuk-link" href="#">View</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">
+                                            <span style="white-space: nowrap">8 May 2024</span>
+                                            <br>at 2:48pm
+                                            </td>
+                                            <td class="govuk-table__cell">3 May 2024</td>
+                                            <td class="govuk-table__cell">
+                                                <span style="white-space: nowrap">DF 13 23 44 B</span>
+                                            </td>
+                                            <td class="govuk-table__cell">
+                                                <strong class="govuk-tag govuk-tag--blue">
+                                                    Complex claim
+                                                </strong>
                                             </td>
                                             <td class="govuk-table__cell">
                                                 <a class="govuk-link" href="#">View</a>
@@ -140,34 +147,15 @@
                                         <tr class="govuk-table__row">
                                             <td class="govuk-table__cell">
                                                 <span style="white-space: nowrap">8 May 2024</span>
-                                                <br>at 2:15pm
+                                                <br>at 2:27pm
                                                 </td>
                                                 <td class="govuk-table__cell">3 May 2024</td>
                                                 <td class="govuk-table__cell">
-                                                    <span style="white-space: nowrap">UV 25 54 48 A</span>
+                                                    <span style="white-space: nowrap">UI 25 82 07 D</span>
                                                 </td>
                                                 <td class="govuk-table__cell">
                                                     <strong class="govuk-tag govuk-tag--blue">
-                                                        Suspected fraud
-                                                    </strong>
-                                                </td>
-                                                <td class="govuk-table__cell">
-                                                    <a class="govuk-link" href="#">View</a>
-                                                </td>
-                                            </tr>
-                                            <tr class="govuk-table__row">
-                                                <td class="govuk-table__cell">
-                                                    <span style="white-space: nowrap">8 May 2024</span>
-                                                    <br>at 2:00pm
-                                                    </td>
-                                                    <td class="govuk-table__cell">4 May 2024</td>
-                                                    <td class="govuk-table__cell">
-                                                        <span style="white-space: nowrap">ID 54 32 07 C</span>
-                                                    </td>
-                                                    <td class="govuk-table__cell">
-                                                        <strong class="govuk-tag govuk-tag--blue">
-                                                            Paused
-                                                        </strong>
+                                                        Paused
                                                     </td>
                                                     <td class="govuk-table__cell">
                                                         <a class="govuk-link" href="#">View</a>
@@ -176,30 +164,67 @@
                                                 <tr class="govuk-table__row">
                                                     <td class="govuk-table__cell">
                                                         <span style="white-space: nowrap">8 May 2024</span>
-                                                        <br>at 1:45pm
+                                                        <br>at 2:15pm
                                                         </td>
-                                                        <td class="govuk-table__cell">4 May 2024</td>
+                                                        <td class="govuk-table__cell">3 May 2024</td>
                                                         <td class="govuk-table__cell">
-                                                            <span style="white-space: nowrap">QQ 12 34 56 C</span>
+                                                            <span style="white-space: nowrap">UV 25 54 48 A</span>
                                                         </td>
                                                         <td class="govuk-table__cell">
                                                             <strong class="govuk-tag govuk-tag--blue">
-                                                                Paused
+                                                                Suspected fraud
                                                             </strong>
                                                         </td>
                                                         <td class="govuk-table__cell">
                                                             <a class="govuk-link" href="#">View</a>
                                                         </td>
                                                     </tr>
-                                                </tbody>
-                                            </table>
+                                                    <tr class="govuk-table__row">
+                                                        <td class="govuk-table__cell">
+                                                            <span style="white-space: nowrap">8 May 2024</span>
+                                                            <br>at 2:00pm
+                                                            </td>
+                                                            <td class="govuk-table__cell">4 May 2024</td>
+                                                            <td class="govuk-table__cell">
+                                                                <span style="white-space: nowrap">ID 54 32 07 C</span>
+                                                            </td>
+                                                            <td class="govuk-table__cell">
+                                                                <strong class="govuk-tag govuk-tag--blue">
+                                                                    Paused
+                                                                </strong>
+                                                            </td>
+                                                            <td class="govuk-table__cell">
+                                                                <a class="govuk-link" href="#">View</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="govuk-table__row">
+                                                            <td class="govuk-table__cell">
+                                                                <span style="white-space: nowrap">8 May 2024</span>
+                                                                <br>at 1:45pm
+                                                                </td>
+                                                                <td class="govuk-table__cell">4 May 2024</td>
+                                                                <td class="govuk-table__cell">
+                                                                    <span style="white-space: nowrap">QQ 12 34 56 C</span>
+                                                                </td>
+                                                                <td class="govuk-table__cell">
+                                                                    <strong class="govuk-tag govuk-tag--blue">
+                                                                        Paused
+                                                                    </strong>
+                                                                </td>
+                                                                <td class="govuk-table__cell">
+                                                                    <a class="govuk-link" href="#">View</a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </tr>
+                                            </td>
                                         </tr>
-                                    </td>
+                                    </tr>
                                 </tr>
                             </tr>
                         </tr>
                     </tr>
                 </tr>
-            </tr>
-        </tr>
-    </tbody>
+            </tbody>
+        </tbody>

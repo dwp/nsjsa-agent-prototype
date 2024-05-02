@@ -12,24 +12,27 @@
     <tbody
         class="govuk-table__body">
         <!-- SCENARIO 3 - dynamic row - Sue Pearson paused for Self-employment-->
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">25 Apr 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QF 74 42 21 A</span>
-            </td>
-            <td class="govuk-table__cell">
-                {{ data['pauseReason'] }}
-            </td>
-            <td class="govuk-table__cell">
-                <a class="govuk-link" href="view-claim?claimant=sp&claimStatus=paused">
-                    View</a>
-            </td>
-        </tr>
+        {% if data['claimStatus'] == 'paused' %}
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">9 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">25 Apr 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">QF 74 42 21 A</span>
+                </td>
+                <td class="govuk-table__cell">
+                    {{ data['pauseReason'] }}
+                </td>
+                <td class="govuk-table__cell">
+                    <a class="govuk-link" href="view-claim?claimant=sp&claimStatus=paused">
+                        View</a>
+                </td>
+            </tr>
+            {% else %}
+        {% endif %}
         <!-- END SCENARIO 3 - Sue Pearson dynamic row -->
         <!-- SCENARIO 3 - Ian Johnson paused for MBR-->
         <tr class="govuk-table__row">
