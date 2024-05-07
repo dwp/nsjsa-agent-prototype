@@ -257,6 +257,130 @@
                         <a class="govuk-link" href="#">View</a>
                     </td>
                 </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">13 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">3 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">TN 25 14 48 C</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        Transferred to clerical
+                    </td>
+                    <td class="govuk-table__cell">
+                        <a class="govuk-link" href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">13 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">3 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">TN 25 14 48 C</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        Transferred to clerical
+                    </td>
+                    <td class="govuk-table__cell">
+                        <a class="govuk-link" href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">13 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">3 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">TN 25 14 48 C</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        Transferred to clerical
+                    </td>
+                    <td class="govuk-table__cell">
+                        <a class="govuk-link" href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">13 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">3 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">TN 25 14 48 C</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        Transferred to clerical
+                    </td>
+                    <td class="govuk-table__cell">
+                        <a class="govuk-link" href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">13 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">3 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">TN 25 14 48 C</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        Transferred to clerical
+                    </td>
+                    <td class="govuk-table__cell">
+                        <a class="govuk-link" href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">13 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">3 May 2024</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <span style="white-space: nowrap">TN 25 14 48 C</span>
+                    </td>
+                    <td class="govuk-table__cell">
+                        Transferred to clerical
+                    </td>
+                    <td class="govuk-table__cell">
+                        <a class="govuk-link" href="#">View</a>
+                    </td>
+                </tr>
+                <!-- SCENARIO 4 (3b) - dynamic row, not showing when updating to pause for KBV-->
+                {% if data['claimant'] == 'sh' and data['pauseReason'] == 'Identity check (KBV)' %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">13 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">3 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">TN 25 14 48 C</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            Transferred to clerical
+                        </td>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="#">View</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                {% endif %}
+                <!-- END SCENARIO 4 (3b) - dynamic row, not showing when updating to pause for KBV-->
             </tbody>
         </table>
     </tr>

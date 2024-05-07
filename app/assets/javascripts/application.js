@@ -36,3 +36,5 @@ new MOJFrontend.FilterToggleButton({
     container: document.querySelector(".moj-filter"),
   },
 });
+
+
