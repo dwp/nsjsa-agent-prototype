@@ -260,7 +260,7 @@
                             <span style="white-space: nowrap">DF 13 23 44 B</span>
                         </td>
                         <td class="govuk-table__cell">
-                            Sent to decision maker
+                            Sent to decision-maker
                         </td>
                         <td class="govuk-table__cell">
                             <a class="govuk-link" href="#">View</a>
@@ -271,7 +271,7 @@
                             <span style="white-space: nowrap">13 May 2024</span>
                         </td>
                         <td class="govuk-table__cell">
-                            <span style="white-space: nowrap">3 May 2024</span>
+                            <span style="white-space: nowrap">1 May 2024</span>
                         </td>
                         <td class="govuk-table__cell">
                             <span style="white-space: nowrap">TN 25 14 48 C</span>
@@ -283,6 +283,113 @@
                             <a class="govuk-link" href="#">View</a>
                         </td>
                     </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">13 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">1 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">KN 77 32 02 U</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            CIS update
+                        </td>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="#">View</a>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">13 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">2 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">TN 25 14 48 C</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            Transferred to clerical
+                        </td>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="#">View</a>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">13 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">5 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">YY 86 69 80 B</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            Identity check (KBV)
+                        </td>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="#">View</a>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">14 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">10 Apr 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">FQ 12 34 56 A</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            International Group
+                        </td>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="#">View</a>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">14 May 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">27 Apr 2024</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <span style="white-space: nowrap">DF 13 23 44 B</span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            CIS update
+                        </td>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="#">View</a>
+                        </td>
+                    </tr>
+                    <!-- SCENARIO 3 - dynamic row - Sue Pearson paused for Self-employment-->
+                    {% if data['claimStatus'] == 'paused' %}
+                        {% else %}
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">
+                                    <span style="white-space: nowrap">14 May 2024</span>
+                                </td>
+                                <td class="govuk-table__cell">
+                                    <span style="white-space: nowrap">27 Apr 2024</span>
+                                </td>
+                                <td class="govuk-table__cell">
+                                    <span style="white-space: nowrap">UV 93 23 17 B</span>
+                                </td>
+                                <td class="govuk-table__cell">
+                                    Self-employment and company director check
+                                </td>
+                                <td class="govuk-table__cell">
+                                    <a class="govuk-link" href="#">View</a>
+                                </td>
+                            </tr>
+                    {% endif %}
+                    <!-- END SCENARIO 3 - Sue Pearson dynamic row -->
                 </tbody>
             </table>
         </tr>

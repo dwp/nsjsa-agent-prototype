@@ -1,197 +1,204 @@
 {% extends "layout/unbranded-agent-id.html" %}
 {% block pageTitle %}
-Service centre - {{ serviceName }}
+  Service centre - {{ serviceName }}
 {% endblock %}
 {% block beforeContent %}
-{{ govukBackLink({
+  {{ govukBackLink({
 text: "Back",
 href: "choose-task?show"
 }) }}
 {% endblock %}
 {% block content %}
-<div class="govuk-width-container">
-  <main class="govuk-main-wrapper--m" id="main-content" role="main">
-    <h1 class="govuk-heading-l">Paused claims</h1>
-    <!-- SEARCH BY STAFF NUMBER -->
-    <form action="pause-list" method="post">
-      <div class="govuk-form-group govuk-!-margin-bottom-0">
-        <label class="govuk-label" for="search">
-          <strong>Search by staff number</strong>
-        </label>
-        <input class="govuk-input govuk-!-width-one-third" id="search" name="search" type="text">
-        <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
-          Search
-        </button>
-      </div>
-    </form>
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-quarter">
-        <p></p>
-      </div>
-      <div class="govuk-grid-column-three-quarters"></div>
-    </div>
-    <div class="govuk-grid-row">
-      <!-- FILTERS -->
-      <div class="govuk-grid-column-one-quarter">
-        <h2 class="govuk-heading-m">Filters</h2>
-        <!-- Sort by <div class="govuk-form-group"> <fieldset class="govuk-fieldset">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper--m" id="main-content" role="main">
+      <h1 class="govuk-heading-l">Paused claims</h1>
+      <!-- SEARCH BY STAFF NUMBER -->
+      <form action="pause-list" method="post">
+        <div class="govuk-form-group govuk-!-margin-bottom-0">
+          <label class="govuk-label" for="search">
+            <strong>Search by staff number</strong>
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="search" name="search" type="text">
+            <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
+              Search
+            </button>
+          </div>
+        </form>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter">
+            <p></p>
+          </div>
+          <div class="govuk-grid-column-three-quarters"></div>
+        </div>
+        <div
+          class="govuk-grid-row">
+          <!-- FILTERS -->
+          <div class="govuk-grid-column-one-quarter">
+            <h2 class="govuk-heading-m">Filters</h2>
+            <!-- Sort by <div class="govuk-form-group"> <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                        Sort by
+                      </h1>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" ="">
+                        <label class="govuk-label govuk-radios__label" for="sort">
+                          Closest deadline
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
+                        <label class="govuk-label govuk-radios__label" for="sort-2">
+                          Furthest deadline
+                        </label>
+                      </div>
+                    </div>
+                </fieldset> </div> -->
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                   <h1 class="govuk-fieldset__heading">
-                    Sort by
+                    Pause reason
                   </h1>
                 </legend>
-                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" ="">
-                    <label class="govuk-label govuk-radios__label" for="sort">
-                      Closest deadline
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
-                    <label class="govuk-label govuk-radios__label" for="sort-2">
-                      Furthest deadline
-                    </label>
-                  </div>
-                </div>
-            </fieldset> </div> -->
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading">
-                Pause reason
-              </h1>
-            </legend>
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="cis-update" name="cis-update" type="checkbox"
-                  value="cis-update">
-                <label class="govuk-label govuk-checkboxes__label" for="cis-update">
-                  CIS update
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv">
-                <label class="govuk-label govuk-checkboxes__label" for="kbv">
-                  Identity check (KBV)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr">
-                <label class="govuk-label govuk-checkboxes__label" for="mbr">
-                  Main benefit reply (MBR)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="self-employment" name="self-employment" type="checkbox"
-                  value="self-employment">
-                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
-                  Self-employment and company director check
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="decision-maker" name="decision-maker" type="checkbox"
-                  value="decision-maker">
-                <label class="govuk-label govuk-checkboxes__label" for="decision-maker">
-                  Sent to decision maker
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="international-group" name="international-group"
-                  type="checkbox" value="international-group">
-                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
-                  Sent to International Group
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa">
-                <label class="govuk-label govuk-checkboxes__label" for="nsesa">
-                  Sent to NSESA team
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc">
-                <label class="govuk-label govuk-checkboxes__label" for="ttc">
-                  Transferred to clerical
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other">
-                <label class="govuk-label govuk-checkboxes__label" for="other">
-                  Other
-                </label>
-              </div>
-            </div>
-          </fieldset>
-          <div class="govuk-button-group">
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              Filter
-            </button>
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Reset
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="govuk-grid-column-three-quarters">
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-button-group">
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Hide filters
-              </button>
-            </div>
-          </div>
-          <div class="govuk-grid-column-one-third">
-            <div class="govuk-form-group">
-              <label class="govuk-label" for="sort">
-                Sort by
-              </label>
-              <select class="govuk-select" id="sort" name="sort">
-                <option value="published" selected>Closest deadline</option>
-                <option value="updated">Furthest deadline</option>
-                <option value="views">Newest claim submitted</option>
-                <option value="comments">Oldest claim submitted</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
-        {% if data['show'] == "03" %}
-        <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000003</caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Deadline</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
-        {% elif data['show'] == "12345678" %}
-        {% include "design-ideas/wt-4485-wfm-1b/table/agent2-pause-list.html" %}
-        <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
-        {% else %}
-        {% if data['sc'] == "1" %}
-        {% include "design-ideas/wt-4485-wfm-1b/table/sc1-agent1-pause-list.html" %}
-        {% elif data['sc'] == "2" %}
-        {% include "design-ideas/wt-4485-wfm-1b/table/sc2-agent1-pause-list.html" %}
-        {% elif data['sc'] == "3a" %}
-        {% include "design-ideas/wt-4485-wfm-1b/table/sc3-agent1-pause-list.html" %}
-        {% else %}
-        {% include "design-ideas/wt-4485-wfm-1b/table/sc4-agent1-pause-list.html" %}
-        {% endif %}
-        {% endif %}
-      </div>
-    </div>
-  </main>
-</div>
-{% endblock %}
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="cis-update" name="cis-update" type="checkbox" value="cis-update">
+                      <label class="govuk-label govuk-checkboxes__label" for="cis-update">
+                        CIS update
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv">
+                        <label class="govuk-label govuk-checkboxes__label" for="kbv">
+                          Identity check (KBV)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input
+                          class="govuk-checkboxes__input"
+                          id="international-group"
+                          name="international-group"
+                          type="checkbox"
+                          value="international-group">
+                          <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                            International Group
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr">
+                            <label class="govuk-label govuk-checkboxes__label" for="mbr">
+                              Main benefit reply (MBR)
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa">
+                              <label class="govuk-label govuk-checkboxes__label" for="nsesa">
+                                NSESA team
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input
+                                class="govuk-checkboxes__input"
+                                id="self-employment"
+                                name="self-employment"
+                                type="checkbox"
+                                value="self-employment">
+                                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                                  Self-employment and company director check
+                                </label>
+                              </div>
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="decision-maker" name="decision-maker" type="checkbox" value="decision-maker">
+                                  <label class="govuk-label govuk-checkboxes__label" for="decision-maker">
+                                    Sent to decision-maker
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc">
+                                    <label class="govuk-label govuk-checkboxes__label" for="ttc">
+                                      Transferred to clerical
+                                    </label>
+                                  </div>
+                                  <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other">
+                                      <label class="govuk-label govuk-checkboxes__label" for="other">
+                                        Other
+                                      </label>
+                                    </div>
+                                  </div>
+                                </fieldset>
+                                <div class="govuk-button-group">
+                                  <button type="submit" class="govuk-button" data-module="govuk-button">
+                                    Filter
+                                  </button>
+                                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                    Reset
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="govuk-grid-column-three-quarters">
+                              <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-two-thirds">
+                                  <div class="govuk-button-group">
+                                    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                      Hide filters
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="govuk-grid-column-one-third">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label" for="sort">
+                                      Sort by
+                                    </label>
+                                    <select class="govuk-select" id="sort" name="sort">
+                                      <option value="published" selected>Closest deadline</option>
+                                      <option value="updated">Furthest deadline</option>
+                                      <option value="views">Newest claim submitted</option>
+                                      <option value="comments">Oldest claim submitted</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
+                              {% if data['show'] == "03" %}
+                                <table class="govuk-table govuk-!-font-size-19">
+                                  <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000003</caption>
+                                  <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Deadline</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
+                                      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="govuk-table__body">
+                                    <tr class="govuk-table__row">
+                                      <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
+                              {% elif data['show'] == "12345678" %}
+                                {% include "design-ideas/wt-4485-wfm-1b/table/agent2-pause-list.html" %}
+                                <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
+                              {% else %}
+                                {% if data['sc'] == "1" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc1-agent1-pause-list.html" %}
+                                {% elif data['sc'] == "2" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc2-agent1-pause-list.html" %}
+                                {% elif data['sc'] == "3a" %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc3-agent1-pause-list.html" %}
+                                {% else %}
+                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc4-agent1-pause-list.html" %}
+                                {% endif %}
+                              {% endif %}
+                            </div>
+                          </div>
+                        </main>
+                      </div>
+                    {% endblock %}
