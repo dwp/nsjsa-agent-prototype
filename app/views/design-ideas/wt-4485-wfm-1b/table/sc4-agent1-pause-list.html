@@ -11,6 +11,62 @@
     </thead>
     <tbody class="govuk-table__body">
         {% if data['claimant'] == 'sh' and data['pauseReason'] == 'Identity check (KBV)' %}
+            <!-- SCENARIO 4 - dynamic row - Sue Pearson, Ian Johnson, Karan Bobhal, Simon Hamilton-->
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">9 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">25 Apr 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">QF 74 42 21 A</span>
+                </td>
+                <td class="govuk-table__cell">
+                    Self-employment and company director check
+                </td>
+                <td class="govuk-table__cell">
+                    <a
+                        class="govuk-link"
+                        href="view-claim?claimant=sp&claimStatus=paused&pauseReason=Self-employment%20and%20company%20director%20check">
+                        View</a>
+                </td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">9 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">30 Apr 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">RN 00 00 35 C</span>
+                </td>
+                <td class="govuk-table__cell">
+                    Main benefit reply (MBR)
+                </td>
+                <td class="govuk-table__cell">
+                    <a class="govuk-link" href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Main%20benefit%20reply%20(MBR)">
+                        View</a>
+                </td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">9 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">3 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">SW 12 34 56 A</span>
+                </td>
+                <td class="govuk-table__cell">
+                    Transferred to clerical
+                </td>
+                <td class="govuk-table__cell">
+                    <a class="govuk-link" href="view-claim?&claimant=kb&claimStatus=paused&pauseReason=Transferred%20to%20clerical">View</a>
+                </td>
+            </tr>
             <!-- SCENARIO 4 - dynamic row - Simon Hamilton KBV-->
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
@@ -31,70 +87,69 @@
                 </td>
             </tr>
             <!-- END SCENARIO 4 - Simon Hamilton dynamic row -->
-            {% else %}
+        {% else %}
+            <!-- dynamic row - Sue Pearson paused for Self-employment-->
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">9 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">25 Apr 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">QF 74 42 21 A</span>
+                </td>
+                <td class="govuk-table__cell">
+                    Self-employment and company director check
+                </td>
+                <td class="govuk-table__cell">
+                    <a
+                        class="govuk-link"
+                        href="view-claim?claimant=sp&claimStatus=paused&pauseReason=Self-employment%20and%20company%20director%20check">
+                        View</a>
+                </td>
+            </tr>
+            <!-- END SCENARIO 3 - Sue Pearson dynamic row -->
+            <!-- SCENARIO 3 - Ian Johnson paused for MBR-->
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">9 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">30 Apr 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">RN 00 00 35 C</span>
+                </td>
+                <td class="govuk-table__cell">
+                    Main benefit reply (MBR)
+                </td>
+                <td class="govuk-table__cell">
+                    <a class="govuk-link" href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Main%20benefit%20reply%20(MBR)">
+                        View</a>
+                </td>
+            </tr>
+            <!-- END SCENARIO 3 - Ian Johnson dynamic row -->
+            <!-- SCENARIO 3 - Karan Bophal paused for TTC-->
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">9 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">3 May 2024</span>
+                </td>
+                <td class="govuk-table__cell">
+                    <span style="white-space: nowrap">SW 12 34 56 A</span>
+                </td>
+                <td class="govuk-table__cell">
+                    Transferred to clerical
+                </td>
+                <td class="govuk-table__cell">
+                    <a class="govuk-link" href="view-claim?&claimant=kb&claimStatus=paused&pauseReason=Transferred%20to%20clerical">View</a>
+                </td>
+            </tr>
+            <!-- END SCENARIO 3 - Karan Bophal paused for TTC-->
         {% endif %}
-        <!-- dynamic row - Sue Pearson paused for Self-employment-->
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">25 Apr 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QF 74 42 21 A</span>
-            </td>
-            <td class="govuk-table__cell">
-                Self-employment and company director check
-            </td>
-            <td class="govuk-table__cell">
-                <a
-                    class="govuk-link"
-                    href="view-claim?claimant=sp&claimStatus=paused&pauseReason=Self-employment%20and%20company%20director%20check">
-                    View</a>
-            </td>
-        </tr>
-        <!-- END SCENARIO 3 - Sue Pearson dynamic row -->
-        <!-- SCENARIO 3 - Ian Johnson paused for MBR-->
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">30 Apr 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">RN 00 00 35 C</span>
-            </td>
-            <td class="govuk-table__cell">
-                Main benefit reply (MBR)
-            </td>
-            <td class="govuk-table__cell">
-                <a class="govuk-link" href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Main%20benefit%20reply%20(MBR)">
-                    View</a>
-            </td>
-        </tr>
-        <!-- END SCENARIO 3 - Ian Johnson dynamic row -->
-        <!-- SCENARIO 3 - Karan Bophal paused for TTC-->
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">3 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">SW 12 34 56 A</span>
-            </td>
-            <td class="govuk-table__cell">
-                Transferred to clerical
-            </td>
-            <td class="govuk-table__cell">
-                <a class="govuk-link" href="view-claim?&claimant=kb&claimStatus=paused&pauseReason=Transferred%20to%20clerical">View</a>
-            </td>
-        </tr>
-        <!-- END SCENARIO 3 - Karan Bophal paused for TTC-->
-        <!-- SCENARIO 3 - Simon Hamilton paused for KBV-->
         <tr class="govuk-table__row">
             <td class="govuk-table__cell">
                 <span style="white-space: nowrap">9 May 2024</span>
@@ -104,16 +159,15 @@
             </td>
             <td class="govuk-table__cell">
                 <span style="white-space: nowrap">
-                    QQ 12 34 56 X</span>
+                    VA 22 34 56 B</span>
             </td>
             <td class="govuk-table__cell">
                 Identity check (KBV)
             </td>
             <td class="govuk-table__cell">
-                <a class="govuk-link" href="view-claim?&claimant=sh&claimStatus=paused&pauseReason=Identity%20check%20(KBV)">View</a>
+                <a class="govuk-link" href="#">View</a>
             </td>
         </tr>
-        <!-- END SCENARIO 3 - Simon Hamilton paused for KBV-->
         <tr class="govuk-table__row">
             <td class="govuk-table__cell">
                 <span style="white-space: nowrap">10 May 2024</span>
