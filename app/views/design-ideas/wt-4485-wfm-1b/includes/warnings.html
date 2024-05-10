@@ -1,7 +1,7 @@
 <section
   class="dwp-print-hide">
   {#	CIS mismatch #}
-  {% if data['claimant'] == 'ij'or data['claimant'] == 'sh'%}
+  {% if data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' or data['pauseReason'] == 'Identity check (KBV)' or data['claimant'] == 'sh'%}
     <div
       class="govuk-notification-banner"
       role="region"
