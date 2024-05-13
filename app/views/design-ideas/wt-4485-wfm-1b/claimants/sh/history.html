@@ -66,11 +66,7 @@ events: [
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
                     <p class="govuk-caption-m">on 9 May 2024 at 11:45am</p>
                     <p class="govuk-caption-m">
-                        <ul class="govuk-list govuk-caption-m">
-                            {% for pauseReason in data['pauseReason'] %}
-                                <li>{{ pauseReason }}</li>
-                            {% endfor %}
-                        </ul>
+                        {{ data['pauseReason'] }}
                         <p class="govuk-caption-m">Deadline {{ data['deadline-day'] }}
                             {{ data['deadline-month'] | toMonth }}
                             {{ data['deadline-year'] }}</p>
