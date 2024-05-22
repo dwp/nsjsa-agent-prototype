@@ -1,0 +1,16 @@
+{% if data['claimStatus'] == 'new-claim' %}
+    <p>
+        <a href="choose-task">Return to start screen</a>
+    </p>
+{% else %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {# href: clearing data for claim status, pause reason and deadline when clicking Update claim button #}
+    {{ govukButton({
+    text: "Update claim status",
+    href: "update?claimStatus&pauseReason&deadline-day&deadline-month&deadline-year"
+}) }}
+    <p>
+        <a href="choose-task">Return to start screen</a>
+    </p>
+{% endif %}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

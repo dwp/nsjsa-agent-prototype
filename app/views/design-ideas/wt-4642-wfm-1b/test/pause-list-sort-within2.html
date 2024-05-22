@@ -40,9 +40,7 @@ href: "choose-task?show"
                 </div>
                 <div class="moj-filter__header-action"></div>
               </div>
-              <div
-                class="moj-filter__content">
-                <!-- SELECTED FILTER SECTION  -->
+              <div class="moj-filter__content">
                 <div class="moj-filter__selected">
                   <div class="moj-filter__selected-heading">
                     <div class="moj-filter__heading-title">
@@ -50,61 +48,71 @@ href: "choose-task?show"
                     </div>
                     <div class="moj-filter__heading-action">
                       <p>
-                        <a class="govuk-link govuk-link--no-visited-state" href="pause-list">Clear filters</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a>
                       </p>
                     </div>
                   </div>
                   <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Pause reason</h3>
                   <ul class="moj-filter-tags">
                     <li>
-                      <a class="moj-filter__tag" href="pause-list">
+                      <a class="moj-filter__tag" href="#">
+                        <span class="govuk-visually-hidden">Remove this filter</span>
+                        Identity check (KBV)</a>
+                    </li>
+                    <li>
+                      <a class="moj-filter__tag" href="#">
                         <span class="govuk-visually-hidden">Remove this filter</span>
                         Main benefit reply (MBR)</a>
                     </li>
                   </ul>
                 </div>
-                <div class="moj-filter__options">
-                  <!-- Sort by SELECT <div class="govuk-form-group"> <label class="govuk-label" for="sort">
-                                  Sort by
-                              </label> <select class="govuk-select" id="sort" name="sort">
-                                  <option value="closest-deadline" selected>Closest deadline</option>
-                                  <option value="furthest-deadline">Furthest deadline</option>
-                                  <option value="newest-claim">Newest claim submitted</option>
-                                  <option value="oldest-claim">Oldest claim submitted</option>
-                              </select> </div> -->
+                <div
+                  class="moj-filter__options">
+                  <!-- Sort by SELECT -->
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="sort">
+                      Sort by
+                    </label>
+                    <select class="govuk-select" id="sort" name="sort">
+                      <option value="closest-deadline" selected>Closest deadline</option>
+                      <option value="furthest-deadline">Furthest deadline</option>
+                      <option value="newest-claim">Newest claim submitted</option>
+                      <option value="oldest-claim">Oldest claim submitted</option>
+                    </select>
+                  </div>
                   <!-- Sort by RADIOS <div class="govuk-form-group"> <fieldset class="govuk-fieldset">
                       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                         Sort by
                       </legend>
                       <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="sort-1" name="sort" type="radio" value="closest-deadline"
-                            checked>
-                          <label class="govuk-label govuk-radios__label" for="sort-1" style="white-space: nowrap">
+                          <input class="govuk-radios__input" id="sort-1" name="sort" type="radio" value="closest-deadline">
+                          <label class="govuk-label govuk-radios__label" for="sort-1">
                             Closest deadline
                           </label>
                         </div>
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="furthest-deadline">
-                          <label class="govuk-label govuk-radios__label" for="sort-2" style="white-space: nowrap">
+                          <label class="govuk-label govuk-radios__label" for="sort-2">
                             Furthest deadline
                           </label>
                         </div>
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="sort-3" name="sort" type="radio" value="newest-claim">
-                          <label class="govuk-label govuk-radios__label" for="sort-3" style="white-space: nowrap">
+                          <label class="govuk-label govuk-radios__label" for="sort-3">
                             Newest claim submitted
                           </label>
                         </div>
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="sort-4" name="sort" type="radio" value="oldest-claim">
-                          <label class="govuk-label govuk-radios__label" for="sort-4" style="white-space: nowrap">
+                          <label class="govuk-label govuk-radios__label" for="sort-4">
                             Oldest claim submitted
                           </label>
                         </div>
                       </div>
                   </fieldset> </div> -->
-                    <div class="govuk-form-group"> <fieldset class="govuk-fieldset">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
                       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                         Pause reason
                       </legend>
@@ -133,7 +141,7 @@ href: "choose-task?show"
                                 </label>
                               </div>
                               <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr" checked>
+                                <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr">
                                   <label class="govuk-label govuk-checkboxes__label" for="mbr">
                                     Main benefit reply (MBR)
                                   </label>
@@ -176,11 +184,9 @@ href: "choose-task?show"
                                         </div>
                                       </fieldset>
                                     </div>
-                                    <div class="govuk-button-group">
-                                      <button type="submit" class="govuk-button" data-module="govuk-button">
-                                        Apply filters
-                                      </button>
-                                    </div>
+                                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                                      Apply filters
+                                    </button>
                                   </div>
                                 </div>
                               </div>
@@ -189,36 +195,47 @@ href: "choose-task?show"
                               <div class="moj-action-bar">
                                 <div class="moj-action-bar__filter"></div>
                               </div>
-                              <div
-                                class="moj-scrollable-pane">
-                                <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
-                                {% if data['show'] == "03" %}
-                                  <table class="govuk-table govuk-!-font-size-19">
-                                    <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000003</caption>
-                                    <thead class="govuk-table__head">
-                                      <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header" style="white-space: nowrap">Deadline</th>
-                                        <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
-                                        <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-                                        <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
-                                        <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody class="govuk-table__body">
-                                      <tr class="govuk-table__row">
-                                        <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
-                                {% elif data['show'] == "12345678" %}
-                                  {% include "design-ideas/wt-4485-wfm-1b/table/agent2-pause-list-filtered.html" %}
-                                  <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
-                                {% else %}
-                                  {% include "design-ideas/wt-4485-wfm-1b/table/sc1-agent1-pause-list-filtered.html" %}
-                                {% endif %}
+                              <div class="moj-scrollable-pane">
+                                {% include "design-ideas/wt-4642-wfm-1b/table/sc1-agent1-pause-list.html" %}
                               </div>
                             </div>
+                            <nav class="govuk-pagination" aria-label="Pagination">
+                              <ul class="govuk-pagination__list">
+                                <li class="govuk-pagination__item govuk-pagination__item--current">
+                                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                                    1
+                                  </a>
+                                </li>
+                                <li class="govuk-pagination__item">
+                                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                                    2
+                                  </a>
+                                </li>
+                                <li class="govuk-pagination__item">
+                                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                                    3
+                                  </a>
+                                </li>
+                              </ul>
+                              <div class="govuk-pagination__next">
+                                <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                                  <span class="govuk-pagination__link-title">
+                                    Next<span class="govuk-visually-hidden">
+                                      page</span>
+                                  </span>
+                                  <svg
+                                    class="govuk-pagination__icon govuk-pagination__icon--next"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    height="13"
+                                    width="15"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    viewBox="0 0 15 13">
+                                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                                  </svg>
+                                </a>
+                              </div>
+                            </nav>
                           </main>
                         </div>
                       {% endblock %}
