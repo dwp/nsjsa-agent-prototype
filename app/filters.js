@@ -34,3 +34,8 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // Add the filters using the addFilter function
 Object.entries(filters).forEach(([name, fn]) => addFilter(name, fn))
+
+// Render content as bold
+addFilter('bold', function (content) {
+  return '<strong>' + content + '</strong>'
+}, { renderAsHtml: true })
