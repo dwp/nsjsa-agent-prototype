@@ -16,10 +16,6 @@ href: "screens?claimant&claimStatus&pauseReason"
       </h1>
       {% if data['sc'] == 1 %}
         {% set url = 'view-claim?&claimant=ij&claimStatus=processing-started' %}
-      {% elif data['sc'] == 2 %}
-        {% set url = 'view-claim?&claimant=kb&claimStatus=processing-started' %}
-      {% elif data['sc'] == 3 %}
-        {% set url = '#' %}
       {% elif data['sc'] == 4 %}
         {% set url = '#' %}
       {% else %}

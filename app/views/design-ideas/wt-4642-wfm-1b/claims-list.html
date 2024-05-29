@@ -11,14 +11,14 @@ href: "choose-task?show"
 {% block content %}
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper--m" id="main-content" role="main">
-    <h1 class="govuk-heading-l">Last updated claims</h1>
+    <h1 class="govuk-heading-l">Your last updated claims</h1>
     <!-- SEARCH BY STAFF NUMBER -->
     <form action="claims-list" method="post">
       <div class="govuk-form-group govuk-!-margin-bottom-0">
         <label class="govuk-label" for="agent">
-          <strong>Search by staff number</strong>
+          <strong>Search other claims by staff number</strong>
         </label>
-        <input class="govuk-input govuk-!-width-one-third" id="agent" name="agent" type="text">
+        <input class="govuk-input govuk-!-width-one-half" id="agent" name="agent" type="text">
         <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
           Search
         </button>
@@ -230,10 +230,6 @@ href: "choose-task?show"
           {% else %}
           {% if data['sc'] == "1" %}
           {% include "design-ideas/wt-4642-wfm-1b/table/sc1-agent1-claims-list.html" %}
-          {% elif data['sc'] == "2" %}
-          {% include "design-ideas/wt-4642-wfm-1b/table/sc2-agent1-claims-list.html" %}
-          {% elif data['sc'] == "3" %}
-          {% include "design-ideas/wt-4642-wfm-1b/table/sc3-agent1-claims-list.html" %}
           {% elif data['sc'] == "4" %}
           {% include "design-ideas/wt-4642-wfm-1b/table/sc4-agent1-claims-list.html" %}
           {% else %}

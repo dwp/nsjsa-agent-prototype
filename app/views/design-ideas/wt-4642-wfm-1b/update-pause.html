@@ -15,18 +15,18 @@
           fieldset: {
           legend: {
           text: "Why have you paused this claim?",
-          isPageHeading: false,
+          isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
           }
           },
           hint: {
-          text: "Select all that apply."
+          text: "You must select all reasons that apply to this claim."
           },
           items: [
           {
-          value: "CIS update",
-          checked: checked("pauseReason", "CIS update"),
-          text: "CIS update"
+          value: "Contact DWP CIS team",
+          checked: checked("pauseReason", "Contact DWP CIS team"),
+          text: "Contact DWP CIS team"
           },
           {
           value: "Identity check (KBV)",
