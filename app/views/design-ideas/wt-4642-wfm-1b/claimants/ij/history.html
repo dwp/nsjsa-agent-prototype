@@ -157,9 +157,9 @@ events: [
             <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
             <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
             <p class="govuk-caption-m">
-                {{ data['pauseReason']|first }}
+                {{ data['pauseReason'][0] }}
                 <br>
-                    {{ data['pauseReason']|last }}
+                    {{ data['pauseReason'][1] }}
                     <p class="govuk-caption-m">Next update due {{ data['deadline-day'] }}
                         {{ data['deadline-month'] | toMonth }}
                         {{ data['deadline-year'] }}</p>
@@ -293,7 +293,7 @@ events: [
             <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 11:45am</p>
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
-                    <li>Main benefit reply (MBR)</li>
+                    <li>NSESA team</li>
                 </ul>
                 <p class="govuk-caption-m">Next update due 9 May 2024</p>
             </p>
@@ -305,7 +305,7 @@ events: [
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
                     <li>Identity check (KBV)</li>
-                    <li>Main benefit reply (MBR)</li>
+                    <li>NSESA team</li>
                 </ul>
                 <p class="govuk-caption-m">Next update due 3 June 2024</p>
             </p>
@@ -340,7 +340,7 @@ events: [
             <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 11:45am</p>
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
-                    <li>Main benefit reply (MBR)</li>
+                    <li>NSESA team</li>
                 </ul>
                 <p class="govuk-caption-m">Next update due 9 May 2024</p>
             </p>
@@ -352,7 +352,7 @@ events: [
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
                     <li>Identity check (KBV)</li>
-                    <li>Main benefit reply (MBR)</li>
+                    <li>NSESA team</li>
                 </ul>
                 <p class="govuk-caption-m">Next update due 3 June 2024</p>
             </p>
@@ -387,7 +387,7 @@ events: [
             <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 11:45am</p>
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
-                    <li>Main benefit reply (MBR)</li>
+                    <li>NSESA team</li>
                 </ul>
                 <p class="govuk-caption-m">Next update due {{ data['deadline-day'] }}
                     {{ data['deadline-month'] | toMonth }}
@@ -401,7 +401,7 @@ events: [
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
                     <li>Identity check (KBV)</li>
-                    <li>Main benefit reply (MBR)</li>
+                    <li>NSESA team</li>
                 </ul>
                 <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
             </p>
