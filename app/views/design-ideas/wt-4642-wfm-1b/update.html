@@ -28,7 +28,16 @@
                       }
                     },
                     items: [
-                    {
+                    
+                        {
+                            value: "citizen-not-entitled",
+                            text: "Citizen not entitled"
+                        },
+                        {
+                            value: "claim-claim-not-valid",
+                            text: "Claim not valid"
+                        },
+                        {
                             value: "complex-claim",
                             text: "Complex claim",
                             hint: {
@@ -38,14 +47,6 @@
                         {
                             value: "duplicate",
                             text: "Duplicate"
-                        },
-                        {
-                            value: "not-entitled",
-                            text: "Not entitled"
-                        },
-                        {
-                            value: "not-valid",
-                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -82,16 +83,17 @@
                             }
                         },
                         {
+                            value: "citizen-not-entitled",
+                            text: "Citizen not entitled"
+                        },
+
+                        {
+                            value: "claim-not-valid",
+                            text: "Claim not valid"
+                        },
+                        {
                             value: "duplicate",
                             text: "Duplicate"
-                        },
-                        {
-                            value: "not-entitled",
-                            text: "Not entitled"
-                        },
-                        {
-                            value: "not-valid",
-                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -128,19 +130,19 @@
                             }
                         },
                         {
+                            value: "citizen-not-entitled",
+                            text: "Citizen not entitled"
+                        },
+                        {
+                            value: "claim-not-valid",
+                            text: "Claim not valid"
+                        },
+                        {
                             value: "complex-claim",
                             text: "Complex claim",
                             hint: {
                               text: "For example, claims sent to Greenock."
                              }
-                        },
-                        {
-                            value: "not-entitled",
-                            text: "Not entitled"
-                        },
-                        {
-                            value: "not-valid",
-                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -157,7 +159,7 @@
                     ]
                 }) }}
               {#Radio button options for claim status NOT ENTITLED#}
-            {% elif data['claimStatus'] == 'not-entitled' %}
+            {% elif data['claimStatus'] == 'citizen-not-entitled' %}
               {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
@@ -177,6 +179,10 @@
                             }
                         },
                         {
+                            value: "claim-not-valid",
+                            text: "Claim not valid"
+                        },
+                        {
                             value: "complex-claim",
                             text: "Complex claim",
                             hint: {
@@ -186,10 +192,6 @@
                         {
                             value: "duplicate",
                             text: "Duplicate"
-                        },
-                        {
-                            value: "not-valid",
-                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -226,6 +228,15 @@
                             }
                         },
                         {
+                            value: "citizen-not-entitled",
+                            text: "Citizen not entitled"
+                        },
+
+                        {
+                            value: "claim-not-valid",
+                            text: "Claim not valid"
+                        },
+                        {
                             value: "complex-claim",
                             text: "Complex claim",
                             hint: {
@@ -235,14 +246,6 @@
                         {
                             value: "duplicate",
                             text: "Duplicate"
-                        },
-                        {
-                            value: "not-entitled",
-                            text: "Not entitled"
-                        },
-                        {
-                            value: "not-valid",
-                            text: "Not valid"
                         },
                         {
                             value: "paused",
@@ -255,7 +258,7 @@
                     ]
                 }) }}
               {#Radio button options for claim status NOT VALID#}
-            {% elif data['claimStatus'] == 'not-valid' %}
+            {% elif data['claimStatus'] == 'claim-not-valid' %}
               {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
@@ -275,6 +278,10 @@
                             }
                         },
                         {
+                            value: "citizen-not-entitled",
+                            text: "Citizen not entitled"
+                        },
+                        {
                             value: "complex-claim",
                             text: "Complex claim",
                             hint: {
@@ -284,10 +291,6 @@
                         {
                             value: "duplicate",
                             text: "Duplicate"
-                        },
-                        {
-                            value: "not-entitled",
-                            text: "Not entitled"
                         },
                         {
                             value: "paused",
@@ -325,6 +328,16 @@
                             }
                         },
                         {
+                            value: "citizen-not-entitled",
+                            checked: checked("claimStatus", "citizen-not-entitled"),
+                            text: "Citizen not entitled"
+                        },
+                        {
+                            value: "claim-not-valid",
+                            checked: checked("claimStatus", "claim-not-valid"),
+                            text: "Claim not valid"
+                        },
+                        {
                             value: "complex-claim",
                             checked: checked("claimStatus", "complex-claim"),
                             text: "Complex claim",
@@ -336,16 +349,6 @@
                             value: "duplicate",
                             checked: checked("claimStatus", "duplicate"),
                             text: "Duplicate"
-                        },
-                        {
-                            value: "not-entitled",
-                            checked: checked("claimStatus", "not-entitled"),
-                            text: "Not entitled"
-                        },
-                        {
-                            value: "not-valid",
-                            checked: checked("claimStatus", "not-valid"),
-                            text: "Not valid"
                         },
                         {
                             value: "paused",
