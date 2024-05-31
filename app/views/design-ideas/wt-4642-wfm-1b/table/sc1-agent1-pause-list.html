@@ -231,13 +231,13 @@
                     <a class="govuk-link" href="#">View</a>
                 </td>
             </tr>
-            <!-- SCENARIO 1 - show claim in first row if update due on or before 6 June-->
+            <!-- SCENARIO 1 - show claim in last row if update due on or after 7 June-->
             {% if data['claimStatus'] == 'paused' and data['deadline-day'] >= 7%}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
                     <span style="white-space: nowrap">{{ data['deadline-day'] }}
                         {{ data['deadline-month'] | toMonth | truncate(3, true, "") }}
-                        {{ data['deadline-year'] or "6 Jun 2024" }}</span>
+                        {{ data['deadline-year'] or "7 Jun 2024" }}</span>
                 </td>
                 <td class="govuk-table__cell">
                     <span style="white-space: nowrap">19 May 2024</span>

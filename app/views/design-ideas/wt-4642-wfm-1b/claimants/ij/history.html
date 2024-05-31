@@ -84,7 +84,7 @@ events: [
                         <li>Identity check (KBV)</li>
                         <li>NSESA team</li>
                     </ul>
-                    <p class="govuk-caption-m">Next update due 4 June 2024</p>
+                    <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
                 </p>
             </li>
             <li class="dwp-timeline__events--entry">
@@ -130,7 +130,7 @@ events: [
                     <li>Identity check (KBV)</li>
                     <li>NSESA team</li>
                 </ul>
-                <p class="govuk-caption-m">Next update due 4 June 2024</p>
+                <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
             </p>
         </li>
         <li class="dwp-timeline__events--entry">
@@ -193,7 +193,7 @@ events: [
 {
     state: "Processing started",
     name: "88776655",
-    date: "on 3 June 2024 at 9:18am"
+    date:  "on " + "today" | govukDate("truncate") + " at 9:18am"
     },
     
  {
@@ -218,7 +218,7 @@ events: [
 {
     state: "Processing started",
     name: "88776655",
-    date: "on 3 June 2024 at 9:18am"
+    date:  "on " + "today" | govukDate("truncate") + " at 9:18am"
     },
  {
     state: "G4S checks completed",
@@ -242,7 +242,7 @@ events: [
 {
     state: "Processing started",
     name: "88776655",
-    date: "on 3 June 2024 at 9:18am"
+    date:  "on " + "today" | govukDate("truncate") + " at 9:18am"
     },
  {
     state: "G4S checks completed",
@@ -266,7 +266,7 @@ events: [
 {
     state: "Processing started",
     name: "88776655",
-    date: "on 3 June 2024 at 9:18am"
+    date: "on " + "today" | govukDate("truncate") + " at 9:18am"
     },
  {
     state: "G4S checks completed",
@@ -290,12 +290,12 @@ events: [
         <li class="dwp-timeline__events--entry">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
             <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-            <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 11:45am</p>
+            <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 10:31am</p>
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
                     <li>NSESA team</li>
                 </ul>
-                <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
             </p>
         </li>
         <li class="dwp-timeline__events--entry">
@@ -307,7 +307,7 @@ events: [
                     <li>Identity check (KBV)</li>
                     <li>NSESA team</li>
                 </ul>
-                <p class="govuk-caption-m">Next update due 3 June 2024</p>
+                <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
             </p>
         </li>
         <li class="dwp-timeline__events--entry">
@@ -337,12 +337,12 @@ events: [
         <li class="dwp-timeline__events--entry">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
             <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-            <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 11:45am</p>
+            <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 10:31am</p>
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
                     <li>NSESA team</li>
                 </ul>
-                <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
             </p>
         </li>
         <li class="dwp-timeline__events--entry">
@@ -354,7 +354,7 @@ events: [
                     <li>Identity check (KBV)</li>
                     <li>NSESA team</li>
                 </ul>
-                <p class="govuk-caption-m">Next update due 3 June 2024</p>
+                <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
             </p>
         </li>
         <li class="dwp-timeline__events--entry">
@@ -384,7 +384,7 @@ events: [
         <li class="dwp-timeline__events--entry">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
             <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-            <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 11:45am</p>
+            <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 10:31am</p>
             <p class="govuk-caption-m">
                 <ul class="govuk-list govuk-caption-m">
                     <li>NSESA team</li>
