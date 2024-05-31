@@ -11,7 +11,9 @@
             </tr>
         </thead>
     <tbody class="govuk-table__body">
-        {% if data['claimant'] == 'sh' and data['pauseReason'] == 'Identity check (KBV)' or data['claimStatus'] == 'awaiting-appointment' or data['claimStatus'] == 'duplicate' or data['claimStatus'] == 'not-entitled' or data['claimStatus'] == 'not-valid' or data['claimStatus'] == 'withdrawn'%}
+        {% if data['claimant'] == 'sh' and data['pauseReason'] == 'Identity check (KBV)' or data['claimStatus'] ==
+        'awaiting-appointment' or data['claimStatus'] == 'duplicate' or data['claimStatus'] == 'citizen-not-entitled' or
+        data['claimStatus'] == 'claim-not-valid' or data['claimStatus'] == 'withdrawn'%}
         <!-- SCENARIO 4 - dynamic row - Simon Hamilton KBV-->
         <tr class="govuk-table__row">
             <td class="govuk-table__cell">
@@ -105,7 +107,7 @@
             </td>
             <td class="govuk-table__cell">
                 <strong class="govuk-tag govuk-tag--blue">
-                    Not entitled
+                    Citizen not entitled
                 </strong>
             </td>
             <td class="govuk-table__cell">
@@ -352,7 +354,7 @@
             </td>
             <td class="govuk-table__cell">
                 <strong class="govuk-tag govuk-tag--blue">
-                    Not valid
+                    Claim not valid
                 </strong>
             </td>
             <td class="govuk-table__cell">
@@ -371,7 +373,7 @@
             </td>
             <td class="govuk-table__cell">
                 <strong class="govuk-tag govuk-tag--blue">
-                    Not entitled
+                    Citizen not entitled
                 </strong>
             </td>
             <td class="govuk-table__cell">
