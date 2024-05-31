@@ -3,7 +3,7 @@
 events: [
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am"
+    date: "by claimant on 18 May 2024 at 10:02am"
     }
 ]
 }) }}
@@ -13,11 +13,11 @@ events: [
     {
     state: "Preview",
     name: "00000089",
-    date: "on 5 May 2024 at 11:14am"
+    date: "on 18 May 2024 at 11:14am"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -28,11 +28,11 @@ events: [
  {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -43,16 +43,16 @@ events: [
  {
     state: "Processing started",
     name: "12345678",
-    date: "on 8 May 2024 at 9:18am"
+    date: "on 3 Jun 2024 at 9:18am"
     },
  {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -63,8 +63,8 @@ events: [
             <ol class="dwp-timeline__events">
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                    <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
-                    <p class="govuk-caption-m">on 9 May 2024 at 11:45am</p>
+                    <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
+                    <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
                     <p class="govuk-caption-m">
                         {{ data['pauseReason'] }}
                         <p class="govuk-caption-m">Next update due {{ data['deadline-day'] }}
@@ -75,28 +75,28 @@ events: [
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                    <p class="govuk-caption-m">on 8 May 2024 at 9:21am</p>
+                    <p class="govuk-caption-m">on 3 Jun 2024 at 9:21am</p>
                     <p class="govuk-caption-m">
                         <ul class="govuk-list govuk-caption-m">
                             <li>Identity check (KBV)</li>
                         </ul>
-                        <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                        <p class="govuk-caption-m">Next update due 4 Jun 2024</p>
                     </p>
                 </li>
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                    <p class="govuk-caption-m">on 7 May 2024 at 9:18am</p>
+                    <p class="govuk-caption-m">on 3 Jun 2024 at 9:18am</p>
                 </li>
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">G4S checks completed</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                    <p class="govuk-caption-m">on 30 April 2024 at 3:02pm</p>
+                    <p class="govuk-caption-m">on 18 May 2024 at 3:02pm</p>
                 </li>
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                    <p class="govuk-caption-m">on 30 April 2024 at 10:02am</p>
+                    <p class="govuk-caption-m">on 18 May 2024 at 10:02am</p>
                 </li>
             </ol>
         </div>
@@ -106,28 +106,28 @@ events: [
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                    <p class="govuk-caption-m">on 8 May 2024 at 9:21am</p>
+                    <p class="govuk-caption-m">on 3 Jun 2024 at 9:21am</p>
                     <p class="govuk-caption-m">
                         <ul class="govuk-list govuk-caption-m">
                             <li>Identity check (KBV)</li>
                         </ul>
-                        <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                        <p class="govuk-caption-m">Next update due 4 Jun 2024</p>
                     </p>
                 </li>
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                    <p class="govuk-caption-m">on 7 May 2024 at 9:18am</p>
+                    <p class="govuk-caption-m">on 3 Jun 2024 at 9:18am</p>
                 </li>
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">G4S checks completed</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                    <p class="govuk-caption-m">on 30 April 2024 at 3:02pm</p>
+                    <p class="govuk-caption-m">on 18 May 2024 at 3:02pm</p>
                 </li>
                 <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
                     <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                    <p class="govuk-caption-m">on 30 April 2024 at 10:02am</p>
+                    <p class="govuk-caption-m">on 18 May 2024 at 10:02am</p>
                 </li>
             </ol>
         </div>
@@ -138,21 +138,21 @@ events: [
  {
     state: "Not valid",
     name: "12345678",
-    date: "on 8 May 2024 at 9:21am"
+    date: "on 3 Jun 2024 at 9:21am"
     },
 {
     state: "Processing started",
     name: "12345678",
-    date: "on 8 May 2024 at 9:18am"
+    date: "on 3 Jun 2024 at 9:18am"
     },
  {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -163,21 +163,21 @@ events: [
  {
     state: "Duplicate",
     name: "12345678",
-    date: "on 8 May 2024 at 9:21am"
+    date: "on 3 Jun 2024 at 9:21am"
     },
 {
     state: "Processing started",
     name: "12345678",
-    date: "on 8 May 2024 at 9:18am"
+    date: "on 3 Jun 2024 at 9:18am"
     },
  {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -188,21 +188,21 @@ events: [
  {
     state: "Suspected fraud",
     name: "12345678",
-    date: "on 8 May 2024 at 9:21am"
+    date: "on 3 Jun 2024 at 9:21am"
     },
 {
     state: "Processing started",
     name: "12345678",
-    date: "on 8 May 2024 at 9:18am"
+    date: "on 3 Jun 2024 at 9:18am"
     },
  {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -213,21 +213,21 @@ events: [
  {
     state: "Complex claim",
     name: "12345678",
-    date: "on 8 May 2024 at 9:21am"
+    date: "on 3 Jun 2024 at 9:21am"
     },
 {
     state: "Processing started",
     name: "12345678",
-    date: "on 8 May 2024 at 9:18am"
+    date: "on 3 Jun 2024 at 9:18am"
     },
  {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -237,45 +237,45 @@ events: [
         <ol class="dwp-timeline__events">
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Awaiting appointment</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
-                <p class="govuk-caption-m">on 9 May 2024 at 3:15pm</p>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
+                <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
-                <p class="govuk-caption-m">on 9 May 2024 at 11:45pm</p>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
+                <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 10:33am</p>
                 <p class="govuk-caption-m">
                     <ul class="govuk-list govuk-caption-m">
                         <li>Identity check (KBV)</li>
                     </ul>
-                    <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                    <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
                 </p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                <p class="govuk-caption-m">on 8 May 2024 at 9:21am</p>
+                <p class="govuk-caption-m">on 3 Jun 2024 at 9:21am</p>
                 <p class="govuk-caption-m">
                     <ul class="govuk-list govuk-caption-m">
                         <li>Identity check (KBV)</li>
                     </ul>
-                    <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                    <p class="govuk-caption-m">Next update due 4 Jun 2024</p>
                 </p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                <p class="govuk-caption-m">on 7 May 2024 at 9:18am</p>
+                <p class="govuk-caption-m">on 3 Jun 2024 at 9:18am</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">G4S checks completed</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                <p class="govuk-caption-m">on 30 April 2024 at 3:02pm</p>
+                <p class="govuk-caption-m">on 18 May 2024 at 3:02pm</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                <p class="govuk-caption-m">on 30 April 2024 at 10:02am</p>
+                <p class="govuk-caption-m">on 18 May 2024 at 10:02am</p>
             </li>
         </ol>
     </div>
@@ -284,45 +284,45 @@ events: [
         <ol class="dwp-timeline__events">
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Not entitled</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
-                <p class="govuk-caption-m">on 9 May 2024 at 3:15pm</p>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
+                <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
-                <p class="govuk-caption-m">on 9 May 2024 at 11:45pm</p>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
+                <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 10:33am</p>
                 <p class="govuk-caption-m">
                     <ul class="govuk-list govuk-caption-m">
                         <li>Identity check (KBV)</li>
                     </ul>
-                    <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                    <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
                 </p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                <p class="govuk-caption-m">on 8 May 2024 at 9:21am</p>
+                <p class="govuk-caption-m">on 3 Jun 2024 at 9:21am</p>
                 <p class="govuk-caption-m">
                     <ul class="govuk-list govuk-caption-m">
                         <li>Identity check (KBV)</li>
                     </ul>
-                    <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                    <p class="govuk-caption-m">Next update due 4 Jun 2024</p>
                 </p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                <p class="govuk-caption-m">on 7 May 2024 at 9:18am</p>
+                <p class="govuk-caption-m">on 3 Jun 2024 at 9:18am</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">G4S checks completed</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                <p class="govuk-caption-m">on 30 April 2024 at 3:02pm</p>
+                <p class="govuk-caption-m">on 18 May 2024 at 3:02pm</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                <p class="govuk-caption-m">on 30 April 2024 at 10:02am</p>
+                <p class="govuk-caption-m">on 18 May 2024 at 10:02am</p>
             </li>
         </ol>
     </div>
@@ -331,45 +331,45 @@ events: [
         <ol class="dwp-timeline__events">
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Withdrawn</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
-                <p class="govuk-caption-m">on 9 May 2024 at 3:15pm</p>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
+                <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000001</p>
-                <p class="govuk-caption-m">on 9 May 2024 at 11:45pm</p>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
+                <p class="govuk-caption-m">on {{ "today" | govukDate("truncate") }} at 10:33am</p>
                 <p class="govuk-caption-m">
                     <ul class="govuk-list govuk-caption-m">
                         <li>Identity check (KBV)</li>
                     </ul>
-                    <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                    <p class="govuk-caption-m">Next update due {{ "today" | govukDate("truncate") }}</p>
                 </p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                <p class="govuk-caption-m">on 8 May 2024 at 9:21am</p>
+                <p class="govuk-caption-m">on 3 Jun 2024 at 9:21am</p>
                 <p class="govuk-caption-m">
                     <ul class="govuk-list govuk-caption-m">
                         <li>Identity check (KBV)</li>
                     </ul>
-                    <p class="govuk-caption-m">Next update due 9 May 2024</p>
+                    <p class="govuk-caption-m">Next update due 4 Jun 2024</p>
                 </p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 12345678</p>
-                <p class="govuk-caption-m">on 7 May 2024 at 9:18am</p>
+                <p class="govuk-caption-m">on 3 Jun 2024 at 9:18am</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">G4S checks completed</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                <p class="govuk-caption-m">on 30 April 2024 at 3:02pm</p>
+                <p class="govuk-caption-m">on 18 May 2024 at 3:02pm</p>
             </li>
             <li class="dwp-timeline__events--entry">
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
                 <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                <p class="govuk-caption-m">on 30 April 2024 at 10:02am</p>
+                <p class="govuk-caption-m">on 18 May 2024 at 10:02am</p>
             </li>
         </ol>
     </div>
@@ -379,16 +379,16 @@ events: [
 {
     state: "Processing started",
     name: "12345678",
-    date: "on 8 May 2024 at 9:18am"
+    date: "on 3 Jun 2024 at 9:18am"
     },
 {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -399,16 +399,16 @@ events: [
 {
     state: "Processing started",
     name: "12345678",
-    date: "on 8 May 2024 at 9:18am"
+    date: "on 3 Jun 2024 at 9:18am"
     },
     {
     state: "G4S checks completed",
     name: "00000089",
-    date: "on 5 May 2024 at 3:02pm"
+    date: "on 18 May 2024 at 3:02pm"
     },
     {
     state: "New claim",
-    date: "by claimant on 5 May 2024 at 10:02am",
+    date: "by claimant on 18 May 2024 at 10:02am",
     classes: "dwp-timeline-entry--closing"
     }
 ]
@@ -418,7 +418,7 @@ events: [
     events: [
     {
         state: "New claim",
-        date: "by claimant on 5 May 2024 at 10:02am"
+        date: "by claimant on 18 May 2024 at 10:02am"
     }
     ]
 }) }}
