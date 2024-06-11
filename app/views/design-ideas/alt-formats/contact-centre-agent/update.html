@@ -1,52 +1,11 @@
-{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
+{% extends "./view-claim.html" %}
 {% block pageTitle %}
   Select a status
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
-{% from "timeline/macro.njk" import dwpTimeline %}
-{% from "internal-service-footer/macro.njk" import dwpFooter %}
-{% block header %}
-  {% from "internal-service-header/macro.njk" import dwpHeader %}
-  <main>
-    {{ dwpHeader({
-        serviceName: "Apply for New Style Jobseeker’s Allowance",
-        serviceHref: '#',
-        container:true
-    }) }}
-    {{ super() }}
-    {% if data['claimant'] == 'ij' %}
-      {% include 'v1_1-agent/claimants/ij/key-details.html' %}
-    {% elif data['claimant'] == 'kb' %}
-      {% include 'v1_1-agent/claimants/kb/key-details.html' %}
-    {% else %}
-      <p>No claimant set.</p>
-    {% endif %}
-  {% endblock %}
-  {% block footer %}
-    {{ dwpFooter({
-  meta: {
-    visuallyHiddenTitle: "Meta links",
-    items: [
-    {
-      href: "#",
-            text: "Accessibility statement"
-    },
-    {
-      href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-    },
-    {
-      href: "/prototype-admin/clear-data",
-            text: "Clear data"
-    }
-    ]
-  }
-}) }}
-  {% endblock %}
-  {% block content %}
-    {% set previewHtml %}
-    {{ govukSelect({
+{% block content %}
+  {% set previewHtml %}
+  {{ govukSelect({
                 name: "reason",
                 classes: "govuk-input--width-10",
                 label: {
@@ -74,9 +33,9 @@
                   }
                 ]
               }) }}
-    {% endset %}
-    {% set firstFailHtml %}
-    {{ govukSelect({
+  {% endset %}
+  {% set firstFailHtml %}
+  {{ govukSelect({
                   name: "reason",
                   classes: "govuk-input--width-10",
                   label: {
@@ -112,9 +71,9 @@
             }
                   ]
                 }) }}
-    {% endset %}
-    {% set finalFailHtml %}
-    {{ govukSelect({
+  {% endset %}
+  {% set finalFailHtml %}
+  {{ govukSelect({
                     name: "reason",
                     classes: "govuk-input--width-10",
                     label: {
@@ -138,9 +97,9 @@
             }
                     ]
                   }) }}
-    {% endset %}
-    {% set previewHtml %}
-    {{ govukSelect({
+  {% endset %}
+  {% set previewHtml %}
+  {{ govukSelect({
               name: "reason",
               classes: "govuk-input--width-10",
               label: {
@@ -168,9 +127,9 @@
                 }
               ]
             }) }}
-    {% endset %}
-    {% set firstFailAppointmentHtml %}
-    {{ govukSelect({
+  {% endset %}
+  {% set firstFailAppointmentHtml %}
+  {{ govukSelect({
                   name: "reason",
                   classes: "govuk-input--width-10",
                   label: {
@@ -194,9 +153,9 @@
                     }
                   ]
                 }) }}
-    {% endset %}
-    {% set finalFailAppointmentHtml %}
-    {{ govukSelect({
+  {% endset %}
+  {% set finalFailAppointmentHtml %}
+  {{ govukSelect({
                     name: "reason",
                     classes: "govuk-input--width-10",
                     label: {
@@ -216,16 +175,16 @@
             }
                     ]
                   }) }}
-    {% endset %}
-    <div class="govuk-grid-row  govuk-!-margin-top-4">
-      <div class="govuk-grid-column-two-thirds">
-        <form action="confirmation" method="get">
-          <div class="govuk-form-group">
-            <fieldset
-              class="govuk-fieldset">
-              {# Update claim status radio buttons for APPOINTMENT BOOKING #}
-              {% if data['claimStatus'] == 'awaiting-appointment' %}
-                {{ govukRadios({
+  {% endset %}
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation" method="get">
+        <div class="govuk-form-group">
+          <fieldset
+            class="govuk-fieldset">
+            {# Update claim status radio buttons for APPOINTMENT BOOKING #}
+            {% if data['claimStatus'] == 'awaiting-appointment' %}
+              {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
@@ -260,9 +219,9 @@
                 }                       
                     ]
                 }) }}
-                {# Update claim status radio buttons for GET NEXT CLAIM #}
-              {% else %}
-                {{ govukRadios({
+              {# Update claim status radio buttons for GET NEXT CLAIM #}
+            {% else %}
+              {{ govukRadios({
             idPrefix: 'status',
             name: 'claimStatus',
             fieldset: {
@@ -304,14 +263,13 @@
                 }                     
             ]
           }) }}
-              {% endif %}
-            </fieldset>
-          </div>
-          {{ govukButton({
+            {% endif %}
+          </fieldset>
+        </div>
+        {{ govukButton({
             text: "Continue"
         }) }}
-        </form>
       </form>
-    </div>
+    </form>
   </div>
-{% endblock %}
+</div>{% endblock %}

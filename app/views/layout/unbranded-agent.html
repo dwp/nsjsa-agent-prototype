@@ -1,0 +1,38 @@
+{% extends "/layout/unbranded.html" %}
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+{% block header %}
+  {{ dwpHeader({
+serviceName: data['agentServiceName'],
+serviceHref: '/',
+container:true
+}) }}
+{% endblock %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% block footer %}
+  {{ dwpFooter({
+  meta: {
+    visuallyHiddenTitle: "Meta links",
+    items: [
+    {
+      href: "#",
+            text: "Accessibility statement"
+    },
+    {
+      href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+    },
+    {
+      href: "/manage-prototype/clear-data",
+            text: "Clear data"
+    }
+    ]
+  }
+}) }}
+{% endblock %}
+{% set htmlClasses = htmlClasses | default("dwp-agent-layout") %}
+{# reset auto spacing from layout.html #}
+{% set mainClasses = mainClasses | default("") %}
