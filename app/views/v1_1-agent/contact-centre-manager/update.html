@@ -1,16 +1,7 @@
-{% extends "layout_unbranded.html" %}
+{% extends "./view-claim.html" %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
-{% from "timeline/macro.njk" import dwpTimeline %}
-{% block header %}
-  {{ super() }}
-  {% if data['claimant'] == 'ij' %}
-    {% include 'v1_1-agent/claimants/ij/key-details.html' %}
-  {% elif data['claimant'] == 'kb' %}
-    {% include 'v1_1-agent/claimants/kb/key-details.html' %}
-  {% else %}
-    <p>No claimant set.</p>
-  {% endif %}
+{% block pageTitle %}
+  Update the status of this claim
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row dwp-print-hide">
