@@ -1,18 +1,18 @@
 {% extends "layout/unbranded.html" %}
 {% block pageTitle %}
-  NSJSA Agent Prototypes
+NSJSA Agent Prototypes
 {% endblock %}
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-l">Prototype</span>
-        Agent UI - Apply for New Style Jobseeker&rsquo;s Allowance
-      </h1>
-      <span class="govuk-tag govuk-!-margin-bottom-2">Latest version</span>
-      <h2 class="govuk-heading-l">Current agent journey</h2>
-      <p>Worked on by: Alexandra Aggelidis, Sophia Herbert, Will Clarke</p>
-      {{ govukDetails({
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Prototype</span>
+      Agent UI - Apply for New Style Jobseeker&rsquo;s Allowance
+    </h1>
+    <span class="govuk-tag govuk-!-margin-bottom-2">Latest version</span>
+    <h2 class="govuk-heading-l">Current agent journey</h2>
+    <p>Worked on by: Alexandra Aggelidis, Sophia Herbert, Will Clarke</p>
+    {{ govukDetails({
     summaryText: "Version change details",
     html: '
     <ul class="govuk-list govuk-list--bullet">
@@ -44,625 +44,625 @@
 
     </ul>'
     }) }}
-      {{ govukButton({
+    {{ govukButton({
     text: "Start version 1.1",
     href: "v1_1-agent/index-current",
     isStartButton: true
     }) }}
-    </div>
-    <div
-      class="govuk-grid-column-one-quarter govuk-!-padding-0 govuk-!-margin-right-4"
-      style="border-top: 4px solid #1d71b8; float: right;">
-      <h3 class="govuk-heading-s govuk-!-margin-top-2">
-        Manage prototype
-      </h3>
-      <ul class="govuk-list govuk-!-font-size-16">
-        <li>
-          <a href="/manage-prototype">Start page</a>
-        </li>
-      </ul>
-      <h3 class="govuk-heading-s govuk-!-margin-top-2">
-        Latest version quick links
-      </h3>
-      <ul class="govuk-list govuk-!-font-size-16">
-        <li>
-          <a href="v1_1-agent/service-centre-agent/nino-search">Service Centre agent</a>
-        </li>
-        <li>
-          <a href="v1_1-agent/contact-centre-agent/choose-task.html">Contact Centre agent</a>
-        </li>
-        <li>
-          <a href="v1_1-agent/contact-centre-manager/choose-task.html">Contact Centre manager</a>
-        </li>
-        <li>
-          <a href="v1_1-agent/work-coach/nino-search">Work coach</a>
-        </li>
-        <li>
-          <a href="v1_1-agent/dfc-agent/choose-task.html">DfC agent</a>
-        </li>
-      </ul>
-      <h3 class="govuk-heading-s govuk-!-margin-top-2">
-        Previous versions
-      </h3>
-      <ul class="govuk-list govuk-!-font-size-16">
-        <li>
-          <a href="v1_0-agent/index-current">Version 1.0</a>
-        </li>
-      </ul>
-    </div>
   </div>
-  <hr
-    class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-    <!-- NEW FEATURES AND ITERATIONS -->
-    <h2 class="govuk-heading-l">New features and iterations</h2>
-    <div class="govuk-tabs" data-module="govuk-tabs">
-      <h2 class="govuk-tabs__title">
-        Contents
-      </h2>
-      <ul class="govuk-tabs__list">
-        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#in-test">
-            Testing
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#in-dev">
-            In development
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#archive">
-            Archive
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#library">
-            Library
-          </a>
-        </li>
-      </ul>
-      <!-- TESTING tab -->
-      <div class="govuk-tabs__panel" id="in-test">
-        <!-- <h2 class="govuk-heading-l">Testing</h2> -->
-        <!-- Workflow Management 1b-->
-          <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Workflow Management 1b
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <p class="govuk-body">Recording of pause reasons within the agent UI.</p>
-            <p class="govuk-body">View
-              <a
-                href="https://dwpdigital.atlassian.net/wiki/spaces/WATG/pages/133544214747/1b+Workflow+Management"
-                class="govuk-link"
-                rel="noreferrer noopener"
-                target="_blank">Design documentation (opens in new tab)
-              </a>on Confluence.</p>
-            <table class="govuk-table">
-              <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Links
-                  </th>
-                  <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">
-                    Description</th>
-                  <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Status
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header" style="border: 0;">
-                    <a href="design-ideas/wt-4485-wfm-1b/screens">WFM 1b: Iteration 1</a>
-                  </th>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    Testing scenarios for pausing claims and picking up paused claims.
-                  </td>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    <span class="govuk-tag" style="white-space: nowrap">Tested</span>
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                    <strong>Team:</strong>
-                    Alexandra Aggelidis, Mark Smith, Sophia Herbert, Luke Didsbury
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3">
-                    <strong>Date:</strong>
-                    April 2024
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header" style="border: 0;">
-                    <a href="design-ideas/wt-4642-wfm-1b/screens">WFM 1b: Iteration 2</a>
-                  </th>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    Iteration after 1st round of UR for pausing claims and picking up paused claims.
-                  </td>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    <span class="govuk-tag" style="white-space: nowrap">Tested</span>
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                    <strong>Team:</strong>
-                    Alexandra Aggelidis, Mark Smith, Luke Didsbury
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3">
-                    <strong>Date:</strong>
-                    May 2024
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-        <!-- ID@risk -->
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              ID@risk
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <table class="govuk-table">
-              <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header">Links</th>
-                  <th scope="col" class="govuk-table__header">Description</th>
-                  <th scope="col" class="govuk-table__header">Status</th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header" style="border: 0;">
-                    <a href="design-ideas/wt-3358-id-risk/screens">View prototype scenarios</a>
-                  </th>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    Introducing ID at risk flag, exploring Warning text and Notification banner component for single and multiple CIS flags,
-                    and CIS matches.
-                  </td>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
-                    <span class="govuk-tag">Tested</span>
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                    <strong>Team:</strong>
-                    Alexandra Aggelidis, Sophia Herbert, Will Clarke
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3">
-                    <strong>Date:</strong>
-                    July 2023
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-        <!-- Alt-formats -->
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Alternative formats
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <table class="govuk-table">
-              <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header">Links</th>
-                  <th scope="col" class="govuk-table__header">Description</th>
-                  <th scope="col" class="govuk-table__header">Status</th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header" style="border: 0;">
-                    <a href="design-ideas/alt-formats/contact-centre-agent/choose-task">Contact Centre</a>
-                  </th>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    View as Contact Centre agent (nsjsa_assistance_user).
-                  </td>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
-                    <span class="govuk-tag" style="white-space: nowrap">In test</span>
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header" style="border: 0;">
-                    <a href="design-ideas/alt-formats/work-coach/nino-search">Work Coach</a>
-                  </th>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    View as Work Coach (nsjsa_verification_user).
-                  </td>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
-                    <span class="govuk-tag" style="white-space: nowrap">Tested</span>
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header" style="border: 0;">
-                    <a href="design-ideas/alt-formats/service-centre-agent/nino-search">Service Centre</a>
-                  </th>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    View as Service Centre agent (nsjsa_decision_user).
-                  </td>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
-                    <span class="govuk-tag" style="white-space: nowrap">In test</span>
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                    <strong>Team:</strong>
-                    Pete Lonsdale, Andrew Donaghy, Will Clarke
-                  </td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" colspan="3">
-                    <strong>Date:</strong>
-                    2022
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-0 govuk-!-margin-right-4"
+    style="border-top: 4px solid #1d71b8; float: right;">
+    <h3 class="govuk-heading-s govuk-!-margin-top-2">
+      Manage prototype
+    </h3>
+    <ul class="govuk-list govuk-!-font-size-16">
+      <li>
+        <a href="/manage-prototype">Start page</a>
+      </li>
+    </ul>
+    <h3 class="govuk-heading-s govuk-!-margin-top-2">
+      Latest version quick links
+    </h3>
+    <ul class="govuk-list govuk-!-font-size-16">
+      <li>
+        <a href="v1_1-agent/service-centre-agent/nino-search">Service Centre agent</a>
+      </li>
+      <li>
+        <a href="v1_1-agent/contact-centre-agent/choose-task.html">Contact Centre agent</a>
+      </li>
+      <li>
+        <a href="v1_1-agent/contact-centre-manager/choose-task.html">Contact Centre manager</a>
+      </li>
+      <li>
+        <a href="v1_1-agent/work-coach/nino-search">Work coach</a>
+      </li>
+      <li>
+        <a href="v1_1-agent/dfc-agent/choose-task.html">DfC agent</a>
+      </li>
+    </ul>
+    <h3 class="govuk-heading-s govuk-!-margin-top-2">
+      Previous versions
+    </h3>
+    <ul class="govuk-list govuk-!-font-size-16">
+      <li>
+        <a href="v1_0-agent/index-current">Version 1.0</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<!-- NEW FEATURES AND ITERATIONS -->
+<h2 class="govuk-heading-l">New features and iterations</h2>
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#in-test">
+        Testing
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#in-dev">
+        In development
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#archive">
+        Archive
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#library">
+        Library
+      </a>
+    </li>
+  </ul>
+  <!-- TESTING tab -->
+  <div class="govuk-tabs__panel" id="in-test">
+    <!-- <h2 class="govuk-heading-l">Testing</h2> -->
+    <!-- Workflow Management 1b-->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Workflow Management 1b
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body">Recording of pause reasons within the agent UI.</p>
+        <p class="govuk-body">View
+          <a href="https://dwpdigital.atlassian.net/wiki/spaces/WATG/pages/133544214747/1b+Workflow+Management"
+            class="govuk-link" rel="noreferrer noopener" target="_blank">Design documentation (opens in new tab)
+          </a>on Confluence.
+        </p>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Links
+              </th>
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">
+                Description</th>
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/wt-4485-wfm-1b/screens">WFM 1b: Iteration 1</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                Testing scenarios for pausing claims and picking up paused claims.
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag" style="white-space: nowrap">Tested</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Alexandra Aggelidis, Mark Smith, Sophia Herbert, Luke Didsbury
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                April 2024
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/wt-4642-wfm-1b/screens">WFM 1b: Iteration 2</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                Iteration after 1st round of UR for pausing claims and picking up paused claims.
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag" style="white-space: nowrap">Tested</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Alexandra Aggelidis, Mark Smith, Luke Didsbury
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                May 2024
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <!-- IN DEVELOPMENT tab -->
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="in-dev">
-        <!-- <h2 class="govuk-heading-l">In development</h2> -->
-        <!-- Workflow Management 1a-->
-          <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Workflow Management 1a
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <p class="govuk-body">Removal of the requirement for Contact Centre Agents to email Service Centre Agents to notify them
-              that the claim has had initial checks completed and is awaiting processing.</p>
-            <table class="govuk-table">
-              <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Links
-                  </th>
-                  <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">
-                    Description</th>
-                  <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Status
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header" style="border: 0;">
-                    <a href="design-ideas/wt-3771-wfm/screens">WFM 1a: Iteration 1</a>
-                  </th>
-                  <td class="govuk-table__cell" style="border: 0;">
-                    Testing scenarios for the new 'Get a new claim' workflow, updating a standard claim and duplicate claims.
-                    <br>
-                      Testing different design options for the new start screen.
-                    </td>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      <span class="govuk-tag" style="white-space: nowrap">Tested</span>
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                      <strong>Team:</strong>
-                      Alexandra Aggelidis, Sophia Herbert, Will Clarke
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3">
-                      <strong>Date:</strong>
-                      October 2023
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header" style="border: 0;">
-                      <a href="design-ideas/wt-4066-wfm/screens">WFM 1a: Iteration 2</a>
-                    </th>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      Design iteration following UR outcome.
-                    </td>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      <span class="govuk-tag govuk-!-margin-bottom-2">Tested</span>
-                      <span class="govuk-tag govuk-tag--green" style="white-space: nowrap">In Dev</span>
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                      <strong>Team:</strong>
-                      Alexandra Aggelidis, Sophia Herbert, Will Clarke
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3">
-                      <strong>Date:</strong>
-                      January 2024
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-        </div>
-        <!-- ARCHIVE tab -->
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="archive">
-          <!-- <h2 class="govuk-heading-l">Archived versions</h2> -->
-          <!-- DfC agent UI -->
-            <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                DfC agent UI
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Links</th>
-                    <th scope="col" class="govuk-table__header">Description</th>
-                    <th scope="col" class="govuk-table__header">Status</th>
-                  </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header" style="border: 0;">
-                      <a href="design-ideas/wt-3165-dfc/choose-task">WT-3165: DfC</a>
-                    </th>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      MVP agent UI for agents in Northern Ireland
-                    </td>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      <span class="govuk-tag">Live</span>
-                      <span class="govuk-tag">Not tested</span>
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                      <strong>Team:</strong>
-                      Alexandra Aggelidis, Sophia Herbert
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3">
-                      <strong>Date:</strong>
-                      June 2023
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </details>
-            <!-- Welsh flags -->
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Welsh CIS flags
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <table class="govuk-table">
-                  <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">Links</th>
-                      <th scope="col" class="govuk-table__header">Description</th>
-                      <th scope="col" class="govuk-table__header">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header" style="border: 0;">
-                        <a href="design-ideas/agent-flags/screens">View prototype scenarios</a>
-                      </th>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        Presenting Welsh language requests to Service Centr agents
-                      </td>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        <span class="govuk-tag">Live</span>
-                        <span class="govuk-tag">Not tested</span>
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                        <strong>Team:</strong>
-                        Alexandra Aggelidis, Sophia Herbert, Will Clarke
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3">
-                        <strong>Date:</strong>
-                        September 2023
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </details>
-            <!-- Increments Service centre -->
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Increments
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <table class="govuk-table">
-                  <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">Links</th>
-                      <th scope="col" class="govuk-table__header">Description</th>
-                      <th scope="col" class="govuk-table__header">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header" style="border: 0;">
-                        <a href="service-centre">View prototypes</a>
-                      </th>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        HTML prototypes for service centre agents.
-                      </td>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        <span class="govuk-tag" style="white-space: nowrap">In test</span>
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                        <strong>Team:</strong>
-                        Automation team
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3">
-                        <strong>Date:</strong>
-                        2022
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </details>
-            <!-- Backdating -->
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Backdating
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <table class="govuk-table">
-                  <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">Links</th>
-                      <th scope="col" class="govuk-table__header">Description</th>
-                      <th scope="col" class="govuk-table__header">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header" style="border: 0;">
-                        <a href="design-ideas/backdating/service-centre-agent/nino-search">View prototype</a>
-                      </th>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        View as Service Centre agent (nsjsa_decision_user).
-                      </td>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        <span class="govuk-tag" style="white-space: nowrap">Live</span>
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                        <strong>Team:</strong>
-                        Pete Lonsdale, Andrew Donaghy, Will Clarke
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3">
-                        <strong>Date:</strong>
-                        2022
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </details>
-            <!-- Citizen OIDV -->
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Citizen OIDV
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <table class="govuk-table">
-                  <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Links
-                      </th>
-                      <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">
-                        Description</th>
-                      <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header" style="border: 0;">
-                        <a href="citizen-latest">View prototype</a>
-                      </th>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        Latest HTML prototype for citizens online identity verification.
-                      </td>
-                      <td class="govuk-table__cell" style="border: 0;">
-                        <span class="govuk-tag" style="white-space: nowrap">In test</span>
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                        <strong>Team:</strong>
-                        Automation team
-                      </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" colspan="3">
-                        <strong>Date:</strong>
-                        2022
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </details>
-            <!-- VERSION 1.0 -->
-            <h3 class="govuk-heading-m">
-              <a href="v1_0-agent/index-current">Agent journey &ndash; Version 1.0</a>
-            </h3>
-            <p>Worked on by: Alexandra Aggelidis</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>
-                Added internal service header and footer, removed crown logo, replaced New Transport font with Helvetica
-                <br>[August 2023]
-                </li>
-                <li>Aligned with the current live agent service
-                  <br>[as of June 2023]
-                  </li>
-                </ul>
-                <!-- Automaton Beta sprints -->
-                <p>
-                  <a href="sprints">Automation Beta sprints</a>
-                  Automation beta prototypes by sprint. [2022]
-                </p>
-                <p>
-                  <a href="https://nsjsa-automation-alpha.onrender.com/">Alpha prototypes</a>
-                  A collection of prototypes from alpha. U: jsa P: jsa [2021]
-                </p>
-                <!-- <p> <a href="complete-previous-journeys/index-previous">Complete previous journeys</a> Alpha [2018]</p> -->
-              </div>
-              <!-- LIBRARY tab -->
-              <div
-                class="govuk-tabs__panel govuk-tabs__panel--hidden" id="library">
-                <!-- <h2 class="govuk-heading-l">Library</h2> -->
-                <h2 class="govuk-heading-m">
-                  <a href="library">Library</a>
-                </h2>
-                <p>A library of screen types and components used.</p>
-              </div>
-            {% endblock %}
-          </li>
+    </details>
+    <!-- ID@risk -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          ID@risk
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Links</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/wt-3358-id-risk/screens">View prototype scenarios</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                Introducing ID at risk flag, exploring Warning text and Notification banner component for single and
+                multiple CIS flags,
+                and CIS matches.
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
+                <span class="govuk-tag">Tested</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Alexandra Aggelidis, Sophia Herbert, Will Clarke
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                July 2023
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <!-- Alt-formats -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Alternative formats
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Links</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/alt-formats/contact-centre-agent/choose-task">Contact Centre</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                View as Contact Centre agent (nsjsa_assistance_user).
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
+                <span class="govuk-tag" style="white-space: nowrap">In test</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/alt-formats/work-coach/nino-search">Work Coach</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                View as Work Coach (nsjsa_verification_user).
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
+                <span class="govuk-tag" style="white-space: nowrap">Tested</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/alt-formats/service-centre-agent/nino-search">Service Centre</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                View as Service Centre agent (nsjsa_decision_user).
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-2">On hold</span>
+                <span class="govuk-tag" style="white-space: nowrap">In test</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Pete Lonsdale, Andrew Donaghy, Will Clarke
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                2022
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+  <!-- IN DEVELOPMENT tab -->
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="in-dev">
+    <!-- <h2 class="govuk-heading-l">In development</h2> -->
+    <!-- Workflow Management 1a-->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Workflow Management 1a
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body">Removal of the requirement for Contact Centre Agents to email Service Centre Agents to
+          notify them
+          that the claim has had initial checks completed and is awaiting processing.</p>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Links
+              </th>
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">
+                Description</th>
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/wt-3771-wfm/screens">WFM 1a: Iteration 1</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                Testing scenarios for the new 'Get a new claim' workflow, updating a standard claim and duplicate
+                claims.
+                <br>
+                Testing different design options for the new start screen.
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag" style="white-space: nowrap">Tested</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Alexandra Aggelidis, Sophia Herbert, Will Clarke
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                October 2023
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/wt-4066-wfm/screens">WFM 1a: Iteration 2</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                Design iteration following UR outcome.
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag govuk-!-margin-bottom-2">Tested</span>
+                <span class="govuk-tag govuk-tag--green" style="white-space: nowrap">In Dev</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Alexandra Aggelidis, Sophia Herbert, Will Clarke
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                January 2024
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+  <!-- ARCHIVE tab -->
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="archive">
+    <!-- <h2 class="govuk-heading-l">Archived versions</h2> -->
+    <!-- DfC agent UI -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          DfC agent UI
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Links</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/wt-3165-dfc/choose-task">WT-3165: DfC</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                MVP agent UI for agents in Northern Ireland
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag">Live</span>
+                <span class="govuk-tag">Not tested</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Alexandra Aggelidis, Sophia Herbert
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                June 2023
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </details>
+    <!-- Welsh flags -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Welsh CIS flags
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Links</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/agent-flags/screens">View prototype scenarios</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                Presenting Welsh language requests to Service Centr agents
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag">Live</span>
+                <span class="govuk-tag">Not tested</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Alexandra Aggelidis, Sophia Herbert, Will Clarke
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                September 2023
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <!-- Increments Service centre -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Increments
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Links</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="service-centre">View prototypes</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                HTML prototypes for service centre agents.
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag" style="white-space: nowrap">In test</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Automation team
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                2022
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <!-- Backdating -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Backdating
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Links</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="design-ideas/backdating/service-centre-agent/nino-search">View prototype</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                View as Service Centre agent (nsjsa_decision_user).
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag" style="white-space: nowrap">Live</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Pete Lonsdale, Andrew Donaghy, Will Clarke
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                2022
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <!-- Citizen OIDV -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Citizen OIDV
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Links
+              </th>
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">
+                Description</th>
+              <th scope="col" class="govuk-table__header" style="position: sticky; top: 0; background: white;">Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="border: 0;">
+                <a href="citizen-latest">View prototype</a>
+              </th>
+              <td class="govuk-table__cell" style="border: 0;">
+                Latest HTML prototype for citizens online identity verification.
+              </td>
+              <td class="govuk-table__cell" style="border: 0;">
+                <span class="govuk-tag" style="white-space: nowrap">In test</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                <strong>Team:</strong>
+                Automation team
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <strong>Date:</strong>
+                2022
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <!-- VERSION 1.0 -->
+    <h3 class="govuk-heading-m">
+      <a href="v1_0-agent/index-current">Agent journey &ndash; Version 1.0</a>
+    </h3>
+    <p>Worked on by: Alexandra Aggelidis</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Added internal service header and footer, removed crown logo, replaced New Transport font with Helvetica
+        <br>[August 2023]
+      </li>
+      <li>Aligned with the current live agent service
+        <br>[as of June 2023]
+      </li>
+    </ul>
+    <!-- Automaton Beta sprints -->
+    <p>
+      <a href="sprints">Automation Beta sprints</a>
+      Automation beta prototypes by sprint. [2022]
+    </p>
+    <p>
+      <a href="https://nsjsa-automation-alpha.onrender.com/">Alpha prototypes</a>
+      A collection of prototypes from alpha. U: jsa P: jsa [2021]
+    </p>
+    <!-- <p> <a href="complete-previous-journeys/index-previous">Complete previous journeys</a> Alpha [2018]</p> -->
+  </div>
+  <!-- LIBRARY tab -->
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="library">
+    <!-- <h2 class="govuk-heading-l">Library</h2> -->
+    <h2 class="govuk-heading-m">
+      <a href="library">Library</a>
+    </h2>
+    <p>A library of screen types and components used.</p>
+  </div>
+  {% endblock %}
