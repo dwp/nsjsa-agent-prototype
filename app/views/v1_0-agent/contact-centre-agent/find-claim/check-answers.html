@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   {{ serviceName }}
 {% endblock %}
@@ -51,19 +51,19 @@
 }) }}
     </div>
     {#<div class="govuk-grid-column-one-third">
-                              <aside class="app-related-items" role="complementary">
-                                {% include "./actions.html" %}
-                                <h3 class="govuk-heading-m">Claim status history</h3>
-                                {% if data['claimant'] == 'sh' %}
-                                  {% include 'v1_0-agent/claimants/sh/history.html' %}
-                                {% elif data['claimant'] == 'kb' %}
-                                  {% include 'v1_0-agent/claimants/kb/history.html' %}
-                                {% elif data['claimant'] == 'ij' %}
-                                  {% include 'v1_0-agent/claimants/ij/history.html' %}
-                                {% else %}
-                                  <p>No claimant set.</p>
-                                {% endif %}
-                              </aside>
-                            </div>#}
+                                  <aside class="app-related-items" role="complementary">
+                                    {% include "./actions.html" %}
+                                    <h3 class="govuk-heading-m">Claim status history</h3>
+                                    {% if data['claimant'] == 'sh' %}
+                                      {% include 'v1_0-agent/claimants/sh/history.html' %}
+                                    {% elif data['claimant'] == 'kb' %}
+                                      {% include 'v1_0-agent/claimants/kb/history.html' %}
+                                    {% elif data['claimant'] == 'ij' %}
+                                      {% include 'v1_0-agent/claimants/ij/history.html' %}
+                                    {% else %}
+                                      <p>No claimant set.</p>
+                                    {% endif %}
+                                  </aside>
+                                </div>#}
   </div>
 {% endblock %}

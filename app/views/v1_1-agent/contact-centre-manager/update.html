@@ -1,40 +1,9 @@
 {% extends "./view-claim.html" %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block pageTitle %}
-  Update the status of this claim
+  Select a status
 {% endblock %}
 {% block content %}
-  <div class="govuk-grid-row dwp-print-hide">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
-      {% include './includes/warnings.html' %}
-      {% if data['guidMismatch'] == '1' %}
-        {# include Simon Hamiltons nino as its default #}
-        {% include 'v1_1-agent/claimants/ij/mismatch.html' %}
-      {% endif %}
-      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
-      {% if data['claimant'] == 'ij' %}
-        {% include 'v1_1-agent/claimants/ij/application.html' %}
-      {% elif data['claimant'] == 'kb' %}
-        {% include 'v1_1-agent/claimants/kb/application.html' %}
-      {% else %}
-        <p>No claimant set.</p>
-      {% endif %}
-    </div>
-    <div class="govuk-grid-column-one-third">
-      <aside class="app-related-items" role="complementary">
-        {% include "./includes/actions.html" %}
-        <h3 class="govuk-heading-m">Claim status history</h3>
-        {% if data['claimant'] == 'ij' %}
-          {% include 'v1_1-agent/claimants/ij/history.html' %}
-        {% elif data['claimant'] == 'kb' %}
-          {% include 'v1_1-agent/claimants/kb/history.html' %}
-        {% else %}
-          <p>No claimant set.</p>
-        {% endif %}
-      </aside>
-    </div>
-  </div>
   {% set previewHtml %}
   {{ govukSelect({
                 name: "reason",

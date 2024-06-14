@@ -1,4 +1,4 @@
-{% extends "agent/layout.html" %}
+{% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
   {{ serviceName }}
 {% endblock %}
@@ -27,10 +27,6 @@
   <div class="govuk-grid-row dwp-print-hide">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
-      {% if data['guidMismatch'] == '1' %}
-        {# include Simon Hamiltons nino as its default #}
-        {% include 'v1_1-agent/claimants/sh/mismatch.html' %}
-      {% endif %}
       <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
       {% if data['claimant'] == 'sh' %}
         {% include 'v1_1-agent/claimants/sh/application.html' %}
