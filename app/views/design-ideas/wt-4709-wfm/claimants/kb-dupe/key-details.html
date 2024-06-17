@@ -1,0 +1,34 @@
+{{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Karan Bhopal'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'SW 12 34 56 A'
+},
+additionalData: [
+{
+value: "21/07/1970",
+text: "D.O.B:"
+},
+{
+value: "FY4 1SF",
+text: "Postcode:"
+},
+{
+value: "01253 752057",
+text: "Phone:"
+},
+{
+value: "05/11/23",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}
+{# If claim status tag needed in Key Details bar, add back in below secondaryIdentifier (NINO)
+status: {
+text: 'Claim status:',
+value: claimStatus
+}, 
+#}

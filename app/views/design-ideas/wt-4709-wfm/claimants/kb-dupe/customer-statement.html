@@ -1,0 +1,431 @@
+<h1 class="govuk-heading-l">Customer statement</h1>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Claim start date</h2>
+    {# sc3 duplicates - entitlement affected - no backdated claim #}
+    {% if data['previous-employment'] == 1 %}
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Claim start date"
+        },
+        value: {
+        text: "5 November 2023"
+        }
+    }
+    ]
+}) }}
+        {# sc2 duplicates - entitlement not affected - backdated claim #}
+    {% else %}
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Claim start date"
+        },
+        value: {
+        text: "25 October 2023"
+        }
+    },
+    {
+        key: {
+        text: "Available for work since 5 November 2023"
+        },
+        value: {
+        text: "Yes"
+        }
+    },
+    {
+        key: {
+        text: "Searching for work since 5 November 2023"
+        },
+        value: {
+        text: "Yes"
+        }
+    },
+    {
+        key: {
+        text: "Why did you not apply before today?"
+        },
+        value: {
+        text: "	I did apply over a week ago. But have not heard back. That's why I'm applying again in case you lost my details."
+        }
+    },
+    {
+        key: {
+        text: "In paid work since 5 November 2023?"
+        },
+        value: {
+        text: "No"
+        }
+    },
+    {
+        key: {
+        text: "Unable to work because of illness since 5 November 2023?"
+        },
+        value: {
+        text: "No"
+        }
+    },
+    {
+        key: {
+        text: "Travelled outside of England, Wales, Scotland or Northern Ireland since 5 November 2023?"
+        },
+        value: {
+        text: "No"
+        }
+    },
+    {
+        key: {
+        text: "Had been in full-time education since 5 November 2023?"
+        },
+        value: {
+        text: "No"
+        }
+    },
+    {
+        key: {
+        text: "Had asked for advice about applying since 5 November 2023?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+    {% endif %}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Personal details</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+            text: "National Insurance number"
+        },
+        value: {
+            text: "SW 12 34 56 A"
+        },
+        actions: {
+            items: [
+                {
+                    href: actionHref,
+                    text: actionText,
+                    visuallyHiddenText: actionHiddenText
+                }
+            ]
+        }
+    },
+    {
+        key: {
+        text: "Name"
+        },
+        value: {
+        text: "Karan Bhopal"
+        }
+    }, {
+        key: {
+        text: "Date of birth"
+        },
+        value: {
+        text: "29 April 1972"
+        }
+    },{
+        key: {
+        text: "Home address"
+        },
+        value: {
+        html: "
+        <span class=govuk-!-display-block>35 Walpole Avenue</span>
+        <span class=govuk-!-display-block>Blackpool</span>
+        <span class=govuk-!-display-block>Lancashire</span>
+        <span class=govuk-!-display-block>FY4 1SF.</span>
+        "
+        }
+    },{
+        key: {
+        text: "Postal address"
+        },
+        value: {
+        text: "Not provided"
+        }
+    },{
+        key: {
+        text: "Telephone number"
+        },
+        value: {
+        text: "01253 752057"
+        }
+    },{
+        key: {
+        text: "Email address"
+        },
+        value: {
+        text: "Not provided"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Bank details</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Bank details"
+        },
+        value: {
+        html: "<strong>Account holder: </strong>
+                    <span>K & A Bhopal</span><br>
+                <strong>Sort code: </strong>
+                    <span>11-00-64</span><br>
+                <strong>Account number: </strong>
+                    <span>3333333</span><br>"
+                    }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Other benefits</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you applied for any other benefits in the last 12 weeks?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Jury service</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you been on jury service in the last 12 weeks?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Current employment</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Are you in any form of work at the moment?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Previous employment</h2>
+    {# sc3 duplicates - entitlement affected - declared new work + work in last 6 months #}
+    {% if data['previous-employment'] == 1 %}
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you had a job that ended in the last 6 months?"
+        },
+        value: {
+        text: "Yes"
+        }
+    }
+    ]
+}) }}
+        <h2 class="govuk-heading-s">Previous employer - First</h2>
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "When did you work for this employer?"
+        },
+        value: {
+        text: "26/10/2023 - 4/11/2023"
+        }
+    },{
+        key: {
+        text: "Why did this job end?"
+        },
+        value: {
+        text: "End of contract"
+        }
+    },{
+        key: {
+        text: "What is the name of your previous employer?"
+        },
+        value: {
+        text: "Premier Education Ltd"
+        }
+    },{
+        key: {
+        text: "What is the address of your previous employer?"
+        },
+        value: {
+        html: "
+        <span class=govuk-!-display-block>Glyde House</span>
+        <span class=govuk-!-display-block>Blackpool,</span>
+        <span class=govuk-!-display-block>Lancashire</span>
+        FY4 6YY
+        "
+        }
+    },{
+        key: {
+        text: "Do you expect to receive any more payments from this job?"
+        },
+        value: {
+        text: "No"
+        }
+    },{
+        key: {
+        text: "Were you self employed or a company director?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+        <h2 class="govuk-heading-s">Previous employer - Second</h2>
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "When did you work for this employer?"
+        },
+        value: {
+        text: "01/02/2020 - 11/10/2023"
+        }
+    },{
+        key: {
+        text: "Why did this job end?"
+        },
+        value: {
+        text: "Redundancy"
+        }
+    },{
+        key: {
+        text: "What is the name of your previous employer?"
+        },
+        value: {
+        text: "Pete's Plaice"
+        }
+    },{
+        key: {
+        text: "What is the address of your previous employer?"
+        },
+        value: {
+        html: "
+        <span class=govuk-!-display-block>Pete's Plaice</span>
+        <span class=govuk-!-display-block>Blackpool,</span>
+        <span class=govuk-!-display-block>Lancashire</span>
+        FY4 6YY
+        "
+        }
+    },{
+        key: {
+        text: "Do you expect to receive any more payments from this job?"
+        },
+        value: {
+        text: "No"
+        }
+    },{
+        key: {
+        text: "Were you self employed or a company director?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+        {# sc2 duplicates - entitlement not affected - no previous work #}
+    {% else %}
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you had a job that ended in the last 6 months?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+    {% endif %}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Time spent abroad</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you worked or claimed benefits abroad in the last 4 years?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Pensions</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Are you getting money from a pension or annuity?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>
+<section class="dwp-claim-section">
+    <h2 class="govuk-heading-m">Education or training</h2>
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "Have you been in education or training in the last 4 years?"
+        },
+        value: {
+        text: "No"
+        }
+    }
+    ]
+}) }}
+</section>

@@ -1,0 +1,113 @@
+{% extends "layout/unbranded.html" %}
+{% block pageTitle %}
+    NSJSA Agent Prototypes
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-l">
+                Workflow Management 1a: Iteration 3
+            </h1>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
+        </div>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+                {{ govukTable({
+        caption: "Prototype scenarios",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
+        head: [
+            {
+                text: "ID",
+                classes: "govuk-!-width-one-quarter"
+            },
+            {
+                text: "Scenario",
+                classes: "govuk-!-width-three-quarters"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "sc1"
+            },
+            {
+                html: "<a href='choose-task3?sc=1&claimant=ij&claimStatus=processing-started'>Standard claim"
+                
+            }
+        ],
+        [
+            {
+                text: "sc2"
+            },
+            {
+                html: "<a href='choose-task3?sc=2&claimant=kb&claimStatus=not-set'>Duplicate claim"
+            }
+          ]
+        ]
+      }) }}
+                {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+                {{ govukInsetText({
+  html: "Last updated claims: <br> Enter 01 or any value for Agent 01 claims, enter 12345678 for Agent 02 claims or 03 for Agent 03 claims. "
+}) }}
+                {{ govukTable({
+        caption: "Individual screens for development",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
+        head: [
+            
+            {
+                text: "Screen"
+            }
+        ],
+        rows: [
+        [
+            
+            {
+                html: "<a href='duplicates?dupe=affected'>Duplicate screen"
+                
+            }
+        ],
+        [
+            
+            {
+                html: "<a href='claims-list'>Last updated claims - default"
+            }
+          ],
+          [
+            
+            {
+                html: "<a href='#'>Last updated claims - filtered"
+            }
+          ],
+          [
+            
+            {
+                html: "<a href='#'>Last updated claims - different agent"
+            }
+          ],
+          [
+            
+            {
+                html: "<a href='#'>Last updated claims - no claims in list"
+            }
+          ],
+          
+          [
+            
+            {
+                html: "<a href='claims-list-error'>Error: No input - Last updated claims"
+            }
+          ]
+          ,
+          [
+            
+            {
+                html: "<a href='claims-list-error'>Error: Validation - Last updated claims"
+            }
+          ]
+        ]
+      }) }}
+            </div>
+        </div>
+    {% endblock %}
