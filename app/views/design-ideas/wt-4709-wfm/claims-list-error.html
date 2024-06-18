@@ -1,514 +1,344 @@
 {% extends "layout/unbranded-agent-id.html" %}
 {% block pageTitle %}
-Service centre - {{ serviceName }}
+Error: Your last updated claims - {{ serviceName }}
 {% endblock %}
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
-href: "javascript:history.back()"
+href: "choose-task3?show"
 }) }}
 {% endblock %}
 {% block content %}
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+  <main class="govuk-main-wrapper--m" id="main-content" role="main">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <div class="govuk-error-summary" data-module="govuk-error-summary">
-          <div role="alert">
-            <h2 class="govuk-error-summary__title">
-              There is a problem
-            </h2>
-            <div class="govuk-error-summary__body">
-              <ul class="govuk-list govuk-error-summary__list">
-                <li>
-                  <a href="#agent-input">Enter a staff number<!--, like 01234567--></a>
-                </li>
-              </ul>
+      <div class="govuk-grid-column-two-thirds">
+        <form action="#" method="post">
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#agent">Enter a staff number</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="govuk-grid-column-one-quarter">
-        <!-- SEARCH BAR -->
-        <form action="claims-list" method="post">
-          <div class="govuk-form-group">
-            <div class="govuk-form-group govuk-form-group--error">
-              <h2 class="govuk-heading-m">Search claims</h2>
-              <label class="govuk-label" for="agent">
-                Staff number
-              </label>
-              <!-- <div id="staff-number-hint" class="govuk-hint"> Enter a staff number </div> -->
-              <p id="agent-input-error" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span>
-                Enter a staff number
-                <!--, like 01234567-->
-              </p>
-              <input class="govuk-input govuk-input--width-7 govuk-input--error" id="agent" name="agent" type="text"
-                aria-describedby="agent-input-error" autocomplete="agent">
-            </div>
-            <button type="submit" class="govuk-button govuk-!-margin-top-1" data-module="govuk-button">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Your last updated claims
+            </h1>
+          </legend>
+          <!-- SEARCH BY STAFF NUMBER -->
+          <div class="govuk-form-group govuk-form-group--error">
+            <label class="govuk-label" for="agent">
+              <strong>Search other claims by staff number</strong>
+            </label>
+            <p id="staff-number-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter a staff number
+            </p>
+            <input class="govuk-input govuk-input--width-10 govuk-input--error" id="agent" name="agent" type="text">
+
+
+            <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
               Search
             </button>
           </div>
+
         </form>
-        <!-- FILTERS -->
-        <h2 class="govuk-heading-m">Filters</h2>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading">
-                Sort by
-              </h1>
-            </legend>
-            <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" checked="">
-                <label class="govuk-label govuk-radios__label" for="sort">
-                  Newest
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
-                <label class="govuk-label govuk-radios__label" for="sort-2">
-                  Oldest
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading">
-                Claim status
-              </h1>
-            </legend>
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox"
-                  value="awaiting-appointment">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Awaiting appointment
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="complex-claim"
-                  checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Complex claim
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="duplicate">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Duplicate
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="not-entitled">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Not entitled
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="not-valid">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Not valid
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="paused" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Paused
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox"
-                  value="processing-started" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Processing started
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="suspected-fraud"
-                  checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Suspected fraud
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="withdrawn">
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  Withdrawn
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-      <div class="govuk-grid-column-three-quarters">
-        <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
-        {% if data['show'] == "03" %}
-        <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 00000003</caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell" colspan="5">No recently updated claims</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
-        {% elif data['show'] == "02" %}
-        <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 00000002</caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>
-                at 11:04am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QF 74 42 21 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Processing started
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">DF 13 23 44 B</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">UI 25 82 07 D</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">UV 25 54 48 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">ID 54 32 07 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">00000002</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 11:11am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QQ 12 34 56 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Complex claim
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
-        {% else %}
-        <table class="govuk-table govuk-!-font-size-19">
-          <caption class="govuk-table__caption govuk-table__caption--l">Claims last updated by 88776655</caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Staff number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
-              <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 November 2023</span>
-                <br>at 9:21am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">SW 12 34 56 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Processing started
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">9 November 2023</span>
-                <br>at 9:05am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">RN 00 00 35 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 3:41pm
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QQ 12 34 56 X</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Suspected fraud
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 2:12pm
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">VF 13 63 34 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>
-                at 11:04am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QF 74 42 21 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Complex claim
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">DF 13 23 44 B</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Complex claim
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">UI 25 82 07 D</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">UV 25 54 48 A</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Suspected fraud
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 10:38am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">ID 54 32 07 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">88776655</td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">8 November 2023</span>
-                <br>at 11:11am
-              </td>
-              <td class="govuk-table__cell">
-                <span style="white-space: nowrap">QQ 12 34 56 C</span>
-              </td>
-              <td class="govuk-table__cell">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Paused
-                </strong>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        {{ govukPagination({
-        next: {
-        href: "#"
-        },
-        items: [
-        {
-        number: 1,
-        current: true,
-        href: "#"
-        },
-        {
-        number: 2,
-        href: "#"
-        },
-        {
-        number: 3,
-        href: "#"
-        }
-        ]
-        }) }}
-        {% endif %}
       </div>
     </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p></p>
+  </div>
+  <div class="govuk-grid-column-three-quarters"></div>
+</div>
+<!-- MOJ Filter -->
+<div class="moj-filter-layout">
+  <div class="moj-filter-layout__filter">
+    <div class="moj-filter">
+      <div class="moj-filter__header">
+        <div class="moj-filter__header-title">
+          <h2 class="govuk-heading-m">Filter</h2>
+        </div>
+        <div class="moj-filter__header-action"></div>
+      </div>
+      <div class="moj-filter__content">
+        <div class="moj-filter__options">
+          <form action="#" method="post" novalidate></form>
+          <!-- Sort by RADIOS -->
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Sort by
+              </legend>
+              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sort-1" name="sort" type="radio" value="newest-update" checked>
+                  <label class="govuk-label govuk-radios__label" for="sort-1" style="white-space: nowrap">
+                    Newest update
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="oldest-update">
+                  <label class="govuk-label govuk-radios__label" for="sort-2" style="white-space: nowrap">
+                    Oldest update
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sort-3" name="sort" type="radio" value="newest-claim">
+                  <label class="govuk-label govuk-radios__label" for="sort-3" style="white-space: nowrap">
+                    Newest claim submitted
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sort-4" name="sort" type="radio" value="oldest-claim">
+                  <label class="govuk-label govuk-radios__label" for="sort-4" style="white-space: nowrap">
+                    Oldest claim submitted
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Claim status
+              </legend>
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="awaiting-appointment" name="awaiting-appointment"
+                    type="checkbox" value="awaiting-appointment">
+                  <label class="govuk-label govuk-checkboxes__label" for="awaiting-appointment">
+                    Awaiting appointment
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="citizen-not-entitled" name="citizen-not-entitled"
+                    type="checkbox" value="citizen-not-entitled">
+                  <label class="govuk-label govuk-checkboxes__label" for="citizen-not-entitled">
+                    Citizen not entitled
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="claim-not-valid" name="claim-not-valid" type="checkbox"
+                    value="claim-not-valid">
+                  <label class="govuk-label govuk-checkboxes__label" for="claim-not-valid">
+                    Claim not valid
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="complex-claim" name="complex-claim" type="checkbox"
+                    value="complex-claim">
+                  <label class="govuk-label govuk-checkboxes__label" for="complex-claim">
+                    Complex claim
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="duplicate" name="duplicate" type="checkbox"
+                    value="duplicate">
+                  <label class="govuk-label govuk-checkboxes__label" for="duplicate">
+                    Duplicate
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="paused" name="paused" type="checkbox" value="paused">
+                  <label class="govuk-label govuk-checkboxes__label" for="paused">
+                    Paused
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="processing-started" name="processing-started"
+                    type="checkbox" value="processing-started">
+                  <label class="govuk-label govuk-checkboxes__label" for="processing-started">
+                    Processing started
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="suspected-fraud" name="suspected-fraud" type="checkbox"
+                    value="suspected-fraud">
+                  <label class="govuk-label govuk-checkboxes__label" for="suspected-fraud">
+                    Suspected fraud
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="withdrawn" name="withdrawn" type="checkbox"
+                    value="withdrawn">
+                  <label class="govuk-label govuk-checkboxes__label" for="withdrawn">
+                    Withdrawn
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Apply filters
+            </button>
+            <a class="govuk-link" href="#">Clear filters</a>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="moj-filter-layout__content">
+    <div class="moj-action-bar">
+      <div class="moj-action-bar__filter"></div>
+    </div>
+    <div class="moj-scrollable-pane">
+      <!-- Table with claims -->
+      <table class="govuk-table govuk-!-font-size-19">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Date updated</th>
+            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claimant</th>
+            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Status</th>
+            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">3 Jun 2024</span>
+              <br>
+              at 11:04am
+            </td>
+            <td class="govuk-table__cell">
+              28 May 2024
+            </td>
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">QF 74 42 21 A</span>
+              <br>
+              Woods
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                Withdrawn
+              </strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">3 Jun 2024</span>
+              <br>at 10:38am
+            </td>
+            <td class="govuk-table__cell">
+              29 May 2024
+            </td>
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">DF 13 23 44 B</span>
+              <br>Jones
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                Paused
+              </strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">3 Jun 2024</span>
+              <br>at 10:11am
+            </td>
+            <td class="govuk-table__cell">
+              21 May 2024
+            </td>
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">UI 25 82 07 D</span>
+              <br>
+              Garcia
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                Awaiting appointment
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">3 Jun 2024</span>
+              <br>at 9:32am
+            </td>
+            <td class="govuk-table__cell">
+              28 May 2024
+            </td>
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">UV 25 54 48 A</span>
+              <br>
+              Caldwell
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                Duplicate
+              </strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">3 Jun 2024</span>
+              <br>at 9:02am
+            </td>
+            <td class="govuk-table__cell">
+              25 May 2024
+            </td>
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">QQ 12 34 56 X</span>
+              <br>Erickson
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                Paused
+              </strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">31 May 2024</span>
+              <br>at 11:11am
+            </td>
+            <td class="govuk-table__cell">
+              30 May 2024
+            </td>
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">QQ 12 34 56 C</span>
+              <br>Wallace
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not entitled
+              </strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </tbody>
+    </div>
+  </div>
   </main>
 </div>
 {% endblock %}
