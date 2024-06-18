@@ -82,11 +82,11 @@ events: [
     }
 ]
 }) }}
-{% elif data['claimStatus'] == 'not-valid' %}
+{% elif data['claimStatus'] == 'claim-not-valid' %}
     {{ dwpTimeline({
 events: [
  {
-    state: "Not valid",
+    state: "Claim not valid",
     name: "88776655",
     date: "on 8 November 2023 at 9:21am"
     },
@@ -212,11 +212,11 @@ events: [
     }
 ]
 }) }}
-{% elif data['claimStatus'] == 'not-entitled' %}
+{% elif data['claimStatus'] == 'citizen-not-entitled' %}
     {{ dwpTimeline({
 events: [
 {
-    state: "Not entitled",
+    state: "Citizen not entitled",
     name: "88776655",
     date: "on 9 November 2023 at 11:05am"
     },

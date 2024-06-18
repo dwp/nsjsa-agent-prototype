@@ -8,6 +8,14 @@
             <h1 class="govuk-heading-l">
                 Workflow Management 1a: Iteration 3
             </h1>
+            <p class="govuk-body">
+                Final designs for Workflow Management 1a - ready for development.
+            </p>
+            <p class="govuk-body">
+                The designs have been further iterated based on technical discussion and an overlap of the Workflow management 1b work.
+                User insights from 1b that are relevant for 1a and the overall user journey have been agreed to bring forward into 1a.
+                This relates especially to the Last updated claims list and Confirmation page.
+            </p>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
         </div>
         <div class="govuk-grid-row">
@@ -48,7 +56,7 @@
       }) }}
                 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
                 {{ govukInsetText({
-  html: "Last updated claims: <br> Enter 01 or any value for Agent 01 claims, enter 12345678 for Agent 02 claims or 03 for Agent 03 claims. "
+  html: "<strong>Search for staff number on Last updated claims:</strong> <br> Enter 01 or any value for Agent 01 claims <br> Enter 12345678 for Agent 02 claims <br> Enter 03 for Agent 03 claims "
 }) }}
                 {{ govukTable({
         caption: "Individual screens for development",
@@ -77,19 +85,19 @@
           [
             
             {
-                html: "<a href='#'>Last updated claims - filtered"
+                html: "<a href='claims-list-filtered'>Last updated claims - filtered"
             }
           ],
           [
             
             {
-                html: "<a href='#'>Last updated claims - different agent"
+                html: "<a href='claims-list?show=12345678'>Last updated claims - different agent"
             }
           ],
           [
             
             {
-                html: "<a href='#'>Last updated claims - no claims in list"
+                html: "<a href='claims-list?show=03'>Last updated claims - no claims in list"
             }
           ],
           
@@ -103,7 +111,7 @@
           [
             
             {
-                html: "<a href='claims-list-error'>Error: Validation - Last updated claims"
+                html: "<a href='claims-list-error-validation'>Error: Validation - Last updated claims"
             }
           ]
         ]

@@ -48,119 +48,119 @@ href: "choose-task3?show"
           </div>
           <div class="moj-filter__content">
             <div class="moj-filter__options">
-              <form action="#" method="post" novalidate></form>
-              <!-- Sort by RADIOS -->
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                    Sort by
-                  </legend>
-                  <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="sort-1" name="sort" type="radio" value="newest-update"
-                        checked>
-                      <label class="govuk-label govuk-radios__label" for="sort-1" style="white-space: nowrap">
-                        Newest update
-                      </label>
+              <form action="claims-list-filtered" method="post" novalidate>
+                <!-- Sort by RADIOS -->
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Sort by
+                    </legend>
+                    <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sort-1" name="sort" type="radio" value="newest-update"
+                          checked>
+                        <label class="govuk-label govuk-radios__label" for="sort-1" style="white-space: nowrap">
+                          Newest update
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="oldest-update">
+                        <label class="govuk-label govuk-radios__label" for="sort-2" style="white-space: nowrap">
+                          Oldest update
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sort-3" name="sort" type="radio" value="newest-claim">
+                        <label class="govuk-label govuk-radios__label" for="sort-3" style="white-space: nowrap">
+                          Newest claim submitted
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sort-4" name="sort" type="radio" value="oldest-claim">
+                        <label class="govuk-label govuk-radios__label" for="sort-4" style="white-space: nowrap">
+                          Oldest claim submitted
+                        </label>
+                      </div>
                     </div>
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="oldest-update">
-                      <label class="govuk-label govuk-radios__label" for="sort-2" style="white-space: nowrap">
-                        Oldest update
-                      </label>
+                  </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Claim status
+                    </legend>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="awaiting-appointment" name="awaiting-appointment"
+                          type="checkbox" value="awaiting-appointment">
+                        <label class="govuk-label govuk-checkboxes__label" for="awaiting-appointment">
+                          Awaiting appointment
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="citizen-not-entitled" name="citizen-not-entitled"
+                          type="checkbox" value="citizen-not-entitled">
+                        <label class="govuk-label govuk-checkboxes__label" for="citizen-not-entitled">
+                          Citizen not entitled
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="claim-not-valid" name="claim-not-valid"
+                          type="checkbox" value="claim-not-valid">
+                        <label class="govuk-label govuk-checkboxes__label" for="claim-not-valid">
+                          Claim not valid
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="complex-claim" name="complex-claim" type="checkbox"
+                          value="complex-claim">
+                        <label class="govuk-label govuk-checkboxes__label" for="complex-claim">
+                          Complex claim
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="duplicate" name="duplicate" type="checkbox"
+                          value="duplicate">
+                        <label class="govuk-label govuk-checkboxes__label" for="duplicate">
+                          Duplicate
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="paused" name="paused" type="checkbox" value="paused">
+                        <label class="govuk-label govuk-checkboxes__label" for="paused">
+                          Paused
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="processing-started" name="processing-started"
+                          type="checkbox" value="processing-started">
+                        <label class="govuk-label govuk-checkboxes__label" for="processing-started">
+                          Processing started
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="suspected-fraud" name="suspected-fraud"
+                          type="checkbox" value="suspected-fraud">
+                        <label class="govuk-label govuk-checkboxes__label" for="suspected-fraud">
+                          Suspected fraud
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="withdrawn" name="withdrawn" type="checkbox"
+                          value="withdrawn">
+                        <label class="govuk-label govuk-checkboxes__label" for="withdrawn">
+                          Withdrawn
+                        </label>
+                      </div>
                     </div>
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="sort-3" name="sort" type="radio" value="newest-claim">
-                      <label class="govuk-label govuk-radios__label" for="sort-3" style="white-space: nowrap">
-                        Newest claim submitted
-                      </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="sort-4" name="sort" type="radio" value="oldest-claim">
-                      <label class="govuk-label govuk-radios__label" for="sort-4" style="white-space: nowrap">
-                        Oldest claim submitted
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                    Claim status
-                  </legend>
-                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="awaiting-appointment" name="awaiting-appointment"
-                        type="checkbox" value="awaiting-appointment">
-                      <label class="govuk-label govuk-checkboxes__label" for="awaiting-appointment">
-                        Awaiting appointment
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizen-not-entitled" name="citizen-not-entitled"
-                        type="checkbox" value="citizen-not-entitled">
-                      <label class="govuk-label govuk-checkboxes__label" for="citizen-not-entitled">
-                        Citizen not entitled
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="claim-not-valid" name="claim-not-valid" type="checkbox"
-                        value="claim-not-valid">
-                      <label class="govuk-label govuk-checkboxes__label" for="claim-not-valid">
-                        Claim not valid
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="complex-claim" name="complex-claim" type="checkbox"
-                        value="complex-claim">
-                      <label class="govuk-label govuk-checkboxes__label" for="complex-claim">
-                        Complex claim
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="duplicate" name="duplicate" type="checkbox"
-                        value="duplicate">
-                      <label class="govuk-label govuk-checkboxes__label" for="duplicate">
-                        Duplicate
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="paused" name="paused" type="checkbox" value="paused">
-                      <label class="govuk-label govuk-checkboxes__label" for="paused">
-                        Paused
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="processing-started" name="processing-started"
-                        type="checkbox" value="processing-started">
-                      <label class="govuk-label govuk-checkboxes__label" for="processing-started">
-                        Processing started
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="suspected-fraud" name="suspected-fraud" type="checkbox"
-                        value="suspected-fraud">
-                      <label class="govuk-label govuk-checkboxes__label" for="suspected-fraud">
-                        Suspected fraud
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="withdrawn" name="withdrawn" type="checkbox"
-                        value="withdrawn">
-                      <label class="govuk-label govuk-checkboxes__label" for="withdrawn">
-                        Withdrawn
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="govuk-button-group">
-                <button type="submit" class="govuk-button" data-module="govuk-button">
-                  Apply filters
-                </button>
-                <a class="govuk-link" href="#">Clear filters</a>
-              </div>
+                  </fieldset>
+                </div>
+                <div class="govuk-button-group">
+                  <button type="submit" class="govuk-button" data-module="govuk-button">
+                    Apply filters
+                  </button>
+                  <a class="govuk-link" href="#">Clear filters</a>
+                </div>
               </form>
             </div>
           </div>

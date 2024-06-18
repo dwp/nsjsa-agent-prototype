@@ -2,6 +2,7 @@
 {% block pageTitle %}
   Claim updated
 {% endblock %}
+{% block beforeContent %}{% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -16,13 +17,13 @@
       {% else %}
         <p>No claimant set.</p>
       {% endif %}
-      {{ govukButton({
-        text: "Get next claim",
-        href: "#"
-      }) }}
       <p class="govuk-body">
-        <a href="/design-ideas/wt-4709-wfm/choose-task3" class="govuk-link">Return to start screen</a>
+        You can now find this claim in your last updated claims.
       </p>
+      {{ govukButton({
+        text: "Return to main menu",
+        href: "/design-ideas/wt-4709-wfm/choose-task3"
+      }) }}
     </div>
   </div>
 </div>{% endblock %}

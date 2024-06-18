@@ -63,12 +63,6 @@
                     classes: "govuk-tag--blue"
                  }) }}
                 {% endset %}
-                {% set statusPaused %}
-                {{ govukTag({
-                 text: "Paused",
-                    classes: "govuk-tag--blue"
-                 }) }}
-                {% endset %}
                 {# no scenario - default Simon Hamilton #}
             {% else %}
                 {% set urlRecent = '<a href=view-claim>View</a>' %}
@@ -85,6 +79,12 @@
                  }) }}
                 {% endset %}
             {% endif %}
+            {% set statusPaused %}
+            {{ govukTag({
+                 text: "Paused",
+                    classes: "govuk-tag--blue"
+                 }) }}
+            {% endset %}
             {{ govukTable({
         caption: "Matching applications",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
