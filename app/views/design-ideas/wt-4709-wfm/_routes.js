@@ -48,7 +48,7 @@ router.post("/nino-search", function (req, res) {
     const answer = req.body.agent;
   
     // agent 2 claims list
-    if (answer === "12345678") {
+ if (answer === "12345678") {
       res.redirect(`${ABS_BASE_PATH}/claims-list?show=12345678`);
     // agent 3 claims list - no data in list
   } else if (answer === "03") {
