@@ -105,6 +105,23 @@ router.post('/update', function(request, response) {
 })
 
 
+ //Claims statistics
+  // show different stats when a date is entered
+  router.post("/claim-statistics", function (req, res) {
+    const answer = req.body.year;
+  
+    // show daily stats
+    if (answer === "2023") {
+      res.redirect(`${ABS_BASE_PATH}/claim-statistics?year=2023`);
+
+  } else {
+      // show weekly stats
+        res.redirect(`${ABS_BASE_PATH}/claim-statistics?year=`);
+      
+    }
+  });
+
+
 
 /*
   // choose-task reset the 'on hold claims' data back to default agent 1 when 'claimslist' is got
