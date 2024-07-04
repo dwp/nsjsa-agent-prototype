@@ -1,34 +1,45 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
   NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Library</h1>
-
       <h2 class="govuk-heading-m" id="screens">Screens</h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="library/screens/choose-task">Choose task</a></li>
-        <li><a href="library/screens/view-claim?claimant=sh&nino=RN 00 00 35 C&claimStatus=registration-needed&niMatchCis=0&idRisk=1&fraud=1&cis=1&noReg=1">View claim</a></li>
-        <li><a href="library/screens/update">Update claim status</a></li>
-        <li><a href="library/screens/confirmation">Confirmation</a></li>
-        <li><a href="library/screens/nino-search">Find claim</a></li>
-        <li><a href="library/screens/duplicates">View multiples</a></li>
-        <li><a href="library/screens/matched">View potential fraud matches</a></li>
+        <li>
+          <a href="library/screens/choose-task">Choose task</a>
+        </li>
+        <li>
+          <a href="library/screens/view-claim?claimant=sh&claimStatus=awaiting-appointment">
+            View claim</a>
+        </li>
+        <li>
+          <a href="library/screens/update">Update claim status</a>
+        </li>
+        <li>
+          <a href="library/screens/confirmation">Confirmation</a>
+        </li>
+        <li>
+          <a href="library/screens/nino-search">Find claim</a>
+        </li>
+        <li>
+          <a href="library/screens/duplicates">View multiples</a>
+        </li>
+        <li>
+          <a href="library/screens/matched">View potential fraud matches</a>
+        </li>
       </ul>
-
       <h2 class="govuk-heading-m" id="components">Components</h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="library/components/key-details-bar">Key details bar</a></li>
-        <li><a href="library/components/interruption">Interruption panel</a></li>
+        <li>
+          <a href="library/components/key-details-bar">Key details bar</a>
+        </li>
+        <li>
+          <a href="library/components/interruption">Interruption panel</a>
+        </li>
       </ul>
-
     </div>
   </div>
-
 {% endblock %}
