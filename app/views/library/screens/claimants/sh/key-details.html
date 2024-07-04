@@ -1,25 +1,32 @@
 {{ dwpKeyDetailsBar({
-    claimantName: "Simon Hamilton",
-    claimantNINO: data['nino'],
-    claimStatus: claimStatus,
-    items: [
-        {
-            title: "DOB",
-            value: "05/06/1969"
-        },
-        {
-            title: "Postcode",
-            value: "FY8 1PL"
-        },
-        {
-            title: "Phone",
-            value: "01253 768542"
-        },
-        {
-            title: "Claim submitted",
-            value: "31/07/21"
-        }
-    ],
-    showToggle: showToggle,
-    classes: "dwp-print-hide"
+primaryIdentifier: {
+text: 'Name:',
+value: 'Simon Hamilton'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'QQ 12 34 56 X'
+},
+status: {
+text: 'Claim status:',
+value: claimStatus
+},
+additionalData: [
+{
+value: "05/06/1969",
+text: "D.O.B:"
+},
+{
+value: "FY8 1PL",
+text: "Postcode:"
+},
+{
+value: "01253 768542",
+text: "Phone:"
+},
+{
+value: "31/07/21",
+text: "Claim submitted (IDOC):"
+}
+]
 }) }}

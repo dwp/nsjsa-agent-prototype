@@ -1,18 +1,15 @@
-<h3 class="govuk-heading-m">Actions</h3>
-
-{% if (data['claimStatus'] != 'appointment-needed')  %}
-{% if (data['claimStatus'] != 'withdrawn')  %}
-
-<!-- // need to contact citizen for ni reconcile so need to park claim -->
+<h3 class="govuk-heading-m">Claim actions</h3>
+{% if data['claimStatus'] == 'new-claim' %}
+    <p>
+        <a href="choose-task3">Return to start screen</a>
+    </p>
+{% else %}
     {{ govukButton({
-        text: "Update claim status",
-        href: "#"
-    }) }}
+    text: "Update claim status",
+    href: "update"
+}) }}
+    <p>
+        <a href="choose-task3">Return to main menu</a>
+    </p>
 {% endif %}
-{% endif %}
-
-<ul class="govuk-list">
-    <li><a href="#">Choose a task</a></li>
-</ul>
-
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

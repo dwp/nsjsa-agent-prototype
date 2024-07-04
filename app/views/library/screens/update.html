@@ -1,12 +1,9 @@
 {% extends "./view-claim.html" %}
-
 {% block pageTitle %}
   Select a status
 {% endblock %}
-
 {% block content %}
-
-{% set firstFailHtml %}
+  {% set firstFailHtml %}
   {{ govukSelect({
     name: "reason",
     classes: "govuk-input--width-10",
@@ -32,9 +29,8 @@
       }
     ]
   }) }}
-{% endset %}
-
-{% set finalFailHtml %}
+  {% endset %}
+  {% set finalFailHtml %}
   {{ govukSelect({
     name: "reason",
     classes: "govuk-input--width-10",
@@ -56,10 +52,9 @@
       }
     ]
   }) }}
-{% endset %}
-
-{% set failHtml %}
-{{ govukCheckboxes({
+  {% endset %}
+  {% set failHtml %}
+  {{ govukCheckboxes({
   idPrefix: "failed-contact",
   name: "subStatus",
   fieldset: {
@@ -90,21 +85,12 @@
     }
   ]
 }) }}
-{% endset -%}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
-}) }}
-
+  {% endset -%}
   <div class="govuk-grid-row  govuk-!-margin-top-4">
     <div class="govuk-grid-column-two-thirds">
-
       <form action="#" method="get">
-
         {% if data['claimStatus'] == 'appointment-needed' %}
-
-        {{ govukRadios({
+          {{ govukRadios({
             idPrefix: 'status',
             name: 'claimStatus',
             fieldset: {
@@ -138,12 +124,9 @@
                     text: "Appointment booked"
                 }                     
             ]
-          })
-        }}
-
+          }) }}
         {% elif data['claimStatus'] == 'suspected-fraud' %}
-
-        {{ govukRadios({
+          {{ govukRadios({
             idPrefix: 'status',
             name: 'claimStatus',
             fieldset: {
@@ -174,12 +157,9 @@
                     text: "Withdrawn"
                 }                
             ]
-          })
-        }}
-
+          }) }}
         {% else %}
-
-        {{ govukRadios({
+          {{ govukRadios({
             idPrefix: 'status',
             name: 'claimStatus',
             fieldset: {
@@ -214,17 +194,12 @@
                     text: "Withdrawn"
                 }         
             ]
-          })
-        }}
-
+          }) }}
         {% endif %}
-
         {{ govukButton({
           text: "Continue"
         }) }}
       </form>
-      
     </div>
   </div>
-
 {% endblock %}
