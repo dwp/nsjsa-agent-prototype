@@ -1,27 +1,20 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
   NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
-{{ govukBackLink({
+  {{ govukBackLink({
   text: "Back",
   href: "javascript:history.back()"
 }) }}
-
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-
-        <h1 class="govuk-heading-l">Understanding exceptions to automation</h1>
-
-        <p>The goal of the system is to automate claims through to an appointment being needed to be booked.</p>
-        <p>Automation isn't always possible though. We have to give any claims that can't be automated to an agent to be manually processed.</p>
-        <p>These claims are called exceptions and they will drop into a bucket depending on the type of claim and what needs to happen to it.</p>
+      <h1 class="govuk-heading-l">Understanding exceptions to automation</h1>
+      <p>The goal of the system is to automate claims through to an appointment being needed to be booked.</p>
+      <p>Automation isn't always possible though. We have to give any claims that can't be automated to an agent to be
+        manually processed.</p>
+      <p>These claims are called exceptions and they will drop into a bucket depending on the type of claim and what needs to
+        happen to it.</p>
     </div>
-</div>
-
-
+  </div>
 {% endblock %}
