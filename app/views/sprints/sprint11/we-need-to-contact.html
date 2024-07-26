@@ -1,34 +1,27 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">We need to contact you to check who you are</h1>
-
       <p class="govuk-body-l govuk-!-margin-bottom-9">We'll contact you over the next few days.</p>
-
-{% set help %}
-<p>If you're on a low income you might be able to apply for Universal Credit as part of a dual claim with New Style JSA.</p>
-<p>Unlike New Style JSA, you can apply with a partner and get support for housing costs, children and childcare.</p>
-<p>You or your partner must have less than £16,000 in savings or investments to be eligilbe.</p>
-<p>Find out <a href="https://www.gov.uk/how-to-claim-universal-credit">how to claim for Universal Credit on GOV.UK</a>.</p>
-{% endset %}
+      {% set help %}
+      <p>If you're on a low income you might be able to apply for Universal Credit as part of a dual claim with New Style JSA.</p>
+      <p>Unlike New Style JSA, you can apply with a partner and get support for housing costs, children and childcare.</p>
+      <p>You or your partner must have less than £16,000 in savings or investments to be eligilbe.</p>
+      <p>Find out
+        <a href="https://www.gov.uk/how-to-claim-universal-credit">how to claim for Universal Credit on GOV.UK</a>.</p>
+      {% endset %}
       {{ govukDetails({
         summaryText: "Do you need help with housing costs or support for a partner or child?",
         html: help
       }) }}
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-      <p><a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)</p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <p>
+          <a href="#" class="govuk-link">What did you think of this service?</a>
+          (takes 30 seconds)</p>
+      </div>
     </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}

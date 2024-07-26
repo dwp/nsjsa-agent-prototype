@@ -1,16 +1,11 @@
-{% extends "agent/layout.html" %}
-
+{% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
   {{ serviceName }}
 {% endblock %}
-
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-
 {% block header %}
-  
   {{ super() }}
-
-{{ dwpKeyDetailsBar({
+  {{ dwpKeyDetailsBar({
     claimantName: "Ian Johnson",
     claimantNINO: "RN 00 00 35 C",
     claimStatus: claimStatus,
@@ -35,51 +30,43 @@
     showToggle: showToggle,
     classes: "dwp-print-hide"
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
-{% set matchTag %}
-{{ govukTag({
+  {% set matchTag %}
+  {{ govukTag({
   text: "match",
   classes: "govuk-tag--grey"
 }) }}
-{% endset %}
-
-{% set misMatchTag %}
-{{ govukTag({
+  {% endset %}
+  {% set misMatchTag %}
+  {{ govukTag({
   text: "mismatch",
   classes: "govuk-tag--red"
 }) }}
-{% endset %}
-
-<div class="govuk-grid-row dwp-print-hide">
-  <div class="govuk-grid-column-two-thirds">
-
-  <h1 class="govuk-heading-l govuk-!-display-none">BIO check claim</h1>
-
-  <section class="dwp-claim-section dwp-print-no-break">
-    <h2 class="govuk-heading-m govuk-visually-hidden">Fraud check</h2>
-    <div class="govuk-warning-text govuk-!-margin-bottom-2">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        <span class="govuk-heading-m govuk-!-margin-bottom-0">CIS markers</span>
-      </strong>
-    </div>
-    <ul class="govuk-list govuk-list--bullet">
-      {# <li>Claimant doesn't match CIS record</li> #}
-      <li>Claimant has appointee</li>
-      <li>Claimant is potentially violent</li>
-    </ul>
-  </section>
-
-  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-  <section class="dwp-claim-section dwp-print-no-break">
-    <h2 class="govuk-heading-m">Personal details</h2>
-    {{ govukSummaryList({
+  {% endset %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-!-display-none">BIO check claim</h1>
+      <section class="dwp-claim-section dwp-print-no-break">
+        <h2 class="govuk-heading-m govuk-visually-hidden">Fraud check</h2>
+        <div class="govuk-warning-text govuk-!-margin-bottom-2">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            <span class="govuk-heading-m govuk-!-margin-bottom-0">CIS markers</span>
+          </strong>
+        </div>
+        <ul
+          class="govuk-list govuk-list--bullet">
+          {# <li>Claimant doesn't match CIS record</li> #}
+          <li>Claimant has appointee</li>
+          <li>Claimant is potentially violent</li>
+        </ul>
+      </section>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <section class="dwp-claim-section dwp-print-no-break">
+          <h2 class="govuk-heading-m">Personal details</h2>
+          {{ govukSummaryList({
       rows: [
         {
           key: {
@@ -110,11 +97,10 @@
         }
       ]
     }) }}
-  </section>
-
-<section class="dwp-claim-section">
-  <h2 class="govuk-heading-m govuk-!-margin-top-8">Local office</h2>
-  {{ govukSummaryList({
+        </section>
+        <section class="dwp-claim-section">
+          <h2 class="govuk-heading-m govuk-!-margin-top-8">Local office</h2>
+          {{ govukSummaryList({
     rows: [
       {
         key: {
@@ -148,26 +134,18 @@
         }
     ]
   }) }}
-</section>
-  
-
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-    
-    <aside class="app-related-items" role="complementary">
-
-            <h3 class="govuk-heading-m">Claim actions</h3>
-            {{ govukButton({
+        </section>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <aside class="app-related-items" role="complementary">
+          <h3 class="govuk-heading-m">Claim actions</h3>
+          {{ govukButton({
               text: "Update claim status",
               href: "update-claim-status"
             }) }}
-            
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
             <h3 class="govuk-heading-m">Claim history</h3>
-
-          {{ dwpTimeline({
+            {{ dwpTimeline({
             items: [
               {
                 heading: "Entitled",
@@ -198,12 +176,7 @@
               }
             ]
           }) }}
-
-    </aside>
-
-  </div>
-
-</div>
-
-
-{% endblock %}
+          </aside>
+        </div>
+      </div>
+    {% endblock %}

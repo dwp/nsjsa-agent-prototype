@@ -1,57 +1,42 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
   NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
-{% set proTag %}
-    {{govukTag({
+  {% set proTag %}
+  {{ govukTag({
         text: "Process",
         classes: "govuk-tag--purple"
-    })}}
-{% endset %}
-
-{% set idTemplateTag %}
-    {{govukTag({
+    }) }}
+  {% endset %}
+  {% set idTemplateTag %}
+  {{ govukTag({
         text: "ID template",
         classes: "govuk-tag--orange"
-    })}}
-{% endset %}
-
-{% set idCheckTag %}
-    {{govukTag({
+    }) }}
+  {% endset %}
+  {% set idCheckTag %}
+  {{ govukTag({
         text: "ID check",
         classes: "govuk-tag--turquoise"
-    })}}
-{% endset %}
-
+    }) }}
+  {% endset %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-
       <h1 class="govuk-heading-l">
         Increment 6
         <span class="govuk-caption-l">{{ data['i6Name'] }}</span>
       </h1>
-
       <p>Increment 6 introduces 2 new scenarios both of which drop into the {{ idCheckTag | safe }} bucket.</p>
-
-      <p><a href="../understanding-exceptions">Understanding exceptions to automation</a>.</p>
-
-{# {{ data | dump('\t') }} #}
-      
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
+      <p>
+        <a href="../understanding-exceptions">Understanding exceptions to automation</a>.</p>
+      {# {{ data | dump('\t') }} #}
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
     </div>
-  </div>
-
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <h2 class="govuk-heading-m">Agent manual tasks</h2>
-
-  {{ govukTable({
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">Agent manual tasks</h2>
+        {{ govukTable({
         caption: "New automation exceptions",
         captionClasses: "govuk-table__caption--s",
         firstCellIsHeader: true,
@@ -100,17 +85,13 @@
             ]
         ]
       }) }}
-
-
+      </div>
     </div>
-  </div>
-
-  {# <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-
-      <p>You can <a href="nino-search">find a claim</a> by its scenario number, for example: s3.</p>
-
-    </div>
-  </div> #}
-
-{% endblock %}
+    {# <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+    
+          <p>You can <a href="nino-search">find a claim</a> by its scenario number, for example: s3.</p>
+    
+        </div>
+      </div> #}
+  {% endblock %}

@@ -1,23 +1,18 @@
 {% extends "layout.html" %}
-
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Application start date</span>
         Have you asked for advice about applying for New Style Jobseeker&rsquo;s Allowance since 22 July 2020?
       </h1>
-      <p>This could be spoken or written advice from a government department, a legal or professional adviser or from an advice agency, such as Citizens Advice.</p>
+      <p>This could be spoken or written advice from a government department, a legal or professional adviser or from an
+        advice agency, such as Citizens Advice.</p>
       <form action="asked-for-advice" method="post">
-
         {% set askedAdviceYes %}
-
         {{ govukCharacterCount({
             name: "more-information",
             id: "more-information",
@@ -27,9 +22,7 @@
               text: "Tell us who you contacted, when you contacted them and what information you were given."
             }
           }) }}
-
         {% endset -%}
-
         {{ govukRadios({
           idPrefix: 'asked-for-advice',
           name: 'asked-for-advice',
@@ -50,13 +43,10 @@
             text: "No"
           }]
         }) }}
-
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

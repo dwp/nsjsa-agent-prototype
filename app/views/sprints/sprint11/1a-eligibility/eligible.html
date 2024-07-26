@@ -1,25 +1,19 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">Based on your answers, you may be eligible for New Style Jobseeker&rsquo;s Allowance</h1>
       <p class="govuk-body-l">To get it, you need to:</p>
       {# <ol class="govuk-list govuk-body-l">
-        <li>1. You need to apply for Jobseeker's Allowance</li>
-        <li>and then</li>
-        <li>2. We need to check who you are</li>
-      </ol> #}
-
+              <li>1. You need to apply for Jobseeker's Allowance</li>
+              <li>and then</li>
+              <li>2. We need to check who you are</li>
+            </ol> #}
       <ol class="app-task-list">
         <li>
-
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -39,38 +33,34 @@
           </ul>
         </li>
       </ol>
-
       {# <h2 class="govuk-heading-m">To apply, you’ll need:</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>your National Insurance number</li>
-        <li>your bank or building society account details (or those of a family member or trusted friend)</li>
-        <li>any employment details for the past 6 months, including employer contact details and dates you worked with them</li>
-        <li>any private pension or annuity statement letter if you get payments from one</li>
-      </ul>
-
-      <h2 class="govuk-heading-m">To confirm your identity you’ll need:</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>a mobile phone number</li>
-        <li>an email address</li>
-      </ul>
-
-      <h3 class="govuk-heading-s">You will also need 2 of the following:</h3>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>P60 or payslips</li>
-        <li>a valid UK passport</li>
-        <li>tax credit information</li>
-      </ul>
-
-      <div class="govuk-inset-text">It usually takes 20 minutes to complete the form. You cannot save your 
-      answers and come back to the form later. But you’ll get a chance to check and update your answers 
-      before you send it</div> #}
-
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your National Insurance number</li>
+              <li>your bank or building society account details (or those of a family member or trusted friend)</li>
+              <li>any employment details for the past 6 months, including employer contact details and dates you worked with them</li>
+              <li>any private pension or annuity statement letter if you get payments from one</li>
+            </ul>
+      
+            <h2 class="govuk-heading-m">To confirm your identity you’ll need:</h2>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a mobile phone number</li>
+              <li>an email address</li>
+            </ul>
+      
+            <h3 class="govuk-heading-s">You will also need 2 of the following:</h3>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>P60 or payslips</li>
+              <li>a valid UK passport</li>
+              <li>tax credit information</li>
+            </ul>
+      
+            <div class="govuk-inset-text">It usually takes 20 minutes to complete the form. You cannot save your 
+            answers and come back to the form later. But you’ll get a chance to check and update your answers 
+            before you send it</div> #}
       {# {{ govukButton({
-        text: "Start now",
-        href: "../1b-lead-in"
-      }) }} #}
-
+              text: "Start now",
+              href: "../1b-lead-in"
+            }) }} #}
     </div>
   </div>
-
 {% endblock %}

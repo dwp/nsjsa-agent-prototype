@@ -1,9 +1,7 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {#
   Backdating page flow:
 
@@ -23,34 +21,26 @@
     Answer "YES":
       nino [What is your National Insurance number?]
 #}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Application start date</span>
         Do you want your application to start today?
       </h1>
-
       <p class="govuk-body">
-        You can choose an earlier date if you think you could have applied sooner. You will need to tell us why you did not apply before today.
+        You can choose an earlier date if you think you could have applied sooner. You will need to tell us why you did not
+        apply before today.
       </p>
-
       {{ govukInsetText({
         text: "We can only consider an earlier date if you were unable to apply sooner. For example, you were told you would not get New Style Jobseeker's Allowance or you had a family emergency."
       }) }}
-
       <form action="start-date" method="post">
-
         {% call govukFieldset({}) %}
-
         {{ govukWarningText({
           text: "You cannot change the start date later in the application.",
           iconFallbackText: "Warning"
         }) }}
-
         {{ govukRadios({
           classes: "govuk-radios",
           idPrefix: "change-claim-start",
@@ -74,13 +64,10 @@
           ]
         }) }}
         {% endcall %}
-
         {{ govukButton({
           text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

@@ -1,28 +1,20 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         How many hours a week do you normally work?
       </h1>
-
       <form action="working-over" method="post">
-
         {{ govukRadios({
             classes: "govuk-radios",
             idPrefix: 'working-over-form',
@@ -37,15 +29,11 @@
                     text: "Less than 16 hours"
                 }
             ]
-          })
-        }}
-
+          }) }}
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

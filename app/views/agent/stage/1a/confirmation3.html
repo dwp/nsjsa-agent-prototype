@@ -1,32 +1,22 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">Application sent</h1>
-
-      <p>We sent an email confirmation to <strong>you@email.co.uk</strong></p>
-
-
-
+      <p>We sent an email confirmation to
+        <strong>you@email.co.uk</strong>
+      </p>
       {{ govukWarningText({
         text: "You need to confirm your identity, we can't process your application yet",
         iconFallbackText: "Warning"
       }) }}
-
       {{ govukButton({
         text: "Continue to confirm identity",
         href: "hand-off"
       }) }}
-
     </div>
   </div>
-
 {% endblock %}

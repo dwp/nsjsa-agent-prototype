@@ -1,25 +1,17 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Previous employment</span>
         What is the address of your previous employer?
       </h1>
-
       <form action="contact" method="post">
-
         {% call govukFieldset({
         }) %}
-
         {{ govukInput({
             label: {
             html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
@@ -28,7 +20,6 @@
             name: "pe-address-line-1",
             value: data['pe-address-line-1']
         }) }}
-
         {{ govukInput({
             label: {
             html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
@@ -37,7 +28,6 @@
             name: "pe-address-line-2",
             value: data['pe-address-line-2']
         }) }}
-
         {{ govukInput({
             label: {
             text: 'Town or city'
@@ -47,7 +37,6 @@
             name: "pe-address-town",
             value: data['pe-address-town']
         }) }}
-
         {{ govukInput({
             label: {
             text: 'Postcode (optional)'
@@ -57,16 +46,11 @@
             name: "pe-address-postcode",
             value: data['pe-address-postcode']
         }) }}
-
         {% endcall %}
-
-
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

@@ -1,42 +1,30 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   Can’t Confirm Identity – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
 {% block beforeContent %}
-
-{{ govukPhaseBanner({
+  {{ govukPhaseBanner({
   tag: {
     text: "prototype"
   },
   html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         We have been unable to confirm your identity
       </h1>
-      
       <p class="govuk-body">This is because we could not match the information you entered with our records.</p>
-      <p class="govuk-body">You can use the account you have created to sign in and try the identity confirmation again after 24 hours.</p>
+      <p class="govuk-body">You can use the account you have created to sign in and try the identity confirmation again after
+        24 hours.</p>
       <p class="govuk-body">You might be asked for different information.</p>
-
       <h2 class="govuk-heading-m">Confirm your identity another way</h2>
-
       <p class="govuk-body">[INSERT SUPPORT INSTRUCTIONS]</p>
-
       {{ govukButton({
         text: "Continue"
       }) }}
-
     </div>
   </div>
-
 {% endblock %}

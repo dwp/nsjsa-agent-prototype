@@ -1,26 +1,18 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Your application is safe</h1>
-
       {# <p>Your application for {{ data['serviceShortName'] }} is safe.</p> #}
-
       <ol class="app-task-list">
         <li>
-
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                  Apply for Jobseeker's Allowance
+                Apply for Jobseeker's Allowance
               </span>
               <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
             </li>
@@ -35,13 +27,10 @@
           </ul>
         </li>
       </ol>
-
       {# {{ govukButton({
-          text: "Continue",
-          href: "dth-lead-in"
-      }) }} #}
-
+                text: "Continue",
+                href: "dth-lead-in"
+            }) }} #}
     </div>
   </div>
-
 {% endblock %}

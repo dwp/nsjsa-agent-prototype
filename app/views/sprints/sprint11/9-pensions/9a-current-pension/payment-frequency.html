@@ -1,30 +1,21 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
-{#
-<p><strong>
-Note: The pound sign needs to be inside the input text box, this is styled by macros/macros.njk
-</strong></p>
-#}
-
+  {#
+    <p><strong>
+    Note: The pound sign needs to be inside the input text box, this is styled by macros/macros.njk
+    </strong></p>
+    #}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Current pension</span>
         How often is your pension or annuity paid?
       </h1>
-
       <form action="payment-frequency" method="post">
-
         {% set prefix = "current-pension" %}
-
         {{ govukRadios({
           idPrefix: "current-work-paid",
           name: "currentPensionPaid",
@@ -78,13 +69,10 @@ Note: The pound sign needs to be inside the input text box, this is styled by ma
             }
           }]
         }) }}
-
         {{ govukButton({
           text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

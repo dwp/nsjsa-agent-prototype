@@ -1,101 +1,84 @@
-{% extends "agent/layout.html" %}
-
+{% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-  {{ serviceName }}
+    {{ serviceName }}
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-l">
-      <span class="govuk-caption-l">Today, Wednesday 1 September 2021</span>
-      All claims overview
-    </h1>
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-9">Claims processed</h2>
-
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Claims received</span>
-            <p class="govuk-heading-xl">573</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Claims cleared</span>
-            <p class="govuk-heading-xl">211</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Automatically cleared</span>
-            <p class="govuk-heading-xl">34</p>
-        </div>
-    </div>
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">Claim decisions</h2>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Awarded entitled</span>
-            <p class="govuk-heading-xl">165</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Not entitled</span>
-            <p class="govuk-heading-xl">12</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Credits only</span>
-            <p class="govuk-heading-xl">16</p>
-        </div>
-    </div>
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">Claims awaiting action</h2>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">ID not verified</span>
-            <p class="govuk-heading-xl">365</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Suspected fraud</span>
-            <p class="govuk-heading-xl">211</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Failed push</span>
-            <p class="govuk-heading-xl">365</p>
-        </div>
-    </div>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Awaiting appointment</span>
-            <p class="govuk-heading-xl">567</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Sent for commitment</span>
-            <p class="govuk-heading-xl">452</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Ready for payment</span>
-            <p class="govuk-heading-xl">2,694</p>
-        </div>
-    </div>
-
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    {% set statusTag %}
-    {{ govukTag({
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Today, Wednesday 1 September 2021</span>
+                All claims overview
+            </h1>
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Claims processed</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <span class="govuk-caption-m">Claims received</span>
+                    <p class="govuk-heading-xl">573</p>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <span class="govuk-caption-m">Claims cleared</span>
+                    <p class="govuk-heading-xl">211</p>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <span class="govuk-caption-m">Automatically cleared</span>
+                    <p class="govuk-heading-xl">34</p>
+                </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <h2 class="govuk-heading-m">Claim decisions</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">Awarded entitled</span>
+                        <p class="govuk-heading-xl">165</p>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">Not entitled</span>
+                        <p class="govuk-heading-xl">12</p>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">Credits only</span>
+                        <p class="govuk-heading-xl">16</p>
+                    </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                    <h2 class="govuk-heading-m">Claims awaiting action</h2>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">ID not verified</span>
+                            <p class="govuk-heading-xl">365</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Suspected fraud</span>
+                            <p class="govuk-heading-xl">211</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Failed push</span>
+                            <p class="govuk-heading-xl">365</p>
+                        </div>
+                    </div>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Awaiting appointment</span>
+                            <p class="govuk-heading-xl">567</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Sent for commitment</span>
+                            <p class="govuk-heading-xl">452</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Ready for payment</span>
+                            <p class="govuk-heading-xl">2,694</p>
+                        </div>
+                    </div>
+                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                        {% set statusTag %}
+                        {{ govukTag({
         text: "Suspected fraud",
         classes: "govuk-tag--blue"
     }) }}
-    {% endset %}
-
-    <h2 class="govuk-heading-m">Oldest claims</h2>
-    {{ govukTable({
+                        {% endset %}
+                        <h2 class="govuk-heading-m">Oldest claims</h2>
+                        {{ govukTable({
         caption: "Oldest claims",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         firstCellIsHeader: true,
@@ -174,8 +157,6 @@
             ]
         ]
     }) }}
-
-  </div>
-</div>
-
-{% endblock %}
+                    </div>
+                </div>
+            {% endblock %}

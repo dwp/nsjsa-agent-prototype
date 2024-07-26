@@ -1,64 +1,48 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds" >
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title govuk-panel__title--centred govuk-!-font-size-36">Identity details received</h1>
       </div>
-
-      <p>If you've provided a mobile number or email address, we will send you confirmation of your application
-        and keep you updated on its progress.</p>
-
-        <h2 class="govuk-heading-m">What happens next?</h2>
-        <p>We'll process your application.</p>
-
+      <p>If you've provided a mobile number or email address, we will send you confirmation of your application and keep you
+        updated on its progress.</p>
+      <h2 class="govuk-heading-m">What happens next?</h2>
+      <p>We'll process your application.</p>
       <h2 class="govuk-heading-m">If you are eligible</h2>
-      <p>If you can get New Style JSA, we will let you know and set up a time to agree what you
-      must do to look for work. We will discuss an agreement called a ‘Claimant Commitment’. We will
-      contact you within the next 10 working&nbsp;days.</p>
-
+      <p>If you can get New Style JSA, we will let you know and set up a time to agree what you must do to look for work. We
+        will discuss an agreement called a ‘Claimant Commitment’. We will contact you within the next 10 working&nbsp;days.</p>
       <p>The appointment will be with a work coach and will normally be over the&nbsp;phone.</p>
-
       <p>You must speak to the work coach and agree your Claimant Commitment before we can
-      pay&nbsp;you.</p>
-
+              pay&nbsp;you.</p>
       <h2 class="govuk-heading-m">If you are not eligible</h2>
       <p>If you cannot get New Style JSA, we will send you a letter within 10 working days to explain&nbsp;why.</p>
-{% set contactingUs %}
-<h2 class="govuk-heading-m">Contacting us</h2>
-<p>You only need to <a href="#">contact us to report a change in circumstances</a>, such as starting a new job.</p>
-{% endset %}
+      {% set contactingUs %}
+      <h2 class="govuk-heading-m">Contacting us</h2>
+      <p>You only need to
+        <a href="#">contact us to report a change in circumstances</a>, such as starting a new job.</p>
+      {% endset %}
       {{ govukInsetText({
         html: contactingUs
       }) }}
-
-{% set help %}
-<p>If you're on a low income you might be able to apply for Universal Credit as part of a dual claim with New Style JSA.</p>
-<p>Unlike New Style JSA, you can apply with a partner and get support for housing costs, children and childcare.</p>
-<p>You or your partner must have less than £16,000 in savings or investments to be eligible.</p>
-<p>Find out <a href="https://www.gov.uk/how-to-claim-universal-credit">how to claim for Universal Credit on GOV.UK</a>.</p>
-{% endset %}
-{{ govukDetails({
+      {% set help %}
+      <p>If you're on a low income you might be able to apply for Universal Credit as part of a dual claim with New Style JSA.</p>
+      <p>Unlike New Style JSA, you can apply with a partner and get support for housing costs, children and childcare.</p>
+      <p>You or your partner must have less than £16,000 in savings or investments to be eligible.</p>
+      <p>Find out
+        <a href="https://www.gov.uk/how-to-claim-universal-credit">how to claim for Universal Credit on GOV.UK</a>.</p>
+      {% endset %}
+      {{ govukDetails({
   summaryText: "Do you need help with housing costs or support for a partner or child?",
   html: help
 }) }}
-
-
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-      <p><a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)</p>
-
-
-
+        <p>
+          <a href="#" class="govuk-link">What did you think of this service?</a>
+          (takes 30 seconds)</p>
+      </div>
     </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}

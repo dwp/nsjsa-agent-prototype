@@ -1,37 +1,26 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+    DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
-  {{ govukBackLink({
+    {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Personal details</span>
-        Select your address
-      </h1>
-
-      <form action="address-is-it-postal" method="get">
-
-      {% if data['results'] == 'cottage' %}
-
-        {{ govukInsetText({
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-xl">Personal details</span>
+                Select your address
+            </h1>
+            <form action="address-is-it-postal" method="get">
+                {% if data['results'] == 'cottage' %}
+                    {{ govukInsetText({
           html: "9 addresses found for <strong>Cottage</strong> and <strong class=uc>AB31 5PY</strong>"
         }) }}
-
-
-        {{ govukRadios({
+                    {{ govukRadios({
             idPrefix: 'select-address',
             name: 'select-address',
             items: [
@@ -73,14 +62,11 @@
                 }           
             ]
         }) }}
-
-      {% elif data['results'] == '9' %}
-
-        {{ govukInsetText({
+                {% elif data['results'] == '9' %}
+                    {{ govukInsetText({
           html: "9 addresses found for <strong>40</strong> and <strong class=uc>W2 1JB</strong>"
         }) }}
-
-        {{ govukRadios({
+                    {{ govukRadios({
             idPrefix: 'select-address',
             name: 'select-address',
             items: [
@@ -122,14 +108,11 @@
                 }           
             ]
         }) }}
-
-      {% elif data['results'] == '7' %}
-
-        {{ govukInsetText({
+                {% elif data['results'] == '7' %}
+                    {{ govukInsetText({
           html: "30 addresses found for <strong>7</strong> and <strong class=uc>W2 1JB</strong>"
         }) }}
-
-        {{ govukRadios({
+                    {{ govukRadios({
             idPrefix: 'select-address',
             name: 'select-address',
             items: [
@@ -255,14 +238,11 @@
                 }
             ]
         }) }}
-
-      {% else %}
-
-      {{ govukInsetText({
+                {% else %}
+                    {{ govukInsetText({
         html: "4 addresses found for <strong class=uc>CW10 0NL</strong>"
       }) }}
-      
-        {{ govukRadios({
+                    {{ govukRadios({
             idPrefix: 'select-address',
             name: 'select-address',
             items: [
@@ -284,18 +264,14 @@
                 }              
             ]
         }) }}
-      {% endif %}
-
-        {{ govukButton({
+                {% endif %}
+                {{ govukButton({
           text: "Continue"
         }) }}
-
-      </form>
-
-      <p><a href="address">My address is not listed</a></p>
-
-
+            </form>
+            <p>
+                <a href="address">My address is not listed</a>
+            </p>
+        </div>
     </div>
-  </div>
-
 {% endblock %}

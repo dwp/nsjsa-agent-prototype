@@ -1,36 +1,33 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
   NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-l">Sprint 7 & 8</h1>
-
       <h2 class="govuk-heading-m">Manual ID checks</h2>
-      <p><a href="choose-task">Choose a task</a></p>
-
+      <p>
+        <a href="choose-task">Choose a task</a>
+      </p>
       <ol class="govuk-list govuk-list--unstyled">
-        <li><a href="id/i4">Manual ID check</a></li>
+        <li>
+          <a href="id/i4">Manual ID check</a>
+        </li>
       </ol>
-
-<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-      <h2 class="govuk-heading-m">Management information</h2>
-
-      <p><a href="mi/future">Potential future</a></p>
-
-      <ol class="govuk-list govuk-list--unstyled">
-        {# <li><a href="mi/i6">Increment 6 dashboard</a></li>
-        <li><a href="mi/i5">Increment 5 dashboard</a></li> #}
-        <li><a href="mi/i4">Increment 4 dashboard</a></li>
-      </ol>
-      
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <h2 class="govuk-heading-m">Management information</h2>
+        <p>
+          <a href="mi/future">Potential future</a>
+        </p>
+        <ol
+          class="govuk-list govuk-list--unstyled">
+          {# <li><a href="mi/i6">Increment 6 dashboard</a></li>
+                  <li><a href="mi/i5">Increment 5 dashboard</a></li> #}
+          <li>
+            <a href="mi/i4">Increment 4 dashboard</a>
+          </li>
+        </ol>
+      </div>
     </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}

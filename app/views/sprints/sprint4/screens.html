@@ -1,22 +1,17 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
   NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-l">Sprint 4 – Error reduction, address finder</h1>
-
       <p>Prototype scenarios for citizens to help find thier address.</p>
-      <p><a href="../sprint4/1-eligibility">Full journey from start of service</a>.</p>
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-      <h2 class="govuk-heading-m">Hypothesis</h2>
-      {{ govukDetails({
+      <p>
+        <a href="../sprint4/1-eligibility">Full journey from start of service</a>.</p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <h2 class="govuk-heading-m">Hypothesis</h2>
+        {{ govukDetails({
         summaryText: "Hypothesis #1",
         html: "<p>If we improve the address finder for citizens applying for NS JSA we'll acheive:</p>
         <ul class='govuk-list govuk-list--bullet'>
@@ -25,16 +20,11 @@
           <li>a quicker time to apply</li>
         </ul>"
       }) }}
-
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-
-      
-  </div>
-  </div>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-{{ govukTable({
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"></div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          {{ govukTable({
   caption: "Scenarios",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
@@ -111,22 +101,30 @@
     ]
   ]
 }) }}
-
-<h2 class="govuk-heading-m">Screens</h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="2-details/postcode">Enter postcode</a></li>
-        <li><a href="2-details/address-not-found">Address not found</a></li>
-        <li><a href="2-details/confirm-address?results=1">Confirm address</a> – 1 address found</li>
-        <li><a href="2-details/select-address?results=4">Select and confirm address from radios</a> – 4 results for postcode</li>
-        <li><a href="2-details/select-address?results=7">Select and confirm address from radios</a> – 30 results for 7 plus postcode</li>
-        <li><a href="2-details/select-address?results=cottage">Select and confirm address from radios</a> – 9 results for cottage plus postcode</li>
-        <li><a href="2-details/property-number">Enter property number or name</a> – Too many addressess found to show</li>
-      </ul>
-
-
-      
-    </div>
-  </div>
-
-{% endblock %}
+          <h2 class="govuk-heading-m">Screens</h2>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="2-details/postcode">Enter postcode</a>
+            </li>
+            <li>
+              <a href="2-details/address-not-found">Address not found</a>
+            </li>
+            <li>
+              <a href="2-details/confirm-address?results=1">Confirm address</a>
+              – 1 address found</li>
+            <li>
+              <a href="2-details/select-address?results=4">Select and confirm address from radios</a>
+              – 4 results for postcode</li>
+            <li>
+              <a href="2-details/select-address?results=7">Select and confirm address from radios</a>
+              – 30 results for 7 plus postcode</li>
+            <li>
+              <a href="2-details/select-address?results=cottage">Select and confirm address from radios</a>
+              – 9 results for cottage plus postcode</li>
+            <li>
+              <a href="2-details/property-number">Enter property number or name</a>
+              – Too many addressess found to show</li>
+          </ul>
+        </div>
+      </div>
+    {% endblock %}

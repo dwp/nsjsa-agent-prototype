@@ -1,51 +1,38 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form action="property-number" method="post">
-        
-        <h1 class="govuk-heading-l"><span class='govuk-caption-xl'>Personal details</span> Find your address</h1>
-
+        <h1 class="govuk-heading-l">
+          <span class='govuk-caption-xl'>Personal details</span>
+          Find your address</h1>
         {% if data['results'] == '27' %}
-
           {{ govukInsetText({
             html: "27 addresses found for <strong class=uc>" + data['postcode'] + "</strong>"
           }) }}
-
         {% else %}
-
           {{ govukInsetText({
             html: "349 addresses found for <strong class=uc>W2 1JB</strong>"
           }) }}
-
         {% endif %}
-
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-      {% call govukFieldset({
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          {% call govukFieldset({
           legend: {
               text: "Narrow your results",
               classes: "govuk-fieldset__legend--m",
               isPageHeading: true
           }
       }) %}
-
-        {{ govukInput({
+          {{ govukInput({
             label: {
               text: "Enter property number (or name)",
               isPageHeading: false
@@ -57,26 +44,23 @@
               text: "for example, Flat 20A"
             }
         }) }}
-
-      {% endcall %}
-
-      {{ govukButton({
+          {% endcall %}
+          {{ govukButton({
         text: "Continue"
       }) }}
-
-      {% set dontKnowHtml %}
-      <p>Enter the property number or name for the address that your application for New Style JSA will be registered to.</p>
-      <p>You can enter your property name if it is registered with your local council. For example, <span>Mill Cottage</span>.</p>
-      <p><a href="address">Enter your address manually</a></p>
-      {% endset %}
-
-      {{ govukDetails({
+          {% set dontKnowHtml %}
+          <p>Enter the property number or name for the address that your application for New Style JSA will be registered to.</p>
+          <p>You can enter your property name if it is registered with your local council. For example,
+            <span>Mill Cottage</span>.</p>
+          <p>
+            <a href="address">Enter your address manually</a>
+          </p>
+          {% endset %}
+          {{ govukDetails({
         summaryText: "I need help with my property number or name",
         html: dontKnowHtml
       }) }}
-
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}

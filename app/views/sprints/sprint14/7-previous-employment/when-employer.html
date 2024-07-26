@@ -1,22 +1,15 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Previous employment</span>
         When did you work for this employer?
       </h1>
-
       <form action="why-end" method="post">
-
         {{ govukDateInput({
           id: 'pe-when-employer-start',
           name: 'peWhenEmployerStart',
@@ -50,9 +43,7 @@
               label: 'Year'
             }
           ]
-          })
-        }}
-
+          }) }}
         {{ govukDateInput({
           id: 'pe-when-employer-finish',
           name: 'peWhenEmployerFinish',
@@ -86,15 +77,11 @@
               label: 'Year'
             }
           ]
-          })
-        }}
-
+          }) }}
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

@@ -1,44 +1,32 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   Locked Out – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
 {% block beforeContent %}
-
-{{ govukPhaseBanner({
+  {{ govukPhaseBanner({
   tag: {
     text: "prototype"
   },
   html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         You are locked out
       </h1>
-      
-      <p class="govuk-body">This is because you tried to sign in unsuccessfully too many times. We do this to keep your information secure.</p>
+      <p class="govuk-body">This is because you tried to sign in unsuccessfully too many times. We do this to keep your
+        information secure.</p>
       <p class="govuk-body">You need to reset your password before you can sign in again.</p>
-
       <h2 class="govuk-heading-m">When you sign in for the first time</h2>
-
       {{ govukButton({
         text: "Reset password"
       }) }}
-
       {{ govukDetails({
         summaryText: "If you are still locked out after resetting your password",
         text: "[INSERT SUPPORT INSTRUCTIONS]."
       }) }}
-
     </div>
   </div>
-
 {% endblock %}

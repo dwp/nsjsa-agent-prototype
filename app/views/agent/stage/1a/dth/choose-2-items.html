@@ -1,191 +1,192 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-xl ">
-      Choose 2 items we can ask you about
-    </h1>
-
-    <form method="post" action="choose-2-items">
-      <div class="govuk-form-group">
-        <fieldset data-minimum-options="2" data-error-multi="Select at least x options" class="govuk-fieldset" data-error="Select an option">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-
-          </legend>
-
-          <!-- cycle around the radios -->
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-
-            <div class="govuk-radios__item">
-              <input class="govuk-checkboxes__input" id="ukPassport" name="ivQuestionLogic" type="checkbox" value="ukPassport" aria-controls="target-ukPassport" aria-expanded="false">
-
-              <label class="govuk-label govuk-checkboxes__label" for="ukPassport">
-                UK passport
-              </label>
-              <span id="ukPassport-hint" class="govuk-hint govuk-radios__hint">
-                You need a valid UK passport
-              </span>
-            </div>
-
-            <!-- Start the reveal panel -->
-
-            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-ukPassport">
-              <p class="govuk-body">We’ll need to check the details you enter with HM Passport Office</p>
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <div class="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="passport-consent" name="passport-consent" type="checkbox" value="true"><label class="govuk-label govuk-checkboxes__label" for="passport-consent">I agree</label></div>
-                  </div>
-                </fieldset>
-              </div><br>
-              <p class="govuk-body-s">To see how we store and process your information, see our <a href="#privacy">privacy notice (opens in new tab)</a>.</p>
-            </div>
-
-            <!-- end the concealed panel -->
-
-            <!-- <div class="govuk-radios__item">
-              <input class="govuk-checkboxes__input" id="driversLicense" name="ivQuestionLogic" type="checkbox"
-                value="driversLicense" aria-controls="target-driversLicense" aria-expanded="false">
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl ">
+        Choose 2 items we can ask you about
+      </h1>
+      <form method="post" action="choose-2-items">
+        <div class="govuk-form-group">
+          <fieldset
+            data-minimum-options="2"
+            data-error-multi="Select at least x options"
+            class="govuk-fieldset"
+            data-error="Select an option">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m"></legend>
+            <!-- cycle around the radios -->
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-radios__item">
+                <input
+                  class="govuk-checkboxes__input"
+                  id="ukPassport"
+                  name="ivQuestionLogic"
+                  type="checkbox"
+                  value="ukPassport"
+                  aria-controls="target-ukPassport"
+                  aria-expanded="false">
+                <label class="govuk-label govuk-checkboxes__label" for="ukPassport">
+                  UK passport
+                </label>
+                <span id="ukPassport-hint" class="govuk-hint govuk-radios__hint">
+                  You need a valid UK passport
+                </span>
+              </div>
+              <!-- Start the reveal panel -->
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-ukPassport">
+                <p class="govuk-body">We’ll need to check the details you enter with HM Passport Office</p>
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="passport-consent" name="passport-consent" type="checkbox" value="true"> <label class="govuk-label govuk-checkboxes__label" for="passport-consent">I agree</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div><br>
+                <p class="govuk-body-s">To see how we store and process your information, see our
+                  <a href="#privacy">privacy notice (opens in new tab)</a>.</p>
+              </div>
+              <!-- end the concealed panel -->
+              <!-- <div class="govuk-radios__item"> <input class="govuk-checkboxes__input" id="driversLicense" name="ivQuestionLogic"
+              type="checkbox"
+                  value="driversLicense" aria-controls="target-driversLicense" aria-expanded="false">
+              
               <label class="govuk-label govuk-checkboxes__label" for="driversLicense">
-                Driving licence
-              </label>
-              <span id="driversLicense-hint" class="govuk-hint govuk-radios__hint">
-                You need a driving licence issued in the UK or Ireland
-              </span>
-            </div> -->
-
-            <!-- Start the reveal panel -->
-
-            <!-- <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-driversLicense">
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Where was your driving licence
-                    issued?</legend>
-                  <div class="govuk-radios">
-                    <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="dvla"
-                        name="issuedDl" type="radio" value="dvla" "=""><label class=" govuk-label
-                        govuk-radios__label " for=" dvla">England, Scotland or Wales</label></div>
-                    <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="dva"
-                        name="issuedDl" type="radio" value="dva" "=""><label class=" govuk-label
-                        govuk-radios__label " for=" dva">Northern Ireland</label></div>
-                  </div>
-                </fieldset>
+                  Driving licence
+              </label> <span id="driversLicense-hint" class="govuk-hint govuk-radios__hint">
+                  You need a driving licence issued in the UK or Ireland
+              </span> </div> -->
+              <!-- Start the reveal panel -->
+              <!-- <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-driversLicense"> <div
+              class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Where was your driving licence
+                      issued?</legend>
+                    <div class="govuk-radios">
+                      <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="dvla"
+                          name="issuedDl" type="radio" value="dvla" "=""><label class=" govuk-label
+                          govuk-radios__label " for=" dvla">England, Scotland or Wales</label></div>
+                      <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="dva"
+                          name="issuedDl" type="radio" value="dva" "=""><label class=" govuk-label
+                          govuk-radios__label " for=" dva">Northern Ireland</label></div>
+                    </div>
+                  </fieldset>
+              </div> </div> -->
+              <!-- end the concealed panel -->
+                <div class="govuk-radios__item"> <input
+                  class="govuk-checkboxes__input"
+                  id="payslipsP60"
+                  name="ivQuestionLogic"
+                  type="checkbox"
+                  value="payslipsP60"
+                  aria-controls="target-payslipsP60"
+                  aria-expanded="false">
+                <label class="govuk-label govuk-checkboxes__label" for="payslipsP60">
+                  Payslip or P60
+                </label>
+                <span id="payslipsP60-hint" class="govuk-hint govuk-radios__hint">
+                  You need a payslip dated after 17 April 2020 or your most recent P60
+                </span>
               </div>
-            </div> -->
-
-            <!-- end the concealed panel -->
-
-            <div class="govuk-radios__item">
-              <input class="govuk-checkboxes__input" id="payslipsP60" name="ivQuestionLogic" type="checkbox" value="payslipsP60" aria-controls="target-payslipsP60" aria-expanded="false">
-
-              <label class="govuk-label govuk-checkboxes__label" for="payslipsP60">
-                Payslip or P60
-              </label>
-              <span id="payslipsP60-hint" class="govuk-hint govuk-radios__hint">
-                You need a payslip dated after 17 April 2020 or your most recent P60
-              </span>
-            </div>
-
-            <!-- Start the reveal panel -->
-
-            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-payslipsP60">
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Which document do you want to use?
-                  </legend> -->
-                  <div class="govuk-radios">
-                    <div class="govuk-radios__item" data-children-count="1">
-                      <input class="govuk-radios__input" id="payslip" name="payslipOrP60" type="radio" value="payslip">
-                      <label class="govuk-label govuk-radios__label" for="payslip">
+              <!-- Start the reveal panel -->
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-payslipsP60">
+                <div class="govuk-form-group">
+                  <fieldset
+                    class="govuk-fieldset">
+                    <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Which document do you want to use? </legend> -->
+                    <div class="govuk-radios">
+                      <div class="govuk-radios__item" data-children-count="1">
+                        <input class="govuk-radios__input" id="payslip" name="payslipOrP60" type="radio" value="payslip">
+                        <label class="govuk-label govuk-radios__label" for="payslip">
                           Payslip
-                      </label>
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item" data-children-count="1">
+                        <input class="govuk-radios__input" id="p60" name="payslipOrP60" type="radio" value="p60">
+                        <label class="govuk-label govuk-radios__label" for="p60">P60</label>
+                      </div>
                     </div>
-                    <div class="govuk-radios__item" data-children-count="1">
-                      <input class="govuk-radios__input" id="p60" name="payslipOrP60" type="radio" value="p60">
-                      <label class="govuk-label govuk-radios__label" for="p60">P60</label>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input
+                  class="govuk-checkboxes__input"
+                  id="taxCreditsPayments"
+                  name="ivQuestionLogic"
+                  type="checkbox"
+                  value="taxCreditsPayments"
+                  aria-controls="target-taxCreditsPayments"
+                  aria-expanded="false">
+                <label class="govuk-label govuk-checkboxes__label" for="taxCreditsPayments">
+                  Tax credits (including Voice ID)
+                </label>
+                <span id="taxCreditsPayments-hint" class="govuk-hint govuk-radios__hint">
+                  You need your claim details, you can use Voice ID
+                </span>
+              </div>
+              <!-- Start the reveal panel -->
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-taxCreditsPayments">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Do you want to use Voice ID?</legend>
+                    <div class="govuk-radios">
+                      <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="voiceIdYes" name="tcOptions" type="radio" value="voiceIdYes"> <label class="govuk-label govuk-radios__label " for="voiceIdYes">Yes</label>
+                      </div>
+                      <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="voiceIdNo" name="tcOptions" type="radio" value="voiceIdNo"> <label class=" govuk-label
+                                                govuk-radios__label " for=" voiceIdNo">No</label>
+                      </div>
                     </div>
-                  </div>
-                </fieldset>
+                  </fieldset>
+                </div>
               </div>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-checkboxes__input" id="taxCreditsPayments" name="ivQuestionLogic" type="checkbox" value="taxCreditsPayments" aria-controls="target-taxCreditsPayments" aria-expanded="false">
-
-              <label class="govuk-label govuk-checkboxes__label" for="taxCreditsPayments">
-                Tax credits (including Voice ID)
-              </label>
-              <span id="taxCreditsPayments-hint" class="govuk-hint govuk-radios__hint">
-                You need your claim details, you can use Voice ID
-              </span>
-            </div>
-
-            <!-- Start the reveal panel -->
-
-            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-taxCreditsPayments">
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Do you want to use Voice ID?</legend>
-                  <div class="govuk-radios">
-                    <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="voiceIdYes" name="tcOptions" type="radio" value="voiceIdYes"><label class="govuk-label govuk-radios__label " for="voiceIdYes">Yes</label></div>
-                    <div class="govuk-radios__item" data-children-count="1"><input class="govuk-radios__input" id="voiceIdNo" name="tcOptions" type="radio" value="voiceIdNo"><label class=" govuk-label
-                        govuk-radios__label " for=" voiceIdNo">No</label></div>
-                  </div>
-                </fieldset>
+              <!-- end the concealed panel -->
+              <div class="govuk-radios__item">
+                <input
+                  class="govuk-checkboxes__input"
+                  id="transunion"
+                  name="ivQuestionLogic"
+                  type="checkbox"
+                  value="transunion"
+                  aria-controls="target-transunion"
+                  aria-expanded="false">
+                <label class="govuk-label govuk-checkboxes__label" for="transunion">
+                  Credit reference questions
+                </label>
+                <span id="transunion-hint" class="govuk-hint govuk-radios__hint">
+                  For example, the year you took out a credit card or phone contract
+                </span>
               </div>
+              <!-- Start the reveal panel -->
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-transunion">
+                <p class="govuk-body">We use a credit reference agency to ask these questions.</p>
+                <p class="govuk-body">Our nominated credit reference agency is
+                  <a href="#transunion" target="_blank">TransUnion UK Limited (opens in new tab)</a>.</p>
+                <p class="govuk-body">We’ll need to share your name, address and date of birth with Transunion UK Limited.
+                </p>
+                <p>Your credit rating will not be affected.</p>
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <div class="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="cra-consent" name="cra-consent" type="checkbox" value="true"> <label class="govuk-label govuk-checkboxes__label" for="cra-consent">I agree</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div><br>
+                <p class="govuk-body-s">To see how we store and process your information, see our
+                  <a href="#privacy">privacy notice (opens in new tab)</a>.</p>
+              </div>
+              <!-- end the concealed panel -->
             </div>
-
-            <!-- end the concealed panel -->
-
-            <div class="govuk-radios__item">
-              <input class="govuk-checkboxes__input" id="transunion" name="ivQuestionLogic" type="checkbox" value="transunion" aria-controls="target-transunion" aria-expanded="false">
-
-              <label class="govuk-label govuk-checkboxes__label" for="transunion">
-                Credit reference questions
-              </label>
-              <span id="transunion-hint" class="govuk-hint govuk-radios__hint">
-                For example, the year you took out a credit card or phone contract
-              </span>
-            </div>
-
-            <!-- Start the reveal panel -->
-
-            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-transunion">
-              <p class="govuk-body">We use a credit reference agency to ask these questions.</p>
-              <p class="govuk-body">Our nominated credit reference agency is <a href="#transunion" target="_blank">TransUnion UK Limited (opens in new tab)</a>.</p>
-              <p class="govuk-body">We’ll need to share your name, address and date of birth with Transunion UK Limited.
-              </p>
-              <p>Your credit rating will not be affected.</p>
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <div class="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="cra-consent" name="cra-consent" type="checkbox" value="true"><label class="govuk-label govuk-checkboxes__label" for="cra-consent">I agree</label></div>
-                  </div>
-                </fieldset>
-              </div><br>
-              <p class="govuk-body-s">To see how we store and process your information, see our <a href="#privacy">privacy notice (opens in new tab)</a>.</p>
-            </div>
-
-            <!-- end the concealed panel -->
-
-          </div>
-        </fieldset>
-      </div>
-
-      <p class="body-text"><a href="more-information.html">I can’t answer questions on any of these options</a></p>
-
-      <input class="govuk-button" type="submit" value="Continue">
-
-    </form>
+          </fieldset>
+        </div>
+        <p class="body-text">
+          <a href="more-information.html">I can’t answer questions on any of these options</a>
+        </p>
+        <input class="govuk-button" type="submit" value="Continue">
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

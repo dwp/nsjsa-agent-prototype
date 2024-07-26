@@ -1,49 +1,38 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-      
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Confirm your identity</h1>
-      
-      <p>Confirming your identity helps us check it is really you making a claim – not someone pretending to be you. 
-      To save time later, you will need to register and answer some questions about yourself.</p>
-
+      <p>Confirming your identity helps us check it is really you making a claim – not someone pretending to be you. To save
+        time later, you will need to register and answer some questions about yourself.</p>
       <h2 class="govuk-heading-m">Before you start</h2>
-
       <p>To register you will need:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>an email address</li>
         <li>a mobile phone</li>
       </ul>
-
       {{ govukDetails({
           summaryText: "Why we ask you to repeat some information",
           html: "DWP does not yet have a data share agreement with HMRC. 
           This means we cannot send information you have already provided to them to confirm your identity.
           We're working to fix this so you only have to give us information once. Until then we may have to ask you a few times."
       }) }}
-
       <h3 class="govuk-heading-s">You will also need 2 of the following:</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li>P60 or payslips</li>
         <li>a valid UK passport</li>
         <li>tax credit information</li>
       </ul>
-      
       {{ govukButton({
           text: "Continue",
           href: "dth"
       }) }}
-      <p><a href="/agent/stage/1a/complete-confirmation?id=not-verified">I do not have this information</a></p>
-
+      <p>
+        <a href="/agent/stage/1a/complete-confirmation?id=not-verified">I do not have this information</a>
+      </p>
     </div>
   </div>
-
 {% endblock %}

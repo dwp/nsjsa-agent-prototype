@@ -1,41 +1,59 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
   NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-l">Sprint 5 & 6 – ID at risk, pushes and processing claims</h1>
-
       <h3 class="govuk-heading-s">Increment 4</h3>
-      <p><a href="choose-task">Choose a task</a></p>
+      <p>
+        <a href="choose-task">Choose a task</a>
+      </p>
       <h4 class="govuk-heading-s">Scenarios</h4>
       <ol class="govuk-list govuk-list--number">
-        <li><a href="view-claim?task=fix&claimStatus=registration-failed&claimant=ij&idRisk=0&fraud=0&cis=0&noReg=1&build=0">V1 Register a claim</a> - Fix ES push to trigger MBR</li>
-        <li><a href="view-claim?task=register&claimStatus=registration-needed&claimant=ij&idRisk=0&fraud=0&cis=0&noReg=1&build=0">V2 Register a claim</a> - Fix ES push to trigger MBR</li>
-        <li><a href="view-claim?task=idRefer&claimant=sh&claimStatus=pre-checks-complete&idRisk=1&fraud=0&cis=0&noReg=0&build=0">Process a claim with ID at risk</a></li>
-        <li><a href="view-claim?task=idRefer&claimant=sh&claimStatus=pre-checks-complete&idRisk=0&fraud=1&cis=0&noReg=0&build=0">Process a claim with suspicion of fraud</a></li>
-        <li><a href="view-claim?task=process&claimant=sh&claimStatus=build-failed&idRisk=0&fraud=0&cis=0&noReg=0&build=1">Process a claim with build failed</a> - Fix BA push</li>
-        <li><a href="view-claim?task=process&claimant=sh&claimStatus=pre-checks-complete&idRisk=0&fraud=0&cis=appointee&noReg=0&build=0">Process a claim with an appointee</a></li>
+        <li>
+          <a href="view-claim?task=fix&claimStatus=registration-failed&claimant=ij&idRisk=0&fraud=0&cis=0&noReg=1&build=0">V1
+            Register a claim</a>
+          - Fix ES push to trigger MBR</li>
+        <li>
+          <a href="view-claim?task=register&claimStatus=registration-needed&claimant=ij&idRisk=0&fraud=0&cis=0&noReg=1&build=0">V2
+            Register a claim</a>
+          - Fix ES push to trigger MBR</li>
+        <li>
+          <a href="view-claim?task=idRefer&claimant=sh&claimStatus=pre-checks-complete&idRisk=1&fraud=0&cis=0&noReg=0&build=0">
+            Process a claim with ID at risk</a>
+        </li>
+        <li>
+          <a href="view-claim?task=idRefer&claimant=sh&claimStatus=pre-checks-complete&idRisk=0&fraud=1&cis=0&noReg=0&build=0">
+            Process a claim with suspicion of fraud</a>
+        </li>
+        <li>
+          <a href="view-claim?task=process&claimant=sh&claimStatus=build-failed&idRisk=0&fraud=0&cis=0&noReg=0&build=1">Process a
+            claim with build failed</a>
+          - Fix BA push</li>
+        <li>
+          <a href="view-claim?task=process&claimant=sh&claimStatus=pre-checks-complete&idRisk=0&fraud=0&cis=appointee&noReg=0&build=0">
+            Process a claim with an appointee</a>
+        </li>
         {# <li><a href="view-claim?task=process&claimant=ij&claimStatus=new-claim&idRisk=0&fraud=0&cis=0&noReg=0">No ID at risk and no fraud</a></li> #}
       </ol>
-
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-      <h3 class="govuk-heading-s">Increment 3</h3>
-      <p><a href="i3/nino-search">Find a claim</a></p>
-
-      <h4 class="govuk-heading-s">Scenarios</h4>
-      <ol class="govuk-list govuk-list--number">
-        <li><a href="i3/view-claim?task=process&claimant=sh&claimStatus=new-claim&idRisk=1&fraud=0&cis=0&noReg=0">Process a claim with ID at risk</a></li>
-        <li><a href="i3/view-claim?task=process&claimant=sh&claimStatus=new-claim&idRisk=0&fraud=0&cis=0&noReg=0">Process a claim with no ID at risk and no fraud</a></li>
-      </ol>
-      
+        <h3 class="govuk-heading-s">Increment 3</h3>
+        <p>
+          <a href="i3/nino-search">Find a claim</a>
+        </p>
+        <h4 class="govuk-heading-s">Scenarios</h4>
+        <ol class="govuk-list govuk-list--number">
+          <li>
+            <a href="i3/view-claim?task=process&claimant=sh&claimStatus=new-claim&idRisk=1&fraud=0&cis=0&noReg=0">Process a claim
+              with ID at risk</a>
+          </li>
+          <li>
+            <a href="i3/view-claim?task=process&claimant=sh&claimStatus=new-claim&idRisk=0&fraud=0&cis=0&noReg=0">Process a claim
+              with no ID at risk and no fraud</a>
+          </li>
+        </ol>
+      </div>
     </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}

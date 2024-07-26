@@ -1,126 +1,108 @@
-{% extends "agent/layout.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
-  {{ serviceName }}
+    {{ serviceName }}
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-l">
-      All applications for today
-      <span class="govuk-caption-l">Monday 15 December 2021</span>
-    </h1>
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-9">Overview</h2>
-
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Submitted</span>
-            <p class="govuk-heading-xl">321</p>
-        </div>
-    </div>
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">Registration</h2>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Total automated</span>
-            <p class="govuk-heading-xl">123</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Total exceptions</span>
-            <p class="govuk-heading-xl">198</p>
-        </div>
-    </div>
-
-    <h2 class="govuk-heading-s">Exceptions</h2>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">NINo mismatch</span>
-            <p class="govuk-heading-xl">65</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Duplicate</span>
-            <p class="govuk-heading-xl">44</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Automation error</span>
-            <p class="govuk-heading-xl">89</p>
-        </div>
-    </div>
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">Processing</h2>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Appointment referred</span>
-            <p class="govuk-heading-xl">92</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Not entitled</span>
-            <p class="govuk-heading-xl">78</p>
-        </div>
-    </div>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Complex</span>
-            <p class="govuk-heading-xl">61</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Failed to contact</span>
-            <p class="govuk-heading-xl">84</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Suspected fraud</span>
-            <p class="govuk-heading-xl">13</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Clerical rebuild</span>
-            <p class="govuk-heading-xl">12</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Fully clerical</span>
-            <p class="govuk-heading-xl">2</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Northern Ireland</span>
-            <p class="govuk-heading-xl">3</p>
-        </div>
-    </div>
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m"><a href="book-appointment">Appointment booking</a></h2>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">No slots available</span>
-            <p class="govuk-heading-xl">78</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">First fail</span>
-            <p class="govuk-heading-xl">43</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Second fail</span>
-            <p class="govuk-heading-xl">645</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <span class="govuk-caption-m">Final fail</span>
-            <p class="govuk-heading-xl">342</p>
-        </div>
-    </div>
-
-
-  </div>
-</div>
-
-{% endblock %}
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                All applications for today
+                <span class="govuk-caption-l">Monday 15 December 2021</span>
+            </h1>
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Overview</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <span class="govuk-caption-m">Submitted</span>
+                    <p class="govuk-heading-xl">321</p>
+                </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <h2 class="govuk-heading-m">Registration</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">Total automated</span>
+                        <p class="govuk-heading-xl">123</p>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">Total exceptions</span>
+                        <p class="govuk-heading-xl">198</p>
+                    </div>
+                </div>
+                <h2 class="govuk-heading-s">Exceptions</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">NINo mismatch</span>
+                        <p class="govuk-heading-xl">65</p>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">Duplicate</span>
+                        <p class="govuk-heading-xl">44</p>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <span class="govuk-caption-m">Automation error</span>
+                        <p class="govuk-heading-xl">89</p>
+                    </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                    <h2 class="govuk-heading-m">Processing</h2>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Appointment referred</span>
+                            <p class="govuk-heading-xl">92</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Not entitled</span>
+                            <p class="govuk-heading-xl">78</p>
+                        </div>
+                    </div>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Complex</span>
+                            <p class="govuk-heading-xl">61</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Failed to contact</span>
+                            <p class="govuk-heading-xl">84</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Suspected fraud</span>
+                            <p class="govuk-heading-xl">13</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Clerical rebuild</span>
+                            <p class="govuk-heading-xl">12</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Fully clerical</span>
+                            <p class="govuk-heading-xl">2</p>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <span class="govuk-caption-m">Northern Ireland</span>
+                            <p class="govuk-heading-xl">3</p>
+                        </div>
+                    </div>
+                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                        <h2 class="govuk-heading-m">
+                            <a href="book-appointment">Appointment booking</a>
+                        </h2>
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <span class="govuk-caption-m">No slots available</span>
+                                <p class="govuk-heading-xl">78</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <span class="govuk-caption-m">First fail</span>
+                                <p class="govuk-heading-xl">43</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <span class="govuk-caption-m">Second fail</span>
+                                <p class="govuk-heading-xl">645</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <span class="govuk-caption-m">Final fail</span>
+                                <p class="govuk-heading-xl">342</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}

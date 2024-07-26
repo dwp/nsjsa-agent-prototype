@@ -1,38 +1,26 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-{% set warning %}
-{{ govukWarningText({
+  {% set warning %}
+  {{ govukWarningText({
   text: "We can't process your application until you confirm your identity",
   iconFallbackText: "Warning"
 }) }}
-{% endset %}
-
-<div class="govuk-grid-row">
+  {% endset %}
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       {{ govukPanel({
         titleText: "Almost done",
         html: "<span>Email confirmation sent to <strong>you@email.co.uk</strong></span>" + warning
       }) }}
-
-Your application for Jobseeker's allowance has been sent
-We sent a confirmation email to email@gmail.com
-We can't process your application until you have confirmed your identity
-      
-
+      Your application for Jobseeker's allowance has been sent We sent a confirmation email to email@gmail.com We can't
+      process your application until you have confirmed your identity
       {{ govukButton({
         text: "Continue to confirm identity",
         href: "hand-off"
       }) }}
-
     </div>
   </div>
-
 {% endblock %}

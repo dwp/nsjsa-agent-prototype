@@ -1,16 +1,11 @@
-{% extends "agent/layout.html" %}
-
+{% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-  {{ serviceName }}: Application for {{ data['service-short-name']}} Customer Statement
+  {{ serviceName }}: Application for {{ data['service-short-name'] }} Customer Statement
 {% endblock %}
-
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-
 {% block header %}
-  
   {{ super() }}
-
-{{ dwpKeyDetailsBar({
+  {{ dwpKeyDetailsBar({
     claimantName: "Ian Johnson",
     claimantNINO: "RN 00 00 35 C",
     claimStatus: "ID not verified",
@@ -35,45 +30,36 @@
     showToggle: showToggle,
     classes: "dwp-print-hide"
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
-{% set matchTag %}
-{{ govukTag({
+  {% set matchTag %}
+  {{ govukTag({
   text: "match",
   classes: "govuk-tag--grey"
 }) }}
-{% endset %}
-
-{% set misMatchTag %}
-{{ govukTag({
+  {% endset %}
+  {% set misMatchTag %}
+  {{ govukTag({
   text: "mismatch",
   classes: "govuk-tag--red"
 }) }}
-{% endset %}
-
-<div class="govuk-grid-row dwp-print-hide">
-  <div class="govuk-grid-column-two-thirds">
-
-  <h1 class="govuk-heading-l govuk-!-display-none">BIO check claim</h1>
-
-  <section class="dwp-claim-section dwp-print-no-break">
-    <h2 class="govuk-heading-m govuk-visually-hidden">Fraud check</h2>
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        <span class="govuk-heading-s govuk-!-margin-bottom-0">Bank account name does not match claimant's name</span>
-      </strong>
-    </div>
-  </section>
-
-
-  <section class="dwp-claim-section dwp-print-no-break">
-    <h2 class="govuk-heading-m">Searchlight check</h2>
-    {{ dwpSummaryList({
+  {% endset %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-!-display-none">BIO check claim</h1>
+      <section class="dwp-claim-section dwp-print-no-break">
+        <h2 class="govuk-heading-m govuk-visually-hidden">Fraud check</h2>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            <span class="govuk-heading-s govuk-!-margin-bottom-0">Bank account name does not match claimant's name</span>
+          </strong>
+        </div>
+      </section>
+      <section class="dwp-claim-section dwp-print-no-break">
+        <h2 class="govuk-heading-m">Searchlight check</h2>
+        {{ dwpSummaryList({
       rows: [
         {
           key: {
@@ -143,12 +129,11 @@
         }
       ]
     }) }}
-  </section>
-
-<!-- About you -->
-<section class="dwp-claim-section">
-  <h2 class="govuk-heading-m govuk-!-margin-top-8">Contact details</h2>
-  {{ govukSummaryList({
+      </section>
+      <!-- About you -->
+      <section class="dwp-claim-section">
+        <h2 class="govuk-heading-m govuk-!-margin-top-8">Contact details</h2>
+        {{ govukSummaryList({
     rows: [
       {
         key: {
@@ -167,12 +152,11 @@
       }
     ]
   }) }}
-</section>
-
-<!-- Payment information -->
-<section class="dwp-claim-section dwp-print-no-break">
-  <h2 class="govuk-heading-m govuk-!-margin-top-8">Bank details</h2>
-  {{ dwpSummaryList({
+      </section>
+      <!-- Payment information -->
+      <section class="dwp-claim-section dwp-print-no-break">
+        <h2 class="govuk-heading-m govuk-!-margin-top-8">Bank details</h2>
+        {{ dwpSummaryList({
     rows: [
       {
         key: {
@@ -206,12 +190,11 @@
       }
     ]
   }) }}
-</section>
-
-<!-- Benefit information -->
-<section class="dwp-claim-section dwp-print-no-break">
-  <h2 class="govuk-heading-m govuk-!-margin-top-8">Benefit interest</h2>
-  {{ govukSummaryList({
+      </section>
+      <!-- Benefit information -->
+      <section class="dwp-claim-section dwp-print-no-break">
+        <h2 class="govuk-heading-m govuk-!-margin-top-8">Benefit interest</h2>
+        {{ govukSummaryList({
     rows: [
       {
         key: {
@@ -230,25 +213,17 @@
       }
     ]
   }) }}
-</section>
-  
-
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-    
-    <aside class="app-related-items" role="complementary">
-
-            <h3 class="govuk-heading-m">Claim actions</h3>
-            {{ govukButton({
+      </section>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h3 class="govuk-heading-m">Claim actions</h3>
+        {{ govukButton({
               text: "Update claim status",
               href: "update-claim-status"
             }) }}
-            
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-            <h3 class="govuk-heading-m">Claim history</h3>
-
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <h3 class="govuk-heading-m">Claim history</h3>
           {{ dwpTimeline({
             items: [
               {
@@ -266,12 +241,7 @@
               }
             ]
           }) }}
-
-    </aside>
-
-  </div>
-
-</div>
-
-
-{% endblock %}
+        </aside>
+      </div>
+    </div>
+  {% endblock %}

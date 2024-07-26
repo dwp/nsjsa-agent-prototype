@@ -1,70 +1,54 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
-  NSJSA Automation Prototypes
+    NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
-{% set regTag %}
-    {{govukTag({
+    {% set regTag %}
+    {{ govukTag({
         text: "Register",
         classes: "govuk-tag--blue"
-    })}}
-{% endset %}
-
-{% set proTag %}
-    {{govukTag({
+    }) }}
+    {% endset %}
+    {% set proTag %}
+    {{ govukTag({
         text: "Process",
         classes: "govuk-tag--purple"
-    })}}
-{% endset %}
-
-{% set escTag %}
-    {{govukTag({
+    }) }}
+    {% endset %}
+    {% set escTag %}
+    {{ govukTag({
         text: "Escalation",
         classes: "govuk-tag--green"
-    })}}
-{% endset %}
-
-{% set fraudTag %}
-    {{govukTag({
+    }) }}
+    {% endset %}
+    {% set fraudTag %}
+    {{ govukTag({
         text: "Fraud",
         classes: "govuk-tag--yellow"
-    })}}
-{% endset %}
-
-{% set appTag %}
-    {{govukTag({
+    }) }}
+    {% endset %}
+    {% set appTag %}
+    {{ govukTag({
         text: "Appointee",
         classes: "govuk-tag--pink"
-    })}}
-{% endset %}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-
-      <h1 class="govuk-heading-l">
-        Increment 7
-        <span class="govuk-caption-l">{{ data['i7Name'] }}</span>
-      </h1>
-
-      <p>Increment 7 introduces 3 buckets of claims, {{ escTag | safe }}, {{ fraudTag | safe }} and {{ appTag | safe }}.</p>
-
-      <p><a href="../understanding-exceptions">Understanding exceptions to automation</a>.</p>
-
-{# {{ data | dump('\t') }} #}
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      </div>
-    </div>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-
-        <h2 class="govuk-heading-m">Agent manual tasks</h2>
-
-    {{ govukTable({
+    }) }}
+    {% endset %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-l">
+                Increment 7
+                <span class="govuk-caption-l">{{ data['i7Name'] }}</span>
+            </h1>
+            <p>Increment 7 introduces 3 buckets of claims, {{ escTag | safe }}, {{ fraudTag | safe }} and {{ appTag | safe }}.</p>
+            <p>
+                <a href="../understanding-exceptions">Understanding exceptions to automation</a>.</p>
+            {# {{ data | dump('\t') }} #}
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
+        </div>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <h2 class="govuk-heading-m">Agent manual tasks</h2>
+                {{ govukTable({
         caption: "Moved automation exceptions",
         captionClasses: "govuk-table__caption--s",
         firstCellIsHeader: true,
@@ -114,9 +98,7 @@
 
         ]
       }) }}
-
-
- {{ govukTable({
+                {{ govukTable({
         caption: "Escalation automation exceptions",
         captionClasses: "govuk-table__caption--s",
         firstCellIsHeader: true,
@@ -179,142 +161,139 @@
             ]
         ]
     }) }}
-
-    {# {{ govukTable({
-        caption: "Escalation automation exceptions",
-        captionClasses: "govuk-table__caption--s",
-        firstCellIsHeader: true,
-        head: [
-            {
-                text: "ID"
-            },
-            {
-                text: "Scenario"
-            },
-            {
-                html: "Previous bucket"
-            },
-            {
-                html:  "Escalated to"
-            }
-        ],
-        rows: [
-            [
-                {
-                    text: "s1"
-                },
-                {
-                    html: "<a href='start?s=s1'>A claim where we couldn't automate the registration</a> (ES push fail)"
-                },
-                {
-                    html: regTag
-                },
-                {
-                    html: escTag
-                }
-            ],
-            [
-                {
-                    text: "s2"
-                },
-                {
-                    html: "<a href='start?s=s2'>A claim where the NINo does not match CIS record</a>"
-                },
-                {
-                    html: regTag
-                },
-                {
-                    html: escTag
-                }
-            ],
-            [
-                {
-                    text: "s3"
-                },
-                {
-                    html: "<a href='start?s=s3'>A claim where we have duplicates</a>"
-                },
-                {
-                    html: regTag
-                },
-                {
-                    html: escTag
-                }
-            ],
-            [
-                {
-                    text: "s11"
-                },
-                {
-                    html: "<a href='start?s=s11'>A claim with an automated build failure</a> (BA push fail)"
-                },
-                {
-                    html: proTag
-                },
-                {
-                    html: escTag
-                }
-            ],
-            [
-                {
-                    text: "s12"
-                },
-                {
-                    html: "<a href='start?s=s12'>A claim without automatic NI contributions check</a> (MBR fail)"
-                },
-                {
-                    html: proTag
-                },
-                {
-                    html: escTag
-                }
-            ],
-            [
-                {
-                    text: "s13"
-                },
-                {
-                    html: "<a href='start?s=s13'>A claim complex for robotics"
-                },
-                {
-                    html: proTag
-                },
-                {
-                    html: escTag
-                }
-            ],
-            [
-                {
-                    text: "s14"
-                },
-                {
-                    html: "<a href='start?s=s14'>A claim with robotics error"
-                },
-                {
-                    html: proTag
-                },
-                {
-                    html: escTag
-                }
-            ],
-            [
-                {
-                    text: "s18"
-                },
-                {
-                    html: "<a href='start?s=s18'>A claim with an automated build failure that has been transferred to clerical process</a> (Transfer to clerical)"
-                },
-                {
-                    html: proTag
-                },
-                {
-                    html: escTag
-                }
-            ]
-        ]
-    }) }} #}
-
-    </div>
-  </div>
-
-{% endblock %}
+                {# {{ govukTable({
+                        caption: "Escalation automation exceptions",
+                        captionClasses: "govuk-table__caption--s",
+                        firstCellIsHeader: true,
+                        head: [
+                            {
+                                text: "ID"
+                            },
+                            {
+                                text: "Scenario"
+                            },
+                            {
+                                html: "Previous bucket"
+                            },
+                            {
+                                html:  "Escalated to"
+                            }
+                        ],
+                        rows: [
+                            [
+                                {
+                                    text: "s1"
+                                },
+                                {
+                                    html: "<a href='start?s=s1'>A claim where we couldn't automate the registration</a> (ES push fail)"
+                                },
+                                {
+                                    html: regTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ],
+                            [
+                                {
+                                    text: "s2"
+                                },
+                                {
+                                    html: "<a href='start?s=s2'>A claim where the NINo does not match CIS record</a>"
+                                },
+                                {
+                                    html: regTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ],
+                            [
+                                {
+                                    text: "s3"
+                                },
+                                {
+                                    html: "<a href='start?s=s3'>A claim where we have duplicates</a>"
+                                },
+                                {
+                                    html: regTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ],
+                            [
+                                {
+                                    text: "s11"
+                                },
+                                {
+                                    html: "<a href='start?s=s11'>A claim with an automated build failure</a> (BA push fail)"
+                                },
+                                {
+                                    html: proTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ],
+                            [
+                                {
+                                    text: "s12"
+                                },
+                                {
+                                    html: "<a href='start?s=s12'>A claim without automatic NI contributions check</a> (MBR fail)"
+                                },
+                                {
+                                    html: proTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ],
+                            [
+                                {
+                                    text: "s13"
+                                },
+                                {
+                                    html: "<a href='start?s=s13'>A claim complex for robotics"
+                                },
+                                {
+                                    html: proTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ],
+                            [
+                                {
+                                    text: "s14"
+                                },
+                                {
+                                    html: "<a href='start?s=s14'>A claim with robotics error"
+                                },
+                                {
+                                    html: proTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ],
+                            [
+                                {
+                                    text: "s18"
+                                },
+                                {
+                                    html: "<a href='start?s=s18'>A claim with an automated build failure that has been transferred to clerical process</a> (Transfer to clerical)"
+                                },
+                                {
+                                    html: proTag
+                                },
+                                {
+                                    html: escTag
+                                }
+                            ]
+                        ]
+                    }) }} #}
+            </div>
+        </div>
+    {% endblock %}

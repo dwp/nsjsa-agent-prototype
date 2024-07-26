@@ -1,32 +1,23 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance
+    DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
             <h1 class="govuk-heading-l">Based on your answers, you may not be eligible for New Style Jobseeker's Allowance (JSA)</h1>
-
             <section>
-                <p class="govuk-body">This is because you must have worked as an employee and paid Class 1 National Insurance contributions, usually in the last 2 to 3 years, to get New Style JSA.</p>
-
+                <p class="govuk-body">This is because you must have worked as an employee and paid Class 1 National Insurance
+                    contributions, usually in the last 2 to 3 years, to get New Style JSA.</p>
             </section>
-
             <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
             {{ govukButton({
                 text: "Find other benefits",
                 href: "https://www.gov.uk/benefits-calculators"
             }) }}
-
             {% include "./includes/still-apply.html" %}
-            <p><a href="../dth" class="js-still-apply">Continue to apply</a>
-
+            <p>
+                <a href="../dth" class="js-still-apply">Continue to apply</a>
+            </div>
         </div>
-    </div>
-
-{% endblock %}
+    {% endblock %}

@@ -1,36 +1,26 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Personal details</span>
         What is your date of birth?
       </h1>
-
       <form action="postcode" method="get">
-        
         {% if data['under16'] == "" %}
-
-        {% set errorArray = {
+          {% set errorArray = {
           dob: { text: "Check date of birth"}
-        }%}
-
-        {{ govukErrorSummary({
+        } %}
+          {{ govukErrorSummary({
           "titleText": "There is a problem",
           "errorList": [
             {
@@ -39,16 +29,12 @@
             }
           ]
         }) }}
-
         {% endif %}
-
         {% if data['over64'] == "" %}
-
-        {% set errorArray = {
+          {% set errorArray = {
           dob: { text: "You must be under state pension age to claim"}
-        }%}
-
-        {{ govukErrorSummary({
+        } %}
+          {{ govukErrorSummary({
           "titleText": "There is a problem",
           "errorList": [
             {
@@ -57,9 +43,7 @@
             }
           ]
         }) }}
-
         {% endif %}
-
         {{ govukDateInput({
             id: 'dob',
             name: 'dob',
@@ -84,15 +68,11 @@
                 }
             ],
             errorMessage: errorArray.dob
-            })
-        }}
-
+            }) }}
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

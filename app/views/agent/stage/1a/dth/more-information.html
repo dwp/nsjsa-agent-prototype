@@ -1,31 +1,21 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
   <div class="govuk-grid-row">
-
-    <div class="govuk-grid-column-two-thirds">
-
-<form method="post" action="/idv/hmrciv/idv-success">
-
-    <h1 class="govuk-heading-xl">
-        We need more information before we can confirm your identity
-    </h1>
-
-    <p class="govuk-body">You can <a href="choose-2-items.html">choose another way for us to identify you</a>.</p>
-    <p class="govuk-body">If you cannot provide the information we need to confirm your identity, you will need to <a href="../complete-confirmation?id=not-verified">confirm your identity another way</a>.</p>
-
-</form>
-
-
-        </div>
-        </div>
-        </div>
-
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post" action="/idv/hmrciv/idv-success">
+          <h1 class="govuk-heading-xl">
+            We need more information before we can confirm your identity
+          </h1>
+          <p class="govuk-body">You can
+            <a href="choose-2-items.html">choose another way for us to identify you</a>.</p>
+          <p class="govuk-body">If you cannot provide the information we need to confirm your identity, you will need to
+            <a href="../complete-confirmation?id=not-verified">confirm your identity another way</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

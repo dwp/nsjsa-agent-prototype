@@ -1,29 +1,21 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   IDV Start Page – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
 {% block beforeContent %}
-
-{{ govukPhaseBanner({
+  {{ govukPhaseBanner({
   tag: {
     text: "prototype"
   },
   html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         We need to ask some questions to prove your identity
       </h1>
-      
       <p class="govuk-body">You will be asked to give details about two items you may have, like your:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>a UK passport</li>
@@ -33,15 +25,13 @@
         <li>details of your credit record</li>
       </ul>
       <p class="govuk-body">You may also be able to answer questions about your credit record.</p>
-      <p class="govuk-body">If you cannot answer these questions, you will need to <a href="" class="govuk-link">confirm your identity another way</a>.</p>
-
-      <p class="govuk-body">We ask these questions to protect you against malicious or fraudulent attempts to access the service.</p>
-
+      <p class="govuk-body">If you cannot answer these questions, you will need to
+        <a href="" class="govuk-link">confirm your identity another way</a>.</p>
+      <p class="govuk-body">We ask these questions to protect you against malicious or fraudulent attempts to access the
+        service.</p>
       {{ govukButton({
         text: "Continue"
       }) }}
-
     </div>
   </div>
-
 {% endblock %}

@@ -1,33 +1,24 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Personal details</span>
         About you
       </h1>
-
       <form action="dob" method="post">
-        
         {% call govukFieldset({
         }) %}
-
-            {{ govukSelect({
+        {{ govukSelect({
                 id: "title",
                 name: "title",
                 label: {
@@ -72,8 +63,7 @@
                     }
                 ]
             }) }}
-
-            {{ govukInput({
+        {{ govukInput({
                 label: {
                     text: "First name"
                 },
@@ -81,8 +71,7 @@
                 id: "first-name",
                 name: "first-name"
             }) }}
-
-            {{ govukInput({
+        {{ govukInput({
                 label: {
                     text: "Last name"
                 },
@@ -90,15 +79,11 @@
                 id: "last-name",
                 name: "last-name"
             }) }}
-
         {% endcall %}
-
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

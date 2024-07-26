@@ -1,28 +1,29 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance
+    DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">You cannot apply online for New Style Jobseeker's Allowance</h1>
             <p>Contact Jobcentre Plus for help with your claim.</p>
             <div class="contact">
-            <p><strong>Jobcentre Plus</strong><br>
-            Telephone: 0800 055 6688<br>
-            Textphone: 0800 023 4888<br>
-            <a href="http://ngts.org.uk/">NGT text relay</a> (if you cannot hear or speak on the phone): 18001 then 0800 055 6688<br>
-            Welsh language: 0800 012 1888<br>
-            Monday to Friday, 8am to 6pm<br>
-            <a href="/call-charges">Find out about call charges</a></p>
-            </div>
-            <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
-            <p><a href="https://www.gov.uk/benefits-calculators">Find other benefits</a></p>
-        </div>
-    </div>
-
-{% endblock %}
+                <p>
+                    <strong>Jobcentre Plus</strong>
+                    <br>
+                        Telephone: 0800 055 6688<br>
+                            Textphone: 0800 023 4888<br>
+                                <a href="http://ngts.org.uk/">NGT text relay</a>
+                                (if you cannot hear or speak on the phone): 18001 then 0800 055 6688<br>
+                                    Welsh language: 0800 012 1888<br>
+                                        Monday to Friday, 8am to 6pm<br>
+                                            <a href="/call-charges">Find out about call charges</a>
+                                        </p>
+                                    </div>
+                                    <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
+                                    <p>
+                                        <a href="https://www.gov.uk/benefits-calculators">Find other benefits</a>
+                                    </p>
+                                </div>
+                            </div>
+                        {% endblock %}

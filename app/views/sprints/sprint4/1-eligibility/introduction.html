@@ -1,28 +1,18 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        <h1 class="govuk-fieldset__legend--l">Find out if you may be eligible for New Style Jobseeker's Allowance</h1>
-
-        <p>Answer these questions to find out if you may be eligible for New Style Jobseeker's Allowance.</p>
-       
-        {{ govukButton({
+      <h1 class="govuk-fieldset__legend--l">Find out if you may be eligible for New Style Jobseeker's Allowance</h1>
+      <p>Answer these questions to find out if you may be eligible for New Style Jobseeker's Allowance.</p>
+      {{ govukButton({
             text: "Continue",
             href: "residence"
         }) }}
-
-        <p>The online service is also available in <a href='#'>Welsh (Cymraeg)</a>.</p>
-
+      <p>The online service is also available in
+        <a href='#'>Welsh (Cymraeg)</a>.</p>
     </div>
-
   </div>
-
 {% endblock %}

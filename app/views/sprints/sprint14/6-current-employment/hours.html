@@ -1,43 +1,29 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Current employment</span>
         How many hours a week do you normally work in this job?
       </h1>
-
       <form action="hours" method="post">
-
         {% set jobref = "job" + data["jobnum"] + "-" %}
-
         {% call govukFieldset({
         }) %}
-
         <p class="govuk-hint">Enter your average hours as a whole number, rounded down to the nearest hour</p>
-
         <div class="govuk-form-group govuk-short-input">
-            <label class="govuk-label govuk-visually-hidden" for="ce-hours-worked-a-week">Average hours worked a week</label>
-            <input value="{{ data[jobref + "ceHoursWorkedAWeek"] }}" class="govuk-input govuk-input--width-3 govuk-!-margin-right-2" id="ce-hours-worked-a-week" name="{{ data[jobref + "ceHoursWorkedAWeek"] }}" type="number" maxlength="2">
+          <label class="govuk-label govuk-visually-hidden" for="ce-hours-worked-a-week">Average hours worked a week</label>
+          <input value="{{ data[jobref + "ceHoursWorkedAWeek"] }}" class="govuk-input govuk-input--width-3 govuk-!-margin-right-2" id="ce-hours-worked-a-week" name="{{ data[jobref + "ceHoursWorkedAWeek"] }}" type="number" maxlength="2">
             <span class="govuk-body">hours</span>
-        </div>
-
-        {% endcall %}
-
-        {{ govukButton({
+          </div>
+          {% endcall %}
+          {{ govukButton({
           text: "Continue"
         }) }}
-
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}

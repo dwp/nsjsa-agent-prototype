@@ -1,22 +1,15 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Application start date</span>
         Have you been in full-time education since 22 July 2020?
       </h1>
-
       <form action="full-time-education" method="post">
-
         {{ govukRadios({
           classes: "govuk-radios--inline",
           idPrefix: "full-time-education",
@@ -33,14 +26,11 @@
             text: "No"
           }]
         }) }}
-
         {{ govukButton({
             text: "Continue",
             href: "asked-for-advice"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

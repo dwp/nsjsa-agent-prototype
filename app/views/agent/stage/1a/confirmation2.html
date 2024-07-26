@@ -1,28 +1,21 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-{% set html %}
-  <h1 class="govuk-notification-banner__heading">
-    You have sent your application for New Style Jobseeker's Allowance but we can't process it until you <a class="govuk-notification-banner__link" href="hand-off">confirm your identity</a>.
-  </h1>
-{% endset %}
-
-{{ govukNotificationBanner({
+      {% set html %}
+      <h1 class="govuk-notification-banner__heading">
+        You have sent your application for New Style Jobseeker's Allowance but we can't process it until you
+        <a class="govuk-notification-banner__link" href="hand-off">confirm your identity</a>.
+      </h1>
+      {% endset %}
+      {{ govukNotificationBanner({
   html: html
 }) }}
-
-<p>If you have provided a mobile number or email address, we’ll send you confirmation 
-      of your application and keep you updated on its progress.</p>
+      <p>If you have provided a mobile number or email address, we’ll send you confirmation of your application and keep you
+        updated on its progress.</p>
     </div>
   </div>
-
 {% endblock %}

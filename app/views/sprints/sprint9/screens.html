@@ -1,41 +1,47 @@
-
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
-
+{% extends "layout/unbranded.html" %}
 {% block pageTitle %}
   NSJSA Automation Prototypes
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-l">Sprint 9</h1>
-
       <h2 class="govuk-heading-m">Manual ID checks</h2>
-      <p><a href="choose-task">Choose a task</a></p>
-
+      <p>
+        <a href="choose-task">Choose a task</a>
+      </p>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="view-claim?task=ID-template&claimStatus=ID-template-needed&claimant=sh&idRisk=1&fraud=0&cis=1">Create an ID template</a></li>
-        <li><a href="view-claim?task=ID-check&claimStatus=ID-check-needed&claimant=ij&idRisk=0&fraud=0&cis=1">Conduct an ID check</a></li>
+        <li>
+          <a href="view-claim?task=ID-template&claimStatus=ID-template-needed&claimant=sh&idRisk=1&fraud=0&cis=1">Create an ID
+            template</a>
+        </li>
+        <li>
+          <a href="view-claim?task=ID-check&claimStatus=ID-check-needed&claimant=ij&idRisk=0&fraud=0&cis=1">Conduct an ID check</a>
+        </li>
       </ul>
-
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-      <h2 class="govuk-heading-m">
-         Additional fraud scenarios
-         <span class="govuk-caption-m">Added 10 Jan 2022</span>
-      </h2>
-      
-      <ol class="govuk-list govuk-list--number">
-        <li><a href="additional/nino-search?scenario=F1">Multiple claims, same NINO, same DOB, marked duplicates, no fraud check on duplicates, no fraud found on newest claim</a>.</li>
-        <li><a href="additional/nino-search?scenario=F2">Multiple claims, same NINO, same DOB, marked duplicates, no fraud check on duplicates, fraud found on newest claim</a>.</li>
-        <li><a href="additional/nino-search?scenario=F3">Multiple claims, same NINO, different DOB, not marked as duplicates, fraud check, no fraud found</a>.</li>
-        <li><a href="additional/nino-search?scenario=F4">Multiple claims, same NINO, different DOB, not marked as duplicate, fraud check, fraud found</a>.</li>
-        <li><a href="additional/nino-search?scenario=F5">Single claim, no duplicates, fraud check, no fraud found</a>.</li>
-        <li><a href="additional/nino-search?scenario=F6">Single claim, no duplicates, fraud check, fraud found</a>.</li>
-      </ol>
-      
+        <h2 class="govuk-heading-m">
+          Additional fraud scenarios
+          <span class="govuk-caption-m">Added 10 Jan 2022</span>
+        </h2>
+        <ol class="govuk-list govuk-list--number">
+          <li>
+            <a href="additional/nino-search?scenario=F1">Multiple claims, same NINO, same DOB, marked duplicates, no fraud check on
+              duplicates, no fraud found on newest claim</a>.</li>
+          <li>
+            <a href="additional/nino-search?scenario=F2">Multiple claims, same NINO, same DOB, marked duplicates, no fraud check on
+              duplicates, fraud found on newest claim</a>.</li>
+          <li>
+            <a href="additional/nino-search?scenario=F3">Multiple claims, same NINO, different DOB, not marked as duplicates, fraud
+              check, no fraud found</a>.</li>
+          <li>
+            <a href="additional/nino-search?scenario=F4">Multiple claims, same NINO, different DOB, not marked as duplicate, fraud
+              check, fraud found</a>.</li>
+          <li>
+            <a href="additional/nino-search?scenario=F5">Single claim, no duplicates, fraud check, no fraud found</a>.</li>
+          <li>
+            <a href="additional/nino-search?scenario=F6">Single claim, no duplicates, fraud check, fraud found</a>.</li>
+        </ol>
+      </div>
     </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}
