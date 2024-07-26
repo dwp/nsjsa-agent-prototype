@@ -1,38 +1,28 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance
+    DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-
-        <div class="dwp-interruption govuk-!-margin-bottom-6">
-
-            {# <span class="govuk-caption-l">1. {{ serviceName }}</span> #}
-            <h1 class="govuk-heading-l">Read this information carefully</h1>
-
-            <h2 class="govuk-heading-m">We now need to check who you are</h2>
-
-            <h3 class="govuk-heading-s">Doing this:</h3>
-            <ol class="govuk-list govuk-list--bullet">
-                <li>helps us check it's really you applying</li>
-                {# <li>helps us check your eligibility for {{ data['serviceShortName'] }} sooner</li> #}
-                <li>can speed up your application</li>
-            </ol>
-            <p>We will ask you some details more than once.</p>
-
-            {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
-
-            {{ govukButton({
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <div
+                class="dwp-interruption govuk-!-margin-bottom-6">
+                {# <span class="govuk-caption-l">1. {{ serviceName }}</span> #}
+                <h1 class="govuk-heading-l">Read this information carefully</h1>
+                <h2 class="govuk-heading-m">We now need to check who you are</h2>
+                <h3 class="govuk-heading-s">Doing this:</h3>
+                <ol class="govuk-list govuk-list--bullet">
+                    <li>helps us check it's really you applying</li>
+                    {# <li>helps us check your eligibility for {{ data['serviceShortName'] }} sooner</li> #}
+                    <li>can speed up your application</li>
+                </ol>
+                <p>We will ask you some details more than once.</p>
+                {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+                {{ govukButton({
                 text: "Continue",
                 href: "dth-things-needed"
             }) }}
-
+            </div>
         </div>
     </div>
-</div>
-
 {% endblock %}

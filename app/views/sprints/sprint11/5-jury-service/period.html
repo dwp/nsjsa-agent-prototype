@@ -1,22 +1,15 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Jury service</span>
         When was this jury service?
       </h1>
-
       <form action="period" method="post">
-
         {{ govukDateInput({
           id: 'jury-service-start',
           name: 'juryServiceStart',
@@ -50,9 +43,7 @@
               label: 'Year'
             }
           ]
-          })
-        }}
-
+          }) }}
         {{ govukDateInput({
           id: 'jury-service-finish',
           name: 'juryServiceFinish',
@@ -86,15 +77,11 @@
               label: 'Year'
             }
           ]
-          })
-        }}
-
+          }) }}
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

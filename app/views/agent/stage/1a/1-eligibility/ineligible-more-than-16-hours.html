@@ -1,29 +1,20 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance
+    DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
             <h1 class="govuk-heading-l">Based on your last answer, you are not eligible for New Style Jobseeker's Allowance (JSA)</h1>
-
             <p>This is because you have told us you are working more than 16 hours per week on average.</p>
-
             <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
             {{ govukButton({
                 text: "Find other benefits",
                 href: "https://www.gov.uk/benefits-calculators"
             }) }}
-
             {% include "./includes/still-apply.html" %}
-            <p><a href="contributions" class="js-still-apply">Continue to apply</a>
-
+            <p>
+                <a href="contributions" class="js-still-apply">Continue to apply</a>
+            </div>
         </div>
-    </div>
-
-{% endblock %}
+    {% endblock %}

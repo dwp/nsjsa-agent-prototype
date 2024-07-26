@@ -1,24 +1,17 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form action="street" method="post">
-        
         {% call govukFieldset({
             legend: {
                 html: "<span class='govuk-caption-xl'>Personal details</span> Find your address",
@@ -26,7 +19,6 @@
                 isPageHeading: true
             }
         }) %}
-
         {{ govukInput({
             label: {
               text: "Street name",
@@ -36,27 +28,21 @@
             id: "street",
             name: "street"
         }) }}
-
-      {% endcall %}
-
-      {{ govukButton({
+        {% endcall %}
+        {{ govukButton({
         text: "Continue"
       }) }}
-
-{% set dontKnowHtml %}
-<p>Enter the street name for the address that your application for New Style JSA will be registered to.</p>
-<p><a href="address">Enter your address manually</a></p>
-{% endset %}
-
-      {{ govukDetails({
+        {% set dontKnowHtml %}
+        <p>Enter the street name for the address that your application for New Style JSA will be registered to.</p>
+        <p>
+          <a href="address">Enter your address manually</a>
+        </p>
+        {% endset %}
+        {{ govukDetails({
         summaryText: "I don't know what street to use",
         html: dontKnowHtml
       }) }}
-
-      
-
       </form>
     </div>
   </div>
-
 {% endblock %}

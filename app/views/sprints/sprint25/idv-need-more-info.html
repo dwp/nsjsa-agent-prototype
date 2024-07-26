@@ -1,33 +1,25 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   We Need More Info – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
 {% block beforeContent %}
-
-{{ govukPhaseBanner({
+  {{ govukPhaseBanner({
   tag: {
     text: "prototype"
   },
   html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         We need more information before we can confirm your identity
       </h1>
-      
-      <p class="govuk-body">You can go back and <a href="" class="govuk-link">choose different items for us to ask you about</a>.</p>
-      <p class="govuk-body">If you cannot give us details about these items, you can <a href="" class="govuk-link">confirm your identity another way</a>.</p>
-
+      <p class="govuk-body">You can go back and
+        <a href="" class="govuk-link">choose different items for us to ask you about</a>.</p>
+      <p class="govuk-body">If you cannot give us details about these items, you can
+        <a href="" class="govuk-link">confirm your identity another way</a>.</p>
     </div>
   </div>
-
 {% endblock %}

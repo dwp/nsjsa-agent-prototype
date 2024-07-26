@@ -1,40 +1,26 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">We have sent you an email with your security code</h1>
-
-            <p>It should take one minute to arrive.</p>
-
-            <form action="password" method="post" class="form">
-                <div class="govuk-form-group govuk-!-margin-top-6">
-                    <label class="govuk-label" for="email-security-code">
-                        Security code
-                    </label>
-                    <input class="govuk-input govuk-input--width-10" id="email-security-code" name="email-security-code" type="text">
-                </div>
-
-                
-
-  
-    
-  
-
-<button class="govuk-button" data-module="govuk-button">
-  Continue
-</button>
-
-            </form>
-
-            <p><a href="resend-email">I did not get an email</a></p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">We have sent you an email with your security code</h1>
+      <p>It should take one minute to arrive.</p>
+      <form action="password" method="post" class="form">
+        <div class="govuk-form-group govuk-!-margin-top-6">
+          <label class="govuk-label" for="email-security-code">
+            Security code
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="email-security-code" name="email-security-code" type="text">
         </div>
-</div>
-
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+      <p>
+        <a href="resend-email">I did not get an email</a>
+      </p>
+    </div>
+  </div>
 {% endblock %}

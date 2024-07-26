@@ -1,51 +1,52 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-      
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
         Sprint #9 – Citizen ID&V declare, handover and confirmation
         <span class="govuk-caption-m">August 11 to August 24</span>
       </h1>
-
       <p>Iterating on work in sprint #8</p>
-
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-      <p class="govuk-body-l"><a href='agent/stage/1a/1-eligibility/introduction'>Start journey</a></p>
-
-      <h3 class="govuk-heading-s">Key screens</h3>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href='agent/stage/1a/declaration'>Declaration</a></li>
-        <li><a href='agent/stage/1a/confirmation'>Application sent confirmation</a></li>
-        <li><a href='agent/stage/1a/complete-confirmation?id=verified'>Application complete – successful IDV confirmation</a></li>
-        <li><a href='agent/stage/1a/complete-confirmation?id=not-verified'>Application complete – unsuccessful IDV confirmation</a></li>
-        {# <li><a href='agent/stage/1a/1-eligibility/eligible'>Eligibility outcome</a></li>
-        <li><a href='agent/stage/1a/hand-off'>DTH hand-off</a></li>
-        <li><a href='agent/stage/1a/confirmation?id=verified'>Successful IDV confirmation</a></li>
-        <li><a href='agent/stage/1a/confirmation?id=not-verified'>Unsuccessful IDV confirmation</a></li>
-        <li><a href='agent/stage/1a/check-answers'>Check answers</a></li>
-        <li><a href='agent/stage/1a/declaration'>Declaration</a></li> #}
-      </ul>
-
-      <h3 class="govuk-heading-s">Key screens</h3>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href='https://dth-prototype.herokuapp.com/auth/experimental/start-jsa-1'>Hand over screen idea 1 from DTH</a></li>
-        <li><a href='https://dth-prototype.herokuapp.com/auth/experimental/start-jsa-2'>Hand over screen idea 2 from DTH</a></li>
-      </ul>
-
+        <p class="govuk-body-l">
+          <a href='agent/stage/1a/1-eligibility/introduction'>Start journey</a>
+        </p>
+        <h3 class="govuk-heading-s">Key screens</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href='1a/declaration'>Declaration</a>
+          </li>
+          <li>
+            <a href='1a/confirmation'>Application sent confirmation</a>
+          </li>
+          <li>
+            <a href='1a/complete-confirmation?id=verified'>Application complete – successful IDV confirmation</a>
+          </li>
+          <li>
+            <a href='1a/complete-confirmation?id=not-verified'>Application complete – unsuccessful IDV confirmation</a>
+          </li>
+          {# <li><a href='agent/stage/1a/1-eligibility/eligible'>Eligibility outcome</a></li>
+                                                <li><a href='agent/stage/1a/hand-off'>DTH hand-off</a></li>
+                                                <li><a href='agent/stage/1a/confirmation?id=verified'>Successful IDV confirmation</a></li>
+                                                <li><a href='agent/stage/1a/confirmation?id=not-verified'>Unsuccessful IDV confirmation</a></li>
+                                                <li><a href='agent/stage/1a/check-answers'>Check answers</a></li>
+                                                <li><a href='agent/stage/1a/declaration'>Declaration</a></li> #}
+        </ul>
+        <h3 class="govuk-heading-s">Key screens</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href='https://dth-prototype.herokuapp.com/auth/experimental/start-jsa-1'>Hand over screen idea 1 from DTH</a>
+          </li>
+          <li>
+            <a href='https://dth-prototype.herokuapp.com/auth/experimental/start-jsa-2'>Hand over screen idea 2 from DTH</a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="govuk-grid-column-one-third">{# {% include "includes/acronyms.html" %}#}
+      </div>
     </div>
-
-    <div class="govuk-grid-column-one-third">
-      {% include "includes/acronyms.html" %}
-    </div>
-  </div>
-
-{% endblock %}
+  {% endblock %}

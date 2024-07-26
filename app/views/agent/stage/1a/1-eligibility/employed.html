@@ -1,24 +1,15 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">Have you been employed in the past 3 years?</h1>
-
       <form action="employed" method="post">
-
         <div class="govuk-form-group">
-
-            <fieldset class="govuk-fieldset">
-
-                {{ govukRadios({
+          <fieldset class="govuk-fieldset">
+            {{ govukRadios({
                     idPrefix: 'employed',
                     name: 'eligibilityEmployed',
                     items: [
@@ -31,20 +22,13 @@
                             text: "No"
                         }
                     ]
-                })
-                }}
-
-            </fieldset>
-            
-
+                }) }}
+          </fieldset>
         </div>
-
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

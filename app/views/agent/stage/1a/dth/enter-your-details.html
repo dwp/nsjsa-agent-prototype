@@ -1,96 +1,100 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-xl ">
-      Enter your details
-    </h1>
-    <p class="govuk-body-l">
-      This is to confirm who you are, so we know what questions to ask you.
-    </p>
-    <form method="post" action="enter-your-details" name="">
-
-      <div class="govuk-form-group" data-required="" data-error="Enter a National Insurance number in the right format">
-        <label class="govuk-label govuk-label--m " for="first-name">
-          First name
-        </label>
-
-        <input class="govuk-input govuk-input--width-20" id="first-name" name="first-name" type="text" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-      </div>
-
-      <div class="govuk-form-group" data-required="" data-error="Enter a National Insurance number in the right format">
-        <label class="govuk-label govuk-label--m " for="last-name">
-          Last name
-        </label>
-
-        <input class="govuk-input govuk-input--width-20" id="last-name" name="last-name" type="text">
-      </div>
-      
-      <div class="govuk-form-group" data-required="" data-error="Enter a National Insurance number in the right format">
-        <label class="govuk-label govuk-label--m " for="nino">
-          National Insurance number
-        </label>
-
-        <span id="nino-hint" class="govuk-hint">
-          It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.
-        </span>
-
-        <input class="govuk-input govuk-input--width-20" id="nino" name="nino" type="text">
-      </div>
-      
-      <p class="govuk-body govuk-!-margin-bottom-6"><a href="enter-your-details-with-postcode.html" class="govuk-link">I do not know my National Insurance number</a>.</p>
-
-      <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            Date of birth
-        </legend>
-        <div id="dob-hint">
-          <p class="govuk-hint">For example, 31 3 1990</p>
-        </div>
-        <div class="govuk-date-input" id="dob">
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="dob-day">
-                Day
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl ">
+        Enter your details
+      </h1>
+      <p class="govuk-body-l">
+        This is to confirm who you are, so we know what questions to ask you.
+      </p>
+      <form method="post" action="enter-your-details" name="">
+        <div class="govuk-form-group" data-required="" data-error="Enter a National Insurance number in the right format">
+          <label class="govuk-label govuk-label--m " for="first-name">
+            First name
+          </label>
+          <input
+            class="govuk-input govuk-input--width-20"
+            id="first-name"
+            name="first-name"
+            type="text"
+            style="background-image:
+              url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;);
+              background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"></div>
+          <div class="govuk-form-group" data-required="" data-error="Enter a National Insurance number in the right format">
+            <label class="govuk-label govuk-label--m " for="last-name">
+              Last name
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="last-name" name="last-name" type="text"></div>
+            <div class="govuk-form-group" data-required="" data-error="Enter a National Insurance number in the right format">
+              <label class="govuk-label govuk-label--m " for="nino">
+                National Insurance number
               </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="text" pattern="[0-9]*" maxlength="2" inputmode="numeric">
-            </div>
-          </div>
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="dob-month">
-                Month
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="text" pattern="[0-9]*" maxlength="2" inputmode="numeric">
-            </div>
-          </div>
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="dob-year">
-                Year
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="text" pattern="[0-9]*" maxlength="4" inputmode="numeric">
-            </div>
-          </div>
-        </div>
-      </fieldset>
-
-      {{ govukButton({
+              <span id="nino-hint" class="govuk-hint">
+                It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.
+              </span>
+              <input class="govuk-input govuk-input--width-20" id="nino" name="nino" type="text"></div>
+              <p class="govuk-body govuk-!-margin-bottom-6">
+                <a href="enter-your-details-with-postcode.html" class="govuk-link">I do not know my National Insurance number</a>.</p>
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  Date of birth
+                </legend>
+                <div id="dob-hint">
+                  <p class="govuk-hint">For example, 31 3 1990</p>
+                </div>
+                <div class="govuk-date-input" id="dob">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dob-day">
+                        Day
+                      </label>
+                      <input
+                        class="govuk-input govuk-date-input__input govuk-input--width-2"
+                        id="dob-day"
+                        name="dob-day"
+                        type="text"
+                        pattern="[0-9]*"
+                        maxlength="2"
+                        inputmode="numeric"></div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="dob-month">
+                          Month
+                        </label>
+                        <input
+                          class="govuk-input govuk-date-input__input govuk-input--width-2"
+                          id="dob-month"
+                          name="dob-month"
+                          type="text"
+                          pattern="[0-9]*"
+                          maxlength="2"
+                          inputmode="numeric"></div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="dob-year">
+                            Year
+                          </label>
+                          <input
+                            class="govuk-input govuk-date-input__input govuk-input--width-4"
+                            id="dob-year"
+                            name="dob-year"
+                            type="text"
+                            pattern="[0-9]*"
+                            maxlength="4"
+                            inputmode="numeric"></div>
+                        </div>
+                      </div>
+                    </fieldset>
+                    {{ govukButton({
         text: "Continue"
       }) }}
-
-    </form>
-
-  </div>
-
-</div>
-
-{% endblock %}
+                  </form>
+                </div>
+              </div>
+            {% endblock %}

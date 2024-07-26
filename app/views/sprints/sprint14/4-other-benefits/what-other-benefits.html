@@ -1,24 +1,17 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Other benefits</span>
         What other benefits are you waiting to hear about?
       </h1>
-
       <form action="what-other-benefits" method="post">
         {% call govukFieldset({
         }) %}
-
         {{ govukCharacterCount({
           name: "more-detail",
           id: "more-detail",
@@ -27,14 +20,11 @@
             html: "For example, Carer's Allowance"
           }
         }) }}
-
         {% endcall %}
-
         {{ govukButton({
           text: "Continue"
         }) }}
       </form>
     </div>
   </div>
-
 {% endblock %}

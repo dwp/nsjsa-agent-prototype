@@ -1,37 +1,25 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         Have you been employed and paid National Insurance over the last 2 to 3 years?
       </h1>
-
-      <p>You may be eligible if you have paid National Insurance Contributions, usually over 
-      the last 2 to 3 years. National Insurance Credits can also count.</p>
-
-
+      <p>You may be eligible if you have paid National Insurance Contributions, usually over the last 2 to 3 years. National
+        Insurance Credits can also count.</p>
       <form action="contributions" method="post">
-
         <div class="govuk-form-group">
-
-            <fieldset class="govuk-fieldset">
-
-                {{ govukRadios({
+          <fieldset class="govuk-fieldset">
+            {{ govukRadios({
                     idPrefix: 'contributions',
                     name: 'eligibilityContributions',
                     items: [
@@ -48,22 +36,13 @@
                             text: "I'm not sure"
                         }
                     ]
-                })
-                }}
-
-            </fieldset>
-            
-
+                }) }}
+          </fieldset>
         </div>
-
         {{ govukButton({
             text: "Continue"
         }) }}
-
-        
-
       </form>
     </div>
   </div>
-
 {% endblock %}

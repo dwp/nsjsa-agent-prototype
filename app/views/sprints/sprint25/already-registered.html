@@ -1,39 +1,30 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   Already Registered – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
 {% block beforeContent %}
-
-{{ govukPhaseBanner({
+  {{ govukPhaseBanner({
   tag: {
     text: "prototype"
   },
   html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         This email address is already registered with this service
       </h1>
-      
       <p class="govuk-body">An email address can only be used to register one person.</p>
-      <p class="govuk-body">If you have registered with this email address and know your password, <a href="" class="govuk-link">sign in</a>.</p>
-      <p class="govuk-body">If you have registered with this email address but have forgotten your password, <a href="" class="govuk-link">reset your password</a>.</p>
-      <p class="govuk-body">If you have not registered before, <a href="" class="govuk-link">register with a different email address</a>.</p>
-
+      <p class="govuk-body">If you have registered with this email address and know your password,
+        <a href="" class="govuk-link">sign in</a>.</p>
+      <p class="govuk-body">If you have registered with this email address but have forgotten your password,
+        <a href="" class="govuk-link">reset your password</a>.</p>
+      <p class="govuk-body">If you have not registered before,
+        <a href="" class="govuk-link">register with a different email address</a>.</p>
       <h2 class="govuk-heading-m">Problems registering</h2>
-
       <p class="govuk-body">[INSERT SUPPORT INSTRUCTIONS]</p>
-
     </div>
   </div>
-
 {% endblock %}

@@ -1,27 +1,19 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Current employment</span>
         Is this paid or voluntary work?
       </h1>
       <span class="govuk-hint">
-     If you have more than one job you will be able to tell us about the others later.
-  </span>
-
+        If you have more than one job you will be able to tell us about the others later.
+      </span>
       <form action="type" method="post">
-
         {% set jobref = "job" + data["jobnum"] + "-" %}
-
         {{ govukRadios({
           classes: "govuk-radios--inline",
           idPrefix: "ce-current-work-type",
@@ -35,39 +27,37 @@
             text: "Voluntary work",
             checked: checked("ceCurrentWorkType", "Voluntary")
           }]
-          })
-        }}
-
+          }) }}
         {{ govukInput({
           type: "hidden",
           id: "jobnum",
           name: "jobnum"
-        })  }}
-
+        }) }}
         {{ govukButton({
           text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
-<!-- save current job number -->
-<script language="javascript">
-  window.onload = function() {
-    document.getElementById('jobnum').value = getParameterByName("job");
-}
-
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+  <!-- save current job number -->
+  <script language="javascript">
+    window.onload = function () {
+      document.getElementById('jobnum').value = getParameterByName("job");
+    }
+    function getParameterByName(name, url) {
+      if (! url) 
+        url = window.location.href;
+      
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
-</script>
-
+      if (! results) 
+        return null;
+      
+      if (! results[2]) 
+        return '';
+      
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+  </script>
 {% endblock %}

@@ -1,39 +1,26 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        <h1 class="govuk-heading-xl">We need to ask some questions to prove your identity</h1>
-
-        <p>You will be asked to give details about two items you may have, like your:</p>
-
-        <ul class="govuk-list govuk-list--bullet">
-          <li>UK passport</li>
-          <li>payslips or P60</li>
-          <li>tax credits and Voice ID</li>
-        </ul>
-
-        <p>You may also be able to answer questions about your credit record.</p>
-
-        <p>If you cannot answer these questions, you will need to <a href="../complete-confirmation?id=not-verified">confirm your identity another way</a>.</p>
-
-        <p class="govuk-!-margin-bottom-6">We ask these questions to protect you against malicious or
-          fraudulent attempts to access the service.</p>
-       
-        {{ govukButton({
+      <h1 class="govuk-heading-xl">We need to ask some questions to prove your identity</h1>
+      <p>You will be asked to give details about two items you may have, like your:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>UK passport</li>
+        <li>payslips or P60</li>
+        <li>tax credits and Voice ID</li>
+      </ul>
+      <p>You may also be able to answer questions about your credit record.</p>
+      <p>If you cannot answer these questions, you will need to
+        <a href="../complete-confirmation?id=not-verified">confirm your identity another way</a>.</p>
+      <p class="govuk-!-margin-bottom-6">We ask these questions to protect you against malicious or fraudulent attempts to
+        access the service.</p>
+      {{ govukButton({
             text: "Continue",
             href: "enter-your-details"
         }) }}
-
     </div>
-
   </div>
-
 {% endblock %}

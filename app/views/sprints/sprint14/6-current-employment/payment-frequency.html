@@ -1,31 +1,22 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
-{#
-<p><strong>
-Note: The pound sign needs to be inside the input text box, this is styled by macros/macros.njk
-</strong></p>
-#}
-
+  {#
+  <p><strong>
+  Note: The pound sign needs to be inside the input text box, this is styled by macros/macros.njk
+  </strong></p>
+  #}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Current employment</span>
         How often are you paid?
       </h1>
-
       <form action="payment-frequency" method="post">
-
         {% set jobref = "job" + data["jobnum"] + "-" %}
         {% set prefix = jobref + "current-employment-" %}
-
         {{ govukRadios({
           idPrefix: "current-work-paid",
           name: jobref + "currentWorkPaid",
@@ -58,22 +49,18 @@ Note: The pound sign needs to be inside the input text box, this is styled by ma
               html: netPaymentAmountInput(prefix, "monthly")
             }
           }]
-        })}}
-
-      <!-- save the value from the last screen with the current job no -->
-      {{ govukInput({
+        }) }}
+        <!-- save the value from the last screen with the current job no -->
+        {{ govukInput({
           type: "hidden",
           id: jobref + "ceCurrentWorkType",
           name: jobref + "ceCurrentWorkType",
           value: data["ceCurrentWorkType"]
-        })  }}
-
+        }) }}
         {{ govukButton({
           text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

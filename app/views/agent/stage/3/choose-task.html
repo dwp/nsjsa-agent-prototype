@@ -1,40 +1,32 @@
-{% extends "agent/layout.html" %}
-
+{% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-Service centre - {{ serviceName }}
+  Service centre - {{ serviceName }}
 {% endblock %}
-
-{% block beforeContent %}
-{% endblock %}
-
+{% block beforeContent %}{% endblock %}
 {% block content %}
-
-<span class="govuk-caption-l">Service centre agent</span>
-<h1 class="govuk-heading-l">Choose a task</h1>
-
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-half">
-    <a href="nino-search" class="tile tile--blue">
-      <div class="tile__contents">
-        <h2 class="tile__title">Find a claim</h2>
-      </div>
-    </a>
+  <span class="govuk-caption-l">Service centre agent</span>
+  <h1 class="govuk-heading-l">Choose a task</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a href="nino-search" class="tile tile--blue">
+        <div class="tile__contents">
+          <h2 class="tile__title">Find a claim</h2>
+        </div>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <a href="view-claim?task=ID-template&claimStatus=ID-not-verified&guidMismatch=0&claimant=kb" class="tile tile--blue">
+        <div class="tile__contents">
+          <h2 class="tile__title">Create ID template</h2>
+        </div>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <a href="view-claim?task=ID-check&claimStatus=ID-not-verified&claimant=ij" class="tile tile--blue">
+        <div class="tile__contents">
+          <h2 class="tile__title">Conduct ID check and process claim</h2>
+        </div>
+      </a>
+    </div>
   </div>
-  <div class="govuk-grid-column-one-half">  
-    <a href="view-claim?task=ID-template&claimStatus=ID-not-verified&guidMismatch=0&claimant=kb" class="tile tile--blue">
-      <div class="tile__contents">
-        <h2 class="tile__title">Create ID template</h2>
-      </div>
-    </a>
-  </div>
-  <div class="govuk-grid-column-one-half">
-    <a href="view-claim?task=ID-check&claimStatus=ID-not-verified&claimant=ij" class="tile tile--blue">
-      <div class="tile__contents">
-        <h2 class="tile__title">Conduct ID check and process claim</h2>
-      </div>
-    </a>
-  </div>
-</div>
-
 {% endblock %}

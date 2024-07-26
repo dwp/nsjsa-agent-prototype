@@ -1,23 +1,18 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Application start date</span>
         Have you travelled outside of England, Wales or Scotland since 22 July 2020?
       </h1>
       <p class="govuk-body">
-        Select yes if you have travelled outside of Great Britain (England, Wales or Scotland) for any reason. 
+        Select yes if you have travelled outside of Great Britain (England, Wales or Scotland) for any reason.
       </p>
       <form action="been-on-holiday" method="post">
-
         {% set holidayHtml %}
         {{ govukDateInput({
             id: 'holiday-start',
@@ -52,9 +47,7 @@
                 label: 'Year'
               }
             ]
-            })
-          }}
-
+            }) }}
         {{ govukDateInput({
             id: 'holiday-finish',
             name: 'holidayFinish',
@@ -88,10 +81,8 @@
                 label: 'Year'
               }
             ]
-            })
-          }}
+            }) }}
         {% endset -%}
-
         {{ govukRadios({
           idPrefix: "been-on-holiday",
           name: "beenOnHoliday",
@@ -110,14 +101,11 @@
             text: "No"
           }]
         }) }}
-
         {{ govukButton({
             text: "Continue",
             href: "full-time-education"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

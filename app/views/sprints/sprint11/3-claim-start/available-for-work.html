@@ -1,20 +1,15 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Application start date</span>
         Were you available for work from 22 July 2020?
       </h1>
       <form action="available-for-work" method="post">
-
         {{ govukRadios({
           classes: "govuk-radios--inline",
           idPrefix: "ce-currently-working",
@@ -31,14 +26,11 @@
             text: "No"
           }]
         }) }}
-
         {{ govukButton({
             text: "Continue",
             href: "searching-for-work"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

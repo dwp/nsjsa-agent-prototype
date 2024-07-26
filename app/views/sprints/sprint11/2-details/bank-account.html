@@ -1,40 +1,29 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Personal details</span>
         Your bank details
       </h1>
-
       <form action="bank-account" method="post">
-
         {% call govukFieldset({
         }) %}
-
         <p>This is the account your New Style Jobseeker&rsquo;s Allowance will be paid into.</p>
-
         {{ govukDetails({
             summaryText: "What to do if you do not have a bank account",
             html: '<p>We can use an account of a family member  or trusted friend if you don&rsquo;t have a bank account.</p>
             <p><a href="../4-claim-start">Continue without providing bank details</a></p>'
         }) }}
-
         {{ govukInput({
             label: {
                 text: "Name of account holder"
@@ -44,21 +33,17 @@
             value: data['pay-account-holder'],
             classes: "govuk-input--width-20"
         }) }}
-
         <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-!-margin-bottom-1">Sort code</legend>
-
-            <div class="govuk-form-group govuk-short-input">
-                <label class="govuk-label govuk-visually-hidden" for="sort-1">Sort code part 1</label>
-                <input value="{{ data['pay-account-sort-1'] }}" class="govuk-input govuk-input--width-2 govuk-!-margin-right-3" id="sort-1" name="pay-account-sort-1" type="number" maxlength="2">
-                <label class="govuk-label govuk-visually-hidden" for="sort-2">Sort code part 2</label>
-                <input value="{{ data['pay-account-sort-2'] }}" class="govuk-input govuk-input--width-2 govuk-!-margin-right-3" id="sort-2" name="pay-account-sort-2" type="number" maxlength="2">
+          <legend class="govuk-fieldset__legend govuk-!-margin-bottom-1">Sort code</legend>
+          <div class="govuk-form-group govuk-short-input">
+            <label class="govuk-label govuk-visually-hidden" for="sort-1">Sort code part 1</label>
+            <input value="{{ data['pay-account-sort-1'] }}" class="govuk-input govuk-input--width-2 govuk-!-margin-right-3" id="sort-1" name="pay-account-sort-1" type="number" maxlength="2">
+              <label class="govuk-label govuk-visually-hidden" for="sort-2">Sort code part 2</label>
+              <input value="{{ data['pay-account-sort-2'] }}" class="govuk-input govuk-input--width-2 govuk-!-margin-right-3" id="sort-2" name="pay-account-sort-2" type="number" maxlength="2">
                 <label class="govuk-label govuk-visually-hidden" for="sort-3">Sort code part 3</label>
-                <input value="{{ data['pay-account-sort-3'] }}" class="govuk-input govuk-input--width-2" id="sort-3" name="pay-account-sort-3" type="number" maxlength="2">
-            </div>
-        </fieldset>
-
-        {{ govukInput({
+                <input value="{{ data['pay-account-sort-3'] }}" class="govuk-input govuk-input--width-2" id="sort-3" name="pay-account-sort-3" type="number" maxlength="2"></div>
+              </fieldset>
+              {{ govukInput({
             label: {
                 text: "Account number"
             },
@@ -71,8 +56,7 @@
                 "maxlength": "18"
             }
         }) }}
-
-        {{ govukInput({
+              {{ govukInput({
             label: {
                 text: "Building society roll or reference number (optional)"
             },
@@ -88,16 +72,11 @@
                 "maxlength": "18"
             }
         }) }}
-
-
-        {% endcall %}
-
-          {{ govukButton({
+              {% endcall %}
+              {{ govukButton({
               text: "Continue"
           }) }}
-
-      </form>
-    </div>
-  </div>
-
-{% endblock %}
+            </form>
+          </div>
+        </div>
+      {% endblock %}

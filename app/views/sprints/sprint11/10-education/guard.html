@@ -1,29 +1,21 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Education and training</span>
         Have you been in education or training in the last 4 years?
       </h1>
-
       <form action="guard" method="post">
-
         {{ govukRadios({
           idPrefix: "edu-have-you",
           name: "eduHaveYou",
@@ -36,13 +28,10 @@
             text: "No"
           }]
         }) }}
-
         {{ govukButton({
           text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

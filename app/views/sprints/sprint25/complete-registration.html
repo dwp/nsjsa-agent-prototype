@@ -1,35 +1,26 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   Partially Registered – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
 {% block beforeContent %}
-
-{{ govukPhaseBanner({
+  {{ govukPhaseBanner({
   tag: {
     text: "prototype"
   },
   html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
 }) }}
-
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         You must complete your registration before you sign in
       </h1>
-      
-      <p class="govuk-body">You need a mobile phone to complete your registration. We will send a security code to your mobile phone.</p>
-
+      <p class="govuk-body">You need a mobile phone to complete your registration. We will send a security code to your mobile
+        phone.</p>
       <h2 class="govuk-heading-m">When you sign in for the first time</h2>
-
-      <p class="govuk-body">You will need information from 2 sources so we can check we are dealing with the right person. These are:</p>
-      
+      <p class="govuk-body">You will need information from 2 sources so we can check we are dealing with the right person.
+        These are:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>a UK passport</li>
         <li>payslips or P60</li>
@@ -37,17 +28,13 @@
         <li>information about tax credits, if you claim them</li>
         <li>details of your credit record</li>
       </ul>
-
       {{ govukButton({
         text: "Complete registration"
       }) }}
-
       {{ govukDetails({
         summaryText: "Problems completing registration",
         text: "[INSERT SUPPORT INSTRUCTIONS]."
       }) }}
-
     </div>
   </div>
-
 {% endblock %}

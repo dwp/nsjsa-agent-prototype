@@ -1,24 +1,15 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-       
-        <h1 class="govuk-heading-l">Authentication complete</h1>
-        
-          <p>You can now sign in.</p>
-
-          <a href="sign-in" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-            Continue
-          </a>
-
-      </div>
-</div>
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Authentication complete</h1>
+      <p>You can now sign in.</p>
+      <a href="sign-in" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Continue
+      </a>
+    </div>
+  </div>
 {% endblock %}

@@ -1,32 +1,23 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Personal details</span>
         What is your address?
       </h1>
-
       <form action="address-is-it-postal" method="post">
-        
         {% call govukFieldset({
         }) %}
-
         {{ govukInput({
             label: {
             html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
@@ -34,7 +25,6 @@
             id: "address-line-1",
             name: "address-line-1"
         }) }}
-
         {{ govukInput({
             label: {
             html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
@@ -42,7 +32,6 @@
             id: "address-line-2",
             name: "address-line-2"
         }) }}
-
         {{ govukInput({
             label: {
             text: 'Town or city'
@@ -51,7 +40,6 @@
             id: "address-town",
             name: "address-town"
         }) }}
-
         {{ govukInput({
             label: {
             text: 'Postcode'
@@ -60,33 +48,27 @@
             id: "address-postcode",
             name: "address-postcode"
         }) }}
-
-      {% endcall %}
-
-      <!-- save the date value from the last screen  -->
-      {{ govukInput({
+        {% endcall %}
+        <!-- save the date value from the last screen  -->
+        {{ govukInput({
         type: "hidden",
         id:  "dob-day",
         name:  "dob-day"
-      })  }}
-
-      {{ govukInput({
+      }) }}
+        {{ govukInput({
           type: "hidden",
           id:  "dob-month",
           name:  "dob-month"
-        })  }}
-      {{ govukInput({
+        }) }}
+        {{ govukInput({
           type: "hidden",
           id:  "dob-year",
           name:  "dob-year"
-        })  }}
-
+        }) }}
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

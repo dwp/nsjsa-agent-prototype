@@ -1,195 +1,174 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-two-thirds">
-
-    <span class="govuk-caption-xl">
-      Passport questions
-    </span>
-
-    <h1 class="govuk-heading-xl ">
-      Your passport details
-    </h1>
-
-    <form method="post" action="your-passport-details">
-
-      <div class="govuk-form-group" data-required="" data-error="Enter your passport number in the right format">
-        <label class="govuk-label govuk-label--m " for="passport">
-          Passport number
-        </label>
-
-        <span id="passport-hint" class="govuk-hint">
-          Contains up to 9 numbers and no letters
-        </span>
-
-        <input class="govuk-input govuk-input--width-10" id="passport" name="passport" type="text" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABKRJREFUWAnNl0tsVGUUxzvTTlslZUaCloZHY6BRFkp9sDBuqgINpaBp02dIDImwKDG6ICQ8jBYlhg0rxUBYEALTpulMgBlqOqHRDSikJkZdGG0CRqAGUuwDovQ1/s7NPTffnTu3zMxGvuT2vP7n8Z3vu+dOi4r+5xUoJH8sFquamZmpTqfTVeIfCARGQ6HQH83NzaP5xsu5gL6+vuVzc3NdJN1Kkhd8Ev1MMYni4uJjra2tt3wwLvUjCxgYGFg8Pj7+MV5dPOUub3/hX0zHIpFId0NDw6Q/jO4tZOzv76+Znp6+AOb5TBw7/YduWC2Hr4J/IhOD/GswGHy7vb39tyw2S+VbAC1/ZXZ29hKoiOE8RrIvaPE5WvyjoS8CX8sRvYPufYpZYtjGS0pKNoD/wdA5bNYCCLaMYMMEWq5IEn8ZDof3P6ql9pF9jp8cma6bFLGeIv5ShdISZUzKzqPIVnISp3l20caTJsaPtwvc3dPTIx06ziZkkyvY0FnoW5l+ng7guAWnpAI5w4MkP6yy0GQy+dTU1JToGm19sqKi4kBjY+PftmwRYn1ErEOq4+i2tLW1DagsNGgKNv+p6tj595nJxUbyOIF38AwipoSfnJyMqZ9SfD8jxlWV5+fnu5VX6iqgt7d3NcFeUiN0n8FbLEOoGkwdgY90dnbu7OjoeE94jG9wd1aZePRp5AOqw+9VMM+qLNRVABXKkLEWzn8S/FtbdAhnuVQE7LdVafBPq04pMYawO0OJ+6XHZkFcBQA0J1xKgyhlB0EChEWGX8RulsgjvOjEBu+5V+icWOSoFawuVwEordluG28oSCmXSs55SGSCHiXhmDzC25ghMHGbdwhJr6sAdpnyQl0FYIyoEX5CeYOuNHg/NhvGiUUxVgfV2VUAxjtqgPecp9oKoE4sNnbX9HcVgMH8nD5nAoWnKM/5ZmKyySRdq3pCmDncR4DxOwVC64eHh0OGLOcur1Vey46xUZ3IcVl5oa4OlJaWXgQwJwZyhUdGRjqE14VtSnk/mokhxnawiwUvsZmsX5u+rgKamprGMDoA5sKhRCLxpDowSpsJ8vpCj2AUPzg4uIiNfKIyNMkH6Z4hF3k+RgTYz6vVAEiKq2bsniZIC0nTtvMVMwBzoBT9tKkTHp8Ak1V8dTrOE+NgJs7VATESTH5WnVAgfHUqlXK6oHpJEI1G9zEZH/Du16leqHyS0UXBNKmeOMf5NvyislJPB8RAFz4g8IuwofLy8k319fUP1EEouw7L7mC3kUTO1nn3sb02MTFxFpsz87FfJuaH4pu5fF+reDz+DEfxkI44Q0ScSbyOpDGe1RqMBN08o+ha0L0JdeKi/6msrGwj98uZMeon1AGaSj+elr9LwK9IkO33n8cN7Hl2vp1N3PcYbUXOBbDz9bwV1/wCmXoS3+B128OPD/l2LLg8l9APXVlZKZfzfDY7ehlQv0PPQDez6zW5JJdYOXdAwHK2dGIv7GH4YtHJIvEOvvunLCHPPzl3QOLKTkl0hPbKaDUvlTU988xtwfMqQBPQ3m/4mf0yBVlDCSr/CRW0CipAMnGzb9XU1NSRvIX7kSgo++Pg9B8wltxxbHKPZgAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-      </div>
-
-      <div class="govuk-form-group" data-required="" data-error="Enter your surname in the right format">
-        <label class="govuk-label govuk-label--m " for="surname">
-          Surname
-        </label>
-
-        <span id="surname-hint" class="govuk-hint">
-          As it appears on your passport
-        </span>
-
-        <input class="govuk-input govuk-input--width-20" id="surname" name="lastName" type="text">
-      </div>
-
-      <div class="govuk-form-group" data-required="" data-error="Enter your given names in the right format">
-        <label class="govuk-label govuk-label--m " for="givenNames">
-          Given names
-        </label>
-
-        <span id="givenNames-hint" class="govuk-hint">
-          As they appear on your passport
-        </span>
-
-        <input class="govuk-input govuk-input--width-20" id="givenNames" name="firstName" type="text">
-      </div>
-
-      <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
-        <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
-
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            Date of expiry
-          </legend>
-
-          <span id="dob-hint" class="govuk-hint">
-            For example, 31 MAR 26
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">
+        Passport questions
+      </span>
+      <h1 class="govuk-heading-xl ">
+        Your passport details
+      </h1>
+      <form method="post" action="your-passport-details">
+        <div class="govuk-form-group" data-required="" data-error="Enter your passport number in the right format">
+          <label class="govuk-label govuk-label--m " for="passport">
+            Passport number
+          </label>
+          <span id="passport-hint" class="govuk-hint">
+            Contains up to 9 numbers and no letters
           </span>
-
-          <div class="govuk-date-input" id="ppExpiryDate">
-
-            <div class="govuk-date-input__item">
+          <input
+            class="govuk-input govuk-input--width-10"
+            id="passport"
+            name="passport"
+            type="text"
+            style="background-image:
+              url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABKRJREFUWAnNl0tsVGUUxzvTTlslZUaCloZHY6BRFkp9sDBuqgINpaBp02dIDImwKDG6ICQ8jBYlhg0rxUBYEALTpulMgBlqOqHRDSikJkZdGG0CRqAGUuwDovQ1/s7NPTffnTu3zMxGvuT2vP7n8Z3vu+dOi4r+5xUoJH8sFquamZmpTqfTVeIfCARGQ6HQH83NzaP5xsu5gL6+vuVzc3NdJN1Kkhd8Ev1MMYni4uJjra2tt3wwLvUjCxgYGFg8Pj7+MV5dPOUub3/hX0zHIpFId0NDw6Q/jO4tZOzv76+Znp6+AOb5TBw7/YduWC2Hr4J/IhOD/GswGHy7vb39tyw2S+VbAC1/ZXZ29hKoiOE8RrIvaPE5WvyjoS8CX8sRvYPufYpZYtjGS0pKNoD/wdA5bNYCCLaMYMMEWq5IEn8ZDof3P6ql9pF9jp8cma6bFLGeIv5ShdISZUzKzqPIVnISp3l20caTJsaPtwvc3dPTIx06ziZkkyvY0FnoW5l+ng7guAWnpAI5w4MkP6yy0GQy+dTU1JToGm19sqKi4kBjY+PftmwRYn1ErEOq4+i2tLW1DagsNGgKNv+p6tj595nJxUbyOIF38AwipoSfnJyMqZ9SfD8jxlWV5+fnu5VX6iqgt7d3NcFeUiN0n8FbLEOoGkwdgY90dnbu7OjoeE94jG9wd1aZePRp5AOqw+9VMM+qLNRVABXKkLEWzn8S/FtbdAhnuVQE7LdVafBPq04pMYawO0OJ+6XHZkFcBQA0J1xKgyhlB0EChEWGX8RulsgjvOjEBu+5V+icWOSoFawuVwEordluG28oSCmXSs55SGSCHiXhmDzC25ghMHGbdwhJr6sAdpnyQl0FYIyoEX5CeYOuNHg/NhvGiUUxVgfV2VUAxjtqgPecp9oKoE4sNnbX9HcVgMH8nD5nAoWnKM/5ZmKyySRdq3pCmDncR4DxOwVC64eHh0OGLOcur1Vey46xUZ3IcVl5oa4OlJaWXgQwJwZyhUdGRjqE14VtSnk/mokhxnawiwUvsZmsX5u+rgKamprGMDoA5sKhRCLxpDowSpsJ8vpCj2AUPzg4uIiNfKIyNMkH6Z4hF3k+RgTYz6vVAEiKq2bsniZIC0nTtvMVMwBzoBT9tKkTHp8Ak1V8dTrOE+NgJs7VATESTH5WnVAgfHUqlXK6oHpJEI1G9zEZH/Du16leqHyS0UXBNKmeOMf5NvyislJPB8RAFz4g8IuwofLy8k319fUP1EEouw7L7mC3kUTO1nn3sb02MTFxFpsz87FfJuaH4pu5fF+reDz+DEfxkI44Q0ScSbyOpDGe1RqMBN08o+ha0L0JdeKi/6msrGwj98uZMeon1AGaSj+elr9LwK9IkO33n8cN7Hl2vp1N3PcYbUXOBbDz9bwV1/wCmXoS3+B128OPD/l2LLg8l9APXVlZKZfzfDY7ehlQv0PPQDez6zW5JJdYOXdAwHK2dGIv7GH4YtHJIvEOvvunLCHPPzl3QOLKTkl0hPbKaDUvlTU988xtwfMqQBPQ3m/4mf0yBVlDCSr/CRW0CipAMnGzb9XU1NSRvIX7kSgo++Pg9B8wltxxbHKPZgAAAABJRU5ErkJggg==&quot;);
+              background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"></div>
+          <div class="govuk-form-group" data-required="" data-error="Enter your surname in the right format">
+            <label class="govuk-label govuk-label--m " for="surname">
+              Surname
+            </label>
+            <span id="surname-hint" class="govuk-hint">
+              As it appears on your passport
+            </span>
+            <input class="govuk-input govuk-input--width-20" id="surname" name="lastName" type="text"></div>
+            <div class="govuk-form-group" data-required="" data-error="Enter your given names in the right format">
+              <label class="govuk-label govuk-label--m " for="givenNames">
+                Given names
+              </label>
+              <span id="givenNames-hint" class="govuk-hint">
+                As they appear on your passport
+              </span>
+              <input class="govuk-input govuk-input--width-20" id="givenNames" name="firstName" type="text"></div>
               <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
-                <label class="govuk-label govuk-date-input__label" for="ppExpiryDateDay">
-                  Day
-                </label>
-
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="ppExpiryDateDay" name="ppExpiryDateDay" type="number" pattern="[0-9]*">
-              </div>
-            </div>
-
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
-                <label class="govuk-label govuk-date-input__label" for="ppExpiryDateMonth">
-                  Month
-                </label>
-
-                <input class="govuk-input govuk-date-input__input 
-            govuk-input--width-3   " id="ppExpiryDateMonth" name="ppExpiryDateMonth">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
-                <label class="govuk-label govuk-date-input__label" for="ppExpiryDateYear">
-                  Year
-                </label>
-
-                <input class="govuk-input govuk-date-input__input govuk-input--width-3" id="ppExpiryDateYear" name="ppExpiryDateYear" type="number" pattern="[0-9]*">
-              </div>
-            </div>
-
-          </div>
-        </fieldset>
-
-      </div>
-
-      {% if data['payslipOrP60'] == 'payslip' %}
-        {{ govukButton({
+                <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    Date of expiry
+                  </legend>
+                  <span id="dob-hint" class="govuk-hint">
+                    For example, 31 MAR 26
+                  </span>
+                  <div class="govuk-date-input" id="ppExpiryDate">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
+                        <label class="govuk-label govuk-date-input__label" for="ppExpiryDateDay">
+                          Day
+                        </label>
+                        <input
+                          class="govuk-input govuk-date-input__input govuk-input--width-2"
+                          id="ppExpiryDateDay"
+                          name="ppExpiryDateDay"
+                          type="number"
+                          pattern="[0-9]*"></div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
+                          <label class="govuk-label govuk-date-input__label" for="ppExpiryDateMonth">
+                            Month
+                          </label>
+                          <input
+                            class="govuk-input govuk-date-input__input
+                                          govuk-input--width-3   "
+                            id="ppExpiryDateMonth"
+                            name="ppExpiryDateMonth"></div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
+                            <label class="govuk-label govuk-date-input__label" for="ppExpiryDateYear">
+                              Year
+                            </label>
+                            <input
+                              class="govuk-input govuk-date-input__input govuk-input--width-3"
+                              id="ppExpiryDateYear"
+                              name="ppExpiryDateYear"
+                              type="number"
+                              pattern="[0-9]*"></div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    {% if data['payslipOrP60'] == 'payslip' %}
+                      {{ govukButton({
               text: "Continue",
               href: "payslip-q1"
           }) }}
-      {% elif data['payslipOrP60'] == 'p60' %}
-        {{ govukButton({
+                    {% elif data['payslipOrP60'] == 'p60' %}
+                      {{ govukButton({
               text: "Continue",
               href: "p60-q1"
           }) }}
-      {% elif data['tcOptions'] == 'voiceIdYes' %}
-        {{ govukButton({
+                    {% elif data['tcOptions'] == 'voiceIdYes' %}
+                      {{ govukButton({
               text: "Continue",
               href: "voice-id"
           }) }}
-      {% elif data['tcOptions'] == 'voiceIdNo' %}
-        {{ govukButton({
+                    {% elif data['tcOptions'] == 'voiceIdNo' %}
+                      {{ govukButton({
               text: "Continue",
               href: "tax-credits-q1"
           }) }}
-      {% elif data['cra-consent'] == 'true' %}
-        {{ govukButton({
+                    {% elif data['cra-consent'] == 'true' %}
+                      {{ govukButton({
               text: "Continue",
               href: "tu-q1"
           }) }}
-      {% else %}
-        {{ govukButton({
+                    {% else %}
+                      {{ govukButton({
               text: "Continue",
               href: "../complete-confirmation?id=not-verified"
           }) }}
-      {% endif %}
-
-
-      <p class="body-text"><a href="./more-information.html">I don't have that information</a></p>
-
-      
-        <!-- <details class="govuk-details govuk-!-margin-top-9">
-          <summary class="govuk-details__summary govuk-details__summary--modifier">
-            <span class="govuk-details__summary-text govuk-details__summary-text--modifier"
-              style="display: block; text-decoration: underline; color: #005ea5; cursor: pointer; font-size: 16px">
-              Get help with this page
-            </span>
-          </summary>
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full">
-              <h3 class="govuk-heading">Get help with this service</h3>
-              <p class="govuk-body">Don't include any personal or financial information. For example, your National
-                Insurance or credit card numbers.</p>
-
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="name">
-                  Name
-                </label>
-                <input class="govuk-input govuk-input--width-20" id="name" name="name" type="text">
+                    {% endif %}
+                    <p class="body-text">
+                      <a href="./more-information.html">I don't have that information</a>
+                    </p>
+                    <!-- <details class="govuk-details govuk-!-margin-top-9"> <summary class="govuk-details__summary
+                    govuk-details__summary--modifier">
+                        <span class="govuk-details__summary-text govuk-details__summary-text--modifier"
+                          style="display: block; text-decoration: underline; color: #005ea5; cursor: pointer; font-size: 16px">
+                          Get help with this page
+                        </span>
+                    </summary> <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-full">
+                          <h3 class="govuk-heading">Get help with this service</h3>
+                          <p class="govuk-body">Don't include any personal or financial information. For example, your National
+                            Insurance or credit card numbers.</p>
+                    
+                          <div class="govuk-form-group">
+                            <label class="govuk-label" for="name">
+                              Name
+                            </label>
+                            <input class="govuk-input govuk-input--width-20" id="name" name="name" type="text">
+                          </div>
+                          <div class="govuk-form-group">
+                            <label class="govuk-label" for="email">
+                              Email
+                            </label>
+                            <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email">
+                          </div>
+                          <div class="govuk-form-group">
+                            <label class="govuk-label" for="what">
+                              What were you doing?
+                            </label>
+                            <input class="govuk-input govuk-input--width-20" id="what" name="what" type="text">
+                          </div>
+                          <div class="govuk-form-group">
+                            <label class="govuk-label" for="help">
+                              What do you need help with?
+                            </label>
+                            <input class="govuk-input govuk-input--width-20" id="help" name="help" type="text">
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="govuk-button">
+                        Send
+                    </button>
+                    
+                    </details> -->
+                  </form>
+                </div>
               </div>
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="email">
-                  Email
-                </label>
-                <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email">
-              </div>
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="what">
-                  What were you doing?
-                </label>
-                <input class="govuk-input govuk-input--width-20" id="what" name="what" type="text">
-              </div>
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="help">
-                  What do you need help with?
-                </label>
-                <input class="govuk-input govuk-input--width-20" id="help" name="help" type="text">
-              </div>
-            </div>
-          </div>
-
-          <button type="submit" class="govuk-button">
-            Send
-          </button>
-
-        </details>-->
-    </form>
-    
-  </div>
-
-
-  
-        </div>
-{% endblock %}
+            {% endblock %}

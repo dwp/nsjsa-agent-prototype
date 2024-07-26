@@ -1,29 +1,22 @@
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block beforeContent %}
   {# Remove the "< Back" button from this instance of the template #}
 {% endblock %}
-
 {% block content %}
-
   {% set currentlyworking = false %}
   {% set jservice = false %}
   {% set resultjservice = "no" %}
   {# {% set startDateItems = todaysDate.original | moment %} #}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
-
       <!-- APPLICATION START DATE -->
       <h2 class="govuk-heading-l">Application start date</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -41,10 +34,8 @@
           }
         ]
       }) }}
-
       <!-- PERSONAL DETAILS -->
       <h2 class="govuk-heading-l">Personal details</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -178,10 +169,8 @@
           }
         ]
       }) }}
-
       <!-- BANK DETAILS -->
       <h2 class="govuk-heading-l">Bank details</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -205,10 +194,8 @@
           }
         ]
       }) }}
-
       <!-- OTHER BENEFITS -->
       <h2 class="govuk-heading-l">Other benefits</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -244,10 +231,8 @@
           }
         ]
       }) }}
-
       <!-- JURY SERVICE -->
       <h2 class="govuk-heading-l">Jury service</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -283,10 +268,8 @@
           }
         ]
       }) }}
-
       <!-- CURRENT EMPLOYMENT -->
       <h2 class="govuk-heading-l">Current employment</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -308,10 +291,8 @@
           }
         ]
       }) }}
-
       <!-- PREVIOUS EMPLOYMENT -->
       <h2 class="govuk-heading-l">Previous employment</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -331,7 +312,6 @@
           }
         ]
       }) }}
-
       <!-- FIRST PREVIOUS EMPLOYMENT -->
       <div class="govuk-grid-column-three-quarters">
         <h3 class="govuk-heading-m">First previous employer</h3>
@@ -339,7 +319,6 @@
       <div class="govuk-grid-column-one-quarter govuk-align-right">
         <a href="7-previous-employment/when-employer" class="govuk-body">Change</a>
       </div>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -471,17 +450,14 @@
           }
         ]
       }) }}
-
       <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-9">
         <a href="#" class="govuk-body">Add another employer</a>
       </div>
       <div class="govuk-grid-column-one-quarter govuk-align-right govuk-!-margin-bottom-9">
         <a href="#" class="govuk-body">Remove employer details</a>
       </div>
-
       <!-- WORKING OR CLAIMING BENEFITS ABROAD -->
       <h2 class="govuk-heading-l">Working or claiming benefit overseas</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -503,10 +479,8 @@
           }
         ]
       }) }}
-
       <!-- CURRENT PENSIONS -->
       <h2 class="govuk-heading-l">Current pensions</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -526,7 +500,6 @@
           }
         ]
       }) }}
-
       <!-- FIRST CURRENT PENSION -->
       <div class="govuk-grid-column-three-quarters">
         <h3 class="govuk-heading-m">First current pension</h3>
@@ -534,7 +507,6 @@
       <div class="govuk-grid-column-one-quarter govuk-align-right">
         <a href="9-pensions/9a-current-pension/provider-name" class="govuk-body">Change</a>
       </div>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -624,18 +596,14 @@
           }
         ]
       }) }}
-
       <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-9">
         <a href="#" class="govuk-body">Add another current pension</a>
       </div>
       <div class="govuk-grid-column-one-quarter govuk-align-right govuk-!-margin-bottom-9">
         <a href="#" class="govuk-body">Remove pension details</a>
       </div>
-
-
       <!-- EDUCATION AND TRAINING -->
       <h2 class="govuk-heading-l">Education and training</h2>
-
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
@@ -713,11 +681,8 @@
           }
         ]
       }) }}
-
-
       {{ govukButton({
   text: "Continue",
   href: "declaration"
 }) }}
-
     {% endblock %}

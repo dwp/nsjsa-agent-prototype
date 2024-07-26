@@ -1,28 +1,20 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Previous employment</span>
         What is the phone number of your previous employer? (optional)
       </h1>
-
       <form action="expect-payment" method="post">
-
         {% call govukFieldset({
         }) %}
-
-        <p class="govuk-hint">Supply a contact number to a person or department who will be able to confirm your employment there.</p>
-
-          {{ govukInput({
+        <p class="govuk-hint">Supply a contact number to a person or department who will be able to confirm your employment
+          there.</p>
+        {{ govukInput({
             label: {
                text: ""
             },
@@ -32,15 +24,11 @@
             classes: "govuk-input--width-20",
             value: data['pe-telephone-number']
           }) }}
-
         {% endcall %}
-
         {{ govukButton({
             text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}

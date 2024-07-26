@@ -1,27 +1,19 @@
-
-{% extends "layout.html" %}
-
+{% extends "layouts/main.html" %}
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Current employment</span>
         What is the name of your current employer?
       </h1>
-
       <form action="employer-name" method="post">
-
         {% set jobref = "job" + data["jobnum"] + "-" %}
         {% set fieldref = jobref + "ceEmployerName" %}
         {% call govukFieldset({
         }) %}
-
         {{ govukInput({
           label: {
             text: "Current employer name",
@@ -36,13 +28,10 @@
           classes: "govuk-!-width-one-half"
         }) }}
         {% endcall %}
-
         {{ govukButton({
           text: "Continue"
         }) }}
-
       </form>
     </div>
   </div>
-
 {% endblock %}
