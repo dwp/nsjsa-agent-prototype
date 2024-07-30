@@ -1,18 +1,13 @@
-{% extends "layout/summary-no-search-bar.html" %}
-
+{% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-Outbound journey - {{ serviceName }}
+  Outbound journey - {{ serviceName }}
 {% endblock %}
-
-{% block beforeContent %}
-{% endblock %}
-
+{% block beforeContent %}{% endblock %}
 {% block content %}
   <div class="govuk-!-margin-top-8">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        {% include "includes/cis-flags-cc.html" %}
-
+        {% include "app/views/complete-previous-journeys/includes/cis-unavailable-cc.html" %}
         <section class="govuk-!-margin-bottom-6">
           <h2 class="govuk-heading-m">Personal details</h2>
           <dl role="list" class="app-check-your-answers app-check-your-answers--long">
@@ -21,7 +16,6 @@ Outbound journey - {{ serviceName }}
             {{ checkAnswersItem("Not available on these days", '<ul class="govuk-list"><li>Monday 9 September (Morning)</li><li>Monday 10 September (Afternoon)</li></ul>') }}
           </dl>
         </section>
-
         <section>
           <h2 class="govuk-heading-m">Local office</h2>
           <dl role="list" class="app-check-your-answers app-check-your-answers--long">
@@ -29,17 +23,14 @@ Outbound journey - {{ serviceName }}
             {{ checkAnswersItem("Office address", "St Marylebone Jobcentre<br>26 - 46 Lisson Grove<br>London<br>United Kingdom<br>NW1 6TZ") }}
           </dl>
         </section>
-
       </div>
       <div class="govuk-grid-column-one-third">
-
         <aside class="app-related-items govuk-!-margin-top-0" role="complementary">
           {% include "includes/claim-actions-cc.html" %}
           <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          {% include "includes/status-history-cc.html" %}
-        </aside>
-
+            {% include "includes/status-history-cc.html" %}
+          </aside>
+        </div>
       </div>
     </div>
-  </div>
-{% endblock %}
+  {% endblock %}
