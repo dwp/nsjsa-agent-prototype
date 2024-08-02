@@ -1,28 +1,24 @@
 {% set r = [1, 2] | random %}
 {% set list = [
   "Claimant does not match CIS record",
-  "There are 3 other claims with the same bank details"] 
-%}
-
+  "There are 3 other claims with the same bank details"] %}
 {% set randomList = list | randomise(r) %}
-
-  <section class="dwp-print-hide">
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-          <span class="govuk-heading-m govuk-!-margin-bottom-0">Important</span>
-      </strong>
-    </div>
-
-    {% if randomList.length > 1 %}
-      <ul class="govuk-list govuk-list--bullet">  
-        {% for item in randomList %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    {% else %}
+<section class="dwp-print-hide">
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      <span class="govuk-heading-m govuk-!-margin-bottom-0">Important</span>
+    </strong>
+  </div>
+  {% if randomList.length > 1 %}
+    <ul class="govuk-list govuk-list--bullet">
+      {% for item in randomList %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
     <p>{{ randomList[0] }}</p>
-    {% endif %}
-  </section>
-  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+  {% endif %}
+</section>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
