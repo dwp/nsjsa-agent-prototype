@@ -1,0 +1,102 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% block pageTitle %}
+  NSJSA Automation Prototypes
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Delivery by increment</h1>
+      {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+      <h2 class="govuk-heading-m">Book appointment</h2>
+      <ul class="govuk-list govuk-list--unstyled">
+        <li>
+          <a href="previous-work/agent/stage/2a">Service centre agent – Find a claim</a>
+        </li>
+        <li>
+          <a href="previous-work/agent/stage/2b">Contact centre agent – Choose a task</a>
+        </li>
+        <li>
+          <a href="previous-work/agent/stage/2b/view-claim?task=book&claimStatus=first-fail&claimant=kb">Contact centre agent –
+            First fail</a>
+        </li>
+      </ul>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <h2 class="govuk-heading-m">ES/BA pushes, process claim bucket</h2>
+        <p>
+          <a href="previous-work/agent/stage/4">Service centre agent – Choose a task</a>
+        </p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          <h2 class="govuk-heading-m">IDV</h2>
+          <h3 class="govuk-heading-s">Citizen screens</h3>
+          <p>
+            <a href='previous-work/agent/stage/1a/1-eligibility/introduction'>Apply and confirm ID</a>
+            – journey from start of apply</p>
+          {{ govukDetails({
+        summaryText: "Jump to screen",
+        html: "
+            <ul class=govuk-list govuk-list--bullet>
+              <li><a href='previous-work/agent/stage/1a/declaration'>Declaration</a></li>
+                      <li><a href='previous-work/agent/stage/1a/confirmation'>Application sent confirmation 1</a></li>
+        <li><a href='previous-work/agent/stage/1a/confirmation2'>Application sent confirmation 2</a></li>
+        <li><a href='previous-work/agent/stage/1a/confirmation3'>Application sent confirmation 3</a></li>
+        <li><a href='previous-work/agent/stage/1a/confirmation4'>Application sent confirmation 4</a></li>
+        <li><a href='previous-work/agent/stage/1a/confirmation5'>Application sent confirmation 5</a></li>
+              <li><a href='previous-work/agent/stage/1a/complete-confirmation?id=verified'>Application complete – successful IDV confirmation</a></li>
+              <li><a href='previous-work/agent/stage/1a/complete-confirmation?id=not-verified'>Application complete – unsuccessful IDV confirmation</a></li>
+            </ul> 
+        "
+      }) }}
+          <h3 class="govuk-heading-s">Service centre agent screens</h3>
+          <p>
+            <a href="previous-work/agent/stage/1b">Find a claim</a>
+          </p>
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h2 class="govuk-heading-m">Manual ID/bio checks</h2>
+            <p>
+              <a href="previous-work/agent/stage/3">Service centre agent – Choose a task</a>
+            </p>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+              {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+              {# <h2 class="govuk-heading-m">Triage tasks</h2>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li><a href="task/a">Create an identity template</a> (bio template)</li>
+                      <li><a href="previous-work/agent/task/b/claim">Conduct an identity check</a> (bio check)</li>
+                      <li><a href="task/c">Conduct an identity check after failed contact</a></li>
+                      <li><a href="task/d">Determine if a claim is fraudulent</a></li>
+                      <li><a href="task/e">Refer claim to Job Centre</a> (appointee)</li>
+                    </ul>
+              
+                    <h2 class="govuk-heading-m">Processing tasks</h2>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li><a href="task/f">Process a claim too complex for automation</a></li>
+                      <li><a href="task/g">Process a claim too complex for a low tier agent</a></li>
+                      <li><a href=previous-work/agent/task/h/claim">Book appointment</a></li>
+                    </ul> #}<h2 class="govuk-heading-m">Management tasks</h2>
+              <p>
+                <a href="previous-work/agent/mi/overview">View management information</a>
+              </p>
+              <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                <h2 class="govuk-heading-m">Templates patterns and examples</h2>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    <a href="previous-work/agent/example/claim">Agent claim view</a>
+                  </li>
+                  <li>
+                    <a href="previous-work/agent/example/update-claim-status">Agent update claim status</a>
+                  </li>
+                  <li>
+                    <a href="previous-work/agent/example/update-claim-status-confirmation">Agent claim status update confirmation</a>
+                  </li>
+                  <li>
+                    <a href="previous-work/agent/example/task">Choose task</a>
+                  </li>
+                </ul>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>claimant – sh, kb, ij</li>
+                  <li>task – view, ID-template, ID-check, book, process, fix</li>
+                  <li>claimStatus – ID-not-verified, ID-verified</li>
+                  <li>guidMismatch – 0, 1</li>
+                </ul>
+              </div>
+            </div>
+          {% endblock %}
