@@ -1,35 +1,32 @@
-{% extends "agent/layout.html" %}
-
+{% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-{{ serviceName }}: DWP Agent – Find a claim
+  {{ serviceName }}: DWP Agent – Find a claim
 {% endblock %}
-
-{% block beforeContent %}
-{% endblock %}
-
+{% block beforeContent %}{% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
-
-    {% if data['show'] == "invalid" %}
-      <h1 class="govuk-heading-l">National Insurance number not valid</h1>
-      <p class="govuk-body-l">The National Insurance number entered is not valid: <br><span class="govuk-!-font-weight-bold">12 QQ 22 33 9</span>.</p>
-      {{ govukButton({
+      {% if data['show'] == "invalid" %}
+        <h1 class="govuk-heading-l">National Insurance number not valid</h1>
+        <p class="govuk-body-l">The National Insurance number entered is not valid:
+          <br>
+            <span class="govuk-!-font-weight-bold">12 QQ 22 33 9</span>.</p>
+          {{ govukButton({
         text: "Try again",
         href: "/common/nino-search"
       }) }}
-    {% elif data['show'] == "errors" %}
-      <h1 class="govuk-heading-l">Claimant not found</h1>
-      <p class="govuk-body-l">The system does not hold a record for the National Insurance number: <span class="govuk-!-font-weight-bold">QQ 12 34 56 B</span>.</p>
-      {{ govukButton({
+        {% elif data['show'] == "errors" %}
+          <h1 class="govuk-heading-l">Claimant not found</h1>
+          <p class="govuk-body-l">The system does not hold a record for the National Insurance number:
+            <span class="govuk-!-font-weight-bold">QQ 12 34 56 B</span>.</p>
+          {{ govukButton({
         text: "Try again",
         href: "/common/nino-search"
       }) }}
-    {% else %}
-      <h1 class="govuk-heading-l">Find a claim</h1>
-
-      <form action="#" method="post">
-        {{ govukInput({
+        {% else %}
+          <h1 class="govuk-heading-l">Find a claim</h1>
+          <form action="#" method="post">
+            {{ govukInput({
           errorMessage: errorMessage,
           label: {
             text: "Enter the claimant's National Insurance number"
@@ -44,14 +41,11 @@
             "autocomplete": "off"
           }
         }) }}
-
-        {{ govukButton({
+            {{ govukButton({
           text: "Find claim"
         }) }}
-      </form>
-    {% endif %}
-    
+          </form>
+        {% endif %}
+      </div>
     </div>
-
-  </div>
-{% endblock %}
+  {% endblock %}
