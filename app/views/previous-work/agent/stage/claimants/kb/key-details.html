@@ -1,25 +1,32 @@
-  {{ dwpKeyDetailsBar({
-    claimantName: "Karan Bhopal",
-    claimantNINO: "RN 00 00 35 C",
-    claimStatus: claimStatus,
-    items: [
-        {
-            title: "DOB",
-            value: "21/07/1970"
-        },
-        {
-            title: "Postcode",
-            value: "FY4 1SF"
-        },
-        {
-            title: "Phone",
-            value: "01253 752057"
-        },
-        {
-            title: "Claim submitted",
-            value: "05/09/21"
-        }
-    ],
-    showToggle: showToggle,
-    classes: "dwp-print-hide"
-  }) }}
+{{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Karan Bhopal'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'RN 00 00 35 C'
+},
+status: {
+text: 'Claim status:',
+value: claimStatus
+},
+additionalData: [
+{
+value: "21/07/1970",
+text: "D.O.B:"
+},
+{
+value: "FY4 1SF",
+text: "Postcode:"
+},
+{
+value: "01253 752057",
+text: "Phone:"
+},
+{
+value: "05/09/21",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}

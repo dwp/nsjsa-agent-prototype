@@ -1,25 +1,32 @@
 {{ dwpKeyDetailsBar({
-    claimantName: "Ian Johnson",
-    claimantNINO: "RN 00 00 35 C",
-    claimStatus: claimStatus,
-    items: [
-        {
-            title: "DOB",
-            value: "29/04/1972"
-        },
-        {
-            title: "Postcode",
-            value: "FY4 3HA"
-        },
-        {
-            title: "Phone",
-            value: "07880 123456"
-        },
-        {
-            title: "Claim submitted",
-            value: "31/08/21"
-        }
-    ],
-    showToggle: showToggle,
-    classes: "dwp-print-hide"
+primaryIdentifier: {
+text: 'Name:',
+value: 'Ian Johnson'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'RN 00 00 35 C'
+},
+status: {
+text: 'Claim status:',
+value: claimStatus
+},
+additionalData: [
+{
+value: "29/04/1972",
+text: "D.O.B:"
+},
+{
+value: "FY4 3HA",
+text: "Postcode:"
+},
+{
+value: "07880 123456",
+text: "Phone:"
+},
+{
+value: "31/08/21",
+text: "Claim submitted (IDOC):"
+}
+]
 }) }}
