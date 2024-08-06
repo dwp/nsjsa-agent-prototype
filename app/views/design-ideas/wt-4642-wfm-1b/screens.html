@@ -46,18 +46,26 @@
             </details>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
         </div>
+        
+        <div class="govuk-!-padding-bottom-8"></div>
+
+
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-three-quarters">
                 {{ govukTable({
         caption: "Prototype scenarios",
-        captionClasses: "govuk-table__caption--l",
-        firstCellIsHeader: true,
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
         head: [
             {
                 text: "ID"
             },
             {
-                text: "Scenario"
+                text: "Scenario",
+                classes: "govuk-!-width-one-quarter"
+            },
+            {
+                text: "Description"
             }
         ],
         rows: [
@@ -68,6 +76,11 @@
             {
                 html: "<a href='choose-task?sc=1&claimant=ij&claimStatus=processing-started'>Go to scenario 1"
                 
+            },
+            {
+                text: "View Ian Johnson's claim. Built for selected pause reasons: Identity check (KBV) and NSESA team
+                (other statuses can be selected, but they won't show correctly in the timeline)."
+                
             }
         ],
         [
@@ -76,6 +89,60 @@
             },
             {
                 html: "<a href='choose-task?sc=4&claimant=sh&claimStatus=paused'>Go to scenario 2"
+            },
+            {
+                text: "View Simon Hamilton's claim. Built for selected pause reasons: Identity check"
+            }
+          ]
+        ]
+      }) }}
+            </div>
+        </div>
+
+           <div class="govuk-!-padding-bottom-8"></div>
+        
+    
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+                {{ govukTable({
+        caption: "Post-research updates",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
+        head: [
+            {
+                text: "ID"
+            },
+            {
+                text: "Change",
+                classes: "govuk-!-width-one-quarter"
+            },
+            {
+                text: "Description"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "pr1"
+            },
+            {
+                html: "<a href=>Claim status history"
+                
+            },
+            {
+                text: "Content change on the claim status history: 'G4S checks completed' is changed back to 'Success', as it was in WFM 1b iteration 1."
+            }
+        ],
+        [
+            {
+                text: "pr2"
+            },
+            {
+                html: "<a href=>Update claim status"
+            },
+            {
+                text: "Content change on the Update claim status page: 'Claim not entitled' is changed back to 'Not entitled', 'Claim not valid' is changed back to 'Not valid' - as it was in WFM 1b iteration 1."
             }
           ]
         ]
