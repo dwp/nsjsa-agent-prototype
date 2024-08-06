@@ -13,6 +13,8 @@
     {% include 'design-ideas/wt-4642-wfm-1b/claimants/sp/key-details.html' %}
   {% elif data['claimant'] == 'ij' %}
     {% include 'design-ideas/wt-4642-wfm-1b/claimants/ij/key-details.html' %}
+  {% elif data['claimant'] == 'ij2' %}
+    {% include 'design-ideas/wt-4642-wfm-1b/claimants/ij2/key-details.html' %}
   {% else %}
     <p>No claimant set.</p>
   {% endif %}
@@ -37,6 +39,8 @@
         {% include 'design-ideas/wt-4642-wfm-1b/claimants/sp/customer-statement.html' %}
       {% elif data['claimant'] == 'ij' %}
         {% include 'design-ideas/wt-4642-wfm-1b/claimants/ij/customer-statement.html' %}
+      {% elif data['claimant'] == 'ij2' %}
+        {% include 'design-ideas/wt-4642-wfm-1b/claimants/ij2/customer-statement.html' %}
       {% else %}
         <p>No claimant set.</p>
       {% endif %}
@@ -53,6 +57,8 @@
           {% include 'design-ideas/wt-4642-wfm-1b/claimants/sp/history.html' %}
         {% elif data['claimant'] == 'ij' %}
           {% include 'design-ideas/wt-4642-wfm-1b/claimants/ij/history.html' %}
+        {% elif data['claimant'] == 'ij2' %}
+          {% include 'design-ideas/wt-4642-wfm-1b/claimants/ij2/history.html' %}
         {% else %}
           <p>No claimant set.</p>
         {% endif %}
