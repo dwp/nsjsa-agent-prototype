@@ -1,0 +1,65 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  Claim updated
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div
+      class="govuk-grid-column-two-thirds">
+      <!-- Confirmation interactive PAUSED CLAIMS-->
+      {% if data['claimStatus'] == 'paused' %}
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Claim paused
+          </h1>
+          <div class="govuk-panel__body">
+            You should next update this claim on<br>
+              <strong>{{ data['deadline-day'] }}
+                {{ data['deadline-month'] | toMonth }}
+                {{ data['deadline-year'] }}</strong>.
+            </div>
+          </div>
+          <p class="govuk-body">You have paused the claim by
+            {% if data['claimant'] == 'sh' %}
+              <strong>Simon Hamilton, QQ 12 34 56 X
+              </strong>,
+            {% elif data['claimant'] == 'ij' %}
+              <strong>
+                Ian Johnson, RN 00 00 35 C
+              </strong>,
+            {% else %}
+              <p>No claimant set.</p>
+            {% endif %}
+            for the following reasons:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+            {% for pauseReason in data['pauseReason'] %}
+              <li>{{ pauseReason }}</li>
+            {% endfor %}
+          </ul>
+          <p class="govuk-body">
+            You can find this claim in your paused claims and last updated claims.
+          </p>
+          <!-- Confirmation interactive ALL OTHER CLAIM STATUSES -->
+        {% else %}
+          {% if data['claimant'] == 'sh' %}
+            {% include 'design-ideas/wt-4877-wfm-1b/claimants/sh/update-confirmation.html' %}
+          {% elif data['claimant'] == 'ij' %}
+            {% include 'design-ideas/wt-4877-wfm-1b/claimants/ij/update-confirmation.html' %}
+          {% else %}
+            <p>No claimant set.</p>
+          {% endif %}
+          <p class="govuk-body">
+            You can now find this claim in your last updated claims.
+          </p>
+        {% endif %}
+        <div class="govuk-button-group">
+          {{ govukButton({
+      text: "Return to main menu",
+      href: "/design-ideas/wt-4877-wfm-1b/choose-task"
+      }) }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
