@@ -1,0 +1,42 @@
+{{ govukTable({
+caption: "New claims statistics",
+captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+firstCellIsHeader: false,
+head: [
+        {
+        text: "Status"
+        },
+        {
+        text: "Age Days"
+        },
+        {
+        text: "Claim"
+        }
+        ],
+
+rows: [
+        [
+        {
+        text: "Awaiting processing"
+        },
+        {
+        text: "3"
+        },
+        {
+        text: "N/A"
+        }
+        ],
+
+        [
+        {
+        text: "Processing started"
+        },
+        {
+        text: "35"
+        },
+        {
+        text: "View claim"
+        }
+        ]
+]
+}) }}
