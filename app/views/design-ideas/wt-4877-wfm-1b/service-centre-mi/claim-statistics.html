@@ -13,7 +13,7 @@
         class="govuk-heading-l govuk-!-margin-top-4">
         {# <span class="govuk-caption-l">Today, Wednesday 1 September 2021</span> #}
         Claim statistics
-        <span class="govuk-caption-l">on Tuesday 19 October 2021</span>
+        <span class="govuk-caption-l">Tuesday 13 August 2024</span>
       </h1>
     </div>
     <div class="govuk-grid-column-one-third">
@@ -23,13 +23,13 @@
                 namePrefix: "report",
                 fieldset: {
                     legend: {
-                    text: "Report date",
+                    text: "Change report date",
                     isPageHeading: false,
                     classes: "govuk-fieldset__legend--m"
                     }
                 },
                 hint: {
-                    text: "For example, 19 10 2021"
+                    text: "For example, 21 06 2024"
                 }
             }) }}
         {{ govukButton({
@@ -38,21 +38,28 @@
       </form>
     </div>
     <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-m">New claims
-        <span class="govuk-caption-m">on Tuesday 19 October 2021</span>
+      <h2 class="govuk-heading-m">Claim overview
       </h2>
       {% if data['v'] == '2' %}
         {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/new-claims2.html" %}
       {% else %}
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/new-claims.html" %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-overview1.html" %}
       {% endif %}
-      <h2 class="govuk-heading-m">Appointment booking claims
-        <span class="govuk-caption-m">on Tuesday 19 October 2021</span>
+        <div class="govuk-!-padding-bottom-5"></div>
+      <h2 class="govuk-heading-m">Oldest claims
       </h2>
       {% if data['v'] == '2' %}
         {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/ba-claims2.html" %}
       {% else %}
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/new-claims.html" %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims1.html" %}
+      {% endif %}
+       <div class="govuk-!-padding-bottom-5"></div>
+      <h2 class="govuk-heading-m">Total claims by pause reason
+      </h2>
+      {% if data['v'] == '2' %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/ba-claims2.html" %}
+      {% else %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-pause-reason1.html" %}
       {% endif %}
       {{ govukButton({
         html: "Download CSV"
