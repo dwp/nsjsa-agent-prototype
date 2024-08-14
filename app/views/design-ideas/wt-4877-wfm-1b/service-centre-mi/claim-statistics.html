@@ -61,6 +61,11 @@
       {% else %}
         {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-pause-reason1.html" %}
       {% endif %}
+       <div class="govuk-!-padding-bottom-5"></div>
+      <h2 class="govuk-heading-m">Oldest paused claims
+      </h2>
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-paused1.html" %}
+    
       {{ govukButton({
         html: "Download CSV"
     }) }}
