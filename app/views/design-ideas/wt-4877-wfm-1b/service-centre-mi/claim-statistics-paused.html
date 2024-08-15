@@ -36,26 +36,27 @@
                 text: "Submit"
             }) }}
       </form>
-    </div>
+
+    {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+
+    {{ mojSideNavigation({
+      label: 'Side navigation',
+      items: [{
+        text: 'Claims overview',
+        href: 'claim-statistics-overview'
+      }, {
+        text: 'Paused claims',
+        href: 'claim-statistics-paused',
+        active: true
+      }]
+    }) }}
+
+</div>
+
+
+
     <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-m">Claim overview
-        <span class="govuk-caption-m">on Tuesday 13 August 2024</span>
-      </h2>
-      {% if data['v'] == '2' %}
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/new-claims2.html" %}
-      {% else %}
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-overview1.html" %}
-      {% endif %}
-        <div class="govuk-!-padding-bottom-8"></div>
-      <h2 class="govuk-heading-m">Oldest claims
-        <span class="govuk-caption-m">on Tuesday 13 August 2024</span>
-      </h2>
-      {% if data['v'] == '2' %}
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/ba-claims2.html" %}
-      {% else %}
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims1.html" %}
-      {% endif %}
-       <div class="govuk-!-padding-bottom-8"></div>
       <h2 class="govuk-heading-m">Claims by pause reason
         <span class="govuk-caption-m">on Tuesday 13 August 2024</span>
       </h2>
