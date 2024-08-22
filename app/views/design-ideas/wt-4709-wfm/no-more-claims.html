@@ -1,0 +1,11 @@
+{% extends "layout/unbranded-agent-id.html" %}
+{% block pageTitle %}
+    {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block content %}
+    
+            <h1 class="govuk-heading-l">There are no more claims in the queue</h1>
+            <a href="end" class="govuk-link">Go back to Choose a task</a>
+
+{% endblock %}
