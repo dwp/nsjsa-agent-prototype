@@ -1,5 +1,5 @@
 {{ govukTable({
-    caption: "Claims in processing",
+    caption: "Claims cleared",
     captionClasses: "govuk-table__caption--m govuk-visually-hidden",
     firstCellIsHeader: false,
     head: [
@@ -14,42 +14,58 @@
     rows: [
         [
         {
-            text: "Awaiting processing"
+            text: "Total cleared"
         },
         {
-            text: "216"
+            text: "382"
         }
         ],
         [
         {
-            text: "In processing"
+            text: "Awaiting appointment"
         },
         {
-            text: "326"
+            text: "294"
         }
         ],
         [
         {
-            text: "- Complex claims"
+            text: "Disallowed"
         },
         {
-            text: "38"
+            text: "89"
         }
         ],
         [
         {
-            text: "- Paused"
+            text: "- Duplicate"
         },
         {
-            text: "265"
+            text: "26"
         }
         ],
         [
         {
-            text: "- Status not updated"
+            text: "- Not entitled"
         },
         {
-            text: "111"
+            text: "12"
+        }
+        ],
+        [
+        {
+            text: "- Not valid"
+        },
+        {
+            text: "41"
+        }
+        ],
+        [
+        {
+            text: "- Withdrawn"
+        },
+        {
+            text: "10"
         }
         ]
     ]
