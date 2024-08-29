@@ -18,7 +18,7 @@
     </div>
     <div class="govuk-grid-column-one-third">
       <span class="govuk-caption-m">Showing report for</span>
-      <h2 class="govuk-heading-m">Tuesday 27 August 2024</h2>
+      <h2 class="govuk-heading-m">Thursday 22 August 2024</h2>
       
       <div class="govuk-!-padding-bottom-4"></div>
 
@@ -38,8 +38,7 @@
                 }
             }) }}
         {{ govukButton({
-                text: "Submit",
-                href: "claim-statistics5-pastdate"
+                text: "Submit"
             }) }}
       </form>
     </div>
@@ -47,27 +46,27 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h2 class="govuk-heading-m">Cleared claims</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-cleared2.html" %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-cleared2-past.html" %}
         <div class="govuk-!-padding-bottom-8"></div>
 
-        <h2 class="govuk-heading-m">Disallowed claims by reason</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-disallowed.html" %}
+      <h2 class="govuk-heading-m">Disallowed claims by reason</h2>
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-disallowed-past.html" %}
         <div class="govuk-!-padding-bottom-8"></div>
 
       <h2 class="govuk-heading-m">Claims in processing</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-inprocessing.html" %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-inprocessing-past.html" %}
         <div class="govuk-!-padding-bottom-8"></div>
       
       <h2 class="govuk-heading-m">Oldest claims in processing</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims2.html" %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims2-past.html" %}
        <div class="govuk-!-padding-bottom-8"></div>
 
       <h2 class="govuk-heading-m">Paused claims by reason</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-pause-reason2.html" %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-pause-reason2-past.html" %}
        <div class="govuk-!-padding-bottom-8"></div>
       
       <h2 class="govuk-heading-m">Oldest paused claims</h2>
-      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-paused2.html" %}
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-paused2-past.html" %}
       <div class="govuk-!-padding-bottom-8"></div>
 
       {{ govukButton({
