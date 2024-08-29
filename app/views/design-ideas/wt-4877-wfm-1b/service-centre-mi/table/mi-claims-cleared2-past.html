@@ -1,10 +1,10 @@
 {{ govukTable({
-    caption: "Claims disallowed",
+    caption: "Claims cleared",
     captionClasses: "govuk-table__caption--m govuk-visually-hidden",
     firstCellIsHeader: false,
     head: [
         {
-        text: "Disallowed reason",
+        text: "Status",
         classes: "govuk-!-width-two-thirds"
         },
         {
@@ -14,34 +14,26 @@
     rows: [
         [
         {
-            text: "Duplicate"
+            text: "Total cleared"
         },
         {
-            text: "26"
+            text: "4382"
         }
         ],
         [
         {
-            text: "Not entitled"
+            text: "Awaiting appointment"
         },
         {
-            text: "12"
+            text: "294"
         }
         ],
         [
         {
-            text: "Not valid"
+            text: "Disallowed"
         },
         {
-            text: "41"
-        }
-        ],
-        [
-        {
-            text: "Withdrawn"
-        },
-        {
-            text: "10"
+            text: "89"
         }
         ]
     ]
