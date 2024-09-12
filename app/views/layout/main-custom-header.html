@@ -1,0 +1,43 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Apply for New Style Jobseeker’s Allowancee",
+  serviceUrl: ""
+}) }}
+{% endblock %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% block footer %}
+  {{ dwpFooter({
+  meta: {
+    visuallyHiddenTitle: "Meta links",
+    items: [
+    {
+      href: "#",
+            text: "Accessibility statement"
+    },
+    {
+      href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+    },
+    {
+      href: "/manage-prototype/clear-data",
+            text: "Clear data"
+    }
+    ]
+  }
+}) }}
+{% endblock %}
+{% set htmlClasses = htmlClasses | default("dwp-agent-layout") %}
+{# reset auto spacing from layout.html #}
+{% set mainClasses = mainClasses | default("") %}

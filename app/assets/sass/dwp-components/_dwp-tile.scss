@@ -1,7 +1,8 @@
 .link-panel {
   background: $govuk-link-colour;
   min-height: 190px;
-  @include govuk-responsive-padding(9);
+  max-height: 190px;
+  @include govuk-responsive-padding(6);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
