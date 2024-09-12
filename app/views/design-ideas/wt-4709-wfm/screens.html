@@ -59,7 +59,7 @@
   html: "<strong>Search for staff number on Last updated claims:</strong> <br> Enter any value for Agent 88776655 claims <br> Enter 12345678 for Agent 12345678 claims <br> Enter 03 for Agent 03 claims "
 }) }}
                 {{ govukTable({
-        caption: "Individual screens for development",
+        caption: "Individual screens and flows for development",
         captionClasses: "govuk-table__caption--m",
         firstCellIsHeader: true,
         head: [
@@ -117,6 +117,12 @@
             
             {
                 html: "<a href='no-more-claims'>No more claims"
+            }
+          ],
+          [
+            
+            {
+                html: "<a href='assisted-digital-choose-task'>Assisted digital (Process a claim over the phone)"
             }
           ]
         ]
