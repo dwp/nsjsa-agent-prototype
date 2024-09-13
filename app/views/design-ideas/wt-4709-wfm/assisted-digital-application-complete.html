@@ -51,8 +51,22 @@ DWP - Jobseeker&rsquo;s Allowance
   </div>
   </div>
 
-  <button type="submit" class="govuk-button" data-module="govuk-button"
+  {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "This is the last page of the new claim process. Close the tab to return to the contact centre start screen."
+}) }}
+
+
+
+
+ <!--  HTML for closing page via 'Close this tab' button
+ 
+ <button type="submit" class="govuk-button" data-module="govuk-button"
     onclick="window.open('', '_self', ''); window.close();">
     Close this tab
-  </button>
+  </button>  
+  -->
+
+
   {% endblock %}
