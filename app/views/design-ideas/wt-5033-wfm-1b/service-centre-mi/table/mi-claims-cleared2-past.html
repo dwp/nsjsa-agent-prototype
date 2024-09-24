@@ -1,0 +1,40 @@
+{{ govukTable({
+    caption: "Claims cleared",
+    captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+    firstCellIsHeader: false,
+    head: [
+        {
+        text: "Status",
+        classes: "govuk-!-width-two-thirds"
+        },
+        {
+        text: "Number of claims"
+        }
+    ],
+    rows: [
+        [
+        {
+            text: "Total cleared"
+        },
+        {
+            text: "4382"
+        }
+        ],
+        [
+        {
+            text: "Awaiting appointment"
+        },
+        {
+            text: "294"
+        }
+        ],
+        [
+        {
+            text: "Disallowed"
+        },
+        {
+            text: "89"
+        }
+        ]
+    ]
+}) }}

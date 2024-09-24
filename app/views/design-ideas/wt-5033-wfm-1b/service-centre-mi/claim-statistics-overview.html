@@ -1,0 +1,83 @@
+{% extends "layout/unbranded-agent.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1
+        class="govuk-heading-l govuk-!-margin-top-4">
+        {# <span class="govuk-caption-l">Today, Wednesday 1 September 2021</span> #}
+        Claim statistics
+        <span class="govuk-caption-l">Tuesday 13 August 2024</span>
+      </h1>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <form action="" method="post">
+        {{ govukDateInput({
+                id: "report",
+                namePrefix: "report",
+                fieldset: {
+                    legend: {
+                    text: "Change report date",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                hint: {
+                    text: "For example, 21 06 2024"
+                }
+            }) }}
+        {{ govukButton({
+                text: "Submit"
+            }) }}
+      </form>
+
+    {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+    {{ mojSideNavigation({
+      label: 'Side navigation',
+      items: [{
+        text: 'Claims overview',
+        href: 'claim-statistics-overview',
+        active: true
+      },
+      {
+        text: 'Paused claims',
+        href: 'claim-statistics-paused'
+      }]
+    }) }}
+
+ 
+</div>
+
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Claims by status
+        <span class="govuk-caption-m">on Tuesday 13 August 2024</span>
+      </h2>
+      {% if data['v'] == '2' %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/new-claims2.html" %}
+      {% else %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-overview1.html" %}
+      {% endif %}
+        <div class="govuk-!-padding-bottom-8"></div>
+      <h2 class="govuk-heading-m">Oldest claims by status
+        <span class="govuk-caption-m">on Tuesday 13 August 2024</span>
+      </h2>
+      {% if data['v'] == '2' %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/ba-claims2.html" %}
+      {% else %}
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims1.html" %}
+      {% endif %}
+    
+      {{ govukButton({
+        html: "Download CSV"
+    }) }}
+    </div>
+  </div>
+{% endblock %}

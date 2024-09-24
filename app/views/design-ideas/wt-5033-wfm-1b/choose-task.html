@@ -1,0 +1,85 @@
+{% extends "layout/unbranded-agent-id.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+text: "Back to scenario screen",
+href: "screens?claimant&claimStatus&pauseReason"
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        Service centre
+      </h1>
+      {% if data['sc'] == 1 %}
+        {% set url = 'view-claim?&claimant=ij&claimStatus=processing-started' %}
+      {% elif data['sc'] == 4 %}
+        {% set url = '#' %}
+      {% else %}
+        {% set url = 'view-claim' %}
+      {% endif %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <a href="{{ url }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">
+              Get a new claim
+            </span>
+          </a>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <a
+            href="nino-search"
+            role="link"
+            draggable="false"
+            class="govuk-panel govuk-button link-panel govuk-!-width-full"
+            data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">
+              Find a claimant
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <a
+            href="claims-list?show"
+            role="link"
+            draggable="false"
+            class="govuk-panel govuk-button link-panel govuk-!-width-full"
+            data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">
+              Last updated claims
+            </span>
+          </a>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <a
+            href="pause-list?show"
+            role="link"
+            draggable="false"
+            class="govuk-panel govuk-button link-panel govuk-!-width-full"
+            data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">
+              Paused claims
+            </span>
+          </a>
+        </div>
+      </div>
+      <!-- Management information tile <div class="govuk-grid-row"> <div class="govuk-grid-column-one-half">
+          <a
+            href="claim-statistics"
+            role="link"
+            draggable="false"
+            class="govuk-panel govuk-button link-panel govuk-!-width-full"
+            data-module="govuk-button">
+            <span class="govuk-panel__title govuk-!-font-size-27">
+              Management information
+            </span>
+          </a>
+      </div> </div> -->
+    </div>
+  </div>
+{% endblock %}

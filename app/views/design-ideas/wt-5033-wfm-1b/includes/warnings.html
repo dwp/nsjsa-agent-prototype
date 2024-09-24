@@ -1,0 +1,97 @@
+<section
+  class="dwp-print-hide">
+  {#	CIS mismatch #}
+  {% if data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == ''%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body govuk-!-font-weight-bold">Claimant doesn't match CIS record.</p>
+      </div>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+   
+      {#	Full width banner design for MWAC #}
+  {% elif data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == 'full-width'%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+      Book appointment using
+      <a class="govuk-notification-banner__link" href="#">Managing Working Age Claimants</a> service.
+    </p>
+      </div>
+    </div>
+
+        {#	Multi-message banner design for MWAC1 #}
+  {% elif data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == 'multi-message'%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+      Book appointment using
+      <a class="govuk-notification-banner__link" href="#">Managing Working Age Claimants</a> service.
+    </p>
+    <div class="govuk-!-padding-bottom-2"></div>
+    <p class="govuk-notification-banner__heading">
+      Claimant has appointee.
+    </p>
+     <div class="govuk-!-padding-bottom-2"></div>
+     <p class="govuk-notification-banner__heading">
+      This claimant has asked us to speak to them in Welsh.
+    </p>
+      </div>
+    </div>
+
+     {#	Ticket panel design for MWAC1 #}
+  {% elif data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == 'ticket-panel'%}
+    {%- from "moj/components/ticket-panel/macro.njk" import mojTicketPanel -%}
+
+{{ mojTicketPanel({
+  attributes: {
+    'aria-label': 'Book appointment'
+  },
+  items: [{
+    html: ' <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Book appointment using Managing Working Age Claimants (MWAC) service</h2>
+  <div class="govuk-!-padding-bottom-3"></div>
+    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+  Book appointment
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg>
+</a>',
+    attributes: {
+      'aria-label': 'Section 1'
+    },
+    classes: 'moj-ticket-panel__content--blue'
+  }]
+}) }}
+<div class="govuk-!-padding-bottom-5"></div>
+
+      {% else %}
+      {#	no flag #}
+    {% endif %}
+  </section>

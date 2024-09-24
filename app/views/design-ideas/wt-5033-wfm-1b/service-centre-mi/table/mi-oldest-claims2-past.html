@@ -1,0 +1,42 @@
+{{ govukTable({
+caption: "New claims statistics",
+captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+firstCellIsHeader: false,
+head: [
+        {
+        text: "Status"
+        },
+        {
+        text: "Days since IDOC",
+        classes: "govuk-!-width-one-third"
+        },
+        {
+        text: "Claim"
+        }
+        ],
+
+rows: [
+        [
+        {
+        text: "Awaiting processing"
+        },
+        {
+        text: "5"
+        },
+        {
+        text: "Not applicable"
+        }
+        ],
+        [
+        {
+        text: "Status not updated"
+        },
+        {
+        text: "21"
+        },
+        {
+        html: "<a href=#>View"
+        }
+        ]
+]
+}) }}

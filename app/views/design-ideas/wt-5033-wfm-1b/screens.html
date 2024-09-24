@@ -1,0 +1,166 @@
+{% extends "layout/unbranded.html" %}
+{% block pageTitle %}
+    NSJSA Agent Prototypes
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-l">
+                Workflow Management 1b: Iteration 4
+            </h1>
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Hypotheses
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <h2 class="govuk-heading-s">Hypothesis 1: TBC</h2>
+                    <p>We belive that...
+                    </p>
+                    <p>
+                        We will know this to be true when...
+                    </p>
+                </div>
+            </details>
+
+            
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
+        </div>
+        
+        <div class="govuk-!-padding-bottom-8"></div>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+                {{ govukTable({
+        caption: "Original MWAC design",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
+        head: [
+            {
+                text: "ID"
+            },
+            {
+                text: "Version",
+                classes: "govuk-!-width-one-quarter"
+            },
+            {
+                text: "Description"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "mw4.1"
+            },
+            {
+                html: "<a href='https://dwp-mwac-prototype.herokuapp.com/version8/contactcentre/view-claim-v1'>MWAC banner"
+                
+            },
+            {
+                text: "Banner design from MWAC"
+                
+            }
+        ],
+        [
+            {
+                text: "mw4.2"
+            },
+            {
+                html: "<a href='https://dwp-mwac-prototype.herokuapp.com/version8/contactcentre/view-claim-v2'>MWAC button"
+                
+            },
+            {
+                text: "Button (side navigation) design from MWAC"
+                
+            }
+        ]
+        ]
+      }) }}
+
+      <div class="govuk-!-padding-bottom-8"></div>
+
+       {{ govukTable({
+        caption: "New design exploration",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
+        head: [
+            {
+                text: "ID"
+            },
+            {
+                text: "Version",
+                classes: "govuk-!-width-one-quarter"
+            },
+            {
+                text: "Description"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "sc4.1"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=full-width'>Full width banner"
+                
+            },
+            {
+                text: "Updated claim status page to show full width banner"
+                
+            }
+        ],
+        [
+            {
+                text: "sc4.2"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=multi-message'>Multi-message banner"
+                
+            },
+            {
+                text: "Updated claim status page to show multiple messages within a full width banner"
+                
+            }
+        ],
+        [
+            {
+                text: "sc4.3"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=ticket-panel'>Ticket panel"
+                
+            },
+            {
+                text: "Updated claim status page to show new ticket panel design"
+                
+            }
+        ],
+        [
+            {
+                text: "sc4.4"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=side-navigation'>Side navigation buttons"
+                
+            },
+            {
+                text: "Updated claim status page to show new side navigation design"
+                
+            }
+        ]
+        ]
+      }) }}
+            </div>
+        </div>
+
+           <div class="govuk-!-padding-bottom-8"></div>
+
+
+        
+        
+    
+
+        
+    {% endblock %}
