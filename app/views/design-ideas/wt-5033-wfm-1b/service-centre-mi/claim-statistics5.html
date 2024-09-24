@@ -1,0 +1,80 @@
+{% extends "layout/unbranded-agent.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1
+        class="govuk-heading-l govuk-!-margin-top-4">
+        {# <span class="govuk-caption-l">Today, Wednesday 1 September 2021</span> #}
+        Claim statistics
+        
+      </h1>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <span class="govuk-caption-m">Showing report for</span>
+      <h2 class="govuk-heading-m">Tuesday 27 August 2024</h2>
+      
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <form action="" method="post">
+        {{ govukDateInput({
+                id: "report",
+                namePrefix: "report",
+                fieldset: {
+                            legend: {
+                                      text: "Change report date",
+                                      isPageHeading: false,
+                                      classes: "govuk-fieldset__legend--s"
+                                    }
+                        },
+                hint: {
+                    html: "For example, 21 6 2024"
+                }
+            }) }}
+        {{ govukButton({
+                text: "Submit",
+                href: "claim-statistics5-pastdate"
+            }) }}
+      </form>
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">Cleared claims</h2>
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-cleared2.html" %}
+        <div class="govuk-!-padding-bottom-8"></div>
+
+        <h2 class="govuk-heading-m">Disallowed claims by reason</h2>
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-disallowed.html" %}
+        <div class="govuk-!-padding-bottom-8"></div>
+
+      <h2 class="govuk-heading-m">Claims in processing</h2>
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-inprocessing.html" %}
+        <div class="govuk-!-padding-bottom-8"></div>
+      
+      <h2 class="govuk-heading-m">Oldest claims in processing</h2>
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims2.html" %}
+       <div class="govuk-!-padding-bottom-8"></div>
+
+      <h2 class="govuk-heading-m">Paused claims by reason</h2>
+        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-pause-reason2.html" %}
+       <div class="govuk-!-padding-bottom-8"></div>
+      
+      <h2 class="govuk-heading-m">Oldest paused claims</h2>
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-paused2.html" %}
+      <div class="govuk-!-padding-bottom-8"></div>
+
+      {{ govukButton({
+        html: "Download CSV"
+    }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
