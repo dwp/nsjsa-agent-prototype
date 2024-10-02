@@ -27,29 +27,9 @@
 {% endblock %}
 {% block content %}
 
-  <div class="govuk-grid-row dwp-print-hide">
-    
-    <div class="govuk-grid-column-two-thirds">
-{% include './includes/warnings.html' %}
-      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
-  
-      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
-      {% if data['claimant'] == 'sh' %}
-        {% include 'design-ideas/wt-5033-wfm-1b/claimants/sh/customer-statement.html' %}
-      {% elif data['claimant'] == 'kb' %}
-        {% include 'design-ideas/wt-5033-wfm-1b/claimants/kb/customer-statement.html' %}
-      {% elif data['claimant'] == 'sp' %}
-        {% include 'design-ideas/wt-5033-wfm-1b/claimants/sp/customer-statement.html' %}
-      {% elif data['claimant'] == 'ij' %}
-        {% include 'design-ideas/wt-5033-wfm-1b/claimants/ij/customer-statement.html' %}
-      {% elif data['claimant'] == 'ij2' %}
-        {% include 'design-ideas/wt-5033-wfm-1b/claimants/ij2/customer-statement.html' %}
-      {% else %}
-        <p>No claimant set.</p>
-      {% endif %}
-    </div>
-    <div class="govuk-grid-column-one-third">
-  
+<div class="govuk-grid-row dwp-print-hide">
+ <div class="govuk-grid-column-one-third">
+  <aside class="app-related-items" role="complementary">
         {% include "./actions.html" %}
         <h3 class="govuk-heading-m">Claim status history</h3>
         {% if data['claimant'] == 'sh' %}
@@ -67,5 +47,26 @@
         {% endif %}
       </aside>
     </div>
+
+{% include './includes/warnings.html' %}
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+  
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
+      {% if data['claimant'] == 'sh' %}
+        {% include 'design-ideas/wt-5033-wfm-1b/claimants/sh/customer-statement.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'design-ideas/wt-5033-wfm-1b/claimants/kb/customer-statement.html' %}
+      {% elif data['claimant'] == 'sp' %}
+        {% include 'design-ideas/wt-5033-wfm-1b/claimants/sp/customer-statement.html' %}
+      {% elif data['claimant'] == 'ij' %}
+        {% include 'design-ideas/wt-5033-wfm-1b/claimants/ij/customer-statement.html' %}
+      {% elif data['claimant'] == 'ij2' %}
+        {% include 'design-ideas/wt-5033-wfm-1b/claimants/ij2/customer-statement.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+    </div>
+  
   </div>
 {% endblock %}
