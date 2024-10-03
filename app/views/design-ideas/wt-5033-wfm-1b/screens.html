@@ -3,15 +3,20 @@
     NSJSA Agent Prototypes
 {% endblock %}
 {% block content %}
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-l">
-                Workflow Management 1b: Iteration 4
-            </h1>
+<!-- Page layout -->
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+            
+            <!-- Page heading with caption -->
+            <span class="govuk-caption-xl">WFM-1B</span>
+            <h1 class="govuk-heading-xl">Iteration 2.4</h1>
+            
+
+             <!-- 'Hypothesis' Details (dropdown) -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
-                        Hypotheses
+                        Hypothesis
                     </span>
                 </summary>
                 <div class="govuk-details__text">
@@ -24,77 +29,30 @@
                 </div>
             </details>
 
-            
+            <!-- 'Ideation Details' (dropdown) -->
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Ideation (Not for DEV)
+                    </span>
+                </summary>
+                <div class="govuk-!-padding-bottom-5"></div>
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
-        </div>
         
-        <div class="govuk-!-padding-bottom-8"></div>
-
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-three-quarters">
-                {{ govukTable({
-        caption: "Original MWAC design",
-        captionClasses: "govuk-table__caption--m",
-        firstCellIsHeader: false,
-        head: [
-            {
-                text: "ID"
-            },
-            {
-                text: "Version",
-                classes: "govuk-!-width-one-quarter"
-            },
-            {
-                text: "Description"
-            }
-        ],
-        rows: [
-        [
-            {
-                text: "mw4.1"
-            },
-            {
-                html: "<a href='https://dwp-mwac-prototype.herokuapp.com/version8/contactcentre/view-claim-v1'>MWAC banner"
-                
-            },
-            {
-                text: "Banner design from MWAC"
-                
-            }
-        ],
-        [
-            {
-                text: "mw4.2"
-            },
-            {
-                html: "<a href='https://dwp-mwac-prototype.herokuapp.com/version8/contactcentre/view-claim-v2'>MWAC button"
-                
-            },
-            {
-                text: "Button (side navigation) design from MWAC"
-                
-            }
-        ]
-        ]
-      }) }}
-
-      <div class="govuk-!-padding-bottom-8"></div>
-
+<!-- 'Ideation' Table -->
        {{ govukTable({
-        caption: "New design exploration",
-        captionClasses: "govuk-table__caption--m",
+        
         firstCellIsHeader: false,
         head: [
             {
                 text: "ID"
             },
             {
-                text: "Version",
+                text: "Design",
                 classes: "govuk-!-width-one-quarter"
             },
             {
-                text: "Description"
+                text: "Notes"
             }
         ],
         rows: [
@@ -107,7 +65,7 @@
                 
             },
             {
-                text: "Updated claim status page to show full width banner"
+                text: "This is how the notification banner should be displayed, at full width to match the pages other content."
                 
             }
         ],
@@ -120,7 +78,7 @@
                 
             },
             {
-                text: "Updated claim status page to show multiple messages within a full width banner"
+                text: "This is how multiple banner messages should be displayed, within a single container. We should avoid this situation happening."
                 
             }
         ],
@@ -133,20 +91,7 @@
                 
             },
             {
-                text: "Full width ticket panel design as a flexible approach to promote"
-                
-            }
-        ],
-        [
-            {
-                text: "v4.4"
-            },
-            {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=ticket-panel-content'>Ticket panel"
-                
-            },
-            {
-                text: "Ticket panel design embedded within page content as a flexible approach to promote"
+                text: "Ticket panel design from the MOJ toolkit. An alternative to the banner to highlight MWAC availability. Documentation states it should be embedded into page content."
                 
             }
         ],
@@ -155,11 +100,11 @@
                 text: "v4.5"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=side-navigation'>Side navigation buttons"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=side-navigation'>Side navigation as links"
                 
             },
             {
-                text: "Updated claim status page to show new side navigation design"
+                text: "Claim actions (side navigation) presented as links. Only order can hint at hierachy between them."
                 
             }
         ],
@@ -172,16 +117,88 @@
                 
             },
             {
-                text: "Updated the view claim page layout"
+                text: "Switched claim layout to see if it had any impact on claim actions UX."
                 
             }
         ]
         ]
       }) }}
+      <div class="govuk-!-padding-bottom-2"></div>
+            </details>
+
+            <!-- 'Related Prototypes' -->
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Related Prototypes
+                    </span>
+                </summary>
+            <div class="govuk-!-padding-bottom-5"></div>
+                
+                {{ govukTable({
+        
+        firstCellIsHeader: false,
+        head: [
+            {
+                text: "#"
+            },
+            {
+                text: "Link",
+                classes: "govuk-!-width-one-quarter"
+            },
+            {
+                text: "Notes"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "1"
+            },
+            {
+                html: "<a href='https://dwp-mwac-prototype.herokuapp.com/version8/contactcentre/view-claim-v1'>MWAC banner"
+                
+            },
+            {
+                text: "Guidence states banners should not be used for things unrelated to the current page. Banners should be full width of the page content and the neutral colour (blue) is used if the user needs to know about a problem with the service as a whole."
+                
+            }
+        ],
+        [
+            {
+                text: "2"
+            },
+            {
+                html: "<a href='https://dwp-mwac-prototype.herokuapp.com/version8/contactcentre/view-claim-v2'>MWAC button"
+                
+            },
+            {
+                text: "Changing the primary buttons and button positions could be problematic for agents - More discussion & understanding of wider journey needed."
+                
+            }
+        ]
+        ]
+      }) }}
+      
+            </details>
+            <div class="govuk-!-padding-bottom-1"></div>
+
+            
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
+        </div>
+        <div class="govuk-!-padding-bottom-3"></div>
+            <h2 class="govuk-heading-l">Prototype Scenarios</h2>
+        
             </div>
         </div>
 
            <div class="govuk-!-padding-bottom-8"></div>
+
+           
+
+
+
 
 
         
