@@ -11,19 +11,21 @@ href: "screens?claimant&claimStatus&pauseReason"
 {% block content %}
   <div class="govuk-grid-row dwp-print-hide">
     <div class="govuk-grid-column-full">
+     
+     {% include './includes/warnings.html' %} 
+      
+      
       <h1 class="govuk-heading-l">
         Service centre
       </h1>
-      {% if data['sc'] == 1 %}
-        {% set url = 'view-claim?&claimant=ij&claimStatus=processing-started' %}
-      {% elif data['sc'] == 4 %}
-        {% set url = '#' %}
-      {% else %}
-        {% set url = 'view-claim' %}
-      {% endif %}
-      <div class="govuk-grid-row">
+      
+     <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half">
-          <a href="{{ url }}" role="link" draggable="false" class="govuk-panel govuk-button link-panel govuk-!-width-full" data-module="govuk-button">
+          <a href="view-claim3?&claimant=ij&claimStatus=processing-started&banner=ticket-panel"
+          role="link"
+          draggable="false"
+          class="govuk-panel govuk-button link-panel govuk-!-width-full"
+          data-module="govuk-button">
             <span class="govuk-panel__title govuk-!-font-size-27">
               Get a new claim
             </span>

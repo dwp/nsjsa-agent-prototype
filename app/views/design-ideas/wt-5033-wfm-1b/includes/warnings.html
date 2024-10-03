@@ -1,7 +1,7 @@
 <section
   class="dwp-print-hide">
   {#	CIS mismatch #}
-  {% if data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == ''%}
+  {% if data['banner'] == 'CIS'%}
     <div
       class="govuk-notification-banner"
       role="region"
@@ -18,8 +18,8 @@
     </div>
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
    
-      {#	Full width banner design for MWAC #}
-  {% elif data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == 'full-width'%}
+      {#	Full width banner design for view claim screen #}
+  {% elif data['banner'] == 'full-width'%}
     <div
       class="govuk-notification-banner"
       role="region"
@@ -32,14 +32,32 @@
       </div>
       <div class="govuk-notification-banner__content">
         <p class="govuk-notification-banner__heading">
-      Book appointment using
-      <a class="govuk-notification-banner__link" href="#">Managing Working Age Claimants</a> service.
+      We're now using Managing Working Age Claimants to book appointments for some customers.
+    </p>
+      </div>
+    </div>
+
+    {#	Full width banner design for choose task screen #}
+  {% elif data['banner'] == 'full-width2'%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+      We're now using Managing Working Age Claimants to book appointments for some customers.
     </p>
       </div>
     </div>
 
         {#	Multi-message banner design for MWAC1 #}
-  {% elif data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == 'multi-message'%}
+  {% elif data['banner'] == 'multi-message'%}
     <div
       class="govuk-notification-banner"
       role="region"
@@ -67,29 +85,33 @@
     </div>
 
      {#	Ticket panel design for MWAC1 #}
-  {% elif data['claimant'] == 'ij'and data['claimStatus'] == 'processing-started' and data['mwacDesign'] == 'ticket-panel'%}
+  {% elif data['banner'] == 'ticket-panel'%}
     {%- from "moj/components/ticket-panel/macro.njk" import mojTicketPanel -%}
 
-{{ mojTicketPanel({
-  attributes: {
-    'aria-label': 'Book appointment'
-  },
-  items: [{
-    html: ' <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Book appointment using Managing Working Age Claimants (MWAC) service</h2>
-  <div class="govuk-!-padding-bottom-3"></div>
-    <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-  Book appointment</a>',
-    attributes: {
-      'aria-label': 'Section 1'
-    },
-    classes: 'moj-ticket-panel__content--blue'
-  }]
-}) }}
-<div class="govuk-!-padding-bottom-5"></div>
+    {{ mojTicketPanel({
+                  attributes: {
+                    'aria-label': 'Book appointment'
+                  },
+                  items: [{
+                    html: ' <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Book appointment via Searchlight</h2>
+                    <p class="govuk-body">Managing Working Age Claimants (MWAC) service should be used to book an appointment for this customer. Go to Searchligh to book.</p>',
+
+                    attributes: {
+                      'aria-label': 'Section 1'
+                    },
+                    classes: 'moj-ticket-panel__content--blue'
+                  }]
+                }) }}
+
+              
+      
+      <div class="govuk-!-padding-bottom-5"></div>
 
 
 
-      {% else %}
+  {% else %}
+
       {#	no flag #}
-    {% endif %}
+
+  {% endif %}
   </section>
