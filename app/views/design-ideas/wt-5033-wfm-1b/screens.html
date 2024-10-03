@@ -12,125 +12,42 @@
             <h1 class="govuk-heading-xl">Iteration 2.4</h1>
             
 
-             <!-- 'Hypothesis' Details (dropdown) -->
+             <!-- 'Problem statement' Details (dropdown) -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
-                        Hypothesis
+                        <h3>Problem statement</h3>
                     </span>
                 </summary>
                 <div class="govuk-details__text">
-                    <h2 class="govuk-heading-s">Hypothesis 1: TBC</h2>
-                    <p>We belive that...
+                    <p>When MWAC starts to scale to contact centres not all jobcentres will be using MWAC for NSJSA appointments.
                     </p>
-                    <p>
-                        We will know this to be true when...
+                    <p>How can we ensure contact centre agents know which jobcentres require appointments to be booked in MWAC or LMS?
                     </p>
                 </div>
             </details>
 
-            <!-- 'Ideation Details' (dropdown) -->
+                  <!-- 'Hypothesis' Details (dropdown) -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
-                        Ideation (Not for DEV)
+                        <h3>Hypothesis</h3>
                     </span>
                 </summary>
-                <div class="govuk-!-padding-bottom-5"></div>
-
-        
-<!-- 'Ideation' Table -->
-       {{ govukTable({
-        
-        firstCellIsHeader: false,
-        head: [
-            {
-                text: "ID"
-            },
-            {
-                text: "Design",
-                classes: "govuk-!-width-one-quarter"
-            },
-            {
-                text: "Notes"
-            }
-        ],
-        rows: [
-        [
-            {
-                text: "v4.1"
-            },
-            {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=full-width'>Full width banner"
-                
-            },
-            {
-                text: "This is how the notification banner should be displayed, at full width to match the pages other content."
-                
-            }
-        ],
-        [
-            {
-                text: "v4.2"
-            },
-            {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=multi-message'>Multi-message banner"
-                
-            },
-            {
-                text: "This is how multiple banner messages should be displayed, within a single container. We should avoid this situation happening."
-                
-            }
-        ],
-        [
-            {
-                text: "v4.3"
-            },
-            {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=ticket-panel'>Ticket panel"
-                
-            },
-            {
-                text: "Ticket panel design from the MOJ toolkit. An alternative to the banner to highlight MWAC availability. Documentation states it should be embedded into page content."
-                
-            }
-        ],
-        [
-            {
-                text: "v4.5"
-            },
-            {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&mwacDesign=side-navigation'>Side navigation as links"
-                
-            },
-            {
-                text: "Claim actions (side navigation) presented as links. Only order can hint at hierachy between them."
-                
-            }
-        ],
-        [
-            {
-                text: "v4.6"
-            },
-            {
-                html: "<a href='view-claim2?&claimant=ij&claimStatus=processing-started&mwacDesign=side-navigation'>Update View Claim page layout"
-                
-            },
-            {
-                text: "Switched claim layout to see if it had any impact on claim actions UX."
-                
-            }
-        ]
-        ]
-      }) }}
-      <div class="govuk-!-padding-bottom-2"></div>
+                <div class="govuk-details__text">
+                    <p>By ensuring that contact agents are informed about MWAC roll out we will make sure that appointments for NSJSA are being booked in the appropriate system.
+                    </p>
+                    <p>This will enable a smooth transition from the old LMS system to the new MWAC service.
+                    </p>
+                </div>
             </details>
 
-            <!-- 'Related Prototypes' -->
+
+            <!-- 'MWAC Prototypes' -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
-                        Related Prototypes
+                        <h3>MWAC Prototypes</h3>
                     </span>
                 </summary>
             <div class="govuk-!-padding-bottom-5"></div>
@@ -181,6 +98,104 @@
       }) }}
       
             </details>
+
+    <!-- 'Ideation Details' (dropdown) -->
+            <details open class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        <h3>Ideation</h3>
+                    </span>
+                </summary>
+                <div class="govuk-!-padding-bottom-5"></div>
+
+        
+<!-- 'Ideation' Table -->
+       {{ govukTable({
+        
+        firstCellIsHeader: false,
+        head: [
+            {
+                text: "ID"
+            },
+            {
+                text: "Design",
+                classes: "govuk-!-width-one-quarter"
+            },
+            {
+                text: "Notes"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "v4.1"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=full-width'>Notification Banner"
+                
+            },
+            {
+                text: "This is how a notification banner should be displayed, at full width and displaying a service wide message."
+                
+            }
+        ],
+        [
+            {
+                text: "v4.2"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=multi-message'>Multi-message banner"
+                
+            },
+            {
+                text: "This is how multiple banner messages should be displayed, within a single container. We should avoid this situation happening."
+                
+            }
+        ],
+        [
+            {
+                text: "v4.3"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=ticket-panel'>Ticket panel"
+                
+            },
+            {
+                text: "Ticket panel design from the MOJ toolkit. An alternative to the banner to highlight MWAC availability. Documentation states it should be embedded into page content."
+                
+            }
+        ],
+        [
+            {
+                text: "v4.4"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&claimActions=side-navigation'>Side navigation as links"
+                
+            },
+            {
+                text: "Claim actions (side navigation) presented as links. Only order can hint at hierachy between them."
+                
+            }
+        ],
+        [
+            {
+                text: "v4.5"
+            },
+            {
+                html: "<a href='choose-task?&claimant=ij&claimStatus=processing-started&banner=full-width2'>Banner + Inset + Buttons"
+                
+            },
+            {
+                text: "Notifying an agent that MWAC is rolling out, when a claimant should be booked via MWAC and providing simplfied claim action links."
+                
+            }
+        ]
+        ]
+      }) }}
+      <div class="govuk-!-padding-bottom-2"></div>
+            </details>
+
             <div class="govuk-!-padding-bottom-1"></div>
 
             
