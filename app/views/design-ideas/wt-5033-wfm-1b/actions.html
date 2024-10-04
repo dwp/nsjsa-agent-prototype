@@ -1,56 +1,46 @@
+{# data for displaying different claim actions #}
+
+
+{# New claim #}
 {% if data['claimStatus'] == 'new-claim' %}
 <p>
     <a href="choose-task">Return to main menu</a>
 </p>
 
 
-{# Side navigation design #}
-{% elif data['claimStatus'] == 'processing-started'%}
 
-<h3 class="govuk-heading-m">Claim actions</h3>
-{# href: clearing data for claim status, pause reason and deadline when clicking Update claim button #}
-{{ govukButton({
-text: "Update claim status",
-href: "update?claimStatus&pauseReason&deadline-day&deadline-month&deadline-year"
-}) }}
+{# Claim processing - include 'Update claim button' #}
+{% elif data['claimStatus'] == 'processing-started' %}
 
+{# Includes button to book appointment, everything styles as links #}
+    {% if data['claimActions'] == 'side-navigation' %}
 
+    <h3 class="govuk-heading-m">Claim actions</h3>
 
-{# Ticket panel embedded in content for MWAC1 #}
-{% elif data['mwacContent'] == 'ticket-panel'%}
-<h3 class="govuk-heading-m">Claim actions</h3>
-{{ govukButton({
-text: "Update claim status",
-classes: "govuk-button",
-href: "update?claimStatus&pauseReason&deadline-day&deadline-month&deadline-year"
-}) }}
-<p>
-    <a href="choose-task">Return to main menu</a>
-</p>
+    <p class="govuk-body">
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Update claim information</a>
+    </p>
+    <p class="govuk-body">
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Update claim status</a>
+    </p>
+    <p class="govuk-body">
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Book appointment</a>
+    </p>
 
+    {% else %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {# href: clearing data for claim status, pause reason and deadline when clicking Update claim button #}
+    {{ govukButton({
+    text: "Update claim status",
+    href: "update?claimStatus&pauseReason&deadline-day&deadline-month&deadline-year"
+    }) }}
 
-
-
-
-{# Side navigation design for MWAC #}
-{% elif data['claimActions'] == 'side-navigation'%}
-
-<h3 class="govuk-heading-m">Claim actions</h3>
-
-<p class="govuk-body">
-  <a href="#" class="govuk-link govuk-link--no-visited-state">Update claim information</a>
-</p>
-<p class="govuk-body">
-  <a href="#" class="govuk-link govuk-link--no-visited-state">Update claim status</a>
-</p>
-<p class="govuk-body">
-  <a href="#" class="govuk-link govuk-link--no-visited-state">Book appointment</a>
-</p>
+{% endif %}
 
 
-
-
+{# Default, shown the same as claim processing #}
 {% else %}
+
 <h3 class="govuk-heading-m">Claim actions</h3>
 {# href: clearing data for claim status, pause reason and deadline when clicking Update claim button #}
 {{ govukButton({

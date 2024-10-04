@@ -119,7 +119,7 @@
             },
             {
                 text: "Design",
-                classes: "govuk-!-width-one-quarter"
+                classes: "govuk-!-width-one-third"
             },
             {
                 text: "Notes"
@@ -131,11 +131,11 @@
                 text: "v4.1"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=full-width'>Notification Banner"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=full-width&warning=none&claimActions=none'>Notification Banner"
                 
             },
             {
-                text: "This is how a notification banner should be displayed, at full width and displaying a service wide message."
+                text: "This is an example of how a notification banner should be displayed, at full width and displaying a service wide message."
                 
             }
         ],
@@ -144,11 +144,11 @@
                 text: "v4.2"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=multi-message'>Multi-message banner"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=multi-message&warning=none&claimActions=none'>Multi-message banner"
                 
             },
             {
-                text: "This is how multiple banner messages should be displayed, within a single container. We should avoid this situation happening."
+                text: "This is an example of how multiple banner messages should be displayed, within a single container. We should avoid this situation happening."
                 
             }
         ],
@@ -157,20 +157,7 @@
                 text: "v4.3"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=ticket-panel'>Ticket panel"
-                
-            },
-            {
-                text: "Ticket panel design from the MOJ toolkit. An alternative to the banner to highlight MWAC availability. Documentation states it should be embedded into page content."
-                
-            }
-        ],
-        [
-            {
-                text: "v4.4"
-            },
-            {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&claimActions=side-navigation'>Side navigation as links"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&claimActions=side-navigation&warning=none'>Side navigation as links"
                 
             },
             {
@@ -180,14 +167,53 @@
         ],
         [
             {
-                text: "v4.5"
+                text: "v4.4"
             },
             {
-                html: "<a href='choose-task-contact-centre?&claimant=ij&claimStatus=processing-started&banner=full-width2'>Banner + Inset + Buttons"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=mwac-panel&claimActions=none'>MWAC panel (solo)"
                 
             },
             {
-                text: "Notifying an agent that MWAC is rolling out, when a claimant should be booked via MWAC and providing simplfied claim action links."
+                text: "Ticket panel design from the MOJ toolkit. An alternative to the banner to highlight MWAC availability. Documentation states it should be embedded into page content, not full width."
+                
+            }
+        ],
+        [
+            {
+                text: "v4.5"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=panel-CIS&claimActions=none'>MWAC panel with CIS markers"
+                
+            },
+            {
+                text: "Ticket panel displayed with CIS markers"
+                
+            }
+        ],
+        [
+            {
+                text: "v4.6"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=panel-CIS-banner&claimActions=none'>MWAC panel with CIS markers & current Welsh banner"
+                
+            },
+            {
+                text: "Ticket panel displayed with CIS markers and current welsh banner design (not fiull width)"
+                
+            }
+        ],
+        [
+            {
+                text: "v4.7"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=welsh&warning=panel-CIS&claimActions=none'>MWAC panel with CIS markers & full-width Welsh banner"
+                
+            },
+            {
+                text: "Ticket panel displayed with CIS markers and new full width design for welsh banner"
                 
             }
         ]
