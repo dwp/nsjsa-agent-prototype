@@ -1,0 +1,88 @@
+<section
+  class="dwp-print-hide">
+  {#	CIS mismatch #}
+  {% if data['banner'] == 'CIS'%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body govuk-!-font-weight-bold">Claimant doesn't match CIS record.</p>
+      </div>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+   
+      {#	MWAC launch/promo #}
+  {% elif data['banner'] == 'full-width'%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+      We're now using Managing Working Age Claimants to book appointments for some customers.
+    </p>
+      </div>
+    </div>
+
+      {% elif data['banner'] == 'welsh'%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+      This claimant has asked us to speak to them in Welsh.
+    </p>
+      </div>
+    </div>
+
+
+        {#	Example of multi-message banner design #}
+  {% elif data['banner'] == 'multi-message'%}
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      We're now using Managing Working Age Claimants to book appointments for some customers.
+    </p>
+     <div class="govuk-!-padding-bottom-2"></div>
+     <p class="govuk-notification-banner__heading">
+      This claimant has asked us to speak to them in Welsh.
+    </p>
+      </div>
+    </div>
+
+
+  {% else %}
+
+      {#	no banner #}
+
+  {% endif %}
+   </section>

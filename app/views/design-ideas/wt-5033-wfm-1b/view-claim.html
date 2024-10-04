@@ -26,11 +26,11 @@
   }) }}
 {% endblock %}
 {% block content %}
-{% include './includes/warnings.html' %}
+{% include './includes/banners.html' %}
   <div class="govuk-grid-row dwp-print-hide">
     <div class="govuk-grid-column-two-thirds">
+      {% include './includes/warnings.html' %}
       <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
-  
       <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
       {% if data['claimant'] == 'sh' %}
         {% include 'design-ideas/wt-5033-wfm-1b/claimants/sh/customer-statement.html' %}
@@ -39,7 +39,7 @@
       {% elif data['claimant'] == 'sp' %}
         {% include 'design-ideas/wt-5033-wfm-1b/claimants/sp/customer-statement.html' %}
       {% elif data['claimant'] == 'ij' %}
-        {% include 'design-ideas/wt-5033-wfm-1b/claimants/ij/customer-statement.html' %}
+        {% include 'design-ideas/wt-5033-wfm-1b/claimants/ij/application.html' %}
       {% elif data['claimant'] == 'ij2' %}
         {% include 'design-ideas/wt-5033-wfm-1b/claimants/ij2/customer-statement.html' %}
       {% else %}
