@@ -105,6 +105,8 @@
 <div class="govuk-!-padding-bottom-5"></div>
 
 
+
+
  {#	Ticket panel design for MWAC1. Shown with CIS markers and banner #}
   {% elif data['warning'] == 'panel-CIS-banner'%}
     
@@ -145,6 +147,69 @@
               
       
       <div class="govuk-!-padding-bottom-5"></div>
+
+<div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+          CIS markers
+      </strong>
+    </div>
+    <ul class="govuk-list govuk-list--bullet">
+  <li>Claimant doesn't match CIS record</li>
+  <li>Claimant has an appointee</li>
+  <li>Claimant potentially violent</li>
+</ul>
+
+<div class="govuk-!-padding-bottom-2"></div>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-!-padding-bottom-5"></div>
+
+
+
+{#	Banner design for MWAC1. Shown with welsh banner & 'warning' CIS markers #}
+  {% elif data['warning'] == 'mwac-welsh-CIS'%}
+    
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+      Book appointment via Searchlight
+    </p>
+    <p class="govuk-notification-banner__body">
+      This customer's appointments should be booked through Managing Working Age Claimants on 
+    <a class="govuk-notification-banner__link" href="" target="_blank">Searchlight</a></p>
+
+      </div>
+    </div>
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+      This claimant has asked us to speak to them in Welsh.
+    </p>
+      </div>
+    </div>
+      
+      
 
 <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
