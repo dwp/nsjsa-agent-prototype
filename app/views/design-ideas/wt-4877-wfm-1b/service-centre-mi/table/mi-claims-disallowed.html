@@ -1,3 +1,59 @@
+
+{#	No daily stats available #}
+
+{% if data['stats'] == 'no-daily' %}
+
+{{ govukTable({
+    caption: "Claims disallowed",
+    captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+    firstCellIsHeader: false,
+    head: [
+        {
+        text: "Disallowed reason",
+        classes: "govuk-!-width-two-thirds"
+        },
+        {
+        text: "Number of claims"
+        }
+    ],
+    rows: [
+        [
+        {
+            text: "Duplicate"
+        },
+        {
+            text: "0"
+        }
+        ],
+        [
+        {
+            text: "Not entitled"
+        },
+        {
+            text: "0"
+        }
+        ],
+        [
+        {
+            text: "Not valid"
+        },
+        {
+            text: "0"
+        }
+        ],
+        [
+        {
+            text: "Withdrawn"
+        },
+        {
+            text: "0"
+        }
+        ]
+    ]
+}) }}
+
+{% elif data['stats'] == 'full' %}
+
 {{ govukTable({
     caption: "Claims disallowed",
     captionClasses: "govuk-table__caption--m govuk-visually-hidden",
@@ -46,3 +102,9 @@
         ]
     ]
 }) }}
+
+{% else %}
+
+      {#	no banner #}
+
+  {% endif %}
