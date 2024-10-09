@@ -9,7 +9,7 @@
             
             <!-- Page heading with caption -->
             <span class="govuk-caption-xl">WFM-1B</span>
-            <h1 class="govuk-heading-xl">Iteration 2.4</h1>
+            <h1 class="govuk-heading-xl">Iteration 4</h1>
             
 
              <!-- 'Problem statement' Details (dropdown) -->
@@ -100,7 +100,7 @@
             </details>
 
     <!-- 'Ideation Details' (dropdown) -->
-            <details open class="govuk-details">
+            <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
                         <h3>Ideation</h3>
@@ -239,13 +239,46 @@
 
             
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
-        </div>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        
         <div class="govuk-!-padding-bottom-3"></div>
             <h2 class="govuk-heading-l">Prototype Scenarios</h2>
         
+            {{ govukTable({
+        
+        firstCellIsHeader: false,
+        head: [
+            {
+                text: "ID"
+            },
+            {
+                text: "Scenario",
+                classes: "govuk-!-width-one-third"
+            },
+            {
+                text: "Description"
+            }
+        ],
+        rows: [
+        [
+            {
+                text: "sc4.1"
+            },
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=mwac-welsh-CIS&claimActions=none'>MWAC banner displayed for G4S agents"
+                
+            },
+            {
+                text: "MWAC appointment booking messaged displayed as a banner, alongside other banners & CIS markers"
+                
+            }
+        ]
+        ]
+      }) }}
+
             </div>
         </div>
+         </div>
 
            <div class="govuk-!-padding-bottom-8"></div>
 
