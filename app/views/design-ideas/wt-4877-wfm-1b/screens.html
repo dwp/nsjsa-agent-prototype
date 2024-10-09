@@ -134,7 +134,7 @@
             },
             {
                 text: "Scenario",
-                classes: "govuk-!-width-one-quarter"
+                classes: "govuk-!-width-one-third"
             },
             {
                 text: "Description"
@@ -146,11 +146,37 @@
                 text: "sc3.1"
             },
             {
-                html: "<a href='service-centre-mi/mi-choose-task'>Scenario 1"
+                html: "<a href='service-centre-mi/mi-choose-task'>View claim statistics"
                 
             },
             {
-                text: "View claim statistics for NOH"
+                text: "View claim statistics for NOH."
+                
+            }
+        ],
+        [
+            {
+                text: "sc3.2"
+            },
+            {
+                html: "<a href='service-centre-mi/claim-statistics5?&stats=no-daily&error=none'>No daily stats available (weekend data)"
+                
+            },
+            {
+                text: "Edge case scenario for data from a weekend. No ststa available for cleared or disallowed as no agents were working."
+                
+            }
+        ],
+        [
+            {
+                text: "sc3.3"
+            },
+            {
+                html: "<a href='service-centre-mi/claim-statistics5?&stats=full&error=old-date'>Entered a report date older than 3 months"
+                
+            },
+            {
+                text: "Errors displayed for when a user submits a report date older than 3 months."
                 
             }
         ]
