@@ -1,0 +1,278 @@
+{% extends "layout/unbranded-agent-id.html" %}
+{% block pageTitle %}
+  Service centre - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+text: "Back",
+href: "screens"
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper--m" id="main-content" role="main">
+      {% if data['show'] == "03" %}
+        <h1 class="govuk-heading-l">Claims paused by 00000003</h1>
+        
+      {% elif data['show'] == "12345678" %}
+        <h1 class="govuk-heading-l">Claims paused by 12345678</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">Your paused claims</h1>
+      {% endif %}
+      <!-- SEARCH BY STAFF NUMBER -->
+      <form action="pause-list" method="post">
+        <div class="govuk-form-group govuk-!-margin-bottom-0">
+          <label class="govuk-label" for="search">
+            <strong>Search other claims by staff number</strong>
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="search" name="search" type="text">
+            <button type="submit" class="govuk-button govuk-!-display-inline" data-module="govuk-button">
+              Search
+            </button>
+          </div>
+        </form>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter">
+            <p></p>
+          </div>
+          <div class="govuk-grid-column-three-quarters"></div>
+        </div>
+        <!-- MOJ Filter -->
+        <div class="moj-filter-layout">
+          <div class="moj-filter-layout__filter">
+            <div class="moj-filter">
+              <div class="moj-filter__header">
+                <div class="moj-filter__header-title">
+                  <h2 class="govuk-heading-m">Filter</h2>
+                </div>
+                <div class="moj-filter__header-action"></div>
+              </div>
+              <div
+                class="moj-filter__content">
+                <!-- SELECTED FILTER SECTION <div class="moj-filter__selected"> <div class="moj-filter__selected-heading">
+                    <div class="moj-filter__heading-title">
+                      <h2 class="govuk-heading-m">Selected filters</h2>
+                    </div>
+                    <div class="moj-filter__heading-action">
+                      <p>
+                        <a class="govuk-link govuk-link--no-visited-state" href="pause-list">Clear filters</a>
+                      </p>
+                    </div>
+                </div> <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Pause reason</h3> <ul class="moj-filter-tags">
+                    <li>
+                      <a class="moj-filter__tag" href="#">
+                        <span class="govuk-visually-hidden">Remove this filter</span>
+                        Main benefit reply (MBR)</a>
+                    </li>
+                </ul> </div> -->
+                <div class="moj-filter__options">
+                  <!-- Sort by SELECT <div class="govuk-form-group"> <label class="govuk-label" for="sort">
+                                  Sort by
+                              </label> <select class="govuk-select" id="sort" name="sort">
+                                  <option value="closest-deadline" selected>Closest deadline</option>
+                                  <option value="furthest-deadline">Furthest deadline</option>
+                                  <option value="newest-claim">Newest claim submitted</option>
+                                  <option value="oldest-claim">Oldest claim submitted</option>
+                              </select> </div> -->
+                  <!-- Sort by RADIOS  -->
+                    <form action="pause-list" method="post" novalidate> <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          Sort by
+                        </legend>
+                        <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sort-1" name="sort" type="radio" value="closest-deadline" checked>
+                              <label class="govuk-label govuk-radios__label" for="sort-1" style="white-space: nowrap">
+                                Closest deadline
+                              </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="furthest-deadline">
+                                <label class="govuk-label govuk-radios__label" for="sort-2" style="white-space: nowrap">
+                                  Furthest deadline
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="sort-3" name="sort" type="radio" value="newest-claim">
+                                  <label class="govuk-label govuk-radios__label" for="sort-3" style="white-space: nowrap">
+                                    Newest claim submitted
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="sort-4" name="sort" type="radio" value="oldest-claim">
+                                    <label class="govuk-label govuk-radios__label" for="sort-4" style="white-space: nowrap">
+                                      Oldest claim submitted
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                            <div class="govuk-form-group">
+                              <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                  Pause reason
+                                </legend>
+                                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                  <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="cis-update" name="cis-update" type="checkbox" value="cis-update">
+                                      <label class="govuk-label govuk-checkboxes__label" for="cis-update">
+                                        Contact DWP CIS team
+                                      </label>
+                                    </div>
+                                    <div class="govuk-checkboxes__item">
+                                      <input class="govuk-checkboxes__input" id="kbv" name="kbv" type="checkbox" value="kbv">
+                                        <label class="govuk-label govuk-checkboxes__label" for="kbv">
+                                          Identity check (KBV)
+                                        </label>
+                                      </div>
+                                      <div class="govuk-checkboxes__item">
+                                        <input
+                                          class="govuk-checkboxes__input"
+                                          id="international-group"
+                                          name="international-group"
+                                          type="checkbox"
+                                          value="international-group">
+                                          <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                                            International Group
+                                          </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                          <input class="govuk-checkboxes__input" id="mbr" name="mbr" type="checkbox" value="mbr" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="mbr">
+                                              Main benefit reply (MBR)
+                                            </label>
+                                          </div>
+                                          <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="nsesa" name="nsesa" type="checkbox" value="nsesa">
+                                              <label class="govuk-label govuk-checkboxes__label" for="nsesa">
+                                                NSESA team
+                                              </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                              <input
+                                                class="govuk-checkboxes__input"
+                                                id="self-employment"
+                                                name="self-employment"
+                                                type="checkbox"
+                                                value="self-employment">
+                                                <label class="govuk-label govuk-checkboxes__label" for="self-employment">
+                                                  Self-employment and company director check
+                                                </label>
+                                              </div>
+                                              <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="decision-maker" name="decision-maker" type="checkbox" value="decision-maker">
+                                                  <label class="govuk-label govuk-checkboxes__label" for="decision-maker">
+                                                    Sent to decision-maker
+                                                  </label>
+                                                </div>
+                                                <div class="govuk-checkboxes__item">
+                                                  <input class="govuk-checkboxes__input" id="ttc" name="ttc" type="checkbox" value="ttc">
+                                                    <label class="govuk-label govuk-checkboxes__label" for="ttc">
+                                                      Transferred to clerical
+                                                    </label>
+                                                  </div>
+                                                  <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="other" name="other" type="checkbox" value="other">
+                                                      <label class="govuk-label govuk-checkboxes__label" for="other">
+                                                        Other
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </fieldset>
+                                              </div>
+                                              <div class="govuk-button-group">
+                                                <button type="submit" class="govuk-button" data-module="govuk-button">
+                                                  Apply filters
+                                                </button>
+                                                <a class="govuk-link" href="pause-list">Clear filters</a>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="moj-filter-layout__content">
+                                      <div class="moj-action-bar">
+                                        <div class="moj-action-bar__filter"></div>
+                                      </div>
+                                      <div
+                                        class="moj-scrollable-pane">
+                                        <!-- TABLE WITH CLAIMS LIST AGENT 03 no data -->
+                                        {% if data['show'] == "03" %}
+                                          <table class="govuk-table govuk-!-font-size-19">
+                                            
+                                            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Update due</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claimant</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" colspan="5">No recently paused claims</td>
+              </tr>
+            </tbody>
+          </table>
+
+                                          
+
+
+
+                                          <!-- TABLE WITH CLAIMS LIST AGENT 04 no data -->
+                                        {% elif data['show'] == "04" %}
+                                          <table class="govuk-table govuk-!-font-size-19">
+                                            
+                                            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Update due</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claimant</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" colspan="5">No claims match the selected filters</td>
+              </tr>
+            </tbody>
+          </table>
+
+                                          <!-- TABLE WITH CLAIMS LIST AGENT 05 no data -->
+                                        {% elif data['show'] == "05" %}
+                                          <table class="govuk-table govuk-!-font-size-19">
+                                            
+                                            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Update due</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claimant</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
+                <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" colspan="5">No claims match the selected filters</td>
+              </tr>
+            </tbody>
+          </table>
+
+                                          <!-- TABLE WITH CLAIMS LIST AGENT 02 -->
+                                        {% elif data['show'] == "12345678" %}
+                                          {% include "design-ideas/wt-4642-wfm-1b/table/agent2-pause-list-filtered.html" %}
+                                          <!-- TABLE WITH CLAIMS LIST AGENT 01 -->
+                                        {% else %}
+                                        
+                                        
+
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </main>
+                                </div>
+                              {% endblock %}
