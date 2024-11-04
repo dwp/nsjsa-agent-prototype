@@ -40,7 +40,7 @@
                 text: "sc1"
             },
             {
-                html: "<a href='choose-task3?sc=1&claimant=ij&claimStatus=processing-started'>Standard claim"
+                html: "<a href='choose-task3?sc=1&claimant=ij&claimStatus=processing-started&banner'>Standard claim"
                 
             }
         ],
@@ -54,18 +54,22 @@
           ]
         ]
       }) }}
-                {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-                {{ govukInsetText({
-  html: "<strong>Search for staff number on Last updated claims:</strong> <br> Enter any value for Agent 88776655 claims <br> Enter 12345678 for Agent 12345678 claims <br> Enter 03 for Agent 03 claims "
-}) }}
+    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+    {{ govukInsetText({
+        html: "<strong>Search for staff number on Last updated claims:</strong> <br> Enter any value for Agent 88776655 claims <br> Enter 12345678 for Agent 12345678 claims <br> Enter 03 for Agent 03 claims "
+        }) }}
+
+        <h2 class="govuk-heading-l">
+                Individual screens and flows for development
+        </h2>
                 {{ govukTable({
-        caption: "Individual screens and flows for development",
+        caption: "Service Centre",
         captionClasses: "govuk-table__caption--m",
         firstCellIsHeader: true,
         head: [
             
             {
-                text: "Screen"
+                text: "Screens"
             }
         ],
         rows: [
@@ -119,6 +123,44 @@
                 html: "<a href='no-more-claims'>No more claims"
             }
           ],
+          [
+            
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=welsh1'>Standard claim with Welsh banner - written communication"
+            }
+          ],
+          [ 
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=welsh2'>Standard claim with Welsh banner - spoken communication"
+            }
+          ],
+          [ 
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=welsh3' class='govuk-!-padding-right-5'>Standard claim with Welsh banner - written and spoken communication"
+            }
+          ],
+          [
+            
+            {
+                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=mismatch'>Standard claim with CIS banner</a>
+                <p class='govuk-error-message'>
+      Desoped for WFM1a</p>" 
+            }
+          ]
+        ]
+      }) }}
+      {{ govukTable({
+        caption: "Contact Centre (G4S)",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
+        head: [
+            
+            {
+                text: "Screens"
+            }
+        ],
+        rows: [
+       
           [
             
             {
