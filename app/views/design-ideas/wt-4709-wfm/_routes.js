@@ -37,7 +37,7 @@ router.post("/nino-search", function (req, res) {
     res.redirect(`${ABS_BASE_PATH}/nino-search?show=errors`);
   } else {
     // happy patch view claim - all redirect if other value
-      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=paused`);
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&claimant=ij&claimStatus=paused&banner`);
     
   }
 });
