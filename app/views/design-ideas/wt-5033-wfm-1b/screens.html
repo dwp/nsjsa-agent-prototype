@@ -3,16 +3,14 @@
     NSJSA Agent Prototypes
 {% endblock %}
 {% block content %}
-<!-- Page layout -->
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-            
+    <!-- Page layout -->
+    <div class="govuk-grid-row">
+        <div
+            class="govuk-grid-column-three-quarters">
             <!-- Page heading with caption -->
             <span class="govuk-caption-xl">WFM-1B</span>
             <h1 class="govuk-heading-xl">Iteration 4</h1>
-            
-
-             <!-- 'Problem statement' Details (dropdown) -->
+            <!-- 'Problem statement' Details (dropdown) -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
@@ -26,8 +24,7 @@
                     </p>
                 </div>
             </details>
-
-                  <!-- 'Hypothesis' Details (dropdown) -->
+            <!-- 'Hypothesis' Details (dropdown) -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
@@ -35,14 +32,13 @@
                     </span>
                 </summary>
                 <div class="govuk-details__text">
-                    <p>By ensuring that contact agents are informed about MWAC roll out we will make sure that appointments for NSJSA are being booked in the appropriate system.
+                    <p>By ensuring that contact agents are informed about MWAC roll out we will make sure that appointments for NSJSA are
+                        being booked in the appropriate system.
                     </p>
                     <p>This will enable a smooth transition from the old LMS system to the new MWAC service.
                     </p>
                 </div>
             </details>
-
-
             <!-- 'MWAC Prototypes' -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
@@ -50,8 +46,7 @@
                         <h3>MWAC Prototypes</h3>
                     </span>
                 </summary>
-            <div class="govuk-!-padding-bottom-5"></div>
-                
+                <div class="govuk-!-padding-bottom-5"></div>
                 {{ govukTable({
         
         firstCellIsHeader: false,
@@ -96,10 +91,8 @@
         ]
         ]
       }) }}
-      
             </details>
-
-    <!-- 'Ideation Details' (dropdown) -->
+            <!-- 'Ideation Details' (dropdown) -->
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
@@ -107,10 +100,8 @@
                     </span>
                 </summary>
                 <div class="govuk-!-padding-bottom-5"></div>
-
-        
-<!-- 'Ideation' Table -->
-       {{ govukTable({
+                <!-- 'Ideation' Table -->
+                {{ govukTable({
         
         firstCellIsHeader: false,
         head: [
@@ -131,7 +122,7 @@
                 text: "v4.1"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=full-width&warning=none&claimActions=none'>Notification Banner"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=full-width&warning=none&claimActions=none'>Notification Banner"
                 
             },
             {
@@ -144,7 +135,7 @@
                 text: "v4.2"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=multi-message&warning=none&claimActions=none'>Multi-message banner"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=multi-message&warning=none&claimActions=none'>Multi-message banner"
                 
             },
             {
@@ -157,7 +148,7 @@
                 text: "v4.3"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&claimActions=side-navigation&warning=none'>Side navigation as links"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=none&claimActions=side-navigation&warning=none'>Side navigation as links"
                 
             },
             {
@@ -170,7 +161,7 @@
                 text: "v4.4"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=mwac-panel&claimActions=none'>MWAC panel (solo)"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=none&warning=mwac-panel&claimActions=none'>MWAC panel (solo)"
                 
             },
             {
@@ -183,7 +174,7 @@
                 text: "v4.5"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=panel-CIS&claimActions=none'>MWAC panel with CIS markers"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=none&warning=panel-CIS&claimActions=none'>MWAC panel with CIS markers"
                 
             },
             {
@@ -196,7 +187,7 @@
                 text: "v4.6"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=panel-CIS-banner&claimActions=none'>MWAC panel with CIS markers & current Welsh banner"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=none&warning=panel-CIS-banner&claimActions=none'>MWAC panel with CIS markers & current Welsh banner"
                 
             },
             {
@@ -209,7 +200,7 @@
                 text: "v4.7"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=welsh&warning=panel-CIS&claimActions=none'>MWAC panel with CIS markers & full-width Welsh banner"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=welsh&warning=panel-CIS&claimActions=none'>MWAC panel with CIS markers & full-width Welsh banner"
                 
             },
             {
@@ -222,7 +213,7 @@
                 text: "v4.8"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=mwac-welsh-CIS&claimActions=none'>MWAC banner with other messages"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=none&warning=mwac-welsh-CIS&claimActions=none'>MWAC banner with other messages"
                 
             },
             {
@@ -232,19 +223,13 @@
         ]
         ]
       }) }}
-      <div class="govuk-!-padding-bottom-2"></div>
+                <div class="govuk-!-padding-bottom-2"></div>
             </details>
-
             <div class="govuk-!-padding-bottom-1"></div>
-
-            
-
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-        
-        <div class="govuk-!-padding-bottom-3"></div>
-            <h2 class="govuk-heading-l">Prototype Scenarios</h2>
-        
-            {{ govukTable({
+                <div class="govuk-!-padding-bottom-3"></div>
+                <h2 class="govuk-heading-l">Prototype Scenarios</h2>
+                {{ govukTable({
         
         firstCellIsHeader: false,
         head: [
@@ -265,7 +250,7 @@
                 text: "sc4.1"
             },
             {
-                html: "<a href='view-claim?&claimant=ij&claimStatus=processing-started&banner=none&warning=mwac-welsh-CIS&claimActions=none'>MWAC banner displayed for G4S agents"
+                html: "<a href='view-claim?&claimant=ij&claimStatus=awaiting-appointment&banner=none&warning=mwac-welsh-CIS&claimActions=none'>MWAC banner displayed for G4S agents"
                 
             },
             {
@@ -275,22 +260,8 @@
         ]
         ]
       }) }}
-
             </div>
         </div>
-         </div>
-
-           <div class="govuk-!-padding-bottom-8"></div>
-
-           
-
-
-
-
-
-        
-        
-    
-
-        
-    {% endblock %}
+    </div>
+    <div class="govuk-!-padding-bottom-8"></div>
+{% endblock %}

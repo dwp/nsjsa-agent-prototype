@@ -1,0 +1,20 @@
+{% extends "layout/unbranded-agent.html" %}
+{% block pageTitle %}
+  You do not have access to this page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% block content %}
+  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+    <div class="govuk-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-l">
+            You do not have access to this page
+          </h1>
+          <p class="govuk-body">
+            If you need to access this page to do your job, contact your line manager.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
