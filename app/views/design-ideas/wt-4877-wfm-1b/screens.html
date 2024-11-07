@@ -23,7 +23,6 @@
                     </p>
                 </div>
             </details>
-
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
@@ -31,7 +30,7 @@
                     </span>
                 </summary>
                 <div>
-                {{ govukTable({
+                    {{ govukTable({
         
         captionClasses: "govuk-table__caption--m",
         firstCellIsHeader: false,
@@ -114,14 +113,11 @@
           ]
         ]
       }) }}
-            </div>
+                </div>
             </details>
-
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
         </div>
-        
         <div class="govuk-!-padding-bottom-8"></div>
-
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-three-quarters">
                 {{ govukTable({
@@ -184,13 +180,36 @@
       }) }}
             </div>
         </div>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+                {{ govukTable({
+        caption: "Example pages for development",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
+        head: [
 
-           <div class="govuk-!-padding-bottom-8"></div>
-
-
-        
-        
-    
-
-        
+            {
+                text: "Page",
+                classes: "govuk-!-width-one-third"
+            },
+            {
+                text: "Description"
+            }
+        ],
+        rows: [
+        [
+            {
+                html: "<a href='access-denied'>Access denied page"
+                
+            },
+            {
+                text: "Universal page when access is denied based on user role"
+                
+            }
+        ]
+        ]
+      }) }}
+            </div>
+        </div>
+        <div class="govuk-!-padding-bottom-8"></div>
     {% endblock %}
