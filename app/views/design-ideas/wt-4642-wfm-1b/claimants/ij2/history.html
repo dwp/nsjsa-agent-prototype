@@ -4,7 +4,7 @@ items: [
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am"
+date: " 19 May 2024 at 10:02am"
 }
 ]
 }) }}
@@ -14,12 +14,12 @@ items: [
 {
 title: "Preview",
 byline: "00000089",
-date: "on 19 May 2024 at 11:14am"
+date: " 19 May 2024 at 11:14am"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -30,12 +30,12 @@ items: [
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -46,17 +46,17 @@ items: [
 {
 title: "Processing started",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at " + "now" | govukTime
+date: " " + "today" | govukDate("truncate") + " at " + "now" | govukTime
 },
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -66,7 +66,9 @@ classes: "dwp-timeline-entry--closing"
         <div class="dwp-timeline">
             <ol class="dwp-timeline__items">
                 <li class="dwp-timeline__item">
-                    <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
+                    <p class="dwp-timeline__datetime">
+                        {{ "today" | govukDate("truncate") }} at
+                    {{ "now" | govukTime }}</p>
                     <h2 class="dwp-timeline__heading">Paused</h2>
                     <p class="dwp-timeline__by-line">by 88776655</p>
                     <p class="dwp-timeline__content">
@@ -80,7 +82,8 @@ classes: "dwp-timeline-entry--closing"
                 </p>
             </li>
             <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:25am</p>
+                <p class="dwp-timeline__datetime">
+                    {{ "today" | govukDate("truncate") }} at 9:25am</p>
                 <h2 class="dwp-timeline__heading">Paused</h2>
                 <p class="dwp-timeline__by-line">by 88776655</p>
                 <p class="dwp-timeline__content">
@@ -92,17 +95,20 @@ classes: "dwp-timeline-entry--closing"
                 </p>
             </li>
             <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:18am</p>
+                <p class="dwp-timeline__datetime">
+                    {{ "today" | govukDate("truncate") }} at 9:18am</p>
                 <h2 class="dwp-timeline__heading">Processing started</h2>
                 <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
             <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">on 19 May 2024 at 3:02pm</p>
+                <p class="dwp-timeline__datetime">
+                    19 May 2024 at 3:02pm</p>
                 <h2 class="dwp-timeline__heading">Success</h2>
                 <p class="dwp-timeline__by-line">by 00000089</p>
             </li>
             <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">on 19 May 2024 at 10:02am</p>
+                <p class="dwp-timeline__datetime">
+                    19 May 2024 at 10:02am</p>
                 <h2 class="dwp-timeline__heading">New claim</h2>
                 <p class="dwp-timeline__by-line">by claimant</p>
             </li>
@@ -112,7 +118,9 @@ classes: "dwp-timeline-entry--closing"
     <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
             <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
+                <p class="dwp-timeline__datetime">
+                    {{ "today" | govukDate("truncate") }} at
+                {{ "now" | govukTime }}</p>
                 <h2 class="dwp-timeline__heading">Paused</h2>
                 <p class="dwp-timeline__by-line">by 88776655</p>
                 <p class="dwp-timeline__content">
@@ -126,7 +134,8 @@ classes: "dwp-timeline-entry--closing"
             </p>
         </li>
         <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:25am</p>
+            <p class="dwp-timeline__datetime">
+                {{ "today" | govukDate("truncate") }} at 9:25am</p>
             <h2 class="dwp-timeline__heading">Paused</h2>
             <p class="dwp-timeline__by-line">by 88776655</p>
             <p class="dwp-timeline__content">
@@ -138,17 +147,20 @@ classes: "dwp-timeline-entry--closing"
             </p>
         </li>
         <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:18am</p>
+            <p class="dwp-timeline__datetime">
+                {{ "today" | govukDate("truncate") }} at 9:18am</p>
             <h2 class="dwp-timeline__heading">Processing started</h2>
             <p class="dwp-timeline__by-line">by 88776655</p>
         </li>
         <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">on 19 May 2024 at 3:02pm</p>
+            <p class="dwp-timeline__datetime">
+                19 May 2024 at 3:02pm</p>
             <h2 class="dwp-timeline__heading">Success</h2>
             <p class="dwp-timeline__by-line">by 00000089</p>
         </li>
         <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">on 19 May 2024 at 10:02am</p>
+            <p class="dwp-timeline__datetime">
+                19 May 2024 at 10:02am</p>
             <h2 class="dwp-timeline__heading">New claim</h2>
             <p class="dwp-timeline__by-line">by claimant</p>
         </li>
@@ -159,7 +171,9 @@ classes: "dwp-timeline-entry--closing"
         <li class="dwp-timeline__item">
             <p class="dwp-timeline__by-line">by 88776655</p>
             <h2 class="dwp-timeline__heading">Paused</h2>
-            <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
+            <p class="dwp-timeline__datetime">
+                {{ "today" | govukDate("truncate") }} at
+            {{ "now" | govukTime }}</p>
             <p class="dwp-timeline__content">
                 <ul class="govuk-list govuk-list--bullet">
                     <li>{{ data['pauseReason'][0] }}</li>
@@ -171,17 +185,20 @@ classes: "dwp-timeline-entry--closing"
             </p>
         </li>
         <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:18am</p>
+            <p class="dwp-timeline__datetime">
+                {{ "today" | govukDate("truncate") }} at 9:18am</p>
             <h2 class="dwp-timeline__heading">Processing started</h2>
             <p class="dwp-timeline__by-line">by 88776655</p>
         </li>
         <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">on 19 May 2024 at 3:02pm</p>
+            <p class="dwp-timeline__datetime">
+                19 May 2024 at 3:02pm</p>
             <h2 class="dwp-timeline__heading">Success</h2>
             <p class="dwp-timeline__by-line">by 00000089</p>
         </li>
         <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">on 19 May 2024 at 10:02am</p>
+            <p class="dwp-timeline__datetime">
+                19 May 2024 at 10:02am</p>
             <h2 class="dwp-timeline__heading">New claim</h2>
             <p class="dwp-timeline__by-line">by claimant</p>
         </li>
@@ -191,23 +208,23 @@ items: [
 {
 title: "Claim not valid",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at " + "now" | govukTime
+date: " " + "today" | govukDate("truncate") + " at " + "now" | govukTime
 },
 {
 title: "Processing started",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at 9:18am"
+date: " " + "today" | govukDate("truncate") + " at 9:18am"
 },
 
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -216,22 +233,22 @@ items: [
 {
 title: "Duplicate",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at " + "now" | govukTime
+date: " " + "today" | govukDate("truncate") + " at " + "now" | govukTime
 },
 {
 title: "Processing started",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at 9:18am"
+date: " " + "today" | govukDate("truncate") + " at 9:18am"
 },
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -240,22 +257,22 @@ items: [
 {
 title: "Suspected fraud",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at " + "now" | govukTime
+date: " " + "today" | govukDate("truncate") + " at " + "now" | govukTime
 },
 {
 title: "Processing started",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at 9:18am"
+date: " " + "today" | govukDate("truncate") + " at 9:18am"
 },
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -264,34 +281,37 @@ items: [
 {
 title: "Complex claim",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at " + "now" | govukTime
+date: " " + "today" | govukDate("truncate") + " at " + "now" | govukTime
 },
 {
 title: "Processing started",
 byline: "88776655",
-date: "on " + "today" | govukDate("truncate") + " at 9:18am"
+date: " " + "today" | govukDate("truncate") + " at 9:18am"
 },
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
 }) }}{% elif data['claimStatus'] == 'awaiting-appointment' %}<div class="dwp-timeline">
 <ol class="dwp-timeline__items">
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at
+        {{ "now" | govukTime }}</p>
         <h2 class="dwp-timeline__heading">Awaiting appointment</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 10:31am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 10:31am</p>
         <h2 class="dwp-timeline__heading">Paused</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
         <p class="dwp-timeline__content">
@@ -302,7 +322,8 @@ classes: "dwp-timeline-entry--closing"
         </p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:21am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 9:21am</p>
         <h2 class="dwp-timeline__heading">Paused</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
         <p class="dwp-timeline__content">
@@ -314,29 +335,35 @@ classes: "dwp-timeline-entry--closing"
         </p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:18am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 9:18am</p>
         <h2 class="dwp-timeline__heading">Processing started</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on 19 May 2024 at 3:02pm</p>
+        <p class="dwp-timeline__datetime">
+            19 May 2024 at 3:02pm</p>
         <h2 class="dwp-timeline__heading">Success</h2>
         <p class="dwp-timeline__by-line">by 00000089</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on 19 May 2024 at 10:02am</p>
+        <p class="dwp-timeline__datetime">
+            19 May 2024 at 10:02am</p>
         <h2 class="dwp-timeline__heading">New claim</h2>
         <p class="dwp-timeline__by-line">by claimant</p>
     </li>
 </ol></div>{% elif data['claimStatus'] == 'citizen-not-entitled' %}<div class="dwp-timeline">
 <ol class="dwp-timeline__items">
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at
+        {{ "now" | govukTime }}</p>
         <h2 class="dwp-timeline__heading">Citizen not entitled</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 10:31am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 10:31am</p>
         <h2 class="dwp-timeline__heading">Paused</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
         <p class="dwp-timeline__content">
@@ -347,7 +374,8 @@ classes: "dwp-timeline-entry--closing"
         </p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:21am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 9:21am</p>
         <h2 class="dwp-timeline__heading">Paused</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
         <p class="dwp-timeline__content">
@@ -359,31 +387,37 @@ classes: "dwp-timeline-entry--closing"
         </p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:18am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 9:18am</p>
         <h2 class="dwp-timeline__heading">Processing started</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on 19 May 2024 at 3:02pm</p>
+        <p class="dwp-timeline__datetime">
+            19 May 2024 at 3:02pm</p>
         <h2 class="dwp-timeline__heading">Success</h2>
         <p class="dwp-timeline__by-line">by 00000089</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on 19 May 2024 at 10:02am</p>
+        <p class="dwp-timeline__datetime">
+            19 May 2024 at 10:02am</p>
         <h2 class="dwp-timeline__heading">New claim</h2>
         <p class="dwp-timeline__by-line">by claimant</p>
     </li>
 </ol></div>{% elif data['claimStatus'] == 'withdrawn' %}<div class="dwp-timeline">
 <ol class="dwp-timeline__items">
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at {{ "now" | govukTime }}</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at
+        {{ "now" | govukTime }}</p>
         <h2 class="dwp-timeline__heading">Withdrawn</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
     </li>
     <li class="dwp-timeline__item">
         <h2 class="dwp-timeline__heading">Paused</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 10:31am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 10:31am</p>
         <p class="dwp-timeline__content">
             <ul class="govuk-list govuk-list--bullet">
                 <li>NSESA team</li>
@@ -394,7 +428,8 @@ classes: "dwp-timeline-entry--closing"
         </p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:21am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 9:21am</p>
         <h2 class="dwp-timeline__heading">Paused</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
         <p class="dwp-timeline__content">
@@ -406,17 +441,20 @@ classes: "dwp-timeline-entry--closing"
         </p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on {{ "today" | govukDate("truncate") }} at 9:18am</p>
+        <p class="dwp-timeline__datetime">
+            {{ "today" | govukDate("truncate") }} at 9:18am</p>
         <h2 class="dwp-timeline__heading">Processing started</h2>
         <p class="dwp-timeline__by-line">by 88776655</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on 19 May 2024 at 3:02pm</p>
+        <p class="dwp-timeline__datetime">
+            19 May 2024 at 3:02pm</p>
         <h2 class="dwp-timeline__heading">Success</h2>
         <p class="dwp-timeline__by-line">by 00000089</p>
     </li>
     <li class="dwp-timeline__item">
-        <p class="dwp-timeline__datetime">on 19 May 2024 at 10:02am</p>
+        <p class="dwp-timeline__datetime">
+            19 May 2024 at 10:02am</p>
         <h2 class="dwp-timeline__heading">New claim</h2>
         <p class="dwp-timeline__by-line">by claimant</p>
     </li>
@@ -425,17 +463,17 @@ items: [
 {
 title: "Processing started",
 byline: "88776655",
-date: "on 3 June 2024 at 9:18am"
+date: " 3 June 2024 at 9:18am"
 },
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -444,17 +482,17 @@ items: [
 {
 title: "Processing started",
 byline: "88776655",
-date: "on 3 June 2024 at 9:18am"
+date: " 3 June 2024 at 9:18am"
 },
 {
 title: "Success",
 byline: "00000089",
-date: "on 19 May 2024 at 3:02pm"
+date: " 19 May 2024 at 3:02pm"
 },
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am",
+date: " 19 May 2024 at 10:02am",
 classes: "dwp-timeline-entry--closing"
 }
 ]
@@ -463,7 +501,7 @@ items: [
 {
 title: "New claim",
 byline: "claimant",
-date: "on 19 May 2024 at 10:02am"
+date: " 19 May 2024 at 10:02am"
 }
 ]
 }) }}{% endif %}

@@ -5,8 +5,6 @@
 
 // Add extra styles here
 
-
-
 // DWP components
 /*@import 'dwp-components/dwp-header';
 @import 'dwp-components/dwp-timeline';
@@ -70,7 +68,7 @@
   padding-left: 0;
 }
 
- // MOJ Filter - X-cross for selected fitlers (local css because bug in official pattern) -  Remove when bug fixed
+// MOJ Filter - X-cross for selected fitlers (local css because bug in official pattern) -  Remove when bug fixed
 .moj-filter__tag:after {
   background-image: url("/plugin-assets/%40ministryofjustice%2Ffrontend/moj/assets/images/icon-tag-remove-cross.svg");
 }
