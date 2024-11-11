@@ -3,7 +3,8 @@
 items: [
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
     }
 ]
 }) }}
@@ -17,7 +18,8 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
     }
 ]
 }) }}
@@ -31,7 +33,9 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% elif data['claimStatus'] == 'processing-started' %}
@@ -49,41 +53,41 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% elif data['claimStatus'] == 'paused' %}
     <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    7 May 2024 at 9:21am</p>
-                <p class="govuk-caption-m">
-                    {{ data['pauseReason'] }}
-                    <p class="govuk-caption-m">Deadline {{ data['deadline-day'] }}
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">7 May 2024 at 9:21am</p>
+                <h2 class="dwp-timeline__heading">Paused</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
+                <p class="dwp-timeline__content">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>{{ data['pauseReason'] }}</li>
+                    </ul>
+                    <p class="dwp-timeline__datetime">Deadline {{ data['deadline-day'] }}
                         {{ data['deadline-month'] | toMonth }}
                         {{ data['deadline-year'] }}</p>
                 </p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    7 May 2024 at 9:18am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">7 May 2024 at 9:18am</p>
+                <h2 class="dwp-timeline__heading">Processing started</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Success</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                <p class="govuk-caption-m">
-                    3 May 2024 at 3:02pm</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">3 May 2024 at 3:02pm</p>
+                <h2 class="dwp-timeline__heading">Success</h2>
+                <p class="dwp-timeline__by-line">by 00000089</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                <p class="govuk-caption-m">
-                    3 May 2024 at 10:02am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">3 May 2024 at 10:02am</p>
+                <h2 class="dwp-timeline__heading">New claim</h2>
+                <p class="dwp-timeline__by-line">by claimant</p>
             </li>
         </ol>
     </div>
@@ -107,7 +111,9 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% elif data['claimStatus'] == 'duplicate' %}
@@ -130,7 +136,9 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% elif data['claimStatus'] == 'suspected-fraud' %}
@@ -153,7 +161,9 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% elif data['claimStatus'] == 'complex-claim' %}
@@ -176,129 +186,118 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% elif data['claimStatus'] == 'awaiting-appointment' %}
     <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Awaiting appointment</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    10 May 2024 at 3:15pm</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">10 May 2024 at 3:15pm</p>
+                <h2 class="dwp-timeline__heading">Awaiting appointment</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    7 May 2024 at 9:21am</p>
-                <p class="govuk-caption-m">
-                    <ul class="govuk-list govuk-caption-m">
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">7 May 2024 at 9:21am</p>
+                <h2 class="dwp-timeline__heading">Paused</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
+                <p class="dwp-timeline__content">
+                    <ul class="govuk-list govuk-list--bullet">
                         <li>Transferred to clerical</li>
                     </ul>
-                    <p class="govuk-caption-m">Deadline 10 May 2024</p>
+                    <p class="dwp-timeline__datetime">Deadline 10 May 2024</p>
                 </p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    7 May 2024 at 9:18am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">7 May 2024 at 9:18am</p>
+                <h2 class="dwp-timeline__heading">Processing started</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Success</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                <p class="govuk-caption-m">
-                    3 May 2024 at 3:02pm</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">3 May 2024 at 3:02pm</p>
+                <h2 class="dwp-timeline__heading">Success</h2>
+                <p class="dwp-timeline__by-line">by 00000089</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                <p class="govuk-caption-m">
-                    3 May 2024 at 10:02am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">3 May 2024 at 10:02am</p>
+                <h2 class="dwp-timeline__heading">New claim</h2>
+                <p class="dwp-timeline__by-line">by claimant</p>
             </li>
         </ol>
     </div>
 {% elif data['claimStatus'] == 'not-entitled' %}
     <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Not entitled</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    10 May 2024 at 3:15pm</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">10 May 2024 at 3:15pm</p>
+                <h2 class="dwp-timeline__heading">Not entitled</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">
                     7 May 2024 at 9:21am</p>
-                <p class="govuk-caption-m">
-                    <ul class="govuk-list govuk-caption-m">
+                <h2 class="dwp-timeline__heading">Paused</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
+                <p class="dwp-timeline__content">
+                    <ul class="govuk-list govuk-list--bullet">
                         <li>Transferred to clerical</li>
                     </ul>
-                    <p class="govuk-caption-m">Deadline 10 May 2024</p>
+                    <p class="dwp-timeline__datetime">Deadline 10 May 2024</p>
                 </p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    7 May 2024 at 9:18am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">7 May 2024 at 9:18am</p>
+                <h2 class="dwp-timeline__heading">Processing started</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Success</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                <p class="govuk-caption-m">
-                    3 May 2024 at 3:02pm</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">3 May 2024 at 3:02pm</p>
+                <h2 class="dwp-timeline__heading">Success</h2>
+                <p class="dwp-timeline__by-line">by 00000089</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                <p class="govuk-caption-m">
-                    3 May 2024 at 10:02am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">3 May 2024 at 10:02am</p>
+                <h2 class="dwp-timeline__heading">New claim</h2>
+                <p class="dwp-timeline__by-line">by claimant</p>
             </li>
         </ol>
     </div>
 {% elif data['claimStatus'] == 'withdrawn' %}
     <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Withdrawn</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    10 May 2024 at 3:15pm</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">10 May 2024 at 3:15pm</p>
+                <h2 class="dwp-timeline__heading">Withdrawn</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Paused</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    7 May 2024 at 9:21am</p>
-                <p class="govuk-caption-m">
-                    <ul class="govuk-list govuk-caption-m">
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">7 May 2024 at 9:21am</p>
+                <h2 class="dwp-timeline__heading">Paused</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
+                <p class="dwp-timeline__content">
+                    <ul class="govuk-list govuk-list--bullet">
                         <li>Transferred to clerical</li>
                     </ul>
-                    <p class="govuk-caption-m">Deadline 10 May 2024</p>
+                    <p class="dwp-timeline__datetime">Deadline 10 May 2024</p>
                 </p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Processing started</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 88776655</p>
-                <p class="govuk-caption-m">
-                    7 May 2024 at 9:18am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">7 May 2024 at 9:18am</p>
+                <h2 class="dwp-timeline__heading">Processing started</h2>
+                <p class="dwp-timeline__by-line">by 88776655</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Success</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by 00000089</p>
-                <p class="govuk-caption-m">
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">
                     3 May 2024 at 3:02pm</p>
+                <h2 class="dwp-timeline__heading">Success</h2>
+                <p class="dwp-timeline__by-line">by 00000089</p>
             </li>
-            <li class="dwp-timeline__items--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">New claim</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">by claimant</p>
-                <p class="govuk-caption-m">
-                    3 May 2024 at 10:02am</p>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">3 May 2024 at 10:02am</p>
+                <h2 class="dwp-timeline__heading">New claim</h2>
+                <p class="dwp-timeline__by-line">by claimant</p>
             </li>
         </ol>
     </div>
@@ -317,7 +316,9 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% elif data['claimStatus'] == 'push-successful' %}
@@ -335,7 +336,9 @@ items: [
     },
     {
     title: "New claim",
-    date: "by claimant on 3 May 2024 at 10:02am"
+    byline: "claimant",
+    date: "3 May 2024 at 10:02am"
+    }
 ]
 }) }}
 {% else %}
