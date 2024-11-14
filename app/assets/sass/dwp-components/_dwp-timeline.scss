@@ -15,11 +15,11 @@
 
   &::before {
     background-color: govuk-colour("blue");
-    content: ' ';
+    content: " ";
     height: 3px;
     left: 0;
     position: absolute;
-    top: .5em;
+    top: 0.5em;
     width: 10px;
   }
 
@@ -44,7 +44,6 @@
   .dwp-timeline-body {
     display: block;
   }
-  
 }
 
 .dwp-timeline-entry--closing {
