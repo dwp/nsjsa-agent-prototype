@@ -1,143 +1,143 @@
 {% if data['claimStatus'] == 'new-claim' %}
     {{ dwpTimeline({
-events: [
+items: [
     {
-    state: "New claim",
-    date: "by claimant on 31 August 2021 at 4:32pm"
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm"
     }
 ]
 }) }}
 {% elif data['claimStatus'] == 'preview' %}
     {{ dwpTimeline({
-events: [
+items: [
     {
-    state: "Preview",
-    name: "by 00000001",
+    title: "Preview",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
-    state: "New claim",
-    date: "by claimant on 31 August 2021 at 4:30pm",
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:30pm",
     classes: "dwp-timeline-entry--closing"
     }
 ]
 }) }}
 {% elif data['claimStatus'] == 'success' %}
     {{ dwpTimeline({
-events: [
+items: [
  {
-    state: "Success",
-    name: "by 00000001",
+    title: "Success",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
-    state: "Preview",
-    name: "by 00000001",
+    title: "Preview",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
-    state: "New claim",
-    date: "by claimant on 31 August 2021 at 4:30pm",
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:30pm",
     classes: "dwp-timeline-entry--closing"
     }
 ]
 }) }}
 {% elif data['claimStatus'] == 'awaiting-appointment' %}
     {{ dwpTimeline({
-events: [
+items: [
  {
-    state: "Success",
-    name: "by 00000001",
+    title: "Success",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
-    state: "Preview",
-    name: "by 00000001",
+    title: "Preview",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
-    state: "New claim",
-    date: "by claimant on 31 August 2021 at 4:30pm",
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:30pm",
     classes: "dwp-timeline-entry--closing"
     }
 ]
 }) }}
 {% elif data['claimStatus'] == 'first-fail' %}
     {{ dwpTimeline({
-events: [
+items: [
 {
-    state: "First fail",
-    name: "by 00000002",
+    title: "First fail",
+    byline: "00000002",
     date: "on 31 August 2021 at 5:40pm"
     },
     {
-    state: "Awaiting appointment",
-    name: "by 00000001",
+    title: "Awaiting appointment",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
-    state: "Success",
-    name: "by 00000001",
+    title: "Success",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
-    state: "New claim",
-    date: "by claimant on 31 August 2021 at 4:32pm",
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm",
     classes: "dwp-timeline-entry--closing"
     }
 ]
 }) }}
 {% elif data['claimStatus'] == 'not-pushed' %}
     {{ dwpTimeline({
-events: [
+items: [
 {
-    state: "Final fail",
-    name: "by 00000002",
+    title: "Final fail",
+    byline: "00000002",
     date: "on 31 August 2021 at 5:40pm"
     },
     {
-    state: "No slots available",
-    name: "by 00000001",
+    title: "No slots available",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
-    state: "Preview",
-    name: "by 00000001",
+    title: "Preview",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
-    state: "New claim",
-    date: "by claimant on 31 August 2021 at 4:32pm",
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm",
     classes: "dwp-timeline-entry--closing"
     }
 ]
 }) }}
 {% elif data['claimStatus'] == 'push-successful' %}
     {{ dwpTimeline({
-events: [
+items: [
     {
-    state: "Preview",
-    name: "by 00000001",
+    title: "Preview",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:50pm"
     },
     {
-    state: "Success",
-    name: "by 00000001",
+    title: "Success",
+    byline: "00000001",
     date: "on 31 August 2021 at 4:43pm"
     },
     {
-    state: "New claim",
-    date: "by claimant on 31 August 2021 at 4:32pm",
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm",
     classes: "dwp-timeline-entry--closing"
     }
 ]
 }) }}
 {% else %}
     {{ dwpTimeline({
-    events: [
+    items: [
     {
-        state: "New claim",
-        date: "by claimant on 31 August 2021 at 4:32pm"
+        title: "New claim",
+        date: "claimant on 31 August 2021 at 4:32pm"
     }
     ]
 }) }}
