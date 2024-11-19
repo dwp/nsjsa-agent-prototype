@@ -1,88 +1,98 @@
 {% extends "layout/unbranded-agent-id.html" %}
 {% block pageTitle %}
-{{ serviceName }}
+    {{ serviceName }}
 {% endblock %}
 {% block content %}
-{{ govukBackLink({
+    {{ govukBackLink({
 text: "Back",
 href: "javascript:history.back()"
 }) }}
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-        <h1 class="govuk-heading-l govuk-!-margin-top-4">
-            Claim statistics
-            <span class="govuk-caption-l">Monday 8 April 2024 to Sunday 14 April 2024</span>
-        </h1>
-    </div>
-    <div class="govuk-grid-column-one-third">
-        <form action="claim-statistics" method="post">
-            {# {{ govukDateInput({
-            id: "report",
-            namePrefix: "report",
-            fieldset: {
-            legend: {
-            text: "Start date",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-            }
-            },
-            hint: {
-            text: "For example, 19 10 2021"
-            }
-            }) }}
-            #}
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="report-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                        <h1 class="govuk-fieldset__heading">
-                            Report date
-                        </h1>
-                    </legend>
-                    <div class="govuk-date-input" id="report">
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="report-day">
-                                    Day
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="report-day"
-                                    name="report-day" type="text" inputmode="numeric">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4">
+                Claim statistics
+                <span class="govuk-caption-l">Monday 8 April 2024 to Sunday 14 April 2024</span>
+            </h1>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <form
+                action="claim-statistics" method="post">
+                {# {{ govukDateInput({
+                                                            id: "report",
+                                                            namePrefix: "report",
+                                                            fieldset: {
+                                                            legend: {
+                                                            text: "Start date",
+                                                            isPageHeading: false,
+                                                            classes: "govuk-fieldset__legend--m"
+                                                            }
+                                                            },
+                                                            hint: {
+                                                            text: "For example, 19 10 2021"
+                                                            }
+                                                            }) }}
+                                                            #}
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" role="group" aria-describedby="report-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h1 class="govuk-fieldset__heading">
+                                Report date
+                            </h1>
+                        </legend>
+                        <div class="govuk-date-input" id="report">
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="report-day">
+                                        Day
+                                    </label>
+                                    <input
+                                        class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                        id="report-day"
+                                        name="report-day"
+                                        type="text"
+                                        inputmode="numeric"></div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="report-month">
+                                            Month
+                                        </label>
+                                        <input
+                                            class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                            id="report-month"
+                                            name="report-month"
+                                            type="text"
+                                            inputmode="numeric"></div>
+                                    </div>
+                                    <div class="govuk-date-input__item">
+                                        <div class="govuk-form-group">
+                                            <label class="govuk-label govuk-date-input__label" for="year">
+                                                Year
+                                            </label>
+                                            <input
+                                                class="govuk-input govuk-date-input__input govuk-input--width-4"
+                                                id="year"
+                                                name="year"
+                                                type="text"
+                                                inputmode="numeric"></div>
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
-                        </div>
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="report-month">
-                                    Month
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                                    id="report-month" name="report-month" type="text" inputmode="numeric">
-                            </div>
-                        </div>
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="year">
-                                    Year
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="year"
-                                    name="year" type="text" inputmode="numeric">
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            {{ govukButton({
+                            {{ govukButton({
             text: "Submit"
             }) }}
-        </form>
-    </div>
-    <div class="govuk-grid-column-two-thirds">
-        {% if data['year'] == "2023" %}
-        {% include "design-ideas/wt-4877-wfm-1b/table/sc-mi-daily.html" %}
-        {% else %}
-        {% include "design-ideas/wt-4877-wfm-1b/table/sc-mi-weekly.html" %}
-        {% endif %}
-        {{ govukButton({
+                        </form>
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        {% if data['year'] == "2023" %}
+                            {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/claim-statistics5-pastdate.html" %}
+                        {% else %}
+                            {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/claim-statistics5.html" %}
+                        {% endif %}
+                        {{ govukButton({
         html: "Download CSV"
         }) }}
-    </div>
-</div>
-{% endblock %}
+                    </div>
+                </div>
+            {% endblock %}

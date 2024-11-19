@@ -1,0 +1,16 @@
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize | bold %}
+{% set subStatus = data['subStatus'] %}
+{% set pauseReason = data['pauseReason'] | replace("-", " ") %}
+{% set pauseStatus = "The claim for Ian Johnson RN 00 00 35 C has been paused for " + pauseReason %}
+{% set claimStatus = "The claim status for Ian Johnson RN 00 00 35 C has been updated to " + claimStatus %}
+{% if data['claimStatus'] == 'paused' %}
+    {{ govukPanel({
+    titleText: "Claim paused",
+    html: pauseStatus
+    }) }}
+{% else %}
+    {{ govukPanel({
+    titleText: "Claim updated",
+    html: claimStatus
+    }) }}
+{% endif %}

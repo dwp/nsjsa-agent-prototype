@@ -4,17 +4,14 @@
 {% endblock %}
 {% block content %}
   {{ govukBackLink({
-  text: "Back",
+  text: "Back (prototype only)",
   href: "javascript:history.back()"
 }) }}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
-
       {% if data['error'] == 'old-date' %}
-      {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
-
-{{ govukErrorSummary({
+        {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+        {{ govukErrorSummary({
   titleText: "There is a problem",
   errorList: [
     {
@@ -23,45 +20,30 @@
     }
   ]
 }) }}
-
-{% elif data['error'] == 'old-date' %}
-
-
-{% else %}
-
-{% endif %}
-
-
+      {% elif data['error'] == 'old-date' %}
+        {% else %}
+      {% endif %}
       <h1
         class="govuk-heading-l govuk-!-margin-top-4">
         {# <span class="govuk-caption-l">Today, Wednesday 1 September 2021</span> #}
         Claim statistics
-        
       </h1>
     </div>
     <div class="govuk-grid-column-one-third">
-
       {% if data['stats'] == 'full' %}
-      <span class="govuk-caption-m">Showing report for</span>
-      <h2 class="govuk-heading-m">Tuesday 8 October 2024</h2>
-
+        <span class="govuk-caption-m">Showing report for</span>
+        <h2 class="govuk-heading-m">Tuesday 8 October 2024</h2>
       {% elif data['stats'] == 'no-daily' %}
-      <span class="govuk-caption-m">Showing report for</span>
-      <h2 class="govuk-heading-m">Saturday 5 October 2024</h2>
-
+        <span class="govuk-caption-m">Showing report for</span>
+        <h2 class="govuk-heading-m">Saturday 5 October 2024</h2>
       {% else %}
-<span class="govuk-caption-m">Showing report for</span>
-      <h2 class="govuk-heading-m">Tuesday 8 October 2024</h2>
-
-
+        <span class="govuk-caption-m">Showing report for</span>
+        <h2 class="govuk-heading-m">Tuesday 8 October 2024</h2>
       {% endif %}
-
       <div class="govuk-!-padding-bottom-4"></div>
-
-
-       {% if data['error'] == 'none' %}
-      <form action="" method="post">
-        {{ govukDateInput({
+      {% if data['error'] == 'none' %}
+        <form action="" method="post">
+          {{ govukDateInput({
                 id: "report",
                 namePrefix: "report",
                 fieldset: {
@@ -75,16 +57,14 @@
                     html: "For example, 21 9 2024."
                 }
             }) }}
-        {{ govukButton({
+          {{ govukButton({
                 text: "Submit",
                 href: "claim-statistics5-pastdate"
             }) }}
-      </form>
-
-
+        </form>
       {% elif data['error'] == 'old-date' %}
-      <form action="" method="post">
-        {{ govukDateInput({
+        <form action="" method="post">
+          {{ govukDateInput({
                 id: "report",
                 namePrefix: "report",
                 fieldset: {
@@ -120,58 +100,36 @@
                         }
                         ]
     }) }}
-        {{ govukButton({
+          {{ govukButton({
                 text: "Submit",
                 href: "claim-statistics5-pastdate"
             }) }}
-      </form>
-
-
-    {% else %}
-
-    {% endif %}
-
-
-
-
-
-
+        </form>
+        {% else %}
+      {% endif %}
     </div>
-
-
-    
     <div class="govuk-grid-column-two-thirds">
-
       <h2 class="govuk-heading-m">Cleared claims</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-cleared2.html" %}
-        <div class="govuk-!-padding-bottom-8"></div>
-
-        <h2 class="govuk-heading-m">Disallowed claims by reason</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-disallowed.html" %}
-        <div class="govuk-!-padding-bottom-8"></div>
-
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-cleared2.html" %}
+      <div class="govuk-!-padding-bottom-8"></div>
+      <h2 class="govuk-heading-m">Disallowed claims by reason</h2>
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-disallowed.html" %}
+      <div class="govuk-!-padding-bottom-8"></div>
       <h2 class="govuk-heading-m">Claims in processing</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-inprocessing.html" %}
-        <div class="govuk-!-padding-bottom-8"></div>
-      
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-claims-inprocessing.html" %}
+      <div class="govuk-!-padding-bottom-8"></div>
       <h2 class="govuk-heading-m">Oldest claims in processing</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims2.html" %}
-       <div class="govuk-!-padding-bottom-8"></div>
-
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-claims2.html" %}
+      <div class="govuk-!-padding-bottom-8"></div>
       <h2 class="govuk-heading-m">Paused claims by reason</h2>
-        {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-pause-reason2.html" %}
-       <div class="govuk-!-padding-bottom-8"></div>
-      
+      {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-pause-reason2.html" %}
+      <div class="govuk-!-padding-bottom-8"></div>
       <h2 class="govuk-heading-m">Oldest paused claims</h2>
       {% include "design-ideas/wt-4877-wfm-1b/service-centre-mi/table/mi-oldest-paused2.html" %}
       <div class="govuk-!-padding-bottom-8"></div>
-
-
       {{ govukButton({
         html: "Download CSV"
     }) }}
-
     </div>
-
   </div>
 {% endblock %}
