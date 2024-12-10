@@ -1,0 +1,92 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% set htmlClasses = "internal-footer-background" %}
+{% block header %}
+  {% from "internal-service-header/macro.njk" import dwpHeader %}
+  {{ dwpHeader({
+serviceName: data['agentServiceName'],
+serviceHref: '/',
+container:true
+}) }}
+{% endblock %}
+{% block pageTitle %}
+  Accessibility statement – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "sample-footer"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Accessibility statement for Apply for New Style Jobseeker’s Allowance agent service</h1>
+      <p class="govuk-body">This accessibility statement applies to the Apply for New Style Jobseeker’s Allowance agent
+        service.</p>
+      <h2 class="govuk-heading-m">How you should be able to use the service</h2>
+      <p class="govuk-body">This service is run by the Department for Work and Pensions. We want as many people as possible to
+        be able to use this service. For example, that means you should be able to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>change colours, contrast levels and fonts using browser or device settings</li>
+        <li>zoom in up to 400% without the text spilling off the screen</li>
+        <li>get from the start to the end of the service using just a keyboard</li>
+        <li>navigate most of the service using speech recognition software</li>
+        <li>listen to the service using a screen reader such as VoiceOver</li>
+      </ul>
+      <p class="govuk-body">We’ve also made the text as simple as possible to understand.
+        <a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">AbilityNet</a>
+        has advice on making your device easier to use if you have a disability.
+      </p>
+      <h2 class="govuk-heading-m">How accessible this service is</h2>
+      <p class="govuk-body">We know some parts of this service are not fully accessible:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>older PDF documents may not be fully accessible to screen reader software</li>
+      </ul>
+      <h2 class="govuk-heading-m">Reporting accessibility problems with this service</h2>
+      <p class="govuk-body">We are always looking to improve the accessibility of this service. If you find any problems not
+        listed on this page or think we’re not meeting accessibility requirements, contact us by email at
+        <a href="#" class="govuk-link">accessibility.nsbenefits@dwp.gov.uk</a>.
+      </p>
+      <h2 class="govuk-heading-m">Enforcement procedure</h2>
+      <p class="govuk-body">The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector
+        Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If
+        you’re not happy with how we respond to your complaint,
+        <a href="https://www.equalityadvisoryservice.com/" class="govuk-link">
+          contact the Equality Advisory and Support Service (EASS)</a>.
+      </p>
+      <h2 class="govuk-heading-m">Technical information about this service’s accessibility</h2>
+      <p class="govuk-body">The Department for Work and Pensions is committed to making its website accessible, in accordance
+        with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+      <h2 class="govuk-heading-m">How we tested this service</h2>
+      <p class="govuk-body">The service has been tested against the Web Content Accessibility Guidelines (WCAG) 2.1 AA
+        standard. It was last tested on 9 June 2022. The test was carried out by the Department for Work and Pensions. The pages
+        were tested using a combination of automated and manual testing, including assistive technologies.</p>
+      <h2 class="govuk-heading-m">Compliance status</h2>
+      <p class="govuk-body">This service is fully compliant with the
+        <a href="https://www.w3.org/TR/WCAG22/" class="govuk-link">
+          Web Content Accessibility Guidelines version 2.1</a>
+        AA standard.
+      </p>
+      <h2 class="govuk-heading-m">Preparation of this accessibility statement</h2>
+      <p class="govuk-body">This statement was prepared on 31 October 2024. It was last reviewed on 26 November 2024.</p>
+    </div>
+  {% endblock %}
+  {% block footer %}
+    <footer class="govuk-footer internal-footer-background">
+      <div class="govuk-width-container">
+        <h2 class="govuk-visually-hidden">About this website</h2>
+        <ul class="govuk-footer__inline-list">
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="#">Accessibility statement</a>
+          </li>
+          <li class="govuk-footer__inline-list-item">
+            <a
+              class="govuk-footer__link"
+              rel="noreferrer noopener"
+              target="_blank"
+              href="https://intranet.dwp.gov.uk/page/dwp-employee-privacy-notice">Privacy (opens in a new tab)</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  {% endblock %}
