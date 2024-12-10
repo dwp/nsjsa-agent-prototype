@@ -1,4 +1,5 @@
 {% extends "/layout/unbranded.html" %}
+{% set htmlClasses = "internal-footer-background" %}
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
@@ -15,12 +16,17 @@ container:true
 {% from "timeline/macro.njk" import dwpTimeline %}
 {% block footer %}
   {{ dwpFooter({
+  classes: "internal-footer-background",
   meta: {
     visuallyHiddenTitle: "Meta links",
     items: [
     {
       href: "#",
             text: "Accessibility statement"
+    },
+    {
+      href: "#",
+            text: "Privacy (opens in a new tab)"
     },
     {
       href: "https://govuk-prototype-kit.herokuapp.com/",

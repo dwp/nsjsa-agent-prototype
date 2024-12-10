@@ -1,0 +1,58 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% set htmlClasses = "internal-footer-background" %}
+{% block header %}
+  {% from "internal-service-header/macro.njk" import dwpHeader %}
+  {{ dwpHeader({
+serviceName: data['agentServiceName'],
+serviceHref: '/',
+container:true
+}) }}
+{% endblock %}
+{% block pageTitle %}
+  Find a claim – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Find a claim</h1>
+      <form action="#" method="post">
+        {{ govukInput({
+          errorMessage: errorMessage,
+          label: {
+            text: "Enter the claimant's National Insurance number"
+          },
+          hint: {
+            text: "For example, ‘QQ 12 34 56 C’."
+          },
+          classes: "govuk-input--width-20",
+          id: "nino",
+          name: "nino",
+          attributes: {
+            "autocomplete": "off"
+          }
+        }) }}
+        {{ govukButton({
+          text: "Find claim"
+        }) }}
+      </form>
+    </div>
+  {% endblock %}
+  {% block footer %}
+    <footer class="govuk-footer internal-footer-background">
+      <div class="govuk-width-container">
+        <h2 class="govuk-visually-hidden">About this website</h2>
+        <ul class="govuk-footer__inline-list">
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="accessibility-statement">Accessibility statement</a>
+          </li>
+          <li class="govuk-footer__inline-list-item">
+            <a
+              class="govuk-footer__link"
+              rel="noreferrer noopener"
+              target="_blank"
+              href="https://intranet.dwp.gov.uk/page/dwp-employee-privacy-notice">Privacy (opens in a new tab)</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  {% endblock %}
