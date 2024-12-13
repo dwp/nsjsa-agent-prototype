@@ -9,6 +9,42 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 ///////////////////////
+//   Version 2.0.   //
+//////////////////////
+// This moves 'v2_0-agent' routing to 'v2_0-agent' directory
+router.use(
+  "/v2_0-agent/",
+  require("./views/v2_0-agent/_routes")
+);
+// This moves Service Centre'v2_0-agent/service-centre-agent' routing to 'service-centre-agent' directory
+router.use(
+  "/v2_0-agent/service-centre-agent/",
+  require("./views/v2_0-agent/service-centre-agent/_routes")
+);
+// This moves Work Coach 'v2_0-agent/work-coach' routing to 'work-coach' directory
+router.use(
+  "/v2_0-agent/work-coach/",
+  require("./views/v2_0-agent/work-coach/_routes")
+);
+// This moves Contact Centre 'v2_0-agent/contact-centre-agent' routing to 'contact-centre-agent' directory
+router.use(
+  "/v2_0-agent/contact-centre-agent/",
+  require("./views/v2_0-agent/contact-centre-agent/_routes")
+);
+// This moves Contact Centre 'v2_0-agent/contact-centre-manager' routing to 'contact-centre-manager' directory
+router.use(
+  "/v2_0-agent/contact-centre-manager/",
+  require("./views/v2_0-agent/contact-centre-manager/_routes")
+);
+// This moves DFC 'v2_0-agent/dfc-agent' routing to 'dfc-agent' directory
+router.use(
+  "/v2_0-agent/dfc-agent/",
+  require("./views/v2_0-agent/dfc-agent/_routes")
+);
+
+//// End Version 2.0 ////
+
+///////////////////////
 //   Version 1.1.   //
 //////////////////////
 // This moves 'v1_1-agent' routing to 'v1_1-agent' directory

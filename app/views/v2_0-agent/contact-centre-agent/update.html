@@ -1,0 +1,274 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+Select a status
+{% endblock %}
+{% block content %}
+{% set previewHtml %}
+{{ govukSelect({
+id:"reason",
+name: "reason",
+classes: "govuk-input--width-10",
+label: {
+text: "Please give more detail"
+},
+items: [
+{
+text: "Select an option"
+},
+{
+value: "Too early 7-8am",
+text: "Too early 7-8am"
+},
+{
+value: "Too early 8-9am",
+text: "Too early 8-9am"
+},
+{
+value: "Too late 8-9pm",
+text: "Too late 8-9pm"
+},
+{
+value: "PV flag",
+text: "PV flag"
+}
+]
+}) }}
+{% endset %}
+{% set firstFailHtml %}
+{{ govukSelect({
+name: "reason",
+classes: "govuk-input--width-10",
+label: {
+text: "Please give more detail"
+},
+items: [
+{
+text: "Select an option"
+},
+{
+value: "Callback in 1 hr",
+text: "Callback in 1 hr"
+},
+{
+value: "Callback in 2 hrs",
+text: "Callback in 2 hrs"
+},
+{
+value: "Callback in 3 hrs",
+text: "Callback in 3 hrs"
+},
+{
+value: "failed-to-attend",
+text: "Failed to attend"
+},
+{
+value: "landline-only",
+text: "Landline only"
+},
+{
+value: "wrong-nino",
+text: "Wrong NiNO"
+}
+]
+}) }}
+{% endset %}
+{% set finalFailHtml %}
+{{ govukSelect({
+name: "reason",
+classes: "govuk-input--width-10",
+label: {
+text: "Please give more detail"
+},
+items: [
+{
+text: "Select an option"
+},
+{
+value: "voicemail",
+text: "Voicemail if possible"
+},
+{
+value: "no-voicemail",
+text: "No Voicemail - Letter sent"
+},
+{
+value: "appointee-letter",
+text: "Appointee Letter"
+}
+]
+}) }}
+{% endset %}
+{% set previewHtml %}
+{{ govukSelect({
+name: "reason",
+classes: "govuk-input--width-10",
+label: {
+text: "Please give more detail"
+},
+items: [
+{
+text: "Select an option"
+},
+{
+value: "Too early 7-8am",
+text: "Too early 7-8am"
+},
+{
+value: "Too early 8-9am",
+text: "Too early 8-9am"
+},
+{
+value: "Too late 8-9pm",
+text: "Too late 8-9pm"
+},
+{
+value: "PV flag",
+text: "PV flag"
+}
+]
+}) }}
+{% endset %}
+{% set firstFailAppointmentHtml %}
+{{ govukSelect({
+name: "reason",
+classes: "govuk-input--width-10",
+label: {
+text: "Please give more detail"
+},
+items: [
+{
+text: "Select an option"
+},
+{
+value: "Callback in 1 hr",
+text: "Callback in 1 hr"
+},
+{
+value: "Callback in 2 hrs",
+text: "Callback in 2 hrs"
+},
+{
+value: "Callback in 3 hrs",
+text: "Callback in 3 hrs"
+}
+]
+}) }}
+{% endset %}
+{% set finalFailAppointmentHtml %}
+{{ govukSelect({
+name: "reason",
+classes: "govuk-input--width-10",
+label: {
+text: "Please give more detail"
+},
+items: [
+{
+text: "Select an option"
+},
+{
+value: "voicemail",
+text: "Voicemail"
+},
+{
+value: "letter",
+text: "Letter"
+}
+]
+}) }}
+{% endset %}
+<div class="govuk-grid-row  govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="confirmation" method="get">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          {# Update claim status radio buttons for APPOINTMENT BOOKING #}
+          {% if data['claimStatus'] == 'awaiting-appointment' %}
+          {{ govukRadios({
+          idPrefix: 'status',
+          name: 'claimStatus',
+          fieldset: {
+          legend: {
+          text: "Update the status of this claim",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+          }
+          },
+          items: [
+          {
+          value: "no-slots",
+          text: "No slots available"
+          },
+          {
+          value: "first-fail",
+          text: "First fail",
+          conditional: {
+          html: firstFailAppointmentHtml
+          }
+          },
+          {
+          value: "final-fail",
+          text: "Final fail",
+          conditional: {
+          html: finalFailAppointmentHtml
+          }
+          },
+          {
+          value: "appointment-booked",
+          text: "Appointment booked"
+          }
+          ]
+          }) }}
+          {# Update claim status radio buttons for GET NEXT CLAIM #}
+          {% else %}
+          {{ govukRadios({
+          idPrefix: 'status',
+          name: 'claimStatus',
+          fieldset: {
+          legend: {
+          text: "Update the status of this claim",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+          }
+          },
+          items: [
+          {
+          value: "preview",
+          text: "Preview",
+          conditional: {
+          html: previewHtml
+          }
+          },
+          {
+          value: "no-slots",
+          text: "No slots available"
+          },
+          {
+          value: "first-fail",
+          text: "First fail",
+          conditional: {
+          html: firstFailHtml
+          }
+          },
+          {
+          value: "final-fail",
+          text: "Final fail",
+          conditional: {
+          html: finalFailHtml
+          }
+          },
+          {
+          value: "success",
+          text: "Success"
+          }
+          ]
+          }) }}
+          {% endif %}
+        </fieldset>
+      </div>
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout/unbranded-agent.html" %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-width-container">
+    <a href="view-claim?task=new&claimant=lm&claimStatus=new-claim&guidMismatch=0" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+          <p class="govuk-body">The statement has not downloaded.</p>
+          <p class="govuk-body">You can:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a class="govuk-link" href="view-claim?task=new&claimant=lm&claimStatus=new-claim&guidMismatch=0" class="govuk-link">Go
+                back and try again</a>
+            </li>
+            <li>
+              <a href="https://dwp.service-now.com/itsupport?id=dwp_report_an_incident" class="govuk-link">Report an incident (opens
+                in a new window)</a>
+              in DWP Place if this problem continues</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

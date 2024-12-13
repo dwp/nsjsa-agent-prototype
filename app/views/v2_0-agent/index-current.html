@@ -1,0 +1,44 @@
+{% extends "layout/unbranded.html" %}
+{% block pageTitle %}
+  DWP Agent Prototype - {{ serviceName }}
+{% endblock %}
+{% block content %}
+  <form action="index-current" method="post">
+    {{ govukRadios({
+    idPrefix: 'index-current',
+    name: "useServiceAs",
+    fieldset: {
+      legend: {
+        text: "Use the service as",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        value: "contact-centre-agent",
+        text: "Contact centre agent"
+      },
+      {
+        value: "contact-centre-manager",
+        text: "Contact centre manager"
+      },
+      {
+        value: "work-coach",
+        text: "Job centre agent (Work coach)"
+      },
+      {
+        value: "service-centre-agent",
+        text: "Service centre agent"
+      },
+      {
+        value: "dfc-agent",
+        text: "DFC agent"
+      }
+    ]
+  }) }}
+    {{ govukButton({
+    text: "Login"
+  }) }}
+  </form>
+{% endblock %}

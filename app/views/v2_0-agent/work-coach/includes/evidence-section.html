@@ -1,0 +1,65 @@
+{% set r = [0, 1, 2] | random %}
+{% set array = [
+  "Letter from the court when the jury service ended",
+  "3 payslips relating to their monthly or 4 weekly paid job(s)",
+  "Proof of any pension(s)"
+] %}
+{% set randomArray =  array | randomise(r) %}
+<section>
+  <h2 class="govuk-heading-m">Evidence to check</h2>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>One 'primary' identity document</li>
+    <li>Two 'secondary' identity documents</li>
+    <li>P45 from their previous employer(s)</li>
+    {% for item in randomArray %}
+      <li>{{ item }}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Help with identity documents
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h3 class="govuk-heading-s">Primary identity documents</h3>
+    <p>Examples inlcude:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>current passport</li>
+      <li>driving licence</li>
+      <li>biometric residence permit</li>
+      <li>certificate of naturalisation as a British citizen</li>
+      <li>permanent residence card</li>
+    </ul>
+    <h3 class="govuk-heading-s">Secondary identity documents</h3>
+    <p>Examples of proof of date of birth inlcude:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>birth certificate</li>
+      <li>marriage certificate</li>
+      <li>NHS medical card</li>
+    </ul>
+    <p>Examples of proof of address inlcude a recent:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>utility bill</li>
+      <li>bank statement</li>
+      <li>Council Tax bill</li>
+    </ul>
+  </div>
+</details>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+  <section>
+    <h2 class="govuk-heading-m">Additional forms</h2>
+    <p>Based on the claimants application answers you may also need to ask them to complete these forms during their initial
+      work search interview.
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>ES567SJP - Attending a training or education course</li>
+      <li>ST1 - Student or ex student</li>
+      <li>A15/B7 - part time working setup electronic form</li>
+    </ul>
+  </section>

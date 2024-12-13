@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+{% block beforeContent %}
+  {# Remove the "< Back" button from this instance of the template #}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title govuk-panel__title--centred">Application complete</h1>
+      </div>
+      <p>If you’ve provided a mobile number or email address, we’ll send you confirmation of your application and keep you
+        updated on its progress.</p>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>We’ll process your application.</p>
+      <h2 class="govuk-heading-m">If you’re eligible</h2>
+      <p>If you can get New Style JSA, we’ll contact you about an appointment to agree what you need to do to look for work.
+        This agreement is called a ‘Claimant Commitment’. We’ll usually contact you about the appointment within 10 days.</p>
+      <p>The appointment will be with a work coach and will normally be over the phone.</p>
+      <p>You must attend the appointment and agree your Claimant Commitment before we can pay you. Once you’ve agreed your
+        Claimant Commitment and if you’re due a payment, we’ll aim to pay you within 7 days.</p>
+      <h2 class="govuk-heading-m">If you’re not eligible</h2>
+      <p>If you cannot get New Style JSA, we’ll send you a letter to explain why. We’ll usually send the letter within 10 days.</p>
+      {{ govukInsetText({
+        html: "
+        <h2 class=govuk-heading-m>Contacting us</h2>
+         <p>You only need to <a href=https://www.gov.uk/jobseekers-allowance/report-a-change-of-circumstances>contact us to report a change of circumstances</a>, such as starting a new job.</p>
+      "
+      }) }}
+      {{ govukDetails({
+        summaryText: "Do you need help with housing costs or support for a partner or child?",
+        html: "
+        <p>If you're on a low income you might be able to apply for Universal Credit as part of a dual claim with New Style JSA.</p>
+        <p>Unlike New Style JSA, you can apply with a partner and get support for housing costs, children and childcare.</p>
+        <p>You or your partner must have less than £16,000 in savings or investments to be eligilbe.</p>
+        <p>Find out <a href=https://www.gov.uk/how-to-claim-universal-credit>how to claim Universal Credit on GOV.UK</a>.</p>
+        "
+      }) }}
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <p>
+          <a href="#" class="govuk-link">What did you think of this service?</a>
+          (takes 30 seconds)</p>
+      </div>
+    </div>
+    {{ govukButton({
+  text: "Book appointment",
+  href: "view-claim?task=new&claimant=ij&claimStatus=new-claim&guidMismatch=0"
+}) }}
+  {% endblock %}

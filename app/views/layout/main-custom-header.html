@@ -1,14 +1,12 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
-
+{% set htmlClasses = "internal-footer-background" %}
 {% block pageTitle %}
   Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
 {% block header %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-
-{{ govukHeader({
+  {% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
   homepageUrl: "#",
   serviceName: "Apply for New Style Jobseeker’s Allowance",
   serviceUrl: ""
@@ -19,12 +17,17 @@
 {% from "timeline/macro.njk" import dwpTimeline %}
 {% block footer %}
   {{ dwpFooter({
+  classes: "internal-footer-background",
   meta: {
     visuallyHiddenTitle: "Meta links",
     items: [
     {
       href: "#",
             text: "Accessibility statement"
+    },
+    {
+      href: "#",
+            text: "Privacy (opens in new tab)"
     },
     {
       href: "https://govuk-prototype-kit.herokuapp.com/",

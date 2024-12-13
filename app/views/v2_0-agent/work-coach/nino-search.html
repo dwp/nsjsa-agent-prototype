@@ -1,0 +1,145 @@
+{% extends "layout/unbranded-agent.html" %}
+{% block pageTitle %}
+  {{ serviceName }}: DWP Agent – Find a claim
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['show'] == "invalid" %}
+        <h1 class="govuk-heading-l">National Insurance number not valid</h1>
+        <p class="govuk-body-l">The National Insurance number entered is not valid:
+          <br>
+            <span class="govuk-!-font-weight-bold">12 QQ 22 33 9</span>.</p>
+          {{ govukButton({
+        text: "Try again",
+        href: "nino-search?show="
+      }) }}
+        {% elif data['show'] == "blank" %}
+          <h1 class="govuk-heading-l">National Insurance number not valid</h1>
+          <p class="govuk-body-l">The National Insurance number should not be empty.</p>
+          {{ govukButton({
+        text: "Try again",
+        href: "nino-search?show="
+      }) }}
+        {% elif data['show'] == "claimant" %}
+          <h1 class="govuk-heading-l">Claimant not found</h1>
+          <p class="govuk-body-l">The system does not hold a record for the National insurance number:
+            <strong>CC000049A</strong>
+          </p>
+          {{ govukButton({
+        text: "Try again",
+        href: "nino-search?show="
+      }) }}
+        {% else %}
+          <h1 class="govuk-heading-l">Find a claim</h1>
+          <form action="nino-search" method="post">
+            {{ govukInput({
+          errorMessage: errorMessage,
+          label: {
+            text: "Enter the claimant's National Insurance number"
+          },
+          hint: {
+            text: "For example, ‘QQ 12 34 56 C’."
+          },
+          classes: "govuk-input--width-20",
+          id: "nino",
+          name: "nino",
+          attributes: {
+            "autocomplete": "off"
+          }
+        }) }}
+            {{ govukButton({
+          text: "Find claim"
+        }) }}
+          </form>
+        {% endif %}
+      </div>
+      <!-- Prototype scenarios -->
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-s govuk-!-margin-top-2">Prototype scenarios</h2>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Input for scenarios
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Input</th>
+                  <th scope="col" class="govuk-table__header">Scenario</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">any value</th>
+                  <td class="govuk-table__cell">Happy path</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">leave blank</th>
+                  <td class="govuk-table__cell">NINO not found</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>invalid</code>
+                  </th>
+                  <td class="govuk-table__cell">NINO not valid</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>duplicates</code>
+                  </th>
+                  <td class="govuk-table__cell">duplicate claim</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>claimant</code>
+                  </th>
+                  <td class="govuk-table__cell">claimant not found</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>manually</code>
+                  </th>
+                  <td class="govuk-table__cell">Check CIS manually warning</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>appointee</code>
+                  </th>
+                  <td class="govuk-table__cell">Has appointee</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>incompatible</code>
+                  </th>
+                  <td class="govuk-table__cell">interest in incompatible benefit</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>welsh1</code>
+                  </th>
+                  <td class="govuk-table__cell">Write Welsh warning</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>welsh2</code>
+                  </th>
+                  <td class="govuk-table__cell">Speak Welsh warning</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <code>welsh3</code>
+                  </th>
+                  <td class="govuk-table__cell">Speak and write Welsh warning</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+{% endblock %}

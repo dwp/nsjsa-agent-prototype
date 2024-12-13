@@ -1,0 +1,42 @@
+<section class="dwp-claim-section dwp-print-no-break">
+  <h2 class="govuk-heading-m">Personal details</h2>
+  {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Contact Number"
+          },
+          value: {
+            text: "01253 752057"
+          }
+        }, {
+          key: {
+            text: "Home address"
+          },
+          value: {
+            html: "
+              <span class=govuk-!-display-block>35 Walpole Avenue</span>
+              <span class=govuk-!-display-block>Blackpool</span>
+              <span class=govuk-!-display-block>Lancashire</span>
+              <span class=govuk-!-display-block>FY4 1SF.</span>
+            "
+          }
+        }, {
+          key: {
+            text: "Postal address"
+          },
+          value: {
+            text: "Not provided"
+          }
+        },
+        {
+          key: {
+            text: "Not available on these days"
+          },
+          value: {
+            text: "Not Applicable"
+          }
+        }
+      ]
+    }) }}
+</section>
