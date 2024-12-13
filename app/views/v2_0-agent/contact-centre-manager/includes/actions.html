@@ -1,0 +1,17 @@
+{% if data['claimStatus'] == 'awaiting-appointment' %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {{ govukButton({
+    text: "Update claim status",
+    href: "update"
+}) }}
+{% else %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    <p>
+        <a href="check-answers">Update claim information</a>
+    </p>
+    {{ govukButton({
+    text: "Update claim status",
+    href: "update"
+}) }}
+{% endif %}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

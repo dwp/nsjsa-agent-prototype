@@ -1,0 +1,144 @@
+{% if data['claimStatus'] == 'new-claim' %}
+    {{ dwpTimeline({
+items: [
+    {
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'preview' %}
+    {{ dwpTimeline({
+items: [
+    {
+    title: "Preview",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:30pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'success' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Success",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:50pm"
+    },
+    {
+    title: "Preview",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:30pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'awaiting-appointment' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Success",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:50pm"
+    },
+    {
+    title: "Preview",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:30pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'first-fail' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "First fail",
+    byline: "00000002",
+    date: "on 31 August 2021 at 5:40pm"
+    },
+    {
+    title: "Awaiting appointment",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:50pm"
+    },
+    {
+    title: "Success",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'not-pushed' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Final fail",
+    byline: "00000002",
+    date: "on 31 August 2021 at 5:40pm"
+    },
+    {
+    title: "No slots available",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:50pm"
+    },
+    {
+    title: "Preview",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'push-successful' %}
+    {{ dwpTimeline({
+items: [
+    {
+    title: "Preview",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:50pm"
+    },
+    {
+    title: "Success",
+    byline: "00000001",
+    date: "on 31 August 2021 at 4:43pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 31 August 2021 at 4:32pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% else %}
+    {{ dwpTimeline({
+    items: [
+    {
+        title: "New claim",
+        date: "claimant on 31 August 2021 at 4:32pm"
+    }
+    ]
+}) }}
+{% endif %}

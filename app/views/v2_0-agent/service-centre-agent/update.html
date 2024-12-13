@@ -1,0 +1,58 @@
+{% extends "./view-claim.html" %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation" method="get">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            {% set govukWarningText %}
+            {{ govukWarningText({
+                  text: "This action cannot be reversed",
+                  iconFallbackText: "Warning"
+                }) }}
+            {% endset -%}
+            {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "Update the status of this claim",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        }                 
+                    ]
+                }) }}
+          </fieldset>
+        </div>
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

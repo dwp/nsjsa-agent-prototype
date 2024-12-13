@@ -1,0 +1,16 @@
+<h3 class="govuk-heading-m">Claim actions</h3>
+<!-- // need to contact citizen for ni reconcile so need to park claim -->
+{{ govukButton({
+        text: "Download statement",
+        href: "/public/download/RE30xxxxx.pdf",
+        attributes: {
+            onclick: "statusUpdate();",
+            download: ""
+        }
+    }) }}
+<ul class="govuk-list">
+    <li>
+        <a href="choose-task" class="govuk-link">Go back to Choose a task</a>
+    </li>
+</ul>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

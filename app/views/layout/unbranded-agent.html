@@ -14,6 +14,7 @@ container:true
 {% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
 {% from "timeline/macro.njk" import dwpTimeline %}
 {% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {% block footer %}
   {{ dwpFooter({
   classes: "internal-footer-background",
@@ -26,7 +27,7 @@ container:true
     },
     {
       href: "#",
-            text: "Privacy (opens in a new tab)"
+            text: "Privacy (opens in new tab)"
     },
     {
       href: "https://govuk-prototype-kit.herokuapp.com/",

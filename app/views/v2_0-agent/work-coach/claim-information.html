@@ -1,0 +1,43 @@
+{% extends "layout/unbranded-agent-search-bar.html" %}
+{% from "dwp-components/dwp-header-search-box/macro.njk"               import  dwpHeaderSearchBox %}
+{% block header %}
+  {% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+  {{ super() }}
+  {% if data['claimant'] == 'ij' %}
+    {% include 'v2_0-agent/claimants/ij/key-details.html' %}
+  {% elif data['claimant'] == 'kb' %}
+    {% include 'v2_0-agent/claimants/kb/key-details.html' %}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
+{% endblock %}
+{% set htmlClasses = htmlClasses | default("dwp-agent-layout") %}
+{# reset auto spacing from layout.html #}
+{% set mainClasses = mainClasses | default("") %}
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Claim information</h1>
+      {% if data['guidMismatch'] == '1' %}
+        {# include Simon Hamiltons nino as its default #}
+        {% include 'v2_0-agent/claimants/ij/mismatch.html' %}
+      {% endif %}
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claim information</h2>
+      {% include './includes/warnings.html' %}
+      {% include 'v2_0-agent/work-coach/includes/evidence-section.html' %}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        {% include "./includes/actions.html" %}
+      </aside>
+    </div>
+  </div>
+{% endblock %}

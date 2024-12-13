@@ -1,0 +1,157 @@
+{% extends "layout/unbranded-agent.html" %}
+{% block pageTitle %}
+    {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block content %}
+    {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+    <div class="govuk-grid-row dwp-print-hide">
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4">Search results for RN 00 00 35 C
+            </h1>
+            <p>
+                Duplicate applications have been submitted against the entered National Insurance number.
+            </p>
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Most recent application submitted</h2>
+            {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Action",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Karan Bhopal"
+                },
+                {
+                    text: "10 December 2021"
+                },
+                {
+                    text: "7:26am"
+                },
+                {
+                    html: "<a title=View-claim href=claim-information?agent=wc&claimant=kb&claimStatus=not-pushed&dupe=1&previous-employment=1&warning=incompatible>View</a>"
+                }
+            ]
+        ]
+        }) }}
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application submitted</h2>
+            {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Action",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Karan Bhopal"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:22am"
+                },
+                {
+                    html: "<a title=View-claim href=claim-information?agent=wc&claimant=kb&claimStatus=not-pushed&dupe=1&previous-employment=0&warning=incompatible>View</a>"
+                }
+            ]
+        ]
+        }) }}
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
+            {{ govukTable({
+        caption: "Dates and amounts",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        head: [
+            {
+                text: "Name"
+            },
+            {
+                text: "Date"
+            },
+            {
+                text: "Time"
+            },
+            {
+                text: "Action",
+                classes: 'govuk-!-width-one-third'
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Karan Bhopal"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:34pm"
+                },
+                {
+                    html: "<a title=View-claim href=claim-information?agent=wc&claimant=kb&claimStatus=not-pushed&dupe=1&previous-employment=0&warning=incompatible>View</a>"
+                    
+                }
+            ],
+            [
+                {
+                    text: "Karan Bhopal"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "12:31pm"
+                },
+                {
+                    html: "<a title=View-claim href=claim-information?agent=wc&claimant=kb&claimStatus=not-pushed&dupe=1&warning=incompatible>View</a>"
+                }
+            ],
+            [
+                {
+                    text: "Karan Bhopal"
+                },
+                {
+                    text: "9 December 2021"
+                },
+                {
+                    text: "8:56am"
+                },
+                {
+                    html: "<a title=View-claim href=claim-information?agent=wc&claimant=kb&claimStatus=not-pushed&dupe=1&previous-employment=0&warning=incompatible>View</a>"
+                }
+            ]
+        ]
+    }) }}
+        </div>
+    </div>
+{% endblock %}
