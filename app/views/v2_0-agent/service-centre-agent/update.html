@@ -1,10 +1,9 @@
 {% extends "./view-claim.html" %}
+{% block pageTitle %}
+  What is the status of this claim?
+{% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block content %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
-}) }}
   <div class="govuk-grid-row  govuk-!-margin-top-4">
     <div class="govuk-grid-column-two-thirds">
       <form action="confirmation" method="get">
@@ -12,16 +11,213 @@
           <fieldset class="govuk-fieldset">
             {% set govukWarningText %}
             {{ govukWarningText({
-                  text: "This action cannot be reversed",
+                  text: "The Contact Centre will book an appointment for this claim.",
                   iconFallbackText: "Warning"
                 }) }}
             {% endset -%}
-            {{ govukRadios({
+            {#Radio button options for claim status AWAITING APPOINTMENT#}
+            {% if data['claimStatus'] == 'awaiting-appointment' %}
+              {{ govukRadios({
                     idPrefix: 'status',
                     name: 'claimStatus',
                     fieldset: {
                       legend: {
-                        text: "Update the status of this claim",
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                    
+                    {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
+                        },
+                        
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn"
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status COMPLEX CLAIM#}
+            {% elif data['claimStatus'] == 'complex-claim' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn"
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status DUPLICATE#}
+            {% elif data['claimStatus'] == 'duplicate' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        
+                        {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn"
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status NOT ENTITLED#}
+            {% elif data['claimStatus'] == 'not-entitled' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        
+                        {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn"
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status WITHDRAWN#}
+            {% elif data['claimStatus'] == 'withdrawn' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--l"
                       }
@@ -35,22 +231,143 @@
                             }
                         },
                         {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
                             value: "not-entitled",
-                            text: "Not entitled",
-                            conditional: {
-                              html: govukWarningText
-                            }
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
                         },
                         {
                             value: "suspected-fraud",
                             text: "Suspected fraud"
-                        }                 
+                        }                     
                     ]
                 }) }}
+              {#Radio button options for claim status NOT VALID#}
+            {% elif data['claimStatus'] == 'not-valid' %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        
+                        {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn"
+                        }                       
+                    ]
+                }) }}
+              {#Radio button options for claim status PROCESSING STARTED, SUCCESS, SUSPECTED FRAUD, PAUSE #}
+            {% else %}
+              {{ govukRadios({
+                    idPrefix: 'status',
+                    name: 'claimStatus',
+                    fieldset: {
+                      legend: {
+                        text: "What is the status of this claim?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    items: [
+                        {
+                            value: "awaiting-appointment",
+                            text: "Awaiting appointment",
+                            conditional: {
+                              html: govukWarningText
+                            }
+                        },
+                        
+                        {
+                            value: "complex-claim",
+                            text: "Complex claim",
+                            hint: {
+                              text: "For example, claims sent to Greenock."
+                             }
+                        },
+                        {
+                            value: "duplicate",
+                            text: "Duplicate"
+                        },
+                        {
+                            value: "not-entitled",
+                            text: "Not entitled"
+                        },
+                        {
+                            value: "not-valid",
+                            text: "Not valid"
+                        },
+                        {
+                            value: "paused",
+                            text: "Paused"
+                        },
+                        {
+                            value: "suspected-fraud",
+                            text: "Suspected fraud"
+                        },
+                        {
+                            value: "withdrawn",
+                            text: "Withdrawn"
+                        }                       
+                    ]
+                }) }}
+            {% endif %}
           </fieldset>
         </div>
         {{ govukButton({
-            text: "Continue"
+            text: "Update claim status"
         }) }}
       </form>
     </div>

@@ -11,42 +11,37 @@
       </h1>
       <span class="govuk-tag govuk-!-margin-bottom-2">Latest version</span>
       <h2 class="govuk-heading-l">Current agent journey</h2>
-      <p>Worked on by: Alexandra Aggelidis, Sophia Herbert, Will Clarke</p>
+      <p>Worked on by: Alexandra Aggelidis/Greg Norman, Sophia Herbert/Alice Roman, Will Clarke/Luke Didsbury</p>
       {{ govukDetails({
     summaryText: "Version change details",
     html: '
     <ul class="govuk-list govuk-list--bullet">
-      <li>Aligned with the current live service post release R1.62.1 <br>
-        [as of 7th December 2023]:
+      <li><strong>Aligned with the current live service post release R1.82.1 <br>
+          [as of 2 December 2024]:</strong>
         <ul>
-          <li>Added Welsh Notification banner to Work Coach and Contact Centre manager role</li>
-          <li>Updated Customer statement to reflect content changes of Abroad question</li>
+          <li>Introduction of Workflow Management 1a to Service Centre agents</li>
+          <li>Title added to claimant names</li>
+          <li>Temporarily removed CIS banners (Warning text) for Service Centre agents - planned re-introduction as
+            Notification banners with WFM 1b</li>
         </ul>
       </li>
-      <li>Aligned with the current live service post release R1.62 <br>
-        [as of 27th November 2023]:
+      <li><strong>Aligned with the current live service post release R1.77 <br>
+          [as of 23 October 2024]:</strong>
         <ul>
-          <li>Added DfC agent UI as part of onboarding Northern Ireland to gov.uk NSJSA</li>
-          <li>Update Customer statement to indlude Northern Ireland in the Backdating question for travelled outside the
-            UK</li>
+          <li>Taking an assisted digital claims over the phone opens a session in a new tab for Content Centre agents and managagers </li>
         </ul>
       </li>
-      <li>Aligned with the current live service post release R1.61.3 <br>
-        [as of 2nd November 2023]:
+      <li><strong>Aligned with the current live service post release R1.72 <br>
+          [as of 29 August 2024]:</strong>
         <ul>
-          <li>Added Welsh Notification banner to Service Centre role</li>
+          <li>Removal of Claim information page (Evidence to check and Additional forms) from Work Coach UI</li>
         </ul>
       </li>
-      <li><span class="govuk-tag govuk-tag--red">Change not live</span>
-        <br>Added internal service header and footer, removed crown logo, replaced New Transport font with Helvetica
-        <br>[August 2023]
-      </li>
-
     </ul>'
     }) }}
       {{ govukButton({
-    text: "Start version 1.1",
-    href: "v1_1-agent/index-current",
+    text: "Start version 2.0",
+    href: "v2_0-agent/index-current",
     isStartButton: true
     }) }}
     </div>
@@ -66,25 +61,28 @@
       </h3>
       <ul class="govuk-list govuk-!-font-size-16">
         <li>
-          <a href="v1_1-agent/service-centre-agent/nino-search">Service Centre agent</a>
+          <a href="v2_0-agent/service-centre-agent/screens">Service Centre agent</a>
         </li>
         <li>
-          <a href="v1_1-agent/contact-centre-agent/choose-task.html">Contact Centre agent</a>
+          <a href="v2_0-agent/contact-centre-agent/choose-task.html">Contact Centre agent</a>
         </li>
         <li>
-          <a href="v1_1-agent/contact-centre-manager/choose-task.html">Contact Centre manager</a>
+          <a href="v2_0-agent/contact-centre-manager/choose-task.html">Contact Centre manager</a>
         </li>
         <li>
-          <a href="v1_1-agent/work-coach/nino-search">Work coach</a>
+          <a href="v2_0-agent/work-coach/nino-search">Work coach</a>
         </li>
         <li>
-          <a href="v1_1-agent/dfc-agent/choose-task.html">DfC agent</a>
+          <a href="v2_0-agent/dfc-agent/choose-task.html">DfC agent</a>
         </li>
       </ul>
       <h3 class="govuk-heading-s govuk-!-margin-top-2">
         Previous versions
       </h3>
       <ul class="govuk-list govuk-!-font-size-16">
+        <li>
+          <a href="v1_1-agent/index-current">Version 1.1</a>
+        </li>
         <li>
           <a href="v1_0-agent/index-current">Version 1.0</a>
         </li>
@@ -216,106 +214,6 @@
               </table>
             </div>
           </details>
-          <!-- Workflow Management 1b-->
-          <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                Workflow Management 1b
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              <p class="govuk-body">Recording of pause reasons within the agent UI for Service Centre agents.</p>
-              <p class="govuk-body">View
-                <a
-                  href="https://dwpdigital.atlassian.net/wiki/spaces/WATG/pages/133544214747/1b+Workflow+Management"
-                  class="govuk-link"
-                  rel="noreferrer noopener"
-                  target="_blank">Design documentation (opens in new tab)
-                </a>on Confluence.
-              </p>
-              <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Links</th>
-                    <th scope="col" class="govuk-table__header">Description</th>
-                    <th scope="col" class="govuk-table__header">Status</th>
-                  </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header" style="border: 0;">
-                      <a href="design-ideas/wt-4485-wfm-1b/screens">WFM 1b: Iteration 1</a>
-                    </th>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      Testing scenarios for pausing claims and picking up paused claims.
-                    </td>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      <span class="govuk-tag" style="white-space: nowrap">Tested</span>
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                      <strong>Team:</strong>
-                      Alexandra Aggelidis, Mark Smith, Sophia Herbert, Luke Didsbury
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3">
-                      <strong>Date:</strong>
-                      April 2024
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header" style="border: 0;">
-                      <a href="design-ideas/wt-4642-wfm-1b/screens">WFM 1b: Iteration 2</a>
-                    </th>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      Iteration after 1st round of UR for pausing claims and picking up paused claims.
-                    </td>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      <span class="govuk-tag" style="white-space: nowrap">Tested</span>
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                      <strong>Team:</strong>
-                      Alexandra Aggelidis, Mark Smith, Luke Didsbury
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3">
-                      <strong>Date:</strong>
-                      May 2024
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header" style="border: 0;">
-                      <a href="design-ideas/wt-4877-wfm-1b/screens">WFM 1b: Iteration 3</a>
-                    </th>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      New features and scenarios for Claim statistics (MI).
-                    </td>
-                    <td class="govuk-table__cell" style="border: 0;">
-                      <span class="govuk-tag style=" white-space: nowrap">Tested</span>
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
-                      <strong>Team:</strong>
-                      Greg Norman, Alice Roman, Luke Didsbury
-                    </td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" colspan="3">
-                      <strong>Date:</strong>
-                      August 2024
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
           <!-- ID@risk -->
           <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
@@ -437,6 +335,111 @@
         <!-- IN DEVELOPMENT tab -->
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="in-dev">
           <!-- <h2 class="govuk-heading-l">In development</h2> -->
+          <!-- Workflow Management 1b-->
+            <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Workflow Management 1b
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">Recording of pause reasons within the agent UI for Service Centre agents.</p>
+              <p class="govuk-body">View
+                <a
+                  href="https://dwpdigital.atlassian.net/wiki/spaces/WATG/pages/133544214747/1b+Workflow+Management"
+                  class="govuk-link"
+                  rel="noreferrer noopener"
+                  target="_blank">Design documentation (opens in new tab)
+                </a>on Confluence.
+              </p>
+              <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-table__caption--s">Versions</caption>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Links</th>
+                    <th scope="col" class="govuk-table__header">Description</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="border: 0;">
+                      <a href="design-ideas/wt-4485-wfm-1b/screens">WFM 1b: Iteration 1</a>
+                    </th>
+                    <td class="govuk-table__cell" style="border: 0;">
+                      Testing scenarios for pausing claims and picking up paused claims.
+                    </td>
+                    <td class="govuk-table__cell" style="border: 0;">
+                      <span class="govuk-tag" style="white-space: nowrap">Tested</span>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                      <strong>Team:</strong>
+                      Alexandra Aggelidis, Mark Smith, Sophia Herbert, Luke Didsbury
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" colspan="3">
+                      <strong>Date:</strong>
+                      April 2024
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="border: 0;">
+                      <a href="design-ideas/wt-4642-wfm-1b/screens">WFM 1b: Iteration 2</a>
+                    </th>
+                    <td class="govuk-table__cell" style="border: 0;">
+                      Iteration after 1st round of UR for pausing claims and picking up paused claims.
+                    </td>
+                    <td class="govuk-table__cell" style="border: 0;">
+                      <span class="govuk-tag govuk-!-margin-bottom-2">Tested</span>
+                      <span class="govuk-tag govuk-tag--green" style="white-space: nowrap">In Dev</span>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                      <strong>Team:</strong>
+                      Alexandra Aggelidis, Mark Smith, Luke Didsbury
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" colspan="3">
+                      <strong>Date:</strong>
+                      May 2024
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="border: 0;">
+                      <a href="design-ideas/wt-4877-wfm-1b/screens">WFM 1b: Iteration 3</a>
+                    </th>
+                    <td class="govuk-table__cell" style="border: 0;">
+                      New features and scenarios for Claim statistics (MI).
+                    </td>
+                    <td class="govuk-table__cell" style="border: 0;">
+                      <span class="govuk-tag govuk-!-margin-bottom-2">Tested</span>
+                      <span class="govuk-tag govuk-tag--green" style="white-space: nowrap">In Dev</span>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" colspan="3" style="border: 0;">
+                      <strong>Team:</strong>
+                      Greg Norman, Alice Roman, Luke Didsbury
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" colspan="3">
+                      <strong>Date:</strong>
+                      August 2024
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+        <!-- ARCHIVE tab -->
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="archive">
+          <!-- <h2 class="govuk-heading-l">Archived versions</h2> -->
           <!-- Workflow Management 1a-->
             <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
@@ -524,8 +527,7 @@
                         Final designs ready for development, bringing forward insights from Workflow Management 1b iteration.
                       </td>
                       <td class="govuk-table__cell" style="border: 0;">
-                        <span class="govuk-tag govuk-!-margin-bottom-2">Tested</span>
-                        <span class="govuk-tag govuk-tag--green" style="white-space: nowrap">In Dev</span>
+                        <span class="govuk-tag">Live</span>
                       </td>
                     </tr>
                     <tr class="govuk-table__row">
@@ -544,12 +546,9 @@
                 </table>
               </div>
             </details>
-          </div>
-          <!-- ARCHIVE tab -->
-          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="archive">
-            <!-- <h2 class="govuk-heading-l">Archived versions</h2> -->
             <!-- DfC agent UI -->
-              <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary">
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
                   DfC agent UI
                 </span>
@@ -776,47 +775,84 @@
                   </table>
                 </div>
               </details>
-              <!-- VERSION 1.0 -->
+              <!-- VERSION 1.1 -->
               <h3 class="govuk-heading-m">
-                <a href="v1_0-agent/index-current">Agent journey &ndash; Version 1.0</a>
+                <a href="v1_1-agent/index-current">Agent journey &ndash; Version 1.1</a>
               </h3>
-              <p>Worked on by: Alexandra Aggelidis</p>
+              <p>Worked on by: Alexandra Aggelidis, Sophia Herbert, Will Clarke</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>
-                  Added internal service header and footer, removed crown logo, replaced New Transport font with Helvetica
-                  <br>[August 2023]
+                <li>Aligned with the current live service post release R1.62.1
+                  <br>
+                    [as of 7th December 2023]:
+                    <ul>
+                      <li>Added Welsh Notification banner to Work Coach and Contact Centre manager role</li>
+                      <li>Updated Customer statement to reflect content changes of Abroad question</li>
+                    </ul>
                   </li>
-                  <li>Aligned with the current live agent service
-                    <br>[as of June 2023]
-                    </li>
-                  </ul>
-                  <!-- Automaton Beta sprints -->
-                  <p>
-                    <a href="previous-work/sprints">Automation Beta sprints</a>
-                    Automation beta prototypes by sprint. [2022]
-                  </p>
-                  <p>
-                    <a href="https://nsjsa-automation-alpha.onrender.com/" class="govuk-link" rel="noreferrer noopener" target="_blank">
-                      Alpha prototypes - On Render
-                    </a>
-                    (Opens in a new tab) A collection of prototypes from alpha.
+                  <li>Aligned with the current live service post release R1.62
                     <br>
-                      U: jsa P: jsa [2021]
+                      [as of 27th November 2023]:
+                      <ul>
+                        <li>Added DfC agent UI as part of onboarding Northern Ireland to gov.uk NSJSA</li>
+                        <li>Update Customer statement to indlude Northern Ireland in the Backdating question for travelled outside the
+                          UK</li>
+                      </ul>
+                    </li>
+                    <li>Aligned with the current live service post release R1.61.3
                       <br>
-                        It's very slow but loads eventually
+                        [as of 2nd November 2023]:
+                        <ul>
+                          <li>Added Welsh Notification banner to Service Centre role</li>
+                        </ul>
+                      </li>
+                      <li>Added internal service header and footer, removed crown logo, replaced New Transport font with Helvetica
+                        <br>[August 2023]
+                        </li>
+                      </ul>
+                      <!-- VERSION 1.0 -->
+                      <h3 class="govuk-heading-m">
+                        <a href="v1_0-agent/index-current">Agent journey &ndash; Version 1.0</a>
+                      </h3>
+                      <p>Worked on by: Alexandra Aggelidis</p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                          Added internal service header and footer, removed crown logo, replaced New Transport font with Helvetica
+                          <br>[August 2023]
+                          </li>
+                          <li>Aligned with the current live agent service
+                            <br>[as of June 2023]
+                            </li>
+                          </ul>
+                          <!-- Automaton Beta sprints -->
+                          <p>
+                            <a href="previous-work/sprints">Automation Beta sprints</a>
+                            Automation beta prototypes by sprint. [2022]
+                          </p>
+                          <p>
+                            <a href="https://nsjsa-automation-alpha.onrender.com/" class="govuk-link" rel="noreferrer noopener" target="_blank">
+                              Alpha prototypes - On Render
+                            </a>
+                            (Opens in a new tab) A collection of prototypes from alpha.
+                            <br>
+                              U: jsa P: jsa [2021]
+                              <br>
+                                It's very slow but loads eventually
+                              </p>
+                              <!-- <p> <a href="complete-previous-journeys/index-previous">Complete previous journeys</a> Alpha [2018]</p> -->
+                            </div>
+                            <!-- LIBRARY tab -->
+                            <div
+                              class="govuk-tabs__panel govuk-tabs__panel--hidden" id="library">
+                              <!-- <h2 class="govuk-heading-l">Library</h2> -->
+                              <h2 class="govuk-heading-m">
+                                <a href="library">Library</a>
+                              </h2>
+                              <p>A library of screen types and components used.</p>
+                            </div>
+                          {% endblock %}
+                        </li>
                       </p>
-                      <!-- <p> <a href="complete-previous-journeys/index-previous">Complete previous journeys</a> Alpha [2018]</p> -->
-                    </div>
-                    <!-- LIBRARY tab -->
-                    <div
-                      class="govuk-tabs__panel govuk-tabs__panel--hidden" id="library">
-                      <!-- <h2 class="govuk-heading-l">Library</h2> -->
-                      <h2 class="govuk-heading-m">
-                        <a href="library">Library</a>
-                      </h2>
-                      <p>A library of screen types and components used.</p>
-                    </div>
-                  {% endblock %}
+                    </li>
+                  </li>
                 </li>
-              </p>
-            </li>
+              </li>

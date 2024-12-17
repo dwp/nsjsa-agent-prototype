@@ -1,0 +1,18 @@
+{% extends "layout/unbranded-agent-id.html" %}
+{% block pageTitle %}
+    {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block content %}
+
+
+    
+            <h1 class="govuk-heading-l">There are no new claims in the queue</h1>
+            
+            {{ govukButton({
+  text: "Return to main menu",
+  classes: "govuk-button--secondary",
+  href: "choose-task3"
+}) }}
+
+{% endblock %}

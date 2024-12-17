@@ -50,24 +50,6 @@ router.post("/nino-search", function (req, res) {
     } else if (answer === "welsh3") {
       res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh3`);
 
-      // Check cis manually
-    } else if (answer === "manually") {
-      res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=manually`);
-
-       // Claimant has appointee
-    } else if (answer === "appointee") {
-      res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=appointee`);
-
-      // Interest in incompatible benefit
-    } else if (answer === "incompatible") {
-      res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=incompatible`);
- 
- 
-      // Claimant is potentially violent
-    } else {
-      // happy patch view claim - all redirect if other value
-        res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=0`);
-      
     }
   });
 
