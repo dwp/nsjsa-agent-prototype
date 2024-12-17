@@ -40,16 +40,21 @@ router.post("/nino-search", function (req, res) {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=errors`);
      // Welsh written
     } else if (answer === "welsh1") {
-      res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh1`);
+      res.redirect(`${ABS_BASE_PATH}/view-claim?agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh1`);
 
       // Welsh spoken
     } else if (answer === "welsh2") {
-      res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh2`);
+      res.redirect(`${ABS_BASE_PATH}/view-claim?agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh2`);
   
       // Welsh written and spoken
     } else if (answer === "welsh3") {
-      res.redirect(`${ABS_BASE_PATH}/claim-information?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh3`);
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=new&agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh3`);
 
+      
+    } else {
+      // happy patch view claim - all redirect if other value
+        res.redirect(`${ABS_BASE_PATH}/view-claim?agent=wc&claimant=ij&claimStatus=push-successful&warning=0`);
+      
     }
   });
 
