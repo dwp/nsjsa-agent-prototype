@@ -21,20 +21,19 @@
       </p>
     </div>
   </div>
+{% elif data['warning'] == 'incompatible' or data['warning'] == 'manually' or data['warning'] == 'appointee'%}
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      {% if data['warning'] == 'incompatible' %}
+        Claimant has existing interest in an incompatible benefit
+      {% elif data['warning'] == 'manually' %}
+        You will need to match the claimant with the CIS record manually
+      {% elif data['warning'] == 'appointee' %}
+        Claimant has appointee {% else%}
+      {% endif %}
+    </strong>
+  </div>
   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
-  {% elif data['warning'] == 'incompatible' or data['warning'] == 'manually' or data['warning'] == 'appointee'%}
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-visually-hidden">Warning</span>
-        {% if data['warning'] == 'incompatible' %}
-          Claimant has existing interest in an incompatible benefit
-        {% elif data['warning'] == 'manually' %}
-          You will need to match the claimant with the CIS record manually
-        {% elif data['warning'] == 'appointee' %}
-          Claimant has appointee {% else%}
-        {% endif %}
-      </strong>
-    </div>
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
-    {% endif %}
+  {% endif %}
