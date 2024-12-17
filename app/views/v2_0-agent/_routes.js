@@ -19,7 +19,7 @@ router.post('/index-current', function (req, res) {
   } else if (answer === 'dfc-agent') {
     res.redirect(`${ABS_BASE_PATH}/dfc-agent/choose-task.html`);
   } else {
-    res.redirect(`${ABS_BASE_PATH}/service-centre-agent/nino-search`);
+    res.redirect(`${ABS_BASE_PATH}/service-centre-agent/screens`);
   }
 });
 

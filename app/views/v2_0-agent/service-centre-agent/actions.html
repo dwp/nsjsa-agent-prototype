@@ -1,0 +1,15 @@
+{% if data['claimStatus'] == 'new-claim' %}
+    <p>
+        <a href="choose-task3">Return to start screen</a>
+    </p>
+{% else %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {{ govukButton({
+    text: "Update claim status",
+    href: "update"
+}) }}
+    <p>
+        <a href="choose-task3">Return to main menu</a>
+    </p>
+{% endif %}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
