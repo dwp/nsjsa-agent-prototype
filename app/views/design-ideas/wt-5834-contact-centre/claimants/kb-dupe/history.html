@@ -1,0 +1,324 @@
+{% if data['claimStatus'] == 'new-claim' %}
+    {{ dwpTimeline({
+items: [
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'preview' %}
+    {{ dwpTimeline({
+items: [
+    {
+    title: "Preview",
+    byline: "00000089",
+    date: "on 5 November 2023 at 11:14am"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'success' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'processing-started' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'paused' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Paused",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'not-valid' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Not valid",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'duplicate' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Duplicate",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'suspected-fraud' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Suspected fraud",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'complex-claim' %}
+    {{ dwpTimeline({
+items: [
+ {
+    title: "Complex claim",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'awaiting-appointment' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Awaiting appointment",
+    byline: "00000001",
+    date: "on 9 November 2023 at 11:05am"
+    },
+{
+    title: "Paused",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'not-entitled' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Not entitled",
+    byline: "00000001",
+    date: "on 9 November 2023 at 11:05am"
+    },
+{
+    title: "Paused",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'withdrawn' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Withdrawn",
+    byline: "00000001",
+    date: "on 9 November 2023 at 11:05am"
+    },
+{
+    title: "Paused",
+    byline: "00000001",
+    date: "on 9 November 2023 at 9:21am"
+    },
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+ {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'build-failed' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+{
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% elif data['claimStatus'] == 'push-successful' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Processing started",
+    byline: "00000001",
+    date: "oon 9 November 2023 at 9:18am"
+    },
+    {
+    title: "Success",
+    byline: "00000089",
+    date: "on 5 November 2023 at 3:02pm"
+    },
+    {
+    title: "New claim",
+    date: "claimant on 5 November 2023 at 10:02am",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
+{% else %}
+    {{ dwpTimeline({
+    items: [
+    {
+        title: "New claim",
+        date: "claimant on 5 November 2023 at 10:02am"
+    }
+    ]
+}) }}
+{% endif %}

@@ -1,0 +1,33 @@
+{{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Mr Simon Hamilton'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'RN 00 00 35 C'
+},
+status: {
+text: 'Claim status:',
+value: claimStatus,
+classes: "govuk-tag dwp-key-details-bar__status--dwp-default govuk-!-display-inline"
+},
+additionalData: [
+{
+value: "05/06/1969",
+text: "D.O.B:"
+},
+{
+value: "FY8 1PL",
+text: "Postcode:"
+},
+{
+value: "01253 768542",
+text: "Phone:"
+},
+{
+value: "31/07/21",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}
