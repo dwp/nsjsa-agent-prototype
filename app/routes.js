@@ -110,6 +110,14 @@ router.use(
 );
 //// End Version 1.0 ////
 
+
+/////////////////////////////////////////
+//   DESIGN IDEAS - add routing below  //
+/////////////////////////////////////////
+
+// This moves Contact Centre design update wt-5834-contact-centre to 'design-ideas/wt-5834-contact-centre' directory
+router.use('/design-ideas/wt-5834-contact-centre/contact-centre-agent', require('./views/design-ideas/wt-5834-contact-centre/contact-centre-agent/_routes'))
+
 // This moves Workflowmanagement 1b wt-5033-wfm-1b to 'design-ideas/wt-5033-wfm-1b' directory
 router.use('/design-ideas/wt-4877-wfm-1b', require('./views/design-ideas/wt-5033-wfm-1b/_routes'))
 
