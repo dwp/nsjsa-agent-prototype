@@ -10,6 +10,22 @@ router.get('/', function (req, res) {
 });
 
 
+// Direct to update reason screen or directly to confirmation screen
+router.post('/update', function (req, res) {
+  const answer = req.body.claimStatuss;
+  if (answer === 'first-fail') {
+    res.redirect(`${ABS_BASE_PATH}/update-reason`);
+
+  } else if (answer === 'final-fail') {
+    res.redirect(`${ABS_BASE_PATH}/update-reason`);
+  
+  } else {
+      res.redirect(`${ABS_BASE_PATH}/confirmation`);
+    
+  }
+});
+
+
   
 /*router.post('/nino-search', function (req, res) {
     res.redirect('view-claim?scenario=0&task=view&claimant=sh&claimStatus=new-claim');
@@ -27,7 +43,7 @@ router.post("/nino-search", function (req, res) {
     } else if (answer === "duplicates") {
       res.redirect(`${ABS_BASE_PATH}/duplicates`);
   
-      // claimant not found
+      // no more claims in the queue
     } else if (answer === "processed") {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=processed`);
   
@@ -73,8 +89,8 @@ router.post("/nino-search", function (req, res) {
  
       // Claimant is potentially violent
     } else {
-      // happy patch view claim - all redirect if other value
-        res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=violent1`);
+      // happy path view claim - all redirect if other value
+        res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning`);
       
     }
 });

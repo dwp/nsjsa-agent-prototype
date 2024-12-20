@@ -1,6 +1,6 @@
 {% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-  {{ serviceName }}: DWP Agent – Find a claim
+  {{ serviceName }}: DWP Agent – Find a claimant
 {% endblock %}
 {% block beforeContent %}
   {{ govukBackLink({
@@ -35,7 +35,7 @@
           </p>
           <a href="end" class="govuk-link">Return to the start screen</a>
         {% else %}
-          <h1 class="govuk-heading-l">Find a claim</h1>
+          <h1 class="govuk-heading-l">Find a claimant</h1>
           <form action="nino-search" method="post">
             {{ govukInput({
           errorMessage: errorMessage,
@@ -53,7 +53,7 @@
           }
         }) }}
             {{ govukButton({
-          text: "Find claim"
+          text: "Find claimant"
         }) }}
           </form>
         {% endif %}
@@ -97,12 +97,6 @@
                     <code>duplicates</code>
                   </th>
                   <td class="govuk-table__cell">duplicate claim</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">
-                    <code>processed</code>
-                  </th>
-                  <td class="govuk-table__cell">all claims processed</td>
                 </tr>
                 <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">
