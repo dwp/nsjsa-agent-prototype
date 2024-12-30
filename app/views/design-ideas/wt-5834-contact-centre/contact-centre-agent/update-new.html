@@ -11,44 +11,10 @@
 {% block content %}
   <div class="govuk-grid-row  govuk-!-margin-top-4">
     <div class="govuk-grid-column-two-thirds">
-      <form action="update-reason" method="get">
+      <form action="update-new" method="post">
         <div class="govuk-form-group">
-          <fieldset
-            class="govuk-fieldset">
-            {# Update claim status radio buttons for APPOINTMENT BOOKING #}
-            {% if data['claimStatus'] == 'awaiting-appointment' %}
-              {{ govukRadios({
-          idPrefix: 'status',
-          name: 'claimStatus',
-          fieldset: {
-          legend: {
-          text: "Update the status of this claim",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-          }
-          },
-          items: [
-          {
-          value: "no-slots",
-          text: "No slots available"
-          },
-          {
-          value: "first-fail",
-          text: "First fail"
-          },
-          {
-          value: "final-fail",
-          text: "Final fail"
-          },
-          {
-          value: "appointment-booked",
-          text: "Appointment booked"
-          }
-          ]
-          }) }}
-              {# Update claim status radio buttons for GET NEXT CLAIM #}
-            {% else %}
-              {{ govukRadios({
+          <fieldset class="govuk-fieldset">
+            {{ govukRadios({
           idPrefix: 'status',
           name: 'claimStatus',
           fieldset: {
@@ -78,7 +44,6 @@
           }
           ]
           }) }}
-            {% endif %}
           </fieldset>
         </div>
         {{ govukButton({
