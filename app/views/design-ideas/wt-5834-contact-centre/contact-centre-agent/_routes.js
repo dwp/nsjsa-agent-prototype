@@ -10,14 +10,14 @@ router.get('/', function (req, res) {
 });
 
 
-// Direct to update reason screen or directly to confirmation screen
-router.post('/update', function (req, res) {
-  const answer = req.body.claimStatuss;
+// Appointment booking - Direct to update reason screen or directly to confirmation screen
+router.post('/update-book', function (req, res) {
+  const answer = req.body.claimStatus;
   if (answer === 'first-fail') {
-    res.redirect(`${ABS_BASE_PATH}/update-reason`);
+    res.redirect(`${ABS_BASE_PATH}/update-reason-book`);
 
   } else if (answer === 'final-fail') {
-    res.redirect(`${ABS_BASE_PATH}/update-reason`);
+    res.redirect(`${ABS_BASE_PATH}/update-reason-book`);
   
   } else {
       res.redirect(`${ABS_BASE_PATH}/confirmation`);
@@ -25,6 +25,20 @@ router.post('/update', function (req, res) {
   }
 });
 
+// New claim - Direct to update reason screen or directly to confirmation screen
+router.post('/update-new', function (req, res) {
+  const answer = req.body.claimStatus;
+  if (answer === 'first-fail') {
+    res.redirect(`${ABS_BASE_PATH}/update-reason-new`);
+
+  } else if (answer === 'final-fail') {
+    res.redirect(`${ABS_BASE_PATH}/update-reason-new`);
+  
+  } else {
+      res.redirect(`${ABS_BASE_PATH}/confirmation`);
+    
+  }
+});
 
   
 /*router.post('/nino-search', function (req, res) {
@@ -88,8 +102,10 @@ router.post("/nino-search", function (req, res) {
       res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=violent2`);
  
       // Claimant is potentially violent
-    } else {
+    } else if (answer === "violent1") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning=violent1`);
       // happy path view claim - all redirect if other value
+    } else {
         res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=awaiting-appointment&warning`);
       
     }
@@ -104,7 +120,7 @@ router.get('/end', function (req, res) {
   delete data['show'];
 
 
-  res.redirect(`${START_PATH}`);
+  res.redirect(`choose-task`);
 });
 
 module.exports = router

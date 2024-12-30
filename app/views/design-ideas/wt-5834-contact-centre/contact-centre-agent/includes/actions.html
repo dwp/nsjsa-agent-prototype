@@ -2,7 +2,7 @@
     <h3 class="govuk-heading-m">Claim actions</h3>
     {{ govukButton({
     text: "Update claim status",
-    href: "update"
+    href: "update-book?task=book"
 }) }}
 {% else %}
     <h3 class="govuk-heading-m">Claim actions</h3>
@@ -11,7 +11,7 @@
     </p>
     {{ govukButton({
     text: "Update claim status",
-    href: "update"
+    href: "update-new?task=new"
 }) }}
 {% endif %}
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

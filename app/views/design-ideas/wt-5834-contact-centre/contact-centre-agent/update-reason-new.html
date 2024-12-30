@@ -15,58 +15,8 @@
         <div class="govuk-form-group">
           <fieldset
             class="govuk-fieldset">
-            {# Update claim sub-status radio buttons for APPOINTMENT BOOKING FIRST FAIL #}
-            {% if data['claimStatus'] == 'first-fail' and data['task'] == 'book' %}
-              {{ govukRadios({
-          idPrefix: 'status',
-          name: 'statusReason',
-          fieldset: {
-          legend: {
-          text: "When do you want to contact the claimant?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-          }
-          },
-          items: [
-          {
-          value: "callback-in-1-hour",
-          text: "Callback in 1 hour"
-          },
-          {
-          value: "callback-in-2-hours",
-          text: "Callback in 2 hours"
-          },
-          {
-          value: "callback-in-3-hours",
-          text: "Callback in 3 hours"
-          }
-          ]
-          }) }}
-              {# Update claim sub-status radio buttons for APPOINTMENT BOOKING FINAL FAIL #}
-            {% elif data['claimStatus'] == 'final-fail' and data['task'] == 'book' %}
-              {{ govukRadios({
-          idPrefix: 'status',
-          name: 'statusReason',
-          fieldset: {
-          legend: {
-          text: "How do you want to contact the claimant about the final fail to contact them?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-          }
-          },
-          items: [
-          {
-          value: "voicemail",
-          text: "Voicemail"
-          },
-          {
-          value: "letter",
-          text: "Letter"
-          }
-          ]
-          }) }}
-              {# Update claim sub-status radio buttons for GET NEXT CLAIM FIRST FAIL #}
-            {% elif data['claimStatus'] == 'first-fail' and data['task'] == 'new' %}
+            {# Update claim sub-status radio buttons for GET NEXT CLAIM FIRST FAIL #}
+            {% if data['claimStatus'] == 'first-fail' and data['task'] == 'new' %}
               {{ govukRadios({
           idPrefix: 'status',
           name: 'statusReason',
