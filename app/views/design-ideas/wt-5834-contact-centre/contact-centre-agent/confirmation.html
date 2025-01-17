@@ -15,10 +15,10 @@
       {% else %}
         <p>No claimant set.</p>
       {% endif %}
-      <h1 class="govuk-heading-m">
+      <h2 class="govuk-heading-m">
         What happens next?
-      </h1>
-      <p>You can now continue to process the next claimant or go back to your start screen.</p>
+      </h2>
+      <p>You can now continue to process the next claimant or go back to the start screen.</p>
       {% if data['task'] == 'book' %}
         {{ govukButton({
         text: "Get next claim",
