@@ -57,12 +57,12 @@
           },
           items: [
           {
-          value: "voicemail-if-possible",
-          text: "Voicemail if possible"
+          value: "voicemail",
+          text: "Voicemail"
           },
           {
-          value: "no-voicemail-letter-sent",
-          text: "No Voicemail - Letter sent"
+          value: "letter",
+          text: "Letter"
           },
           {
           value: "appointee-letter",
@@ -80,18 +80,18 @@
     </div>
   </div>
   {# Additional statuses taken out for data['claimStatus'] == 'first-fail' and data['task'] == 'new' 
-            ,
-            {
-            value: "failed-to-attend",
-            text: "Failed to attend"
-            },
-            {
-            value: "landline-only",
-            text: "Landline only"
-            },
-            {
-            value: "wrong-nino",
-            text: "Wrong NI number"
-            }
-   #}
+              ,
+              {
+              value: "failed-to-attend",
+              text: "Failed to attend"
+              },
+              {
+              value: "landline-only",
+              text: "Landline only"
+              },
+              {
+              value: "wrong-nino",
+              text: "Wrong NI number"
+              }
+     #}
 {% endblock %}
