@@ -40,20 +40,7 @@
           value: "in-3-hours",
           text: "In 3 hours"
           }
-          ,
-          {
-          value: "failed-to-attend",
-          text: "Failed to attend"
-          },
-          {
-          value: "landline-only",
-          text: "Landline only"
-          },
-          {
-          value: "wrong-nino",
-          text: "Wrong NI number"
-          }
-
+      
           ]
           }) }}
               {# Update claim sub-status radio buttons for GET NEXT CLAIM FINAL FAIL #}
@@ -92,4 +79,19 @@
       </form>
     </div>
   </div>
+  {# Additional statuses taken out for data['claimStatus'] == 'first-fail' and data['task'] == 'new' 
+            ,
+            {
+            value: "failed-to-attend",
+            text: "Failed to attend"
+            },
+            {
+            value: "landline-only",
+            text: "Landline only"
+            },
+            {
+            value: "wrong-nino",
+            text: "Wrong NI number"
+            }
+   #}
 {% endblock %}
