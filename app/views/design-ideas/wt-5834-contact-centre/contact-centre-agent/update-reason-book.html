@@ -1,6 +1,10 @@
 {% extends "./view-claim.html" %}
 {% block pageTitle %}
-  Select a status
+  {% if data['claimStatus'] == 'first-fail' and data['task'] == 'book' %}
+    When will you call the claimant again? - {{ serviceName }}
+  {% elif data['claimStatus'] == 'final-fail' and data['task'] == 'book' %}
+    How did you let the claimant know you could not contact them? - {{ serviceName }}
+  {% endif %}
 {% endblock %}
 {% block beforeContent %}
   {{ govukBackLink({

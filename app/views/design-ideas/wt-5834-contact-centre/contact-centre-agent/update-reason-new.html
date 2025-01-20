@@ -1,6 +1,10 @@
 {% extends "./view-claim.html" %}
 {% block pageTitle %}
-  Select a status
+  {% if data['claimStatus'] == 'first-fail' and data['task'] == 'new' %}
+    When will you call the claimant again? - {{ serviceName }}
+  {% elif data['claimStatus'] == 'final-fail' and data['task'] == 'new' %}
+    How did you let the claimant know you could not contact them? - {{ serviceName }}
+  {% endif %}
 {% endblock %}
 {% block beforeContent %}
   {{ govukBackLink({
@@ -80,18 +84,18 @@
     </div>
   </div>
   {# Additional statuses taken out for data['claimStatus'] == 'first-fail' and data['task'] == 'new' 
-              ,
-              {
-              value: "failed-to-attend",
-              text: "Failed to attend"
-              },
-              {
-              value: "landline-only",
-              text: "Landline only"
-              },
-              {
-              value: "wrong-nino",
-              text: "Wrong NI number"
-              }
-     #}
+                ,
+                {
+                value: "failed-to-attend",
+                text: "Failed to attend"
+                },
+                {
+                value: "landline-only",
+                text: "Landline only"
+                },
+                {
+                value: "wrong-nino",
+                text: "Wrong NI number"
+                }
+       #}
 {% endblock %}
