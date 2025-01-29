@@ -115,6 +115,9 @@ router.use(
 //   DESIGN IDEAS - add routing below  //
 /////////////////////////////////////////
 
+// This moves Contact Centre design update wt-5986-contact-centre to 'design-ideas/wt-5986-contact-centre' directory
+router.use('/design-ideas/wt-5986-contact-centre/contact-centre-agent', require('./views/design-ideas/wt-5986-contact-centre/contact-centre-agent/_routes'))
+
 // This moves Contact Centre design update wt-5834-contact-centre to 'design-ideas/wt-5834-contact-centre' directory
 router.use('/design-ideas/wt-5834-contact-centre/contact-centre-agent', require('./views/design-ideas/wt-5834-contact-centre/contact-centre-agent/_routes'))
 

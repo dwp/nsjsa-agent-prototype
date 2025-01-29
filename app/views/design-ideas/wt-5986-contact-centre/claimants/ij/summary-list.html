@@ -1,0 +1,92 @@
+{% if data['sc'] == 'sc3' %}
+    <section class="dwp-claim-section">
+        <h1 class="govuk-heading-l">Check your answers</h1>
+    </section>
+    <section class="dwp-claim-section">
+        <h2 class="govuk-heading-m">Personal details</h2>
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "National Insurance number"
+        },
+        value: {
+            text: "RN 00 00 35 C"
+        },
+        actions: {
+            items: [
+                {
+                    href: "nino",
+                    text: "Change",
+                    visuallyHiddenText: actionHiddenText
+                }
+            ]
+        }
+    }, 
+        {
+        key: {
+        text: "Name"
+        },
+        value: {
+        text: "Mr Ian Johnson"
+        }
+    },{
+        key: {
+        text: "Date of birth"
+        },
+        value: {
+        text: "29 April 1972"
+        }
+    },{
+        key: {
+        text: "Home address"
+        },
+        value: {
+        html: "
+        <span class=govuk-!-display-block>12 Scaresdale Avenue</span>
+        <span class=govuk-!-display-block>Blackpool</span>
+        <span class=govuk-!-display-block>Lancashire</span>
+        <span class=govuk-!-display-block>FY4 3HA</span>
+        "
+        }
+    },{
+        key: {
+        text: "Postal address"
+        },
+        value: {
+        text: "Not provided"
+        }
+    }
+    ]
+}) }}
+    </section>
+{% else %}
+    <section class="dwp-claim-section">
+        <h1 class="govuk-heading-l">Check your answer</h1>
+    </section>
+    <section class="dwp-claim-section">
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "National Insurance number"
+        },
+        value: {
+            text: data['national-insurance-number']or "RN 00 00 35 C"
+        },
+        actions: {
+            items: [
+                {
+                    href: "nino",
+                    text: "Change",
+                    visuallyHiddenText: actionHiddenText
+                }
+            ]
+        }
+    }
+    ]
+}) }}
+    </section>
+{% endif %}

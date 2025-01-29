@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+{% block pageTitle %}
+  Find out if you may be eligible for New Style Jobseeker's- Apply for New Style Jobseeker&rsquo;s Allowance
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-fieldset__legend--l">Find out if you may be eligible for New Style Jobseeker's
+        Allowance</h1>
+      <p>Answer these questions to find out if you may be eligible for New Style Jobseeker's Allowance</p>
+      {{ govukButton({
+    text: "Continue",
+    href: "assisted-digital-application-complete"
+    }) }}
+      <p>The online service is also available in
+        <a href='#'>Welsh (Cymraeg)</a>.
+      </p>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m govuk-!-margin-top-2">Prototype scenarios</h2>
+      <p>
+        The agent takes the citizen through the claim form over the phone.
+        <ul class="govuk-list govuk-list--bullet">
+          <li>To view the full claim form go to
+            <a href='https://newstylejsa.herokuapp.com/'>NSJSA Citizen UI protoype</a>.
+          </li>
+          <li>To jump to the application confirmation screen, click the 'Continue' button.
+          </li>
+        </ul>
+      </div>
+    </div>
+  {% endblock %}

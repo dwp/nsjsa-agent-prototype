@@ -1,0 +1,30 @@
+{% extends "layout/unbranded-agent-cc.html" %}
+{% block pageTitle %}
+  Check your answers - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+      {% if data['claimant'] == 'sh' %}
+        {% include '../claimants/sh/summary-list.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include '../claimants/kb/summary-list.html' %}
+      {% elif data['claimant'] == 'ij' %}
+        {% include '../claimants/ij/summary-list.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+      {{ govukButton({
+  text: "Update and return to claim",
+  href: "view-claim"
+}) }}
+    </div>
+  </div>
+{% endblock %}
