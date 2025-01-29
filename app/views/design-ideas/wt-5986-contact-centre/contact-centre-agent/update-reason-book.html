@@ -1,0 +1,81 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  {% if data['claimStatus'] == 'first-fail' and data['task'] == 'book' %}
+    When will you call the claimant again? - {{ serviceName }}
+  {% elif data['claimStatus'] == 'final-fail' and data['task'] == 'book' %}
+    How did you let the claimant know you could not contact them? - {{ serviceName }}
+  {% endif %}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation" method="get">
+        <div class="govuk-form-group">
+          <fieldset
+            class="govuk-fieldset">
+            {# Update claim sub-status radio buttons for APPOINTMENT BOOKING FIRST FAIL #}
+            {% if data['claimStatus'] == 'first-fail' and data['task'] == 'book' %}
+              {{ govukRadios({
+          idPrefix: 'status',
+          name: 'statusReason',
+          fieldset: {
+          legend: {
+          text: "When will you call the claimant again?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+          }
+          },
+          items: [
+          {
+          value: "in-1-hour",
+          text: "In 1 hour"
+          },
+          {
+          value: "in-2-hours",
+          text: "In 2 hours"
+          },
+          {
+          value: "in-3-hours",
+          text: "In 3 hours"
+          }
+          ]
+          }) }}
+              {# Update claim sub-status radio buttons for APPOINTMENT BOOKING FINAL FAIL #}
+            {% elif data['claimStatus'] == 'final-fail' and data['task'] == 'book' %}
+              {{ govukRadios({
+          idPrefix: 'status',
+          name: 'statusReason',
+          fieldset: {
+          legend: {
+          text: "How did you let the claimant know you could not contact them?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+          }
+          },
+          items: [
+          {
+          value: "voicemail",
+          text: "Voicemail"
+          },
+          {
+          value: "letter",
+          text: "Letter"
+          }
+          ]
+          }) }}
+            {% endif %}
+          </fieldset>
+        </div>
+        {{ govukButton({
+      text: "Continue"
+      }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
