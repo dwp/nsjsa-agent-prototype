@@ -2,6 +2,20 @@
 {% block pageTitle %}
   Check your answers - {{ serviceName }}
 {% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set NiNumber = "RN 00 00 35 C" %}
+{% block header %}
+  {% if data['sc'] == 'sc1' %}
+    {{ super() }}
+    {% include 'design-ideas/wt-5986-contact-centre/claimants/ij/key-details.html' %}
+  {% else %}
+    {{ dwpHeader({
+serviceName: data['agentServiceName'],
+serviceHref: '/',
+container:true
+}) }}
+  {% endif %}
+{% endblock %}
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
@@ -23,7 +37,7 @@
       {% endif %}
       {{ govukButton({
   text: "Update and return to claim",
-  href: "view-claim"
+  href: "view-claim-sc1"
 }) }}
     </div>
   </div>

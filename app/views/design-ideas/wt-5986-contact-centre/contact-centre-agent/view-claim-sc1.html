@@ -3,16 +3,42 @@
   Personal details - {{ serviceName }}
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-{% set NiNumber = data['national-insurance-number'] or "RN 00 00 35 C"| replace("-", " ") | upper %}
+{% set NiNumber = data['national-insurance-number'] | replace("-", " ") | upper %}
 {% block header %}
   {{ super() }}
-  {% if data['claimant'] == 'ij' %}
-    {% include 'design-ideas/wt-5986-contact-centre/claimants/ij/key-details.html' %}
-  {% elif data['claimant'] == 'kb' %}
-    {% include 'design-ideas/wt-5986-contact-centre/claimants/kb/key-details.html' %}
-  {% else %}
-    <p>No claimant set.</p>
-  {% endif %}
+  {{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Mr Ian Johnson'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: NiNumber
+},
+status: {
+text: 'Claim status:',
+value: claimStatus,
+classes: "govuk-tag dwp-key-details-bar__status--dwp-default govuk-!-display-inline"
+},
+additionalData: [
+{
+value: "29/04/1972",
+text: "D.O.B:"
+},
+{
+value: "FY4 3HA",
+text: "Postcode:"
+},
+{
+value: "07880 123456",
+text: "Phone:"
+},
+{
+value: "31/08/21",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}
 {% endblock %}
 {% block beforeContent %}
   {{ govukBackLink({
