@@ -1,7 +1,8 @@
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set NiNumber = data['national-insurance-number'] or "RN 00 00 35 C"| replace("-", " ") | upper %}
 {% set subStatus = data['subStatus'] %}
-{% set claimStatus = "The claim for Mr Ian Johnson RN 00 00 35 C has been updated to " + claimStatus %}
+{% set panel = "The claim for Mr Ian Johnson " + NiNumber + "has been updated to " + claimStatus %}
 {{ govukPanel({
     titleText: "Claim updated",
-    html: claimStatus
+    html: panel
     }) }}
