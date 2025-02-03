@@ -27,21 +27,13 @@ container:true
   {% if data['sc'] == 'sc3' %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">This is the National Insurance number the claimant has given
+        <h1 class="govuk-heading-l">This is the National Insurance number on Mr Ian Johnson's claim
         </h1>
         <div class="govuk-inset-text">
-          <dl class="govuk-summary-list g">
+          <dl class="govuk-summary-list govuk-summary-list--no-border">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Name
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Mr Ian Johnson
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                National Insurance number (NINo)
+                National Insurance number
               </dt>
               <dd class="govuk-summary-list__value">
                 RN 00 00 35 C
@@ -63,21 +55,21 @@ container:true
       }) }}
           <div class="govuk-button-group">
             {{ govukButton({
-    text: "Contine"
+    text: "Continue"
   }) }}
             <a class="govuk-link" href="view-claim">Cancel</a>
           </div>
         </form>
       </div>
     </div>
-    {# Option 1 and 2 #}
-  {% else %}
+    {# Option 2 #}
+  {% elif data['sc'] == 'sc2' %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form action="check-answers" method="post" novalidate>
           {{ govukInput({
         label: {
-          text: "What is the claimant's correct National Insurance number?",
+          text: "What is Mr Ian Johnson's National Insurance number?",
           isPageHeading: true,
           classes: "govuk-label--l"
         },
@@ -88,7 +80,32 @@ container:true
       }) }}
           <div class="govuk-button-group">
             {{ govukButton({
-    text: "Contine"
+    text: "Continue"
+  }) }}
+            <a class="govuk-link" href="view-claim">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    {# Option 1 #}
+  {% else %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="check-answers" method="post" novalidate>
+          {{ govukInput({
+        label: {
+          text: "What is the claimant's National Insurance number?",
+          isPageHeading: true,
+          classes: "govuk-label--l"
+        },
+        classes: "govuk-input--width-20",
+        id: "national-insurance-number",
+        name: "national-insurance-number",
+    value: data['national-insurance-number']
+      }) }}
+          <div class="govuk-button-group">
+            {{ govukButton({
+    text: "Continue"
   }) }}
             <a class="govuk-link" href="view-claim">Cancel</a>
           </div>
