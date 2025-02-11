@@ -50,7 +50,6 @@ text: "Claim submitted (IDOC):"
   <div class="govuk-grid-row dwp-print-hide">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
-      {% include './includes/warnings.html' %}
       <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
       {% if data['claimant'] == 'ij' %}
         {% include 'design-ideas/wt-5986-contact-centre/claimants/ij/application.html' %}
