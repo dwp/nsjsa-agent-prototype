@@ -6,48 +6,54 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
             <h1 class="govuk-heading-l">
-                Contact centre - update Nino
+                Contact centre redesign - Iteration 2
             </h1>
-            <p class="govuk-body">Redesign of the update Nino journey for new claim checks in the Contact centre.
-            </p>
-            <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                        Problem statement
-                    </span>
-                </summary>
-                <div class="govuk-details__text">
-                    <p class="govuk-body">The Update Nino journey for Contact centre agents currently displays the whole of the customer
-                        statement. This is against GDPR principles of only displaying relevant information to allow the agent to conduct the
-                        activity.</p>
-                    <p class="govuk-body">Operational instructions indicates the following fields are required to be checked on a call with
-                        the claimant:</p>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>Full name</li>
-                        <li>National Insurance number</li>
-                        <li>Date of birth</li>
-                        <li>
-                            the first line of address and postcode
-                        </li>
-                    </ul>
-                    <p class="govuk-body">The Update Nino journey needs to be re-designed to ensure compliance with GDPR principles by only
-                        displaying the minimum amount of information required by CCA’s to complete the mismatch activity.</p>
-                </div>
-            </details>
             <p class="govuk-body">
                 <a
-                    href="https://dwpdigital.atlassian.net/wiki/spaces/WATG/pages/133851682747/Update+Nino+re-design"
+                    href="https://dwpdigital.atlassian.net/wiki/spaces/WATG/pages/133822025960/WT-5849+UCD"
                     class="govuk-link"
                     rel="noreferrer noopener"
                     target="_blank">Design Documentation on Confluence (opens in new tab)</a>
             </p>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
+            <h2 class="govuk-heading-m">Start page for Contact Centre agents</h2>
+            <a href="choose-task" class="govuk-link govuk-body">Main menu</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                <h2 class="govuk-heading-m">
+                    Contact centre - update Nino
+                </h2>
+                <p class="govuk-body">Redesign of the update Nino journey for new claim checks in the Contact centre.
+                </p>
+                <details class="govuk-details">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Problem statement
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        <p class="govuk-body">The Update Nino journey for Contact centre agents currently displays the whole of the customer
+                            statement. This is against GDPR principles of only displaying relevant information to allow the agent to conduct the
+                            activity.</p>
+                        <p class="govuk-body">Operational instructions indicates the following fields are required to be checked on a call with
+                            the claimant:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>Full name</li>
+                            <li>National Insurance number</li>
+                            <li>Date of birth</li>
+                            <li>
+                                the first line of address and postcode
+                            </li>
+                        </ul>
+                        <p class="govuk-body">The Update Nino journey needs to be re-designed to ensure compliance with GDPR principles by only
+                            displaying the minimum amount of information required by CCA’s to complete the mismatch activity.</p>
+                    </div>
+                </details>
+            </div>
         </div>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-three-quarters">
                 {{ govukTable({
         caption: "Design options",
-        captionClasses: "govuk-table__caption--m",
+        captionClasses: "govuk-table__caption--s",
         firstCellIsHeader: true,
         head: [
             {
@@ -55,6 +61,9 @@
             },
             {
                 text: "Link"
+            },
+            {
+                text: "Remarks"
             }
         ],
         rows: [
@@ -66,6 +75,9 @@
                 html: "<a href='view-claim?task=new&agent=cca&claimant=ij&claimStatus=new-claim&warning=mismatch&national-insurance-number&sc=sc1'>With key details</a>"
                 
                 
+            },
+            {
+                text: "Preferred option by users"
             }
         ],
         [
@@ -74,6 +86,9 @@
             },
             {
                 html: "<a href='view-claim?task=new&agent=cca&claimant=ij&claimStatus=new-claim&warning=mismatch&national-insurance-number&sc=sc2'>Without key details</a>"
+            },
+            {
+                text: "None"
             }
           ],
         [
@@ -82,6 +97,9 @@
             },
             {
                 html: "<a href='view-claim?task=new&agent=cca&claimant=ij&claimStatus=new-claim&warning=mismatch&national-insurance-number&sc=sc3'>Inset text</a>"
+            },
+            {
+                text: "Ruled out"
             }
           ]
         ]

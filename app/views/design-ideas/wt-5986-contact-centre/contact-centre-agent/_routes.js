@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 router.post('/update-book', function (req, res) {
   const answer = req.body.claimStatus;
   if (answer === 'first-fail') {
-    res.redirect(`${ABS_BASE_PATH}/update-reason-book`);
+    res.redirect(`${ABS_BASE_PATH}/confirmation`);
 
   } else if (answer === 'final-fail') {
     res.redirect(`${ABS_BASE_PATH}/update-reason-book`);
@@ -29,7 +29,7 @@ router.post('/update-book', function (req, res) {
 router.post('/update-new', function (req, res) {
   const answer = req.body.claimStatus;
   if (answer === 'first-fail') {
-    res.redirect(`${ABS_BASE_PATH}/update-reason-new`);
+    res.redirect(`${ABS_BASE_PATH}/confirmation`);
 
   } else if (answer === 'final-fail') {
     res.redirect(`${ABS_BASE_PATH}/update-reason-new`);
