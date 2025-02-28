@@ -95,6 +95,15 @@
               <span class="govuk-!-font-weight-bold">What happens next?</span>
             </p>
             <a href="end" class="govuk-link">Return to the start screen</a>
+          {% elif data['show'] == "claimant" %}
+            <h1 class="govuk-heading-l">Claimant not found</h1>
+            <p class="govuk-body-l">The system does not hold a record for the National insurance number:
+              <strong>RN001000A</strong>
+            </p>
+            {{ govukButton({
+        text: "Try again",
+        href: "nino-search?show="
+      }) }}
           {% else %}
             <h1 class="govuk-heading-l">Find a claimant</h1>
             <form action="nino-search" method="post">
@@ -139,7 +148,7 @@
                 <tbody class="govuk-table__body">
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">
-                      <code>happy</code>
+                      <code>any value</code>
                     </th>
                     <td class="govuk-table__cell">Happy path</td>
                   </tr>
@@ -152,6 +161,18 @@
                       <code>invalid</code>
                     </th>
                     <td class="govuk-table__cell">NINO not valid</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>claimant</code>
+                    </th>
+                    <td class="govuk-table__cell">Claimant not found</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>processed</code>
+                    </th>
+                    <td class="govuk-table__cell">No more claims in queue</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">

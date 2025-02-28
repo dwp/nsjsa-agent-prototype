@@ -1,34 +1,34 @@
 {% extends "layout/unbranded-agent-cc.html" %}
 {% block pageTitle %}
-    There are 5 matching applications - {{ serviceName }}
+  There are 5 matching applications - {{ serviceName }}
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block content %}
-    {{ govukBackLink({
+  {{ govukBackLink({
   text: "Back",
   href: "javascript:history.back()"
 }) }}
-    <div class="govuk-grid-row dwp-print-hide">
-        <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-l govuk-!-margin-top-4">There are 5 matching applications
-            </h1>
-            <p>
-                Multiple applications for New Style Jobseeker’s Allowance have been submitted against this National Insurance number.
-            </p>
-            <div class="govuk-inset-text">
-                <dl class="govuk-summary-list govuk-summary-list--no-border">
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            National Insurance number (NINo)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            SW 12 34 56 A
-                        </dd>
-                    </div>
-                </dl>
-            </div>
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Newest application</h2>
-            {{ govukTable({
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l govuk-!-margin-top-4">There are 5 matching applications
+      </h1>
+      <p>
+        Multiple applications for New Style Jobseeker’s Allowance have been submitted against this National Insurance number.
+      </p>
+      <div class="govuk-inset-text">
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number (NINo)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              RN 00 00 35 A
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Newest application</h2>
+      {{ govukTable({
         caption: "Matching applications",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -69,8 +69,8 @@
             ]
         ]
         }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application</h2>
-            {{ govukTable({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application</h2>
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -109,8 +109,8 @@
             ]
         ]
         }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
-            {{ govukTable({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -184,6 +184,6 @@
             ]
         ]
     }) }}
-        </div>
     </div>
+  </div>
 {% endblock %}

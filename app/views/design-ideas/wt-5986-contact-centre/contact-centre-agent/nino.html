@@ -3,7 +3,7 @@
   What is the claimant's National Insurance number? - Apply for New Style Jobseeker&rsquo;s Allowance
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-{% set NiNumber = data['national-insurance-number'] or "RN 00 00 35 C"| replace("-", " ") | upper %}
+{% set NiNumber = data['national-insurance-number'] or "RN 00 00 35 A"| replace("-", " ") | upper %}
 {% block header %}
   {% if data['sc'] == 'sc1' %}
     {{ super() }}
@@ -36,7 +36,7 @@ container:true
                 National Insurance number
               </dt>
               <dd class="govuk-summary-list__value">
-                RN 00 00 35 C
+                RN 00 00 35 A
               </dd>
             </div>
           </dl>

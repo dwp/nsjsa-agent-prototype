@@ -1,24 +1,24 @@
 {% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-    {{ serviceName }}
+  {{ serviceName }}
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block header %}
-    {{ super() }}
+  {{ super() }}
 {% endblock %}
 {% block content %}
-    {{ govukBackLink({
+  {{ govukBackLink({
   text: "Back",
   href: "javascript:history.back()"
 }) }}
-    <div class="govuk-grid-row dwp-print-hide">
-        <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-l govuk-!-margin-top-4">Search results for RN 00 00 35 C</h1>
-            <p>
-                Duplicate applications have been submitted against the entered National Insurance number.
-            </p>
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Most recent application submitted</h2>
-            {{ govukTable({
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l govuk-!-margin-top-4">Search results for RN 00 00 35 A</h1>
+      <p>
+        Duplicate applications have been submitted against the entered National Insurance number.
+      </p>
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Most recent application submitted</h2>
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -53,8 +53,8 @@
             ]
         ]
         }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application submitted</h2>
-            {{ govukTable({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application submitted</h2>
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -89,8 +89,8 @@
             ]
         ]
         }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
-            {{ govukTable({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -139,7 +139,7 @@
             ]
         ]
     }) }}
-        </div>
     </div>
-    <a href="nino-search?show=" class="govuk-link">Return to 'Find a claim'</a>
+  </div>
+  <a href="nino-search?show=" class="govuk-link">Return to 'Find a claim'</a>
 {% endblock %}

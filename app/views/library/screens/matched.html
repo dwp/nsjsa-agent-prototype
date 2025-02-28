@@ -1,38 +1,38 @@
 {% extends "layout/unbranded-agent.html" %}
 {% block pageTitle %}
-    {{ serviceName }}
+  {{ serviceName }}
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block header %}
-    {{ super() }}
+  {{ super() }}
 {% endblock %}
 {% block content %}
-    {{ govukBackLink({
+  {{ govukBackLink({
   text: "Back",
   href: "javascript:history.back()"
 }) }}
-    <div class="govuk-grid-row dwp-print-hide">
-        <div class="govuk-grid-column-full">
-            <h1 class="govuk-heading-l govuk-!-margin-top-4">
-                <span class="govuk-caption-l">Matched claim information for</span>
-                RN 00 00 35 C
-            </h1>
-            {% set newTag %}
-            {{ govukTag({
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l govuk-!-margin-top-4">
+        <span class="govuk-caption-l">Matched claim information for</span>
+        RN 00 00 35 A
+      </h1>
+      {% set newTag %}
+      {{ govukTag({
   text: "New claim"
 }) }}
-            {% endset %}
-            {% set sfTag %}
-            {{ govukTag({
+      {% endset %}
+      {% set sfTag %}
+      {{ govukTag({
   text: "Suspected fraud"
 }) }}
-            {% endset %}
-            {% set apptTag %}
-            {{ govukTag({
+      {% endset %}
+      {% set apptTag %}
+      {{ govukTag({
   text: "Appointment needed"
 }) }}
-            {% endset %}
-            {{ govukTable({
+      {% endset %}
+      {{ govukTable({
         caption: "Current claim",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -59,7 +59,7 @@
                     html: "<a href=#>Karan Bhopal</a>"
                 },
                 {
-                    text: "RN 00 00 35 C"
+                    text: "RN 00 00 35 A"
                 },
                 {
                     text: "10 December 2021"
@@ -73,26 +73,26 @@
             ]
         ]
     }) }}
-            <p>There are 10 other claims with matching information.</p>
-            <ul class="govuk-list govuk-list--bullet  govuk-!-margin-bottom-0">
-                <li>
-                    <a href="#email">10 have a matching email address</a>
-                </li>
-                <li>
-                    <a href="#mobile">3 have a matching mobile number</a>
-                </li>
-                <li>
-                    <a href="#bank-details">3 have matching bank details</a>
-                </li>
-                <li>
-                    <a href="#address">3 have a matching address</a>
-                </li>
-            </ul>
-            <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="email">Email address (10)</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    {% set emailSummary %}
-                    {{ govukSummaryList({
+      <p>There are 10 other claims with matching information.</p>
+      <ul class="govuk-list govuk-list--bullet  govuk-!-margin-bottom-0">
+        <li>
+          <a href="#email">10 have a matching email address</a>
+        </li>
+        <li>
+          <a href="#mobile">3 have a matching mobile number</a>
+        </li>
+        <li>
+          <a href="#bank-details">3 have matching bank details</a>
+        </li>
+        <li>
+          <a href="#address">3 have a matching address</a>
+        </li>
+      </ul>
+      <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="email">Email address (10)</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          {% set emailSummary %}
+          {{ govukSummaryList({
     rows: [
         {
         key: {
@@ -104,13 +104,13 @@
         }
     ]
     }) }}
-                    {% endset %}
-                    {{ govukInsetText({
+          {% endset %}
+          {{ govukInsetText({
         html: emailSummary
     }) }}
-                </div>
-            </div>
-            {{ govukTable({
+        </div>
+      </div>
+      {{ govukTable({
         caption: "Matched claims with the same email address",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -137,7 +137,7 @@
                     html: "Ian Johnson"
                 },
                 {
-                    text: "RN 00 00 35 C"
+                    text: "RN 00 00 35 A"
                 },
                 {
                     text: "10 December 2021"
@@ -304,11 +304,11 @@
             ]
         ]
     }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="mobile">Mobile number (3)</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    {% set mobileSummary %}
-                    {{ govukSummaryList({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="mobile">Mobile number (3)</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          {% set mobileSummary %}
+          {{ govukSummaryList({
         rows: [
             {
             key: {
@@ -320,13 +320,13 @@
             }
         ]
         }) }}
-                    {% endset %}
-                    {{ govukInsetText({
+          {% endset %}
+          {{ govukInsetText({
         html: mobileSummary
     }) }}
-                </div>
-            </div>
-            {{ govukTable({
+        </div>
+      </div>
+      {{ govukTable({
         caption: "Matched claims with the same mobile number",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -353,7 +353,7 @@
                     html: "Ian Johnson"
                 },
                 {
-                    text: "RN 00 00 35 C"
+                    text: "RN 00 00 35 A"
                 },
                 {
                     text: "10 December 2021"
@@ -401,11 +401,11 @@
             ]
         ]
     }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="bank-details">Bank details (3)</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    {% set bankSummary %}
-                    {{ govukSummaryList({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="bank-details">Bank details (3)</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          {% set bankSummary %}
+          {{ govukSummaryList({
         rows: [
             {
                 key: {
@@ -425,13 +425,13 @@
             }
         ]
         }) }}
-                    {% endset %}
-                    {{ govukInsetText({
+          {% endset %}
+          {{ govukInsetText({
         html: bankSummary
     }) }}
-                </div>
-            </div>
-            {{ govukTable({
+        </div>
+      </div>
+      {{ govukTable({
         caption: "Matched claims with the same mobile number",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -458,7 +458,7 @@
                     html: "Ian Johnson"
                 },
                 {
-                    text: "RN 00 00 35 C"
+                    text: "RN 00 00 35 A"
                 },
                 {
                     text: "10 December 2021"
@@ -506,11 +506,11 @@
             ]
         ]
     }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="address">Address (3)</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    {% set addressSummary %}
-                    {{ govukSummaryList({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-0" id="address">Address (3)</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          {% set addressSummary %}
+          {{ govukSummaryList({
         rows: [
             {
                 key: {
@@ -530,13 +530,13 @@
             }
         ]
         }) }}
-                    {% endset %}
-                    {{ govukInsetText({
+          {% endset %}
+          {{ govukInsetText({
         html: addressSummary
     }) }}
-                </div>
-            </div>
-            {{ govukTable({
+        </div>
+      </div>
+      {{ govukTable({
         caption: "Matched claims with the same address",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -563,7 +563,7 @@
                     html: "Ian Johnson"
                 },
                 {
-                    text: "RN 00 00 35 C"
+                    text: "RN 00 00 35 A"
                 },
                 {
                     text: "10 December 2021"
@@ -611,6 +611,6 @@
             ]
         ]
     }) }}
-        </div>
     </div>
+  </div>
 {% endblock %}

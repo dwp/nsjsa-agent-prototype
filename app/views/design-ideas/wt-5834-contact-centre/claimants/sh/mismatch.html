@@ -1,7 +1,7 @@
 {% set html %}
-  <p class="govuk-notification-banner__heading">National Insurance number mismatch</p>
-  {# <p>The National Insurance number from the claimants application does not match their online identity.</p> #}
-    {{ govukSummaryList({
+<p class="govuk-notification-banner__heading">National Insurance number mismatch</p>
+{# <p>The National Insurance number from the claimants application does not match their online identity.</p> #}
+{{ govukSummaryList({
       classes: "dwp-summary-list--wide govuk-!-margin-bottom-2",
       rows: [
         {
@@ -9,7 +9,7 @@
             text: "Claimant application"
           },
           value: {
-            text: "RN 00 00 35 C"
+            text: "RN 00 00 35 A"
           },
           actions: {
             items: [
@@ -31,7 +31,6 @@
       ]
     }) }}
 {% endset %}
-
 {{ govukNotificationBanner({
   html: html
 }) }}

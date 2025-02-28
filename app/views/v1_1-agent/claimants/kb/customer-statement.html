@@ -1,7 +1,7 @@
 <h1 class="govuk-heading-l">Customer statement</h1>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Claim start date</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Claim start date</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -16,8 +16,8 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Personal details</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Personal details</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -25,7 +25,7 @@
             text: "National Insurance number"
         },
         value: {
-            text: "RN 00 00 35 C"
+            text: "RN 00 00 35 A"
         },
         actions: {
             items: [
@@ -89,8 +89,8 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Bank details</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Bank details</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -110,8 +110,8 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Other benefits</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Other benefits</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -126,8 +126,8 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Jury service</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Jury service</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -142,8 +142,8 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Current employment</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Current employment</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -158,9 +158,9 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Previous employment</h2>
-    {% if data['previous-employment'] == 1 %}
-        {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Previous employment</h2>
+  {% if data['previous-employment'] == 1 %}
+    {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -173,8 +173,8 @@
     }
     ]
 }) }}
-        <h2 class="govuk-heading-s">First previous employer</h2>
-        {{ govukSummaryList({
+    <h2 class="govuk-heading-s">First previous employer</h2>
+    {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -227,8 +227,8 @@
     }
     ]
 }) }}
-    {% else %}
-        {{ govukSummaryList({
+  {% else %}
+    {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -241,11 +241,11 @@
     }
     ]
 }) }}
-    {% endif %}
+  {% endif %}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Time spent abroad</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Time spent abroad</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -260,8 +260,8 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Pensions</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Pensions</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {
@@ -276,8 +276,8 @@
 }) }}
 </section>
 <section class="dwp-claim-section">
-    <h2 class="govuk-heading-m">Education or training</h2>
-    {{ govukSummaryList({
+  <h2 class="govuk-heading-m">Education or training</h2>
+  {{ govukSummaryList({
     classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
     rows: [
     {

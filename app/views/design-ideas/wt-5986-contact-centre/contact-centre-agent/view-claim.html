@@ -3,7 +3,7 @@
   Personal details - {{ serviceName }}
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-{% set NiNumber = data['national-insurance-number'] or "RN 00 00 35 C"| replace("-", " ") | upper %}
+{% set NiNumber = data['national-insurance-number'] or "RN 00 00 35 A"| replace("-", " ") | upper %}
 {% block header %}
   {{ super() }}
   {% if data['claimant'] == 'ij' %}

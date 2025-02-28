@@ -1,202 +1,202 @@
 <table class="govuk-table govuk-!-font-size-19">
-    <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000001</caption>
-    <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Deadline</th>
-            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
-            <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
-            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
-            <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+  <caption class="govuk-table__caption govuk-table__caption--m">Claims paused by 00000001</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Deadline</th>
+      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Claim submitted</th>
+      <th scope="col" class="govuk-table__header" style="white-space: nowrap">NI number</th>
+      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Pause reason</th>
+      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">7 May 2024</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">15 Apr 2024</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">RN 00 00 35 A</span>
+      </td>
+      <td class="govuk-table__cell">
+        Main benefit reply (MBR)
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">View</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">7 May 2024</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">29 Apr 2024</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">FQ 12 34 56 A</span>
+      </td>
+      <td class="govuk-table__cell">
+        Main benefit reply (MBR)
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">View</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">7 May 2024</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">29 Apr 2024</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">DF 13 23 44 B</span>
+      </td>
+      <td class="govuk-table__cell">
+        Main benefit reply (MBR)
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">View</a>
+      </td>
+    </tr>
+    <!-- END SCENARIO 1 pausing claim again - don't show dates before 9 May -->
+    <!-- SCENARIO 1 - dynamic row - different links depending on pause reason-->
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">{{ data['deadline-day'] }}
+          {{ data['deadline-month'] | toMonth | truncate(3, true, "") }}
+          {{ data['deadline-year'] or "7 May 2024" }}</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">30 Apr 2024</span>
+      </td>
+      <td class="govuk-table__cell">
+        <span style="white-space: nowrap">RN 00 00 35 A</span>
+      </td>
+      <td class="govuk-table__cell">
+        Main benefit reply (MBR)
+      </td>
+      {% if data['pauseReason'] == 'Main benefit reply (MBR)' %}
+        <td class="govuk-table__cell">
+          <a class="govuk-link" href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Main%20benefit%20reply%20(MBR)">
+            View</a>
+        {% else %}
+          <td class="govuk-table__cell">
+            <a
+              class="govuk-link"
+              href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Identity%20check%20(KBV)&pauseReason=Main%20benefit%20reply%20(MBR)">
+              View</a>
+          {% endif %}
+        </td>
+      </tr>
+      <!-- END SCENARIO 1 - dynamic row -->
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <span style="white-space: nowrap">9 May 2024</span>
+        </td>
+        <td class="govuk-table__cell">
+          <span style="white-space: nowrap">1 May 2024</span>
+        </td>
+        <td class="govuk-table__cell">
+          <span style="white-space: nowrap">RN 25 82 07 D</span>
+        </td>
+        <td class="govuk-table__cell">
+          Identity check (KBV)
+          <br>Main benefit reply (MBR)
+          </td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link" href="#">View</a>
+          </td>
         </tr>
-    </thead>
-    <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">7 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">15 Apr 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">SW 12 34 56 A</span>
-            </td>
-            <td class="govuk-table__cell">
-                Main benefit reply (MBR)
-            </td>
-            <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-            </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">9 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">1 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">UV 44 44 98 D</span>
+          </td>
+          <td class="govuk-table__cell">
+            Main benefit reply (MBR)
+          </td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link" href="#">View</a>
+          </td>
         </tr>
         <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">7 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">29 Apr 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">FQ 12 34 56 A</span>
-            </td>
-            <td class="govuk-table__cell">
-                Main benefit reply (MBR)
-            </td>
-            <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-            </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">9 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">1 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">QQ 12 34 56 X</span>
+          </td>
+          <td class="govuk-table__cell">
+            Main benefit reply (MBR)
+          </td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link" href="#">View</a>
+          </td>
         </tr>
         <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">7 May 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">29 Apr 2024</span>
-            </td>
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">DF 13 23 44 B</span>
-            </td>
-            <td class="govuk-table__cell">
-                Main benefit reply (MBR)
-            </td>
-            <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">View</a>
-            </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">9 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">2 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">VF 13 63 34 C</span>
+          </td>
+          <td class="govuk-table__cell">
+            Main benefit reply (MBR)
+          </td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link" href="#">View</a>
+          </td>
         </tr>
-        <!-- END SCENARIO 1 pausing claim again - don't show dates before 9 May -->
-        <!-- SCENARIO 1 - dynamic row - different links depending on pause reason-->
         <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <span style="white-space: nowrap">{{ data['deadline-day'] }}
-                    {{ data['deadline-month'] | toMonth | truncate(3, true, "") }}
-                    {{ data['deadline-year'] or "7 May 2024" }}</span>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">9 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">2 May 2024</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span style="white-space: nowrap">QF 74 42 21 A</span>
+          </td>
+          <td class="govuk-table__cell">
+            Main benefit reply (MBR)
+            <br>Self-employment and company director check
             </td>
             <td class="govuk-table__cell">
-                <span style="white-space: nowrap">30 Apr 2024</span>
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <span style="white-space: nowrap">10 May 2024</span>
             </td>
             <td class="govuk-table__cell">
-                <span style="white-space: nowrap">RN 00 00 35 C</span>
+              <span style="white-space: nowrap">1 May 2024</span>
             </td>
             <td class="govuk-table__cell">
-                Main benefit reply (MBR)
+              <span style="white-space: nowrap">DF 13 23 44 B</span>
             </td>
-            {% if data['pauseReason'] == 'Main benefit reply (MBR)' %}
-                <td class="govuk-table__cell">
-                    <a class="govuk-link" href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Main%20benefit%20reply%20(MBR)">
-                        View</a>
-                {% else %}
-                    <td class="govuk-table__cell">
-                        <a
-                            class="govuk-link"
-                            href="view-claim?&claimant=ij&claimStatus=paused&pauseReason=Identity%20check%20(KBV)&pauseReason=Main%20benefit%20reply%20(MBR)">
-                            View</a>
-                    {% endif %}
-                </td>
-            </tr>
-            <!-- END SCENARIO 1 - dynamic row -->
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell">
-                    <span style="white-space: nowrap">9 May 2024</span>
-                </td>
-                <td class="govuk-table__cell">
-                    <span style="white-space: nowrap">1 May 2024</span>
-                </td>
-                <td class="govuk-table__cell">
-                    <span style="white-space: nowrap">RN 25 82 07 D</span>
-                </td>
-                <td class="govuk-table__cell">
-                    Identity check (KBV)
-                    <br>Main benefit reply (MBR)
-                    </td>
-                    <td class="govuk-table__cell">
-                        <a class="govuk-link" href="#">View</a>
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">9 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">1 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">UV 44 44 98 D</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        Main benefit reply (MBR)
-                    </td>
-                    <td class="govuk-table__cell">
-                        <a class="govuk-link" href="#">View</a>
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">9 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">1 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">QQ 12 34 56 X</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        Main benefit reply (MBR)
-                    </td>
-                    <td class="govuk-table__cell">
-                        <a class="govuk-link" href="#">View</a>
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">9 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">2 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">VF 13 63 34 C</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        Main benefit reply (MBR)
-                    </td>
-                    <td class="govuk-table__cell">
-                        <a class="govuk-link" href="#">View</a>
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">9 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">2 May 2024</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        <span style="white-space: nowrap">QF 74 42 21 A</span>
-                    </td>
-                    <td class="govuk-table__cell">
-                        Main benefit reply (MBR)
-                        <br>Self-employment and company director check
-                        </td>
-                        <td class="govuk-table__cell">
-                            <a class="govuk-link" href="#">View</a>
-                        </td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">
-                            <span style="white-space: nowrap">10 May 2024</span>
-                        </td>
-                        <td class="govuk-table__cell">
-                            <span style="white-space: nowrap">1 May 2024</span>
-                        </td>
-                        <td class="govuk-table__cell">
-                            <span style="white-space: nowrap">DF 13 23 44 B</span>
-                        </td>
-                        <td class="govuk-table__cell">
-                            Main benefit reply (MBR)
-                        </td>
-                        <td class="govuk-table__cell">
-                            <a class="govuk-link" href="#">View</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </tr>
-    </tbody>
+            <td class="govuk-table__cell">
+              Main benefit reply (MBR)
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">View</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </tr>
+  </tbody>

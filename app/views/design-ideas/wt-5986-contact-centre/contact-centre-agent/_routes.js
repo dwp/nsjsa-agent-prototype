@@ -60,6 +60,10 @@ router.post("/nino-search", function (req, res) {
       // no more claims in the queue
     } else if (answer === "processed") {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=processed`);
+
+           // claimant not found
+    } else if (answer === "claimant") {
+      res.redirect(`${ABS_BASE_PATH}/nino-search?show=claimant`);
   
           // nino not found
     } else if (answer === "") {
