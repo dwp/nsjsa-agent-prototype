@@ -1,0 +1,40 @@
+{% extends "layout/unbranded-agent-search-bar.html" %}
+{% block pageTitle %}
+  Customer statement - {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% block header %}
+  {{ super() }}
+  {% if data['claimant'] == 'ij' %}
+    {% include 'design-ideas/wt-6283-wc/claimants/ij/key-details.html' %}
+  {% elif data['claimant'] == 'kb' %}
+    {% include 'design-ideas/wt-6283-wc/claimants/kb/key-details.html' %}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      {% include './includes/warnings.html' %}
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
+      {% if data['claimant'] == 'ij' %}
+        {% include 'design-ideas/wt-6283-wc/claimants/ij/customer-statement.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'design-ideas/wt-6283-wc/claimants/kb/customer-statement.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {% include "./includes/actions_print.html" %}
+    </div>
+  </div>
+{% endblock %}
