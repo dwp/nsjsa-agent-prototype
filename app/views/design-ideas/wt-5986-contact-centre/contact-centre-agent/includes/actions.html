@@ -4,6 +4,12 @@
     text: "Update claim status",
     href: "update-book?task=book"
 }) }}
+{% elif data['claimStatus'] == 'paused' %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {{ govukButton({
+  text: "Update claim status",
+  disabled: true
+}) }}
 {% else %}
     <h3 class="govuk-heading-m">Claim actions</h3>
     <p>

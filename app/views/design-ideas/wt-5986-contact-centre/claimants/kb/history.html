@@ -37,6 +37,31 @@ items: [
     }
 ]
 }) }}
+{% elif data['claimStatus'] == 'paused' %}
+    {{ dwpTimeline({
+items: [
+{
+    title: "Paused",
+    byline: "00000004",
+    date: "10 September 2021 at 1:20pm"
+    },
+     {
+    title: "Processing started",
+    byline: "00000004",
+    date: "10 September 2021 at 1:17pm"
+    },
+ {
+    title: "Success",
+    byline: "00000001",
+    date: "31 August 2021 at 4:50pm"
+    },
+    {
+    title: "New claim",
+    date: "31 August 2021 at 4:30pm",
+    classes: "dwp-timeline-entry--closing"
+    }
+]
+}) }}
 {% elif data['claimStatus'] == 'awaiting-appointment' %}
     {{ dwpTimeline({
 items: [

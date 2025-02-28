@@ -65,14 +65,14 @@ $search-box-padding: 10px;
   border: none;
   outline: none;
   width: $search-box-height;
-  height: $search-box-height;
+  height: $search-box-height - 4px;
   padding: 0;
   box-shadow: none;
   outline-offset: -3px;
   text-align: center;
   vertical-align: middle;
   line-height: $search-box-height;
-  background: govuk-colour("green");
+  background: govuk-colour("blue");
   user-select: none;
   cursor: pointer;
 
