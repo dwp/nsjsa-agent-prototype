@@ -3,7 +3,7 @@
   Check your answer - {{ serviceName }}
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
-{% set NiNumber = "RN 00 00 35 C" %}
+{% set NiNumber = "RN 00 00 35 A" %}
 {% block header %}
   {% if data['sc'] == 'sc1' %}
     {{ super() }}
@@ -38,7 +38,7 @@ container:true
         text: "National Insurance number"
         },
         value: {
-            text: data['national-insurance-number']or "RN 00 00 35 C"
+            text: data['national-insurance-number']or "RN 00 00 35 A"
         },
         actions: {
             items: [

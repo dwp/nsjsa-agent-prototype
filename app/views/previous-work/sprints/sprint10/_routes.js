@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
 
 
 router.post('/nino-search', function (req, res) {
-    res.redirect('view-claim?task=register&claimStatus=registration-needed&claimant=sh&nino=RN 00 00 35 C&idRisk=0&fraud=0&cis=1&dupe=0&niUpdate=0');
+    res.redirect('view-claim?task=register&claimStatus=registration-needed&claimant=sh&nino=RN 00 00 35 A&idRisk=0&fraud=0&cis=1&dupe=0&niUpdate=0');
 });
 
 router.post('/nino', function (req, res) {

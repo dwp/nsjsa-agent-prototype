@@ -16,7 +16,7 @@ value: 'Mr Ian Johnson'
 },
 secondaryIdentifier: {
 text: 'National Insurance Number:',
-value: 'RN 00 00 35 C'
+value: 'RN 00 00 35 A'
 },
 status: {
 text: 'Claim status:',
@@ -50,7 +50,7 @@ value: 'Mr Karan Bhopal'
 },
 secondaryIdentifier: {
 text: 'National Insurance Number:',
-value: 'RN 00 00 35 C'
+value: 'RN 00 00 35 A'
 },
 status: {
 text: 'Claim status:',
@@ -158,18 +158,18 @@ text: "Claim submitted (IDOC):"
     </div>
   </div>
   {# Additional statuses taken out for data['claimStatus'] == 'first-fail' and data['task'] == 'new' 
-                  ,
-                  {
-                  value: "failed-to-attend",
-                  text: "Failed to attend"
-                  },
-                  {
-                  value: "landline-only",
-                  text: "Landline only"
-                  },
-                  {
-                  value: "wrong-nino",
-                  text: "Wrong NI number"
-                  }
-         #}
+                    ,
+                    {
+                    value: "failed-to-attend",
+                    text: "Failed to attend"
+                    },
+                    {
+                    value: "landline-only",
+                    text: "Landline only"
+                    },
+                    {
+                    value: "wrong-nino",
+                    text: "Wrong NI number"
+                    }
+           #}
 {% endblock %}

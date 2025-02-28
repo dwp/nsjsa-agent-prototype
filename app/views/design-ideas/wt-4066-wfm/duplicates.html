@@ -1,85 +1,85 @@
 {% extends "layout/unbranded-agent-id.html" %}
 {% block pageTitle %}
-    {{ serviceName }}
+  {{ serviceName }}
 {% endblock %}
 {% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
 {% block content %}
-    {{ govukBackLink({
+  {{ govukBackLink({
   text: "Back",
   href: "javascript:history.back()"
 }) }}
-    <div class="govuk-grid-row dwp-print-hide">
-        <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-l govuk-!-margin-top-4">There are 3 matching applications
-            </h1>
-            <p>
-                Duplicate applications have been submitted against the entered National Insurance number.
-            </p>
-            {% set summary %}
-            {{ govukSummaryList({
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l govuk-!-margin-top-4">There are 3 matching applications
+      </h1>
+      <p>
+        Duplicate applications have been submitted against the entered National Insurance number.
+      </p>
+      {% set summary %}
+      {{ govukSummaryList({
                 rows: [
                     {
                     key: {
                         text: "National Insurance number (NINo)"
                     },
                     value: {
-                        text: "SW 12 34 56 A"
+                        text: "RN 00 00 35 A"
                     }
                     }
                 ]
                 }) }}
-            {% endset %}
-            {{ govukInsetText({
+      {% endset %}
+      {{ govukInsetText({
                 html: summary
                 }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Newest application</h2>
-            {# sc2 duplicates - entitlement not affected #}
-            {% if data['dupe'] == "not-affected" %}
-                {% set urlRecent = '<a href=view-claim?claimant=kb-dupe&claimStatus=processing-started&previous-employment=0>View</a>' %}
-                {% set statusRecent %}
-                {{ govukTag({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Newest application</h2>
+      {# sc2 duplicates - entitlement not affected #}
+      {% if data['dupe'] == "not-affected" %}
+        {% set urlRecent = '<a href=view-claim?claimant=kb-dupe&claimStatus=processing-started&previous-employment=0>View</a>' %}
+        {% set statusRecent %}
+        {{ govukTag({
                  text: "Processing started",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-                {% set statusFurther %}
-                {{ govukTag({
+        {% endset %}
+        {% set statusFurther %}
+        {{ govukTag({
                  text: "Paused",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-                {# sc3 duplicates - entitlement affected #}
-            {% elif data['dupe'] == "affected" %}
-                {% set urlRecent = '<a href=view-claim?claimant=kb-dupe&claimStatus=processing-started&previous-employment=1>View</a>' %}
-                {% set statusRecent %}
-                {{ govukTag({
+        {% endset %}
+        {# sc3 duplicates - entitlement affected #}
+      {% elif data['dupe'] == "affected" %}
+        {% set urlRecent = '<a href=view-claim?claimant=kb-dupe&claimStatus=processing-started&previous-employment=1>View</a>' %}
+        {% set statusRecent %}
+        {{ govukTag({
                  text: "Processing started",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-                {% set statusFurther %}
-                {{ govukTag({
+        {% endset %}
+        {% set statusFurther %}
+        {{ govukTag({
                  text: "Processing started",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-                {# no scenario - default Simon Hamilton #}
-            {% else %}
-                {% set urlRecent = '<a href=view-claim>View</a>' %}
-                {% set statusRecent %}
-                {{ govukTag({
+        {% endset %}
+        {# no scenario - default Simon Hamilton #}
+      {% else %}
+        {% set urlRecent = '<a href=view-claim>View</a>' %}
+        {% set statusRecent %}
+        {{ govukTag({
                  text: "Processing started",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-                {% set statusFurther %}
-                {{ govukTag({
+        {% endset %}
+        {% set statusFurther %}
+        {{ govukTag({
                  text: "Processing started",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-            {% endif %}
-            {{ govukTable({
+        {% endset %}
+      {% endif %}
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -117,36 +117,36 @@
                 {
                     html:  urlRecent 
                  } ] ] }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application</h2>
-            {# sc2 duplicates - entitlement not affected #}
-            {% if data['dupe'] == "not-affected" %}
-                {% set urlOldest = '<a href=view-claim?claimant=kb&claimStatus=paused&previous-employment=0>View</a>' %}
-                {% set statusOldest %}
-                {{ govukTag({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Oldest application</h2>
+      {# sc2 duplicates - entitlement not affected #}
+      {% if data['dupe'] == "not-affected" %}
+        {% set urlOldest = '<a href=view-claim?claimant=kb&claimStatus=paused&previous-employment=0>View</a>' %}
+        {% set statusOldest %}
+        {{ govukTag({
                  text: "Paused",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-                {# sc3 duplicates - entitlement affected #}
-            {% elif data['dupe'] == "affected" %}
-                {% set urlOldest = '<a href=view-claim?claimant=kb&claimStatus=awaiting-appointment&previous-employment=1>View</a>' %}
-                {% set statusOldest %}
-                {{ govukTag({
+        {% endset %}
+        {# sc3 duplicates - entitlement affected #}
+      {% elif data['dupe'] == "affected" %}
+        {% set urlOldest = '<a href=view-claim?claimant=kb&claimStatus=awaiting-appointment&previous-employment=1>View</a>' %}
+        {% set statusOldest %}
+        {{ govukTag({
                  text: "Awaiting appointment",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-                {# sc2 duplicates - entitlement not affected #}
-            {% else %}
-                {% set urlOldest = '<a href=view-claim?claimant=kb&claimStatus=paused>View</a>' %}
-                {% set statusOldest %}
-                {{ govukTag({
+        {% endset %}
+        {# sc2 duplicates - entitlement not affected #}
+      {% else %}
+        {% set urlOldest = '<a href=view-claim?claimant=kb&claimStatus=paused>View</a>' %}
+        {% set statusOldest %}
+        {{ govukTag({
                  text: "Paused",
                     classes: "govuk-tag--blue"
                  }) }}
-                {% endset %}
-            {% endif %}
-            {{ govukTable({
+        {% endset %}
+      {% endif %}
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -187,8 +187,8 @@
             ]
         ]
         }) }}
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
-            {{ govukTable({
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Further applications submitted</h2>
+      {{ govukTable({
         caption: "Dates and amounts",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         head: [
@@ -228,6 +228,6 @@
             ]
         ]
     }) }}
-        </div>
     </div>
+  </div>
 {% endblock %}

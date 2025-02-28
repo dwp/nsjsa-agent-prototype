@@ -38,25 +38,25 @@ router.get('/start', function (req, res) {
     if (answer === 's1') {
 
         data['claimant'] = 'sh';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['noReg'] = 1;
 
     } else if (answer === 's2') {
 
         data['claimant'] = 'kb';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['niMatchCis'] = 1;
 
     } else if (answer === 's3') {
  
         data['claimant'] = 'sh';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['dupe'] = 1;
 
     } else if (answer === 's4') {
  
         data['claimant'] = 'kb';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['niMatchCis'] = 1;
 
     } else if (answer === 's5') {
@@ -187,26 +187,26 @@ router.post('/nino-search', function (req, res) {
     if (answer === 's1') {
 
         data['claimant'] = 'sh';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['noReg'] = 1;
 
     } else if (answer === 's2') {
 
         data['claimant'] = 'kb';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['niMatchCis'] = 1;
 
     } else if (answer === 's3') {
  
         data['claimant'] = 'sh';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['dupe'] = 1;
         res.redirect('duplicates');
 
     } else if (answer === 's4') {
  
         data['claimant'] = 'kb';
-        data['nino'] = 'RN 00 00 35 C';
+        data['nino'] = 'RN 00 00 35 A';
         data['niMatchCis'] = 1;
 
     } else if (answer === 's5') {
