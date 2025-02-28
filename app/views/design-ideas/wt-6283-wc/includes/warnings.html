@@ -1,0 +1,39 @@
+{% if data['warning'] == 'welsh1' or data['warning'] == 'welsh2' or data['warning'] == 'welsh3'%}
+  <div
+    class="govuk-notification-banner"
+    role="region"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-body govuk-!-font-weight-bold">
+        {% if data['warning'] == 'welsh1' %}
+          This claimant has asked us to write to them in Welsh.
+        {% elif data['warning'] == 'welsh2' %}
+          This claimant has asked us to speak to them in Welsh.
+        {% elif data['warning'] == 'welsh3' %}
+          This claimant has asked us to speak and write to them in Welsh.
+        {% endif %}
+      </p>
+    </div>
+  </div>
+{% elif data['warning'] == 'incompatible' or data['warning'] == 'manually' or data['warning'] == 'appointee'%}
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      {% if data['warning'] == 'incompatible' %}
+        Claimant has existing interest in an incompatible benefit
+      {% elif data['warning'] == 'manually' %}
+        You will need to match the claimant with the CIS record manually
+      {% elif data['warning'] == 'appointee' %}
+        Claimant has appointee {% else%}
+      {% endif %}
+    </strong>
+  </div>
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible dwp-print-hide">
+  {% endif %}
