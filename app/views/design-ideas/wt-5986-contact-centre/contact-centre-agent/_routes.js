@@ -72,6 +72,11 @@ router.post("/nino-search", function (req, res) {
       // nino not found
     } else if (!answer.length) {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=errors`);
+
+      // Claim with service centre - update button disabled
+    } else if (answer === "paused") {
+      res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&agent=cca&claimant=ij&claimStatus=paused&warning`);
+ 
  
       // Welsh written
     } else if (answer === "welsh1") {
