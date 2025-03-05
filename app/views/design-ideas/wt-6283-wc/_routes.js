@@ -31,13 +31,18 @@ router.post("/nino-search", function (req, res) {
     } else if (answer === "claimant") {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=claimant`);
   
-          // nino not found
-    } else if (answer === "") {
+          // nothing entered
+    } else if (answer === "blank") {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=blank`);
   
       // nino not found
     } else if (!answer.length) {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=errors`);
+
+      // reload page
+    } else if (answer === "") {
+      res.redirect(`${ABS_BASE_PATH}/nino-search`);
+
      // Welsh written
     } else if (answer === "welsh1") {
       res.redirect(`${ABS_BASE_PATH}/view-claim?agent=wc&claimant=ij&claimStatus=push-successful&warning=welsh1`);
