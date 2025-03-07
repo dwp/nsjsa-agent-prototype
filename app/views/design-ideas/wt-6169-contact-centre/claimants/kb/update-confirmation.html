@@ -1,0 +1,7 @@
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set subStatus = data['subStatus'] %}
+{% set claimStatus = "The claim for Mr Karan Bhopal RN 00 00 35 A has been updated to " + claimStatus %}
+{{ govukPanel({
+    titleText: "Claim updated",
+    html: claimStatus
+    }) }}

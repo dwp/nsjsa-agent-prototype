@@ -114,6 +114,10 @@ router.use(
 /////////////////////////////////////////
 //   DESIGN IDEAS - add routing below  //
 /////////////////////////////////////////
+
+// This moves Contact Centre design update wt-6169-contact-centre to 'design-ideas/wt-6169-contact-centre' directory
+router.use('/design-ideas/wt-6169-contact-centre/contact-centre-agent', require('./views/design-ideas/wt-6169-contact-centre/contact-centre-agent/_routes'))
+
 // This moves Work Coach design update wt-6283-wc to 'design-ideas/wt-6283-wc' directory
 router.use('/design-ideas/wt-6283-wc', require('./views/design-ideas/wt-6283-wc/_routes'))
 

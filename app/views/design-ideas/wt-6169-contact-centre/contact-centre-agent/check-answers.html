@@ -1,0 +1,54 @@
+{% extends "layout/unbranded-agent-cc.html" %}
+{% block pageTitle %}
+  Check your answer - {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set NiNumber = "RN 00 00 35 A" %}
+{% block header %}
+  {{ super() }}
+  {% include 'design-ideas/wt-6169-contact-centre/claimants/ij/key-details.html' %}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+      <section class="dwp-claim-section">
+        <h1 class="govuk-heading-l">Check your answer</h1>
+      </section>
+      <section class="dwp-claim-section">
+        {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "National Insurance number"
+        },
+        value: {
+            text: data['national-insurance-number']or "RN 00 00 35 A"
+        },
+        actions: {
+            items: [
+                {
+                    href: "nino",
+                    text: "Change",
+                    visuallyHiddenText: actionHiddenText
+                }
+            ]
+        }
+    }
+    ]
+}) }}
+      </section>
+      {{ govukButton({
+  text: "Update and return to claim",
+  href: "view-claim-updated"
+}) }}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% if data['claimStatus'] == 'awaiting-appointment' %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {{ govukButton({
+    text: "Update claim status",
+    href: "update-book?task=book"
+}) }}
+{% elif data['claimStatus'] == 'paused' %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    {{ govukButton({
+  text: "Update claim status",
+  disabled: true
+}) }}
+{% else %}
+    <h3 class="govuk-heading-m">Claim actions</h3>
+    <p>
+        <a href="nino?national-insurance-number">Change National Insurance number</a>
+    </p>
+    {{ govukButton({
+    text: "Update claim status",
+    href: "update-new?task=new"
+}) }}
+{% endif %}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

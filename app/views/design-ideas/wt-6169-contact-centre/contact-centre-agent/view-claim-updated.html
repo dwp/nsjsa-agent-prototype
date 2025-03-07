@@ -1,0 +1,76 @@
+{% extends "layout/unbranded-agent-cc.html" %}
+{% block pageTitle %}
+  Personal details - {{ serviceName }}
+{% endblock %}
+{% set claimStatus = data['claimStatus'] | replace("-", " ") | capitalize %}
+{% set NiNumber = data['national-insurance-number'] | replace("-", " ") | upper %}
+{% block header %}
+  {{ super() }}
+  {{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Mr Ian Johnson'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: NiNumber
+},
+status: {
+text: 'Claim status:',
+value: claimStatus,
+classes: "govuk-tag dwp-key-details-bar__status--dwp-default govuk-!-display-inline"
+},
+additionalData: [
+{
+value: "29/04/1972",
+text: "D.O.B:"
+},
+{
+value: "FY4 3HA",
+text: "Postcode:"
+},
+{
+value: "07880 123456",
+text: "Phone:"
+},
+{
+value: "31/08/21",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "choose-task?national-insurance-number"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row dwp-print-hide">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-visually-hidden">Claim processing</h1>
+      <h2 class="govuk-heading-l govuk-visually-hidden">Claimant application</h2>
+      {% if data['claimant'] == 'ij' %}
+        {% include 'design-ideas/wt-6169-contact-centre/claimants/ij/application.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'design-ideas/wt-6169-contact-centre/claimants/kb/application.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        {% include "./includes/actions.html" %}
+        <h3 class="govuk-heading-m">Claim status history</h3>
+        {% if data['claimant'] == 'ij' %}
+          {% include 'design-ideas/wt-6169-contact-centre/claimants/ij/history.html' %}
+        {% elif data['claimant'] == 'kb' %}
+          {% include 'design-ideas/wt-6169-contact-centre/claimants/kb/history.html' %}
+        {% else %}
+          <p>No claimant set.</p>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout/unbranded.html" %}
+{% block pageTitle %}
+    NSJSA Agent Prototypes
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-l">
+                Contact centre redesign - Iteration 3
+            </h1>
+            <p class="govuk-body">
+                <a
+                    href="https://dwpdigital.atlassian.net/wiki/spaces/WATG/pages/133822025960/WT-5849+UCD"
+                    class="govuk-link"
+                    rel="noreferrer noopener"
+                    target="_blank">Design Documentation on Confluence (opens in new tab)</a>
+            </p>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                <h2 class="govuk-heading-m">Contact Centre agents</h2>
+                <a href="choose-task?agent=cca" class="govuk-link govuk-body">Main menu- agent</a>
+                <h2 class="govuk-heading-m govuk-!-padding-top-8">Contact centre managers</h2>
+                <a href="choose-task?agent=ccm" class="govuk-link govuk-body">Main menu - manager</a>
+            </div>
+        </div>
+    {% endblock %}

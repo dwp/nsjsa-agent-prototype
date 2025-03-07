@@ -1,0 +1,38 @@
+{% extends "./view-claim.html" %}
+{% block pageTitle %}
+  Claim updated - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['claimant'] == 'sh' %}
+        {% include 'design-ideas/wt-6169-contact-centre/claimants/sh/update-confirmation.html' %}
+      {% elif data['claimant'] == 'kb' %}
+        {% include 'design-ideas/wt-6169-contact-centre/claimants/kb/update-confirmation.html' %}
+      {% elif data['claimant'] == 'ij' %}
+        {% include 'design-ideas/wt-6169-contact-centre/claimants/ij/update-confirmation.html' %}
+      {% else %}
+        <p>No claimant set.</p>
+      {% endif %}
+      <h2 class="govuk-heading-m">
+        What happens next?
+      </h2>
+      <p>You can now continue to process the next claimant or go back to the start screen.</p>
+      {% if data['task'] == 'book' %}
+        {{ govukButton({
+        text: "Get next claim",
+        href: "view-claim?agent=cca&claimant=kb&claimStatus=awaiting-appointment"
+      }) }}
+      {% else %}
+        {{ govukButton({
+        text: "Get next claim",
+        href: "view-claim?agent=cca&claimant=kb&claimStatus=new-claim"
+      }) }}
+      {% endif %}
+      <p class="govuk-body">
+        <a href="choose-task" class="govuk-link">Return to start screen</a>
+      </p>
+    </div>
+  </div>
+</div>{% endblock %}

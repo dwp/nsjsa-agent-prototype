@@ -1,0 +1,155 @@
+{% extends "layout/unbranded-agent-cc.html" %}
+{% block pageTitle %}
+  {% if data['claimStatus'] == 'first-fail' and data['task'] == 'book' %}
+    When will you call the claimant again? - {{ serviceName }}
+  {% elif data['claimStatus'] == 'final-fail' and data['task'] == 'book' %}
+    How did you let the claimant know you could not contact them? - {{ serviceName }}
+  {% endif %}
+{% endblock %}
+{% block header %}
+  {{ super() }}
+  {% if data['claimant'] == 'ij' %}
+    {{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Mr Ian Johnson'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'RN 00 00 35 A'
+},
+status: {
+text: 'Claim status:',
+value: 'Awaiting appointment',
+classes: "govuk-tag dwp-key-details-bar__status--dwp-default govuk-!-display-inline"
+},
+additionalData: [
+{
+value: "29/04/1972",
+text: "D.O.B:"
+},
+{
+value: "FY4 3HA",
+text: "Postcode:"
+},
+{
+value: "07880 123456",
+text: "Phone:"
+},
+{
+value: "31/08/21",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}
+  {% elif data['claimant'] == 'kb' %}
+    {{ dwpKeyDetailsBar({
+primaryIdentifier: {
+text: 'Name:',
+value: 'Mr Karan Bhopal'
+},
+secondaryIdentifier: {
+text: 'National Insurance Number:',
+value: 'RN 00 00 35 A'
+},
+status: {
+text: 'Claim status:',
+value: 'Awaiting appointment',
+classes: "govuk-tag dwp-key-details-bar__status--dwp-default govuk-!-display-inline"
+},
+additionalData: [
+{
+value: "21/07/1970",
+text: "D.O.B:"
+},
+{
+value: "FY4 1SF",
+text: "Postcode:"
+},
+{
+value: "01253 752057",
+text: "Phone:"
+},
+{
+value: "05/09/21",
+text: "Claim submitted (IDOC):"
+}
+]
+}) }}
+  {% else %}
+    <p>No claimant set.</p>
+  {% endif %}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row  govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation" method="get">
+        <div class="govuk-form-group">
+          <fieldset
+            class="govuk-fieldset">
+            {# Update claim sub-status radio buttons for APPOINTMENT BOOKING FIRST FAIL #}
+            {% if data['claimStatus'] == 'first-fail' and data['task'] == 'book' %}
+              {{ govukRadios({
+          idPrefix: 'status',
+          name: 'statusReason',
+          fieldset: {
+          legend: {
+          text: "When will you call the claimant again?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+          }
+          },
+          items: [
+          {
+          value: "in-1-hour",
+          text: "In 1 hour"
+          },
+          {
+          value: "in-2-hours",
+          text: "In 2 hours"
+          },
+          {
+          value: "in-3-hours",
+          text: "In 3 hours"
+          }
+          ]
+          }) }}
+              {# Update claim sub-status radio buttons for APPOINTMENT BOOKING FINAL FAIL #}
+            {% elif data['claimStatus'] == 'final-fail' and data['task'] == 'book' %}
+              {{ govukRadios({
+          idPrefix: 'status',
+          name: 'statusReason',
+          fieldset: {
+          legend: {
+          text: "How did you let the claimant know you could not contact them?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+          }
+          },
+          items: [
+          {
+          value: "voicemail",
+          text: "Voicemail"
+          },
+          {
+          value: "letter",
+          text: "Letter"
+          }
+          ]
+          }) }}
+            {% endif %}
+          </fieldset>
+        </div>
+        {{ govukButton({
+      text: "Continue"
+      }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
