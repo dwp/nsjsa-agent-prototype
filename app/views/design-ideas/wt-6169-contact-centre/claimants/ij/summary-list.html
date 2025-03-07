@@ -1,0 +1,57 @@
+{% if data['sc'] == 'sc1' %}
+  <section class="dwp-claim-section">
+    <h1 class="govuk-heading-l">Check your answer</h1>
+  </section>
+  <section class="dwp-claim-section">
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "National Insurance number"
+        },
+        value: {
+            text: data['national-insurance-number']or "RN 00 00 35 A"
+        },
+        actions: {
+            items: [
+                {
+                    href: "nino",
+                    text: "Change",
+                    visuallyHiddenText: actionHiddenText
+                }
+            ]
+        }
+    }
+    ]
+}) }}
+  </section>
+{% else %}
+  <section class="dwp-claim-section">
+    <h1 class="govuk-heading-l">Check your answer</h1>
+  </section>
+  <section class="dwp-claim-section">
+    {{ govukSummaryList({
+    classes: "dwp-summary-list--wide govuk-!-margin-bottom-7",
+    rows: [
+    {
+        key: {
+        text: "National Insurance number"
+        },
+        value: {
+            text: data['national-insurance-number']or "RN 00 00 35 A"
+        },
+        actions: {
+            items: [
+                {
+                    href: "nino",
+                    text: "Change",
+                    visuallyHiddenText: actionHiddenText
+                }
+            ]
+        }
+    }
+    ]
+}) }}
+  </section>
+{% endif %}
