@@ -2,7 +2,14 @@
 {% block pageTitle %}
   Find a claimant - {{ serviceName }}
 {% endblock %}
-{% block beforeContent %}{% endblock %}
+{% block beforeContent %}
+  {% if data['show'] == "claimant" %}
+    {{ govukBackLink({
+  text: "Back",
+  href: "nino-search?show="
+}) }}
+  {% endif %}
+{% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
     <div
