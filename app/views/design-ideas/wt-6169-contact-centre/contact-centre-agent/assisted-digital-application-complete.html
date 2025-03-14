@@ -68,3 +68,36 @@
     <button type="submit" class="govuk-button" data-module="govuk-button" onclick="window.open('', '_self', '');
     window.close();"> Close this tab </button> -->
   {% endblock %}
+  {% block footer %}
+    {% from "govuk/components/footer/macro.njk" import govukFooter %}
+    {{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "#",
+        text: "Cymraeg"
+      },
+      {
+        href: "https://www.apply-for-new-style-jsa.dwp.gov.uk/citizen-ui/cookies-policy?lang=en&backto=/citizen-ui/",
+        text: "Cookies"
+      },
+      {
+        href: "https://www.apply-for-new-style-jsa.dwp.gov.uk/citizen-ui/accessibility?lang=en&backto=/citizen-ui/",
+        text: "Accessibility statement"
+      },
+      {
+        href: "#",
+        text: "Feedback (opens in new tab)"
+      },
+    {
+      href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+    },
+    {
+      href: "/manage-prototype/clear-data",
+            text: "Clear data"
+    }
+    ]
+  }
+}) }}
+  {% endblock %}
