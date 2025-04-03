@@ -1,0 +1,67 @@
+{% extends "layout/unbranded-agent-cc.html" %}
+{% block pageTitle %}
+  Claim statistics - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "mi-choose-task"
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-6">
+      <h1 class="govuk-heading-l">Claim statistics</h1>
+      <span class="govuk-caption-m">Showing report for</span>
+      {# ADD CODE TO SHOW ENTERED DATE FROM DATE INPUT  {{ data['day'] }} #}
+      <h2 class="govuk-heading-m">Monday 31 March 2025</h2>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <form action="claim-statistics" method="post">
+        {{ govukDateInput({
+                id: "report",
+                namePrefix: "report",
+                fieldset: {
+                    legend: {
+                    text: "Change report date",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                    }
+                },
+                hint: {
+                    text: "For example, 14 3 2024"
+                },
+                items: [
+                  {
+                    name: "day",
+                    classes: "govuk-input--width-2",
+                    value: "31"
+                  },
+                  {
+                    name: "month",
+                    classes: "govuk-input--width-2",
+                    value: "3"
+                  },
+                  {
+                    name: "year",
+                    classes: "govuk-input--width-4",
+                    value: "2025"
+                  }
+                ]
+            }) }}
+        {{ govukButton({
+                text: "Submit"
+            }) }}
+      </form>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m govuk-visually-hidden">New claims</h2>
+      {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/new-claims-2.html" %}
+      <h2 class="govuk-heading-m govuk-visually-hidden">Appointment booking claims</h2>
+      {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/appointments-2.html" %}
+      {{ govukButton({
+        html: "Download CSV"
+    }) }}
+    </div>
+  </div>
+{% endblock %}

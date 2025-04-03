@@ -1,0 +1,41 @@
+{% extends "layout/unbranded-agent-cc.html" %}
+{% block pageTitle %}
+  Management information - {{ serviceName }}
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/design-ideas/wt-6169-contact-centre/contact-centre-agent/choose-task"
+}) }}
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    Management information
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="claim-statistics"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Claim statistics
+        </span>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <a
+        href="agent-performance"
+        role="link"
+        draggable="false"
+        class="govuk-panel govuk-button link-panel govuk-!-width-full"
+        data-module="govuk-button">
+        <span class="govuk-panel__title govuk-!-font-size-27">
+          Agent performance
+        </span>
+      </a>
+    </div>
+  </div>
+{% endblock %}
