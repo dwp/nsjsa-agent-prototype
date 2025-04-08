@@ -4,9 +4,15 @@
 {% endblock %}
 {% block beforeContent %}{% endblock %}
 {% block content %}
-  <h1 class="govuk-heading-l">
-    Contact centre
-  </h1>
+  {% if data['agent'] == 'ccm' %}
+    <h1 class="govuk-heading-l">
+      Contact centre manager
+    </h1>
+  {% else %}
+    <h1 class="govuk-heading-l">
+      Contact centre
+    </h1>
+  {% endif %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
       <a

@@ -89,12 +89,19 @@
         href: "nino-search?show="
       }) }}
           {% elif data['show'] == "processed" %}
-            <h1 class="govuk-heading-l">There are no more claims to process</h1>
-            <p class="govuk-body-l">All claims have been processed and are marked up to date.</p>
-            <p>
-              <span class="govuk-!-font-weight-bold">What happens next?</span>
-            </p>
-            <a href="end" class="govuk-link">Return to the start screen</a>
+            <h1 class="govuk-heading-l">There are no new claims in the queue</h1>
+            {{ govukButton({
+                text: "Return to main menu",
+                classes: "govuk-button--secondary",
+                href: "end"
+              }) }}
+          {% elif data['show'] == "processed2" %}
+            <h1 class="govuk-heading-l">There are no appointments to be booked</h1>
+            {{ govukButton({
+                text: "Return to main menu",
+                classes: "govuk-button--secondary",
+                href: "end"
+              }) }}
           {% elif data['show'] == "claimant" %}
             <h1 class="govuk-heading-l">Claimant not found</h1>
             <p class="govuk-body-l">The system does not hold a record for the National insurance number:
@@ -172,7 +179,13 @@
                     <th scope="row" class="govuk-table__header">
                       <code>processed</code>
                     </th>
-                    <td class="govuk-table__cell">No more claims in queue</td>
+                    <td class="govuk-table__cell">New claims: No more claims in queue</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                      <code>processed2</code>
+                    </th>
+                    <td class="govuk-table__cell">Appointments: No more claims in queue</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">
@@ -186,42 +199,44 @@
                     </th>
                     <td class="govuk-table__cell">duplicate claim</td>
                   </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">
-                      <code>mismatch</code>
-                    </th>
-                    <td class="govuk-table__cell">CIS mismatch warning</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">
-                      <code>manually</code>
-                    </th>
-                    <td class="govuk-table__cell">Check CIS manually warning</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">
-                      <code>appointee</code>
-                    </th>
-                    <td class="govuk-table__cell">Has appointee</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">
-                      <code>violent1</code>
-                    </th>
-                    <td class="govuk-table__cell">Claimant violent</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">
-                      <code>violent2</code>
-                    </th>
-                    <td class="govuk-table__cell">Partner violent</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">
-                      <code>violent3</code>
-                    </th>
-                    <td class="govuk-table__cell">Household member violent</td>
-                  </tr>
+                  {#
+                                                                        <tr class="govuk-table__row">
+                                                                          <th scope="row" class="govuk-table__header">
+                                                                            <code>mismatch</code>
+                                                                          </th>
+                                                                          <td class="govuk-table__cell">CIS mismatch warning</td>
+                                                                        </tr>
+                                                                        <tr class="govuk-table__row">
+                                                                          <th scope="row" class="govuk-table__header">
+                                                                            <code>manually</code>
+                                                                          </th>
+                                                                          <td class="govuk-table__cell">Check CIS manually warning</td>
+                                                                        </tr>
+                                                                        <tr class="govuk-table__row">
+                                                                          <th scope="row" class="govuk-table__header">
+                                                                            <code>appointee</code>
+                                                                          </th>
+                                                                          <td class="govuk-table__cell">Has appointee</td>
+                                                                        </tr>
+                                                                        <tr class="govuk-table__row">
+                                                                          <th scope="row" class="govuk-table__header">
+                                                                            <code>violent1</code>
+                                                                          </th>
+                                                                          <td class="govuk-table__cell">Claimant violent</td>
+                                                                        </tr>
+                                                                        <tr class="govuk-table__row">
+                                                                          <th scope="row" class="govuk-table__header">
+                                                                            <code>violent2</code>
+                                                                          </th>
+                                                                          <td class="govuk-table__cell">Partner violent</td>
+                                                                        </tr>
+                                                                        <tr class="govuk-table__row">
+                                                                          <th scope="row" class="govuk-table__header">
+                                                                            <code>violent3</code>
+                                                                          </th>
+                                                                          <td class="govuk-table__cell">Household member violent</td>
+                                                                        </tr>
+                                                                        #}
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">
                       <code>welsh1</code>
