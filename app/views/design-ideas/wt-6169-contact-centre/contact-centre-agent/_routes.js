@@ -57,9 +57,13 @@ router.post("/nino-search", function (req, res) {
     } else if (answer === "duplicates") {
       res.redirect(`${ABS_BASE_PATH}/duplicates`);
   
-      // no more claims in the queue
+      // New claims: no more claims in the queue
     } else if (answer === "processed") {
       res.redirect(`${ABS_BASE_PATH}/nino-search?show=processed`);
+
+       // Appointment booking: no more claims in the queue
+    } else if (answer === "processed2") {
+      res.redirect(`${ABS_BASE_PATH}/nino-search?show=processed2`);
 
            // claimant not found
     } else if (answer === "claimant") {
