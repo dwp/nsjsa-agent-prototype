@@ -119,7 +119,7 @@ router.post("/nino-search", function (req, res) {
       res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&claimant=ij&claimStatus=awaiting-appointment&warning=violent1`);
       // happy path view claim - all redirect if other value
     } else {
-        res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&claimant=ij&claimStatus=awaiting-appointment&warning`);
+        res.redirect(`${ABS_BASE_PATH}/view-claim?task=book&claimant=ij&claimStatus=final-fail&warning`);
       
     }
 });

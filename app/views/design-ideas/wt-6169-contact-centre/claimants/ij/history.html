@@ -82,6 +82,36 @@ items: [
     }
 ]
 }) }}
+{% elif data['claimStatus'] == 'final-fail' %}
+    <div class="dwp-timeline">
+        <ol class="dwp-timeline__items">
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">31 August 2021 at 7:50pm</p>
+                <h2 class="dwp-timeline__heading">Final fail</h2>
+                <p class="dwp-timeline__content">Letter</p>
+                <p class="dwp-timeline__by-line">by 00000002</p>
+            </li>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">31 August 2021 at 5:40pm</p>
+                <h2 class="dwp-timeline__heading">First fail</h2>
+                <p class="dwp-timeline__by-line">by 00000002</p>
+            </li>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">31 August 2021 at 4:50pm</p>
+                <h2 class="dwp-timeline__heading">Awaiting appointment</h2>
+                <p class="dwp-timeline__by-line">by 00000001</p>
+            </li>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">31 August 2021 at 4:43pm</p>
+                <h2 class="dwp-timeline__heading">Success</h2>
+                <p class="dwp-timeline__by-line">by 00000002</p>
+            </li>
+            <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">31 August 2021 at 4:32pm</p>
+                <h2 class="dwp-timeline__heading">New claim</h2>
+            </li>
+        </ol>
+    </div>
 {% elif data['claimStatus'] == 'first-fail' %}
     {{ dwpTimeline({
 items: [

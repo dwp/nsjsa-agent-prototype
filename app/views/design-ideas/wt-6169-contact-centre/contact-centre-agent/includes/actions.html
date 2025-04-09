@@ -1,4 +1,4 @@
-{% if data['claimStatus'] == 'awaiting-appointment' %}
+{% if data['claimStatus'] == 'awaiting-appointment' or data['claimStatus'] == 'final-fail' %}
     <h3 class="govuk-heading-m">Claim actions</h3>
     {{ govukButton({
     text: "Update claim status",
