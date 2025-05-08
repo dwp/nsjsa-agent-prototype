@@ -4,20 +4,23 @@
     text: "Update claim status",
     href: "update-book?task=book"
 }) }}
-{% elif data['claimStatus'] == 'paused' %}
-    <h3 class="govuk-heading-m">Claim actions</h3>
-    {{ govukButton({
-  text: "Update claim status",
-  disabled: true
-}) }}
-{% else %}
-    <h3 class="govuk-heading-m">Claim actions</h3>
-    <p>
-        <a href="nino?national-insurance-number">Change National Insurance number</a>
-    </p>
-    {{ govukButton({
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    {% elif data['claimStatus'] == 'paused' %}
+        {# Decided to hide the claim action section rather than disabling the button
+                <h3 class="govuk-heading-m">Claim actions</h3>
+                        {{ govukButton({
+                  text: "Update claim status",
+                  disabled: true
+                }) }}
+                        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">#}
+    {% else %}
+        <h3 class="govuk-heading-m">Claim actions</h3>
+        <p>
+            <a href="nino?national-insurance-number">Change National Insurance number</a>
+        </p>
+        {{ govukButton({
     text: "Update claim status",
     href: "update-new?task=new"
 }) }}
-{% endif %}
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        {% endif %}
