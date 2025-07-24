@@ -23,17 +23,6 @@ repos:
         stages:
           - manual
 
-  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
-    rev: v9.22.0
-    hooks:
-      - id: commitlint
-        args:
-          - --extends="@dwp/commitlint-config-base"
-        stages:
-          - commit-msg
-        additional_dependencies:
-          - "@dwp/commitlint-config-base@4.0.10"
-
   - repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v9.0.1
     hooks:
