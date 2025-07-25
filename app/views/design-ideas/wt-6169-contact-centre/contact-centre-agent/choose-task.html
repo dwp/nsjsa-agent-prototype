@@ -2,7 +2,12 @@
 {% block pageTitle %}
   Contact centre - {{ serviceName }}
 {% endblock %}
-{% block beforeContent %}{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back to prototype scenarios",
+  href: "screens"
+}) }}
+{% endblock %}
 {% block content %}
   {% if data['agent'] == 'ccm' %}
     <h1 class="govuk-heading-l">

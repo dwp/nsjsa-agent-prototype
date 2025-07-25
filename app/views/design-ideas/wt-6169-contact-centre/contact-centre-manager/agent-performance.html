@@ -92,13 +92,39 @@
       </form>
     </div>
     <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-m govuk-visually-hidden">New claims</h2>
-      {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/agent-new-claims-default.html" %}
-      <h2 class="govuk-heading-m govuk-visually-hidden">Appointment booking</h2>
-      {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/agent-appointments-default.html" %}
-      {{ govukButton({
+      {% if data['table'] == 'empty1' %}
+        {# Empty state for both tables #}
+        <h2 class="govuk-heading-m">New claims</h2>
+        <p class="govuk-body">No data available for new claims for the selected date range.</p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          <h2 class="govuk-heading-m">Appointment booking</h2>
+          <p class="govuk-body">No data available for appointment booking for the selected date range.</p>
+        {% elif data['table'] == 'empty2' %}
+          {# Empty state for first table, while data available for second table #}
+          <h2 class="govuk-heading-m">New claims</h2>
+          <p class="govuk-body">No data available for new claims for the selected date range.</p>
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h2 class="govuk-heading-m govuk-visually-hidden">Appointment booking</h2>
+            {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/agent-appointments-default.html" %}
+            {{ govukButton({
         html: "Download CSV"
     }) }}
-    </div>
-  </div>
-{% endblock %}
+          {% elif data['table'] == 'empty3' %}
+            {# Empty state for first table, while data available for second table #}
+            <h2 class="govuk-heading-m govuk-visually-hidden">New claims</h2>
+            {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/agent-new-claims-default.html" %}
+            <h2 class="govuk-heading-m">Appointment booking</h2>
+            <p class="govuk-body">No data available for appointment booking for the selected date range.</p>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+              {{ govukButton({
+        html: "Download CSV"
+    }) }}
+            {% else %}
+              <h2 class="govuk-heading-m govuk-visually-hidden">New claims</h2>
+              {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/agent-new-claims-default.html" %}
+              <h2 class="govuk-heading-m govuk-visually-hidden">Appointment booking</h2>
+              {% include "design-ideas/wt-6169-contact-centre/contact-centre-manager/table/agent-appointments-default.html" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endblock %}
