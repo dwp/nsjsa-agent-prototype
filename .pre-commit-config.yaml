@@ -24,7 +24,7 @@ repos:
           - manual
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v9.0.1
+    rev: v9.8.0
     hooks:
       - id: cspell
         args:
@@ -34,7 +34,7 @@ repos:
           - --no-progress
           - --no-summary
         additional_dependencies:
-          - "@cspell/dict-en-gb@5.0.5"
+          - "@cspell/dict-en-gb@5.0.30"
         stages:
           - pre-commit
           - commit-msg
